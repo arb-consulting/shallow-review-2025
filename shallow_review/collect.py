@@ -3,32 +3,26 @@
 import json
 import logging
 import sqlite3
-import threading
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any
 
 import yaml
 from pydantic import BaseModel, Field
 
 from .common import (
-    DATA_PATH,
     PROMPTS_PATH,
     CollectStatus,
     RunCollectConfig,
     SourceKind,
     is_shutdown_requested,
 )
+from .data_db import get_data_db
 from .llm import get_completion
 from .scrape import compute_scrape, open_scraped
 from .stats import get_stats
 from .utils import count_tokens, format_error, preprocess_html
 
 logger = logging.getLogger(__name__)
-
-# Global database connection (lazy singleton)
-_collect_db: sqlite3.Connection | None = None
-_collect_db_lock = threading.Lock()
 
 
 # Pydantic models for LLM responses
@@ -51,100 +45,6 @@ class CollectionResult(BaseModel):
     links: list[ExtractedLink] = Field(default_factory=list)
 
 
-def get_collect_db() -> sqlite3.Connection:
-    """
-    Get or create the collection database connection (lazy singleton).
-
-    Schema:
-        collect_sources: Source pages to collect from
-        collect_links: Extracted links from sources
-
-    Returns:
-        SQLite connection
-    """
-    global _collect_db
-
-    with _collect_db_lock:
-        if _collect_db is None:
-            db_path = DATA_PATH / "collect.db"
-            _collect_db = sqlite3.connect(str(db_path), check_same_thread=False)
-            _collect_db.row_factory = sqlite3.Row
-
-            # Create collect_sources table
-            _collect_db.execute(
-                """
-                CREATE TABLE IF NOT EXISTS collect_sources (
-                    url TEXT PRIMARY KEY,
-                    status TEXT NOT NULL,
-                    source TEXT,
-                    added_at TEXT NOT NULL,
-                    processed_at TEXT,
-                    data JSON,
-                    error TEXT,
-                    preprocessing_stats JSON,
-                    CHECK(status IN ('new', 'scrape_error', 'extract_error', 'done'))
-                )
-                """
-            )
-
-            _collect_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_collect_sources_status 
-                ON collect_sources(status)
-                """
-            )
-
-            _collect_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_collect_sources_added_at 
-                ON collect_sources(added_at)
-                """
-            )
-
-            # Create collect_links table
-            _collect_db.execute(
-                """
-                CREATE TABLE IF NOT EXISTS collect_links (
-                    url TEXT PRIMARY KEY,
-                    source_url TEXT NOT NULL,
-                    link_text TEXT NOT NULL,
-                    context TEXT NOT NULL,
-                    ai_safety_relevancy REAL NOT NULL,
-                    extracted_at TEXT NOT NULL,
-                    promoted_to_classify BOOLEAN DEFAULT FALSE,
-                    FOREIGN KEY(source_url) REFERENCES collect_sources(url),
-                    CHECK(ai_safety_relevancy >= 0.0 AND ai_safety_relevancy <= 1.0)
-                )
-                """
-            )
-
-            _collect_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_collect_links_source_url 
-                ON collect_links(source_url)
-                """
-            )
-
-            _collect_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_collect_links_relevancy 
-                ON collect_links(ai_safety_relevancy)
-                """
-            )
-
-            _collect_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_collect_links_promoted 
-                ON collect_links(promoted_to_classify)
-                """
-            )
-
-            _collect_db.commit()
-            logger.info(f"Initialized collection database at {db_path}")
-
-        return _collect_db
-
-
 def add_collect_source(url: str, source: str | None = None) -> bool:
     """
     Add a URL to collect from.
@@ -156,13 +56,13 @@ def add_collect_source(url: str, source: str | None = None) -> bool:
     Returns:
         True if added (new), False if already exists
     """
-    db = get_collect_db()
+    db = get_data_db()
     timestamp = datetime.now(timezone.utc).isoformat()
 
     try:
         db.execute(
             """
-            INSERT INTO collect_sources (url, status, source, added_at)
+            INSERT INTO collect (url, status, source, added_at)
             VALUES (?, ?, ?, ?)
             """,
             (url, CollectStatus.NEW.value, source, timestamp),
@@ -216,10 +116,10 @@ def compute_collect(url: str, config: RunCollectConfig, force_recompute: bool = 
     Raises:
         RuntimeError: If scraping, preprocessing, or extraction fails
     """
-    db = get_collect_db()
+    db = get_data_db()
 
     # Check if already processed
-    cursor = db.execute("SELECT status FROM collect_sources WHERE url = ?", (url,))
+    cursor = db.execute("SELECT status FROM collect WHERE url = ?", (url,))
     row = cursor.fetchone()
 
     if row and row["status"] != CollectStatus.NEW.value:
@@ -228,14 +128,14 @@ def compute_collect(url: str, config: RunCollectConfig, force_recompute: bool = 
             logger.info(f"Retrying extraction for {url} (was extract_error)")
             # Reset status to new so it can be reprocessed
             db.execute(
-                "UPDATE collect_sources SET status = ? WHERE url = ?",
+                "UPDATE collect SET status = ? WHERE url = ?",
                 (CollectStatus.NEW.value, url),
             )
             db.commit()
         elif row["status"] == CollectStatus.DONE.value:
             logger.warning(f"Source {url} already processed successfully")
             # Return cached result
-            cursor = db.execute("SELECT data FROM collect_sources WHERE url = ?", (url,))
+            cursor = db.execute("SELECT data FROM collect WHERE url = ?", (url,))
             data_row = cursor.fetchone()
             if data_row and data_row["data"]:
                 data = json.loads(data_row["data"])
@@ -254,7 +154,7 @@ def compute_collect(url: str, config: RunCollectConfig, force_recompute: bool = 
         logger.error(f"Failed to scrape {url}: {error_msg}")
         db.execute(
             """
-            UPDATE collect_sources
+            UPDATE collect
             SET status = ?, processed_at = ?, error = ?
             WHERE url = ?
             """,
@@ -284,7 +184,7 @@ def compute_collect(url: str, config: RunCollectConfig, force_recompute: bool = 
         logger.error(f"Failed to preprocess HTML for {url}: {error_msg}")
         db.execute(
             """
-            UPDATE collect_sources
+            UPDATE collect
             SET status = ?, processed_at = ?, error = ?
             WHERE url = ?
             """,
@@ -312,7 +212,7 @@ def compute_collect(url: str, config: RunCollectConfig, force_recompute: bool = 
 
         db.execute(
             """
-            UPDATE collect_sources
+            UPDATE collect
             SET status = ?, processed_at = ?, error = ?, preprocessing_stats = ?
             WHERE url = ?
             """,
@@ -358,7 +258,7 @@ def compute_collect(url: str, config: RunCollectConfig, force_recompute: bool = 
         logger.error(f"Failed LLM extraction for {url}: {error_msg}")
         db.execute(
             """
-            UPDATE collect_sources
+            UPDATE collect
             SET status = ?, processed_at = ?, error = ?, preprocessing_stats = ?
             WHERE url = ?
             """,
@@ -382,66 +282,26 @@ def compute_collect(url: str, config: RunCollectConfig, force_recompute: bool = 
 
         raise RuntimeError(f"LLM extraction error: {e}") from e
 
-    # Step 5: Store links in database and promote to classify
+    # Step 5: Add links directly to classify table
     from .classify import add_classify_candidate
 
-    extracted_at = datetime.now(timezone.utc).isoformat()
-
     for link in result.links:
-        # Only store links above threshold
+        # Only add links above threshold
         if link.ai_safety_relevancy >= config.relevancy_threshold:
-            try:
-                db.execute(
-                    """
-                    INSERT INTO collect_links 
-                    (url, source_url, link_text, context, ai_safety_relevancy, extracted_at)
-                    VALUES (?, ?, ?, ?, ?, ?)
-                    """,
-                    (
-                        link.url,
-                        url,
-                        link.link_text,
-                        link.context,
-                        link.ai_safety_relevancy,
-                        extracted_at,
-                    ),
-                )
-
-                # Update stats
-                try:
-                    stats = get_stats()
-                    with stats.lock:
-                        stats.collect_links.new.add(link.url)
-                except RuntimeError:
-                    pass
-
-                # Promote to classify phase
-                add_classify_candidate(
-                    url=link.url,
-                    source="collect",
-                    source_url=url,
-                    collect_relevancy=link.ai_safety_relevancy,
-                )
-
-            except sqlite3.IntegrityError:
-                # Link already exists (from another source)
-                try:
-                    stats = get_stats()
-                    with stats.lock:
-                        stats.collect_links_already_exist += 1
-                except RuntimeError:
-                    pass
-
-                logger.debug(f"Link already exists: {link.url}")
-
-    db.commit()
+            # Add directly to classify (no intermediate collect_links table)
+            add_classify_candidate(
+                url=link.url,
+                source="collect",
+                source_url=url,
+                collect_relevancy=link.ai_safety_relevancy,
+            )
 
     # Step 6: Update source status to done
     data_json = result.model_dump_json()
 
     db.execute(
         """
-        UPDATE collect_sources
+        UPDATE collect
         SET status = ?, processed_at = ?, data = ?, preprocessing_stats = ?
         WHERE url = ?
         """,

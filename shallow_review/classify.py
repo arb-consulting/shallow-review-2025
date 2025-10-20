@@ -1,91 +1,14 @@
 """Classification phase: classify AI safety/alignment content."""
 
-import json
 import logging
 import sqlite3
-import threading
 from datetime import datetime, timezone
-from pathlib import Path
 
-from .common import DATA_PATH, ClassifyStatus
+from .common import ClassifyStatus
+from .data_db import get_data_db
 from .stats import get_stats
 
 logger = logging.getLogger(__name__)
-
-# Global database connection (lazy singleton)
-_classify_db: sqlite3.Connection | None = None
-_classify_db_lock = threading.Lock()
-
-
-def get_classify_db() -> sqlite3.Connection:
-    """
-    Get or create the classification database connection (lazy singleton).
-
-    Schema:
-        classify_candidates: URLs to classify
-
-    Returns:
-        SQLite connection
-    """
-    global _classify_db
-
-    with _classify_db_lock:
-        if _classify_db is None:
-            db_path = DATA_PATH / "classify.db"
-            _classify_db = sqlite3.connect(str(db_path), check_same_thread=False)
-            _classify_db.row_factory = sqlite3.Row
-
-            # Create classify_candidates table
-            _classify_db.execute(
-                """
-                CREATE TABLE IF NOT EXISTS classify_candidates (
-                    url TEXT PRIMARY KEY,
-                    status TEXT NOT NULL,
-                    source TEXT NOT NULL,
-                    source_url TEXT,
-                    collect_relevancy REAL,
-                    added_at TEXT NOT NULL,
-                    processed_at TEXT,
-                    data JSON,
-                    error TEXT,
-                    preprocessing_stats JSON,
-                    CHECK(status IN ('new', 'scrape_error', 'classify_error', 'done'))
-                )
-                """
-            )
-
-            _classify_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_classify_candidates_status 
-                ON classify_candidates(status)
-                """
-            )
-
-            _classify_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_classify_candidates_source 
-                ON classify_candidates(source)
-                """
-            )
-
-            _classify_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_classify_candidates_source_url 
-                ON classify_candidates(source_url)
-                """
-            )
-
-            _classify_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_classify_candidates_added_at 
-                ON classify_candidates(added_at)
-                """
-            )
-
-            _classify_db.commit()
-            logger.info(f"Initialized classification database at {db_path}")
-
-        return _classify_db
 
 
 def add_classify_candidate(
@@ -106,13 +29,13 @@ def add_classify_candidate(
     Returns:
         True if added (new), False if already exists
     """
-    db = get_classify_db()
+    db = get_data_db()
     timestamp = datetime.now(timezone.utc).isoformat()
 
     try:
         db.execute(
             """
-            INSERT INTO classify_candidates 
+            INSERT INTO classify 
             (url, status, source, source_url, collect_relevancy, added_at)
             VALUES (?, ?, ?, ?, ?, ?)
             """,

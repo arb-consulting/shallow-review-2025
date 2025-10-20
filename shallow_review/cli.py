@@ -122,8 +122,9 @@ def collect(
     """Collect links from source pages."""
     from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn
 
-    from .collect import compute_collect, get_collect_db
+    from .collect import compute_collect
     from .common import CollectStatus, RunCollectConfig
+    from .data_db import get_data_db
     from .stats import stats_context
 
     # Create config
@@ -142,13 +143,13 @@ def collect(
     console.print()
 
     # Get sources to process
-    db = get_collect_db()
+    db = get_data_db()
     
     if retry_errors:
         # Include both new and extract_error sources
         cursor = db.execute(
             """
-            SELECT url FROM collect_sources 
+            SELECT url FROM collect 
             WHERE status IN (?, ?) 
             ORDER BY added_at 
             LIMIT ?
@@ -159,7 +160,7 @@ def collect(
         # Only new sources
         cursor = db.execute(
             """
-            SELECT url FROM collect_sources 
+            SELECT url FROM collect 
             WHERE status = ? 
             ORDER BY added_at 
             LIMIT ?

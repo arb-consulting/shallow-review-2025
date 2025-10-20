@@ -93,9 +93,7 @@ class Stats:
 
         # Collection
         self.collect_sources = CountStats()
-        self.collect_links = CountStats()
         self.collect_sources_already_exist: int = 0
-        self.collect_links_already_exist: int = 0
         self.collect_tokens = TokenStats()
         self.collect_preprocessing: list[dict[str, float]] = []
 
@@ -112,9 +110,7 @@ class Stats:
             "timestamp": self.timestamp,
             "scraped_pages": self.scraped_pages.model_dump(),
             "collect_sources": self.collect_sources.model_dump(),
-            "collect_links": self.collect_links.model_dump(),
             "collect_sources_already_exist": self.collect_sources_already_exist,
-            "collect_links_already_exist": self.collect_links_already_exist,
             "collect_tokens": self.collect_tokens.model_dump(),
             "collect_preprocessing": self.collect_preprocessing,
             "classify_candidates": self.classify_candidates.model_dump(),
@@ -161,7 +157,7 @@ class Stats:
             console.print()
 
         # Collection section
-        if self.collect_sources.total > 0 or self.collect_links.total > 0:
+        if self.collect_sources.total > 0:
             table = Table(title="Collection", show_header=True)
             table.add_column("Operation")
             table.add_column("New", justify="right")
@@ -177,15 +173,6 @@ class Stats:
                 str(len(self.collect_sources.errors)),
                 str(self.collect_sources_already_exist),
                 str(self.collect_sources.total),
-            )
-
-            table.add_row(
-                "Links",
-                str(len(self.collect_links.new)),
-                "-",
-                str(len(self.collect_links.errors)),
-                str(self.collect_links_already_exist),
-                str(self.collect_links.total),
             )
 
             console.print(table)

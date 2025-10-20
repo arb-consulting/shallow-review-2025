@@ -2,90 +2,18 @@
 
 import hashlib
 import logging
-import sqlite3
-import threading
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import IO, Any, Literal
 
 from playwright.sync_api import Browser, sync_playwright
 
-from .common import DATA_PATH, SCRAPED_PATH
+from .common import SCRAPED_PATH
+from .data_db import get_data_db
 from .stats import get_stats
 from .utils import smart_open
 
 logger = logging.getLogger(__name__)
-
-# Global database connection (lazy singleton)
-_scrape_db: sqlite3.Connection | None = None
-_scrape_db_lock = threading.Lock()
-
-
-def get_scrape_db() -> sqlite3.Connection:
-    """
-    Get or create the scraping database connection (lazy singleton).
-
-    Schema:
-        scraped (
-            url TEXT PRIMARY KEY,
-            url_hash TEXT NOT NULL UNIQUE,
-            kind TEXT NOT NULL,
-            timestamp TEXT NOT NULL,
-            status_code INTEGER,
-            error TEXT
-        )
-
-    Returns:
-        SQLite connection
-    """
-    global _scrape_db
-
-    with _scrape_db_lock:
-        if _scrape_db is None:
-            db_path = DATA_PATH / "scrape.db"
-            _scrape_db = sqlite3.connect(str(db_path), check_same_thread=False)
-            _scrape_db.row_factory = sqlite3.Row
-
-            # Create tables and indexes
-            _scrape_db.execute(
-                """
-                CREATE TABLE IF NOT EXISTS scraped (
-                    url TEXT PRIMARY KEY,
-                    url_hash TEXT NOT NULL UNIQUE,
-                    kind TEXT NOT NULL,
-                    timestamp TEXT NOT NULL,
-                    status_code INTEGER,
-                    error TEXT
-                )
-                """
-            )
-
-            # Indexes for common queries
-            _scrape_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_scraped_url_hash 
-                ON scraped(url_hash)
-                """
-            )
-
-            _scrape_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_scraped_kind 
-                ON scraped(kind)
-                """
-            )
-
-            _scrape_db.execute(
-                """
-                CREATE INDEX IF NOT EXISTS idx_scraped_timestamp 
-                ON scraped(timestamp)
-                """
-            )
-
-            _scrape_db.commit()
-            logger.info(f"Initialized scraping database at {db_path}")
-
-        return _scrape_db
 
 
 def _compute_url_hash(url: str) -> str:
@@ -196,9 +124,9 @@ def compute_scrape(
     scrape_path = get_scrape_path(url)
 
     # Check database cache
-    db = get_scrape_db()
+    db = get_data_db()
     cursor = db.execute(
-        "SELECT status_code, error FROM scraped WHERE url = ?",
+        "SELECT status_code, error FROM scrape WHERE url = ?",
         (url,),
     )
     row = cursor.fetchone()
@@ -274,7 +202,7 @@ def compute_scrape(
             db.execute("BEGIN TRANSACTION")
             db.execute(
                 """
-                INSERT OR REPLACE INTO scraped 
+                INSERT OR REPLACE INTO scrape 
                 (url, url_hash, kind, timestamp, status_code, error)
                 VALUES (?, ?, ?, ?, ?, NULL)
                 """,
@@ -307,7 +235,7 @@ def compute_scrape(
         timestamp = datetime.now(timezone.utc).isoformat()
         db.execute(
             """
-            INSERT OR REPLACE INTO scraped 
+            INSERT OR REPLACE INTO scrape 
             (url, url_hash, kind, timestamp, status_code, error)
             VALUES (?, ?, ?, ?, NULL, ?)
             """,
