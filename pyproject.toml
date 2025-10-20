@@ -1,0 +1,22 @@
+[project]
+name = "shallow-review"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.14.2",
+    "jinja2>=3.1.6",
+    "litellm[caching]>=1.78.5",
+    "numpy>=2.3.4",
+    "playwright>=1.55.0",
+    "polars>=1.34.0",
+    "pydantic>=2.12.3",
+    "python-dotenv>=1.1.1",
+    "pyyaml>=6.0.3",
+    "requests>=2.32.5",
+    "rich>=14.2.0",
+    "tenacity>=9.1.2",
+    "typer>=0.19.2",
+    "zstandard>=0.25.0",
+]
