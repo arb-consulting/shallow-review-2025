@@ -291,13 +291,24 @@ def compute_collect(url: str, config: RunCollectConfig, force_recompute: bool = 
     # Step 6: Add links directly to classify table
     from .classify import add_classify_candidate
 
+    # Get the source from collect table to preserve it
+    cursor = db.execute("SELECT source FROM collect WHERE url = ?", (url,))
+    source_row = cursor.fetchone()
+    original_source = source_row["source"] if source_row else None
+    
+    # Build collected source label
+    if original_source:
+        collected_source = f"collected:{original_source}"
+    else:
+        collected_source = "collected"
+
     for link in result.links:
         # Only add links above threshold
         if link.ai_safety_relevancy >= config.relevancy_threshold:
             # Add directly to classify (no intermediate collect_links table)
             add_classify_candidate(
                 url=link.url,
-                source="collect",
+                source=collected_source,
                 source_url=url,
                 collect_relevancy=link.ai_safety_relevancy,
             )

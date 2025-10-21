@@ -122,11 +122,11 @@ class RunClassifyConfig(BaseModel):
 
     limit: int = Field(default=100, ge=1, description="Max candidates to process")
     workers: int = Field(default=4, ge=1, le=32, description="Number of worker threads")
-    relevancy_threshold: float = Field(
-        default=0.5,
+    min_relevancy: float = Field(
+        default=0.0,
         ge=0.0,
         le=1.0,
-        description="Minimum relevancy to consider high-priority",
+        description="Minimum collect_relevancy to process (filter)",
     )
     model: str = Field(default="claude-sonnet-4", description="LLM model to use")
     max_html_tokens: int = Field(

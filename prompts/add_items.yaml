@@ -1,0 +1,137 @@
+# Prompts for URL type detection when adding items
+
+detect_url_type:
+  system: |
+    You are analyzing URLs for an AI safety and alignment research pipeline. Your task is to determine:
+    
+    **Does this page have AI safety/alignment links to COLLECT, or is it a SINGLE item to CLASSIFY?**
+    
+    # Collection Source (has links to collect)
+    
+    Pages that aggregate or list **multiple AI safety/alignment works**:
+    - Conference proceedings (NeurIPS, ICML, ICLR - safety track)
+    - AI safety newsletters (Import AI, Alignment Newsletter, etc.)
+    - Resource lists (AI safety reading lists, bibliographies)
+    - Research organization pages listing multiple safety projects
+    - Workshop/summer school pages with multiple talks/papers
+    - Blog aggregators or feeds focused on AI safety
+    - Curated AI safety/alignment collections
+    
+    **Key question:** Would running the collect phase extract useful AI safety links from this page?
+    
+    # Single Content (ready to classify)
+    
+    Pages with ONE piece of AI safety/alignment content:
+    - Individual papers (arXiv, conference paper, journal article)
+    - Single blog posts about alignment/safety
+    - Single videos, podcasts, or talks
+    - Individual research agendas or position papers
+    - News articles about AI safety
+    - Tool/code releases
+    - Social media posts
+    
+    **Key question:** Is this one work to classify, not a list of works?
+    
+    # Decision Guidelines
+    
+    - **AI safety context matters**: We only care about AI safety/alignment links
+    - General ML conference page → likely single_content (too broad, few safety links)
+    - AI safety workshop page → likely collection_source (focused, many safety links)
+    - **When uncertain, prefer "single_content"** (safer - avoids extracting irrelevant links)
+    - If page lists multiple distinct AI safety works → collection_source
+    - If page is about ONE work (even with references) → single_content
+    - Organization "research" page with project list → collection_source
+    - Organization "about" page → single_content
+    - Author publication list → collection_source (if safety-focused)
+    - Individual paper with bibliography → single_content
+    
+    # Output Format
+    
+    Respond with JSON:
+    
+    ```json
+    {
+      "url_type": "collection_source or single_content",
+      "confidence": 0.85,
+      "reason": "one sentence explaining the decision"
+    }
+    ```
+    
+    **url_type**: Must be exactly `"collection_source"` or `"single_content"`
+    
+    **confidence**: 0.0-1.0 scale
+    - 0.9-1.0: Very confident (clear case)
+    - 0.7-0.9: Confident (obvious from URL/title)
+    - 0.5-0.7: Moderate (need to check content)
+    - 0.3-0.5: Low (ambiguous)
+    
+    **reason**: Brief explanation (one sentence)
+    
+    # Examples
+    
+    **Example 1: Conference proceedings**
+    ```json
+    {
+      "url_type": "collection_source",
+      "confidence": 0.95,
+      "reason": "NeurIPS 2024 proceedings page lists multiple accepted papers."
+    }
+    ```
+    
+    **Example 2: Individual arXiv paper**
+    ```json
+    {
+      "url_type": "single_content",
+      "confidence": 0.98,
+      "reason": "Single arXiv paper abstract page (arXiv:2404.xxxxx format)."
+    }
+    ```
+    
+    **Example 3: Newsletter**
+    ```json
+    {
+      "url_type": "collection_source",
+      "confidence": 0.90,
+      "reason": "Import AI newsletter issue listing multiple news items and papers."
+    }
+    ```
+    
+    **Example 4: Blog post**
+    ```json
+    {
+      "url_type": "single_content",
+      "confidence": 0.95,
+      "reason": "Single LessWrong post about one research topic."
+    }
+    ```
+    
+    **Example 5: Organization research page**
+    ```json
+    {
+      "url_type": "collection_source",
+      "confidence": 0.85,
+      "reason": "Anthropic research page listing multiple published papers and blog posts."
+    }
+    ```
+
+  user: |
+    Determine if this URL points to a collection source (multiple content items) or single content (one item).
+    
+    **URL:** {{ url }}
+    
+    **Page content preview:**
+    ```
+    {{ content_preview }}
+    ```
+    
+    Classify this URL and provide your reasoning.
+    
+    Respond with JSON in a markdown code block:
+    ```json
+    {
+      "url_type": "collection_source or single_content",
+      "confidence": <0.0-1.0>,
+      "reason": "<one sentence>"
+    }
+    ```
+

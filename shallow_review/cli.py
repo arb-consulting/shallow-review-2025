@@ -111,19 +111,21 @@ def info() -> None:
 @app.command()
 def add(
     file: str = typer.Argument(..., help="File with URLs (one per line, or CSV)"),
-    phase: str = typer.Option("classify", help="Phase to add URLs to: collect|classify"),
+    phase: str = typer.Option("auto", help="Phase: auto|collect|classify (auto=detect automatically)"),
     source: Optional[str] = typer.Option(None, help="Source label for tracking"),
+    model: str = typer.Option("anthropic/claude-haiku-4-5", help="Model for auto-detection"),
 ) -> None:
-    """Add URLs to collect or classify phases."""
+    """Add URLs to collect or classify phases (auto-detects by default)."""
     from pathlib import Path
 
+    from .add_items import add_item_auto, check_url_exists, normalize_url
     from .classify import add_classify_candidate
     from .collect import add_collect_source
     from .stats import stats_context
 
     # Validate phase
-    if phase not in ["collect", "classify"]:
-        console.print(f"[red]Error: Invalid phase '{phase}'. Must be 'collect' or 'classify'[/red]")
+    if phase not in ["auto", "collect", "classify"]:
+        console.print(f"[red]Error: Invalid phase '{phase}'. Must be 'auto', 'collect', or 'classify'[/red]")
         sys.exit(1)
 
     # Read URLs from file
@@ -132,41 +134,117 @@ def add(
         console.print(f"[red]Error: File not found: {file}[/red]")
         sys.exit(1)
 
+    from .add_items import is_valid_url
+    
     urls = []
+    invalid_urls = []
     with open(file_path) as f:
-        for line in f:
+        for line_num, line in enumerate(f, 1):
             line = line.strip()
-            if line and not line.startswith("#"):
-                # Simple handling: assume one URL per line
-                # TODO: Add CSV parsing if needed
-                urls.append(line)
+            # Skip empty lines and comments
+            if not line or line.startswith("#"):
+                continue
+            
+            # Validate URL
+            if not is_valid_url(line):
+                invalid_urls.append((line_num, line))
+                continue
+            
+            urls.append(line)
+
+    if invalid_urls:
+        console.print("[yellow]⚠ Warning: Invalid URLs found (skipped):[/yellow]")
+        for line_num, url in invalid_urls[:10]:  # Show first 10
+            console.print(f"  Line {line_num}: {url[:80]}")
+        if len(invalid_urls) > 10:
+            console.print(f"  ... and {len(invalid_urls) - 10} more")
+        console.print()
 
     if not urls:
-        console.print("[yellow]No URLs found in file[/yellow]")
+        console.print("[yellow]No valid URLs found in file[/yellow]")
         return
 
-    console.print(f"Adding {len(urls)} URLs to [bold]{phase}[/bold] phase...")
+    if phase == "auto":
+        console.print(f"Adding {len(urls)} URLs with [bold]auto-detection[/bold] (model: {model})...")
+    else:
+        console.print(f"Adding {len(urls)} URLs to [bold]{phase}[/bold] phase...")
+    console.print()
 
     # Add URLs with stats tracking
     with stats_context(commandline=f"add {file} --phase {phase}") as stats:
-        added = 0
+        added_collect = 0
+        added_classify = 0
         exists = 0
+        errors = 0
 
-        for url in urls:
-            if phase == "collect":
-                if add_collect_source(url, source):
-                    added += 1
-                else:
-                    exists += 1
-            else:  # classify
-                if add_classify_candidate(url, source or "manual", None, None):
-                    added += 1
-                else:
-                    exists += 1
+        for i, url in enumerate(urls, 1):
+            # Show progress
+            console.print(f"[dim][{i}/{len(urls)}][/dim] {url[:80]}...")
+            
+            try:
+                if phase == "auto":
+                    # Auto-detect and add
+                    detected_phase, normalized_url, is_new = add_item_auto(url, source=source, model=model)
+                    if is_new:
+                        if detected_phase == "collect":
+                            added_collect += 1
+                            console.print("  → [cyan]collect[/cyan] (collection source)")
+                        else:
+                            added_classify += 1
+                            console.print("  → [green]classify[/green] (single content)")
+                    else:
+                        exists += 1
+                        console.print(f"  → [yellow]already exists[/yellow] (in {detected_phase})")
+                    
+                elif phase == "collect":
+                    # Manual: add to collect (but check both tables first)
+                    normalized_url = normalize_url(url)
+                    url_exists, existing_phase = check_url_exists(normalized_url)
+                    if url_exists:
+                        exists += 1
+                        console.print(f"  → [yellow]already exists[/yellow] (in {existing_phase})")
+                    else:
+                        if add_collect_source(normalized_url, source):
+                            added_collect += 1
+                            console.print("  → [cyan]added[/cyan]")
+                        else:
+                            # Shouldn't happen since we checked, but handle race condition
+                            exists += 1
+                            console.print("  → [yellow]already exists[/yellow]")
+                        
+                else:  # classify
+                    # Manual: add to classify (but check both tables first)
+                    normalized_url = normalize_url(url)
+                    url_exists, existing_phase = check_url_exists(normalized_url)
+                    if url_exists:
+                        exists += 1
+                        console.print(f"  → [yellow]already exists[/yellow] (in {existing_phase})")
+                    else:
+                        if add_classify_candidate(normalized_url, source or "manual", None, None):
+                            added_classify += 1
+                            console.print("  → [green]added[/green]")
+                        else:
+                            # Shouldn't happen since we checked, but handle race condition
+                            exists += 1
+                            console.print("  → [yellow]already exists[/yellow]")
+                        
+            except Exception as e:
+                errors += 1
+                console.print(f"  → [red]error:[/red] {str(e)[:60]}")
+                logger.error(f"Failed to add {url}: {e}", exc_info=True)
 
-        console.print(f"\n[green]✓ Added {added} new URLs[/green]")
+        console.print()
+        
+        if phase == "auto":
+            console.print(f"[green]✓ Added {added_collect} to collect, {added_classify} to classify[/green]")
+        else:
+            total_added = added_collect + added_classify
+            console.print(f"[green]✓ Added {total_added} new URLs[/green]")
+            
         if exists > 0:
             console.print(f"[yellow]! {exists} URLs already existed[/yellow]")
+        if errors > 0:
+            console.print(f"[red]✗ {errors} URLs failed[/red]")
 
         stats.print_summary()
 
@@ -281,7 +359,121 @@ def collect(
         stats.print_summary()
 
 
-# TODO: Implement classify command when classify.py is complete
+@app.command()
+def classify(
+    limit: int = typer.Option(100, help="Maximum candidates to process"),
+    workers: int = typer.Option(4, help="Number of worker threads"),
+    min_relevancy: float = typer.Option(0.0, help="Minimum collect_relevancy to process (filter)"),
+    model: str = typer.Option("anthropic/claude-sonnet-4-5", help="LLM model to use"),
+    max_tokens: int = typer.Option(100000, help="Max HTML tokens before error"),
+    retry_errors: bool = typer.Option(False, "--retry-errors", help="Retry candidates with classify_error status"),
+) -> None:
+    """Classify AI safety/alignment content."""
+    from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn
+
+    from .classify import compute_classify
+    from .common import ClassifyStatus, RunClassifyConfig
+    from .data_db import get_data_db
+    from .stats import stats_context
+
+    # Create config
+    config = RunClassifyConfig(
+        limit=limit,
+        workers=workers,
+        min_relevancy=min_relevancy,
+        model=model,
+        max_html_tokens=max_tokens,
+    )
+
+    console.print("[bold]Starting classification phase...[/bold]\n")
+    console.print(f"Config: limit={limit}, workers={workers}, model={model}")
+    if retry_errors:
+        console.print("[yellow]Retry mode: Will retry candidates with classify_error status[/yellow]")
+    if min_relevancy > 0.0:
+        console.print(f"[cyan]Filtering: only candidates with collect_relevancy ≥ {min_relevancy}[/cyan]")
+    console.print()
+
+    # Get candidates to process
+    db = get_data_db()
+    
+    if retry_errors:
+        # Include both new and classify_error candidates
+        cursor = db.execute(
+            """
+            SELECT url FROM classify 
+            WHERE status IN (?, ?) 
+            AND (collect_relevancy >= ? OR collect_relevancy IS NULL)
+            ORDER BY added_at 
+            LIMIT ?
+            """,
+            (ClassifyStatus.NEW.value, ClassifyStatus.CLASSIFY_ERROR.value, min_relevancy, limit),
+        )
+    else:
+        # Only new candidates
+        cursor = db.execute(
+            """
+            SELECT url FROM classify 
+            WHERE status = ? 
+            AND (collect_relevancy >= ? OR collect_relevancy IS NULL)
+            ORDER BY added_at 
+            LIMIT ?
+            """,
+            (ClassifyStatus.NEW.value, min_relevancy, limit),
+        )
+    
+    candidates = [row["url"] for row in cursor.fetchall()]
+
+    if not candidates:
+        console.print("[yellow]No candidates to process[/yellow]")
+        return
+
+    console.print(f"Found {len(candidates)} candidates to process\n")
+
+    # Process candidates with stats tracking and progress bar
+    with stats_context(commandline=f"classify --limit {limit}") as stats:
+        # Temporarily suppress INFO logging to avoid clashing with progress bar
+        root_logger = logging.getLogger()
+        old_level = root_logger.level
+        root_logger.setLevel(logging.WARNING)
+        
+        try:
+            with Progress(
+                SpinnerColumn(),
+                TextColumn("[progress.description]{task.description}"),
+                BarColumn(),
+                TaskProgressColumn(),
+                console=console,
+            ) as progress:
+                task = progress.add_task("[cyan]Classifying candidates...", total=len(candidates))
+
+                for url in candidates:
+                    if is_shutdown_requested():
+                        progress.console.print("\n[yellow]Shutdown requested, stopping...[/yellow]")
+                        break
+
+                    progress.update(task, description=f"[cyan]Processing: {url[:60]}...")
+
+                    try:
+                        result = compute_classify(url, config, force_recompute=retry_errors)
+                        top_cat = result.categories[0].id if result.categories else "none"
+                        progress.console.print(
+                            f"[green]✓[/green] {url[:60]}: "
+                            f"rel={result.classify_relevancy:.2f}, "
+                            f"cat={top_cat}, "
+                            f"conf={result.confidence:.2f}"
+                        )
+                    except Exception as e:
+                        # Log full error details (still captured in log file)
+                        logger.error(f"Failed to classify {url}: {str(e)}", exc_info=True)
+                        progress.console.print(f"[red]✗[/red] {url[:60]}: {str(e)[:60]}")
+
+                    progress.advance(task)
+        finally:
+            # Restore logging level
+            root_logger.setLevel(old_level)
+
+        console.print()
+        stats.print_summary()
 
 
 def main() -> None:

@@ -67,6 +67,7 @@ collect_page:
     
     # Guidelines
     
+    - **DATE FILTER (IMPORTANT)**: Only collect material from 2025 and from November-December 2024. Skip older content. If publication date is unclear from link text/context, be inclusive and include it.
     - **Be inclusive rather than exclusive**: If unsure whether something is relevant (score ≥ 0.3), include it. False positives are okay; we'll filter later.
     - **Ignore obvious non-content**: Skip navigation menus, footer links, social media buttons, login/admin links, advertisements, "Back to top" links, etc.
     - **Focus on substantial content**: Prioritize links to papers, blog posts, articles, talks, courses, research agendas

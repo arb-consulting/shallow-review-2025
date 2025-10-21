@@ -116,15 +116,18 @@ classify_content:
     - `"This paper demonstrates that sparse autoencoders can decompose Claude 3 Sonnet's activations into 34 million interpretable features. The work shows that many features correspond to abstract concepts like security vulnerabilities or famous people, advancing our ability to understand and potentially steer large language models."`
     - `"Proposes using weaker AI models to supervise stronger models through a generalization gap. Shows that weak supervisors can elicit strong performance on tasks like chess and summarization, suggesting a path to scalable oversight."`
     
-    ## 9. key_result (string, required for empirical work, optional otherwise)
+    ## 9. key_result (string, required for papers/technical posts, optional otherwise)
     
     The main finding or contribution in 1-2 sentences. The "so what?" - different from summary.
+    
+    **When required:** Papers (published/preprint), technical blog posts with original results
+    **When optional:** News, critiques, surveys, agendas, tools/code releases
     
     **Examples:**
     - `"Finds that alignment faking emerges in Claude models when they believe their outputs affect training - models give aligned responses when monitored but unaligned ones when they think they're unmonitored."`
     - `"Shows that simple linear probes can detect deceptive sleeper agents with >95% accuracy, even when the deception persists through safety training."`
     - `"Introduces CAST (Corrigibility As Singular Target) framework proving that certain utility functions guarantee shutdown acceptance under specific conditions."`
-    - `null` (for theoretical work without specific empirical claims)
+    - `null` (for news announcements, critiques without empirical work, surveys, tools)
     
     ## 10. contribution_type (string enum, required)
     
@@ -367,6 +370,96 @@ classify_content:
       ],
       "category_comment": "General fine-tuning method without safety focus. Weak fit to iterative_alignment since fine-tuning is used in alignment, but this work doesn't address alignment. Low relevancy.",
       "confidence": 0.85
+    }
+    ```
+    
+    **Example 6: Critique (no key_result)**
+    ```json
+    {
+      "title": "Against Almost Every Theory of Impact of Interpretability",
+      "authors": ["Charbel-Raphaël Segerie"],
+      "author_organizations": ["Independent"],
+      "date": "2024-03-15",
+      "published_year": 2024,
+      "kind": "blog_post",
+      "venue": "LessWrong",
+      "summary": "Systematically critiques common theories of how interpretability work will lead to AI safety. Argues that most interpretability research lacks clear paths to impact and may not help with alignment of superhuman systems. Challenges assumptions about interpretability scaling to frontier models.",
+      "key_result": null,
+      "contribution_type": "critique",
+      "classify_relevancy": 0.88,
+      "categories": [
+        {"id": "interp_criticisms", "score": 0.95}
+      ],
+      "category_comment": "Pure critique of interpretability work, clearly fits interp_criticisms. High relevancy since it challenges a major research direction, but no empirical results so key_result is null.",
+      "confidence": 0.95
+    }
+    ```
+    
+    **Example 7: Tool release (code, no paper)**
+    ```json
+    {
+      "title": "Inspect: A Framework for Large Language Model Evaluations",
+      "authors": ["UK AI Safety Institute Team"],
+      "author_organizations": ["UK AISI"],
+      "date": "2024-08-20",
+      "published_year": 2024,
+      "kind": "code_tool",
+      "venue": "GitHub",
+      "summary": "Open-source evaluation framework for testing LLM capabilities and safety properties. Provides standardized interface for running evals, reproducible benchmarks, and extensible architecture. Enables researchers to build and share safety evaluations.",
+      "key_result": null,
+      "contribution_type": "tool_software",
+      "classify_relevancy": 0.90,
+      "categories": [
+        {"id": "evals_capability", "score": 0.80},
+        {"id": "evals_other", "score": 0.60}
+      ],
+      "category_comment": "Infrastructure for evaluations rather than specific eval. Fits evals_capability as general framework, but could also be evals_other since it's meta-tooling. High relevancy as it enables safety evals.",
+      "confidence": 0.80
+    }
+    ```
+    
+    **Example 8: Social media announcement (strict criteria)**
+    ```json
+    {
+      "title": "Announcing DeepMind's Frontier Safety Framework",
+      "authors": ["DeepMind Safety Team"],
+      "author_organizations": ["Google DeepMind"],
+      "date": "2024-05-15",
+      "published_year": 2024,
+      "kind": "social_media",
+      "venue": "Twitter/X",
+      "summary": "Official announcement of DeepMind's comprehensive framework for identifying and mitigating risks from frontier AI systems. Includes critical capability thresholds, early warning indicators, and deployment protocols. Sets internal safety standards for model releases.",
+      "key_result": null,
+      "contribution_type": "position_agenda",
+      "classify_relevancy": 0.92,
+      "categories": [
+        {"id": "deepmind_frontier_safety", "score": 0.98}
+      ],
+      "category_comment": "Major org announcement of safety framework. Perfectly fits deepmind_frontier_safety (org-specific category). Social media kind because it's Twitter announcement, but meets criteria as official org announcement of their own work.",
+      "confidence": 0.95
+    }
+    ```
+    
+    **Example 9: Governance-technical boundary**
+    ```json
+    {
+      "title": "Model Evaluation for Extreme Risks: A Regulatory Framework",
+      "authors": ["Mary Johnson", "Robert Chen"],
+      "author_organizations": ["Stanford RegLab", "UC Berkeley"],
+      "date": "2024-07-22",
+      "published_year": 2024,
+      "kind": "paper_preprint",
+      "venue": "arXiv",
+      "summary": "Proposes regulatory framework for evaluating extreme risks from frontier AI models. Focuses on technical evaluation methods (capability benchmarks, red-teaming protocols) but within governance context. Suggests mandatory pre-deployment testing for models above capability thresholds.",
+      "key_result": "Defines technical capability thresholds for triggering safety reviews: autonomous R&D capability above 50th percentile human, or WMD knowledge above expert level.",
+      "contribution_type": "position_agenda",
+      "classify_relevancy": 0.75,
+      "categories": [
+        {"id": "evals_capability", "score": 0.70},
+        {"id": "openai_preparedness", "score": 0.50}
+      ],
+      "category_comment": "Governance paper but focused on technical evaluation methods. Fits evals_capability for defining evaluation frameworks, partial fit to openai_preparedness for risk framework approach. Borderline between technical and governance.",
+      "confidence": 0.65
     }
     ```
     
