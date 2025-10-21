@@ -191,6 +191,7 @@ def normalize_arxiv_url(url: str) -> str:
     Converts PDF URLs to HTML abstract pages:
     - https://arxiv.org/pdf/2404.12345.pdf → https://arxiv.org/abs/2404.12345
     - https://arxiv.org/pdf/2404.12345v2.pdf → https://arxiv.org/abs/2404.12345
+    - https://arxiv.org/pdf/2404.12345 → https://arxiv.org/abs/2404.12345 (no .pdf extension)
     
     Args:
         url: Original URL
@@ -198,15 +199,15 @@ def normalize_arxiv_url(url: str) -> str:
     Returns:
         Normalized URL (abstract page if arXiv, otherwise unchanged)
     """
-    # Match arXiv PDF URLs
-    # Pattern: arxiv.org/pdf/YYMM.NNNNN[vN].pdf
-    arxiv_pdf_pattern = r"(https?://arxiv\.org)/pdf/(\d{4}\.\d{4,5})(v\d+)?\.pdf"
+    # Match arXiv PDF URLs (with or without .pdf extension)
+    # Pattern: arxiv.org/pdf/YYMM.NNNNN[vN][.pdf]
+    arxiv_pdf_pattern = r"(https?://arxiv\.org)/pdf/(\d{4}\.\d{4,5})(v\d+)?(\.pdf)?"
     match = re.match(arxiv_pdf_pattern, url)
     
     if match:
         base_url = match.group(1)
         paper_id = match.group(2)
-        # Convert to abstract page (ignore version)
+        # Convert to abstract page (ignore version and extension)
         normalized = f"{base_url}/abs/{paper_id}"
         logger.debug(f"Normalized arXiv URL: {url} → {normalized}")
         return normalized
@@ -274,7 +275,7 @@ def detect_url_type(url: str, model: str = "anthropic/claude-haiku-4-5") -> URLT
             user_prompt_template=prompts["detect_url_type"]["user"],
             system_cache_ttl=None,  # No caching for detection (fast, changes frequently)
             thinking_budget=1024,
-            max_tokens=500,  # Detection is short output
+            max_tokens=2000,  # Detection is short output
         )
 
         logger.info(

@@ -2,6 +2,7 @@
 
 import hashlib
 import logging
+import threading
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import IO, Any, Literal
@@ -14,6 +15,16 @@ from .stats import get_stats
 from .utils import smart_open
 
 logger = logging.getLogger(__name__)
+
+# Global lock for Playwright operations
+# Playwright's sync API uses greenlets which are not thread-safe.
+# This lock ensures only ONE thread scrapes at a time, preventing
+# "browser has been closed" errors from greenlet context switching.
+# This is acceptable since:
+# - Scraping is I/O-bound (network waits)
+# - Most scrapes hit cache (instant)
+# - LLM calls still run in parallel (the expensive part)
+_playwright_lock = threading.Lock()
 
 
 def _compute_url_hash(url: str) -> str:
@@ -170,32 +181,35 @@ def compute_scrape(
     scrape_start = time.time()
     
     try:
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=headless)
-            context = get_browser_context(browser)
-            page = context.new_page()
+        # Lock around Playwright to prevent thread-safety issues
+        # Playwright sync API is not fully thread-safe when creating browsers concurrently
+        with _playwright_lock:
+            with sync_playwright() as p:
+                browser = p.chromium.launch(headless=headless)
+                context = get_browser_context(browser)
+                page = context.new_page()
 
-            # Navigate to URL
-            response = page.goto(url, wait_until=wait_for, timeout=60000)
-            status_code = response.status if response else 0
+                # Navigate to URL
+                response = page.goto(url, wait_until=wait_for, timeout=60000)
+                status_code = response.status if response else 0
 
-            # Scroll to trigger lazy loading
-            if scroll:
-                page.evaluate(
-                    """
-                    () => {
-                        window.scrollTo(0, document.body.scrollHeight / 2);
-                    }
-                    """
-                )
-                page.wait_for_timeout(500)
-                page.evaluate("() => { window.scrollTo(0, document.body.scrollHeight); }")
-                page.wait_for_timeout(500)
+                # Scroll to trigger lazy loading
+                if scroll:
+                    page.evaluate(
+                        """
+                        () => {
+                            window.scrollTo(0, document.body.scrollHeight / 2);
+                        }
+                        """
+                    )
+                    page.wait_for_timeout(500)
+                    page.evaluate("() => { window.scrollTo(0, document.body.scrollHeight); }")
+                    page.wait_for_timeout(500)
 
-            # Get page content
-            content = page.content()
+                # Get page content
+                content = page.content()
 
-            browser.close()
+                browser.close()
 
         scrape_duration = time.time() - scrape_start
 

@@ -253,6 +253,8 @@ def compute_collect(url: str, config: RunCollectConfig, force_recompute: bool = 
             response_type=CollectionResult,
             system_prompt_template=prompts["collect_page"]["system"],
             user_prompt_template=prompts["collect_page"]["user"],
+            thinking_budget=2048,
+            max_tokens=10000,
         )
 
     except Exception as e:

@@ -113,9 +113,15 @@ def add(
     file: str = typer.Argument(..., help="File with URLs (one per line, or CSV)"),
     phase: str = typer.Option("auto", help="Phase: auto|collect|classify (auto=detect automatically)"),
     source: Optional[str] = typer.Option(None, help="Source label for tracking"),
+    workers: int = typer.Option(1, help="Number of worker threads (WARNING: >1 may cause Playwright issues)"),
     model: str = typer.Option("anthropic/claude-haiku-4-5", help="Model for auto-detection"),
 ) -> None:
-    """Add URLs to collect or classify phases (auto-detects by default)."""
+    """Add URLs to collect or classify phases (auto-detects by default).
+    
+    Note: Auto-detection involves scraping, which uses Playwright. Due to Playwright's 
+    greenlet-based implementation, workers > 1 may cause errors. Use workers=1 (default) 
+    for stability.
+    """
     from pathlib import Path
 
     from .add_items import add_item_auto, check_url_exists, normalize_url
@@ -165,73 +171,98 @@ def add(
         return
 
     if phase == "auto":
-        console.print(f"Adding {len(urls)} URLs with [bold]auto-detection[/bold] (model: {model})...")
+        console.print(f"Adding {len(urls)} URLs with [bold]auto-detection[/bold] (model: {model}, workers: {workers})...")
+        if workers > 1:
+            console.print("[yellow]⚠ WARNING: workers > 1 may cause Playwright errors. Use workers=1 for stability.[/yellow]")
     else:
         console.print(f"Adding {len(urls)} URLs to [bold]{phase}[/bold] phase...")
     console.print()
 
-    # Add URLs with stats tracking
+    # Process function for threading
+    def process_url_add(url: str) -> tuple[str, str, str, bool]:
+        """
+        Process a single URL addition.
+        
+        Returns: (phase, normalized_url, status, is_new)
+        - status: "added_collect", "added_classify", "exists", "error"
+        """
+        try:
+            if phase == "auto":
+                detected_phase, normalized_url, is_new = add_item_auto(url, source=source, model=model)
+                if is_new:
+                    status = f"added_{detected_phase}"
+                else:
+                    status = "exists"
+                return (detected_phase, normalized_url, status, is_new)
+                
+            elif phase == "collect":
+                normalized_url = normalize_url(url)
+                url_exists, existing_phase = check_url_exists(normalized_url)
+                if url_exists:
+                    return (existing_phase or "collect", normalized_url, "exists", False)
+                else:
+                    is_new = add_collect_source(normalized_url, source)
+                    return ("collect", normalized_url, "added_collect" if is_new else "exists", is_new)
+                    
+            else:  # classify
+                normalized_url = normalize_url(url)
+                url_exists, existing_phase = check_url_exists(normalized_url)
+                if url_exists:
+                    return (existing_phase or "classify", normalized_url, "exists", False)
+                else:
+                    is_new = add_classify_candidate(normalized_url, source or "manual", None, None)
+                    return ("classify", normalized_url, "added_classify" if is_new else "exists", is_new)
+                    
+        except Exception as e:
+            logger.error(f"Failed to add {url}: {e}", exc_info=True)
+            raise
+
+    # Add URLs with stats tracking and threading
     with stats_context(commandline=f"add {file} --phase {phase}") as stats:
+        from concurrent.futures import ThreadPoolExecutor, as_completed
+        
         added_collect = 0
         added_classify = 0
         exists = 0
         errors = 0
-
-        for i, url in enumerate(urls, 1):
-            # Show progress
-            console.print(f"[dim][{i}/{len(urls)}][/dim] {url[:80]}...")
+        
+        # Threading only useful for auto mode (scrapes + LLM calls)
+        # Manual modes are fast (just DB inserts) so use 1 worker
+        max_workers = workers if phase == "auto" else 1
+        
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # Submit all tasks
+            future_to_url = {
+                executor.submit(process_url_add, url): url
+                for url in urls
+            }
             
-            try:
-                if phase == "auto":
-                    # Auto-detect and add
-                    detected_phase, normalized_url, is_new = add_item_auto(url, source=source, model=model)
-                    if is_new:
-                        if detected_phase == "collect":
-                            added_collect += 1
-                            console.print("  → [cyan]collect[/cyan] (collection source)")
-                        else:
-                            added_classify += 1
-                            console.print("  → [green]classify[/green] (single content)")
-                    else:
-                        exists += 1
-                        console.print(f"  → [yellow]already exists[/yellow] (in {detected_phase})")
+            # Process completed tasks
+            processed = 0
+            for future in as_completed(future_to_url):
+                if is_shutdown_requested():
+                    console.print("\n[yellow]Shutdown requested, stopping...[/yellow]")
+                    executor.shutdown(wait=False, cancel_futures=True)
+                    break
+                
+                processed += 1
+                url = future_to_url[future]
+                try:
+                    detected_phase, normalized_url, status, is_new = future.result()
                     
-                elif phase == "collect":
-                    # Manual: add to collect (but check both tables first)
-                    normalized_url = normalize_url(url)
-                    url_exists, existing_phase = check_url_exists(normalized_url)
-                    if url_exists:
+                    if status == "added_collect":
+                        added_collect += 1
+                        console.print(f"[{processed}/{len(urls)}] [green]✓[/green] {url[:70]} → [cyan]collect[/cyan]")
+                    elif status == "added_classify":
+                        added_classify += 1
+                        console.print(f"[{processed}/{len(urls)}] [green]✓[/green] {url[:70]} → [green]classify[/green]")
+                    elif status == "exists":
                         exists += 1
-                        console.print(f"  → [yellow]already exists[/yellow] (in {existing_phase})")
-                    else:
-                        if add_collect_source(normalized_url, source):
-                            added_collect += 1
-                            console.print("  → [cyan]added[/cyan]")
-                        else:
-                            # Shouldn't happen since we checked, but handle race condition
-                            exists += 1
-                            console.print("  → [yellow]already exists[/yellow]")
+                        console.print(f"[{processed}/{len(urls)}] [yellow]⊙[/yellow] {url[:70]} (in {detected_phase})")
                         
-                else:  # classify
-                    # Manual: add to classify (but check both tables first)
-                    normalized_url = normalize_url(url)
-                    url_exists, existing_phase = check_url_exists(normalized_url)
-                    if url_exists:
-                        exists += 1
-                        console.print(f"  → [yellow]already exists[/yellow] (in {existing_phase})")
-                    else:
-                        if add_classify_candidate(normalized_url, source or "manual", None, None):
-                            added_classify += 1
-                            console.print("  → [green]added[/green]")
-                        else:
-                            # Shouldn't happen since we checked, but handle race condition
-                            exists += 1
-                            console.print("  → [yellow]already exists[/yellow]")
-                        
-            except Exception as e:
-                errors += 1
-                console.print(f"  → [red]error:[/red] {str(e)[:60]}")
-                logger.error(f"Failed to add {url}: {e}", exc_info=True)
+                except Exception as e:
+                    errors += 1
+                    console.print(f"[{processed}/{len(urls)}] [red]✗[/red] {url[:70]}: {str(e)[:50]}")
 
         console.print()
         
@@ -252,14 +283,19 @@ def add(
 @app.command()
 def collect(
     limit: int = typer.Option(100, help="Maximum sources to process"),
-    workers: int = typer.Option(4, help="Number of worker threads"),
+    workers: int = typer.Option(1, help="Number of worker threads (>1 may cause Playwright issues, use with caution)"),
     relevancy: float = typer.Option(0.3, help="Minimum relevancy threshold for links"),
     model: str = typer.Option("anthropic/claude-sonnet-4-5", help="LLM model to use"),
     max_tokens: int = typer.Option(100000, help="Max HTML tokens before error"),
     retry_errors: bool = typer.Option(False, "--retry-errors", help="Retry sources with extract_error status"),
 ) -> None:
-    """Collect links from source pages."""
-    from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn
+    """Collect links from source pages.
+    
+    Note: Uses Playwright for scraping. workers > 1 may cause errors due to Playwright's 
+    greenlet-based implementation. Default workers=1 is recommended. With scrape caching, 
+    this is usually fast enough.
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
 
     from .collect import compute_collect
     from .common import CollectStatus, RunCollectConfig
@@ -277,6 +313,8 @@ def collect(
 
     console.print("[bold]Starting collection phase...[/bold]\n")
     console.print(f"Config: limit={limit}, workers={workers}, relevancy≥{relevancy}, model={model}")
+    if workers > 1:
+        console.print("[yellow]⚠ WARNING: workers > 1 may cause Playwright errors. Use workers=1 for stability.[/yellow]")
     if retry_errors:
         console.print("[yellow]Retry mode: Will retry sources with extract_error status[/yellow]")
     console.print()
@@ -315,45 +353,38 @@ def collect(
 
     console.print(f"Found {len(sources)} sources to process\n")
 
-    # Process sources with stats tracking and progress bar
+    # Process sources with stats tracking
     with stats_context(commandline=f"collect --limit {limit}") as stats:
-        # Temporarily suppress INFO logging to avoid clashing with progress bar
-        root_logger = logging.getLogger()
-        old_level = root_logger.level
-        root_logger.setLevel(logging.WARNING)
+        from concurrent.futures import ThreadPoolExecutor, as_completed
         
-        try:
-            with Progress(
-                SpinnerColumn(),
-                TextColumn("[progress.description]{task.description}"),
-                BarColumn(),
-                TaskProgressColumn(),
-                console=console,
-            ) as progress:
-                task = progress.add_task("[cyan]Collecting sources...", total=len(sources))
-
-                for url in sources:
-                    if is_shutdown_requested():
-                        progress.console.print("\n[yellow]Shutdown requested, stopping...[/yellow]")
-                        break
-
-                    progress.update(task, description=f"[cyan]Processing: {url[:60]}...")
-
-                    try:
-                        result = compute_collect(url, config, force_recompute=retry_errors)
-                        progress.console.print(
-                            f"[green]✓[/green] {url[:70]}: "
-                            f"{len(result.links)} links (quality: {result.collection_quality_score:.2f})"
-                        )
-                    except Exception as e:
-                        # Log full error details (still captured in log file)
-                        logger.error(f"Failed to process {url}: {str(e)}", exc_info=True)
-                        progress.console.print(f"[red]✗[/red] {url[:70]}: {str(e)[:80]}")
-
-                    progress.advance(task)
-        finally:
-            # Restore logging level
-            root_logger.setLevel(old_level)
+        # Thread pool for parallel processing
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            # Submit all tasks
+            future_to_url = {
+                executor.submit(compute_collect, url, config, retry_errors): url
+                for url in sources
+            }
+            
+            # Process completed tasks
+            processed = 0
+            for future in as_completed(future_to_url):
+                if is_shutdown_requested():
+                    console.print("\n[yellow]Shutdown requested, stopping...[/yellow]")
+                    executor.shutdown(wait=False, cancel_futures=True)
+                    break
+                
+                processed += 1
+                url = future_to_url[future]
+                try:
+                    result = future.result()
+                    console.print(
+                        f"[{processed}/{len(sources)}] [green]✓[/green] {url[:70]}: "
+                        f"{len(result.links)} links (quality: {result.collection_quality_score:.2f})"
+                    )
+                except Exception as e:
+                    # Log full error details (still captured in log file)
+                    logger.error(f"Failed to process {url}: {str(e)}", exc_info=True)
+                    console.print(f"[{processed}/{len(sources)}] [red]✗[/red] {url[:70]}: {str(e)[:80]}")
 
         console.print()
         stats.print_summary()
@@ -362,14 +393,19 @@ def collect(
 @app.command()
 def classify(
     limit: int = typer.Option(100, help="Maximum candidates to process"),
-    workers: int = typer.Option(4, help="Number of worker threads"),
+    workers: int = typer.Option(1, help="Number of worker threads (>1 may cause Playwright issues, use with caution)"),
     min_relevancy: float = typer.Option(0.0, help="Minimum collect_relevancy to process (filter)"),
     model: str = typer.Option("anthropic/claude-sonnet-4-5", help="LLM model to use"),
     max_tokens: int = typer.Option(100000, help="Max HTML tokens before error"),
     retry_errors: bool = typer.Option(False, "--retry-errors", help="Retry candidates with classify_error status"),
 ) -> None:
-    """Classify AI safety/alignment content."""
-    from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn
+    """Classify AI safety/alignment content.
+    
+    Note: Uses Playwright for scraping. workers > 1 may cause errors due to Playwright's 
+    greenlet-based implementation. Default workers=1 is recommended. With scrape caching,  
+    this is usually fast enough.
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
 
     from .classify import compute_classify
     from .common import ClassifyStatus, RunClassifyConfig
@@ -387,6 +423,8 @@ def classify(
 
     console.print("[bold]Starting classification phase...[/bold]\n")
     console.print(f"Config: limit={limit}, workers={workers}, model={model}")
+    if workers > 1:
+        console.print("[yellow]⚠ WARNING: workers > 1 may cause Playwright errors. Use workers=1 for stability.[/yellow]")
     if retry_errors:
         console.print("[yellow]Retry mode: Will retry candidates with classify_error status[/yellow]")
     if min_relevancy > 0.0:
@@ -429,48 +467,41 @@ def classify(
 
     console.print(f"Found {len(candidates)} candidates to process\n")
 
-    # Process candidates with stats tracking and progress bar
+    # Process candidates with stats tracking
     with stats_context(commandline=f"classify --limit {limit}") as stats:
-        # Temporarily suppress INFO logging to avoid clashing with progress bar
-        root_logger = logging.getLogger()
-        old_level = root_logger.level
-        root_logger.setLevel(logging.WARNING)
+        from concurrent.futures import ThreadPoolExecutor, as_completed
         
-        try:
-            with Progress(
-                SpinnerColumn(),
-                TextColumn("[progress.description]{task.description}"),
-                BarColumn(),
-                TaskProgressColumn(),
-                console=console,
-            ) as progress:
-                task = progress.add_task("[cyan]Classifying candidates...", total=len(candidates))
-
-                for url in candidates:
-                    if is_shutdown_requested():
-                        progress.console.print("\n[yellow]Shutdown requested, stopping...[/yellow]")
-                        break
-
-                    progress.update(task, description=f"[cyan]Processing: {url[:60]}...")
-
-                    try:
-                        result = compute_classify(url, config, force_recompute=retry_errors)
-                        top_cat = result.categories[0].id if result.categories else "none"
-                        progress.console.print(
-                            f"[green]✓[/green] {url[:60]}: "
-                            f"rel={result.classify_relevancy:.2f}, "
-                            f"cat={top_cat}, "
-                            f"conf={result.confidence:.2f}"
-                        )
-                    except Exception as e:
-                        # Log full error details (still captured in log file)
-                        logger.error(f"Failed to classify {url}: {str(e)}", exc_info=True)
-                        progress.console.print(f"[red]✗[/red] {url[:60]}: {str(e)[:60]}")
-
-                    progress.advance(task)
-        finally:
-            # Restore logging level
-            root_logger.setLevel(old_level)
+        # Thread pool for parallel processing
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            # Submit all tasks
+            future_to_url = {
+                executor.submit(compute_classify, url, config, retry_errors): url
+                for url in candidates
+            }
+            
+            # Process completed tasks
+            processed = 0
+            for future in as_completed(future_to_url):
+                if is_shutdown_requested():
+                    console.print("\n[yellow]Shutdown requested, stopping...[/yellow]")
+                    executor.shutdown(wait=False, cancel_futures=True)
+                    break
+                
+                processed += 1
+                url = future_to_url[future]
+                try:
+                    result = future.result()
+                    top_cat = result.categories[0].id if result.categories else "none"
+                    console.print(
+                        f"[{processed}/{len(candidates)}] [green]✓[/green] {url[:60]}: "
+                        f"rel={result.classify_relevancy:.2f}, "
+                        f"cat={top_cat}, "
+                        f"conf={result.confidence:.2f}"
+                    )
+                except Exception as e:
+                    # Log full error details (still captured in log file)
+                    logger.error(f"Failed to classify {url}: {str(e)}", exc_info=True)
+                    console.print(f"[{processed}/{len(candidates)}] [red]✗[/red] {url[:60]}: {str(e)[:60]}")
 
         console.print()
         stats.print_summary()
