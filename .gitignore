@@ -32,8 +32,7 @@ env/
 *.swo
 *~
 
-# Data and cache directories
-data/
+# Cache directories
 runs/
 .llm_cache/
 .playwright-mcp/

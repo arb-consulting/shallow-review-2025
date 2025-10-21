@@ -1,0 +1,808 @@
+# AI Safety Classification Taxonomy
+# Ground truth for classification categories
+# Last updated: 2025-10-21
+#
+# Structure:
+# - Each category has: id, name, description
+# - Categories may have children (subcategories)
+# - Leaf categories (no children) are assignable to classified items
+# - is_leaf is inferred from presence of children (or can be set explicitly)
+# - examples field is optional and ONLY allowed on leaf categories
+
+taxonomy:
+  - id: understand_models
+    name: Understand existing models
+    description: >
+      Research focused on understanding, evaluating, and interpreting current AI systems.
+      Includes capability evaluations, interpretability, understanding training dynamics,
+      and behavioral patterns.
+    children:
+      - id: evals
+        name: Evals
+        description: >
+          Capability and behavior evaluations of AI systems. Systematic testing of what
+          models can and cannot do, including dangerous capabilities.
+        children:
+          - id: evals_capability
+            name: Various capability evaluations
+            description: >
+              General capability benchmarks and evaluations not covered by more specific categories.
+              Includes comprehensive test suites, multi-domain assessments, and broad capability probes.
+              Examples: Humanity's Last Exam, GPQA Diamond, broad reasoning benchmarks.
+          
+          - id: evals_autonomy
+            name: Autonomy
+            description: >
+              Evaluations of autonomous capabilities: self-directed task completion, tool use,
+              real-world interactions. Includes agent benchmarks, developer productivity tests,
+              web navigation, game playing, and other autonomous behavior assessments.
+              Examples: METR autonomy evals, Vending-Bench, Pokemon Red, SWE-bench.
+          
+          - id: evals_reasoning
+            name: Reasoning
+            description: >
+              Tests of logical reasoning, multi-step inference, compositional reasoning.
+              Focus on reasoning failures, limitations, and edge cases.
+              Examples: Two-hop reasoning failures, composition failures in reasoning tasks.
+          
+          - id: evals_wmd
+            name: WMDs (Weapons of Mass Destruction)
+            description: >
+              Evaluations of dangerous capabilities related to weapons of mass destruction.
+              Includes bioweapons knowledge (virology, synthetic biology), chemical weapons,
+              radiological/nuclear information, and related dual-use capabilities.
+              Examples: Virology tests, biology benchmarks for dangerous capabilities.
+          
+          - id: evals_situational_awareness
+            name: Situational awareness and self-awareness
+            description: >
+              Tests of model's awareness of itself, its context, training process, or position
+              in the world. Includes out-of-context reasoning about own capabilities, understanding
+              of being an AI system, knowledge about training data or architecture.
+          
+          - id: evals_steganography
+            name: Steganography
+            description: >
+              Ability to hide information in outputs, covert communication between model instances,
+              encoding hidden messages that humans miss but models can detect. Includes testing
+              for covert channels and hidden coordination.
+          
+          - id: evals_sandbagging
+            name: Sandbagging
+            description: >
+              Intentionally underperforming on evaluations while retaining capability.
+              Strategic performance hiding, deliberately failing tests to avoid scrutiny
+              or triggering safety measures.
+          
+          - id: evals_self_replication
+            name: Self-replication
+            description: >
+              Ability to copy, deploy, or propagate itself. Includes acquiring cloud resources,
+              deploying code, creating new instances, and other self-propagation behaviors.
+              Examples: RepliBench, red line claims around self-replication capabilities.
+          
+          - id: evals_security
+            name: Security
+            description: >
+              Cybersecurity offense and defense capabilities, including exploitation,
+              vulnerability discovery, code analysis for security flaws, penetration testing.
+              Does NOT include self-replication (separate category).
+          
+          - id: openai_preparedness
+            name: OpenAI Preparedness
+            description: >
+              OpenAI Preparedness team work. Evaluating catastrophic risks, frontier
+              model capabilities, red-teaming, and system cards. Risk assessment
+              framework for advanced AI systems.
+      
+      - id: surprising_phenomena
+        name: Surprising phenomena
+        description: >
+          Unexpected or emergent model behaviors, generalization failures, discoveries from
+          adversarial testing and red-teaming efforts.
+        children:
+          - id: surprising_generalization
+            name: Things generalising surprisingly / Emergent Misalignment
+            description: >
+              Unexpected generalization patterns, behaviors emerging without explicit training,
+              misalignment that appears during deployment or in novel contexts. Includes surprising
+              zero-shot capabilities, goal misgeneralization, and emergent behaviors that weren't
+              explicitly trained for.
+          
+          - id: various_redteams
+            name: Various Redteams
+            description: >
+              Red-teaming efforts, adversarial testing, jailbreaking, safety failure discoveries.
+              Includes organizational red-teaming programs, systematic adversarial probing,
+              and discovery of failure modes. Examples: US AISI red-teaming, Constitutional
+              Classifiers bypass, Prism, alignment faking discovery.
+      
+      - id: interpretability
+        name: Interpretability
+        description: >
+          Understanding internal representations, mechanisms, and decision-making processes
+          in neural networks. Mechanistic and conceptual approaches to opening the black box.
+        children:
+          - id: interp_applied
+            name: Auditing real models / applied interpretability
+            description: >
+              Interpretability applied to production models, real-world auditing, explaining
+              specific behaviors in deployed systems. Focus on practical applications to
+              actual frontier AI systems rather than toy models. Examples: auditing GPT-4,
+              explaining Claude behaviors, production model analysis.
+          
+          - id: interp_fundamental
+            name: Fundamental Mech interp
+            description: >
+              Mechanistic interpretability research on toy models or fundamental phenomena.
+              Circuit discovery, understanding basic mechanisms like induction heads,
+              reverse-engineering algorithms learned by networks. Focus on understanding
+              fundamental building blocks rather than specific applications. Examples:
+              induction heads, modular addition circuits, grokking, toy model analysis.
+          
+          - id: interp_sparse_coding
+            name: Sparse Coding
+            description: >
+              Sparse autoencoders (SAEs), dictionary learning, monosemantic feature decomposition.
+              Includes transcoders, SAE benchmarking, and methods for decomposing neural
+              representations into interpretable sparse features.
+          
+          - id: interp_concept_based
+            name: Concept-based interp
+            description: >
+              High-level semantic concepts and representations. Top-down approach: start with
+              human concepts and find them in models, rather than discovering features bottom-up.
+              NOT sparse coding (SAEs discover features; this looks for known concepts). Examples:
+              concept activation vectors, representation geometry, probing for specific semantic
+              properties, belief state geometry.
+          
+          - id: interp_criticisms
+            name: Criticisms
+            description: >
+              Skeptical takes on interpretability: fundamental limitations, impossibility results,
+              practical concerns about deception detection. Arguments that interpretability may be
+              insufficient or fundamentally limited. Examples: "interpretability may be doomed",
+              "won't find deception" arguments.
+          
+          - id: interp_causal_abstractions
+            name: "Pr(Ai)2R: Causal Abstractions"
+            description: >
+              Causal abstraction framework, interchange interventions, high-level causal models
+              of neural networks. Includes ReFT (Representation Finetuning), pyvene, locally
+              consistent abstractions. Focus on causal structure of representations.
+          
+          - id: interp_leap
+            name: Leap
+            description: >
+              Leap interpretability project and related work. Model-agnostic API approaches,
+              standardized interfaces for interpretability. Examples: PIZZA framework.
+          
+          - id: interp_eleuther
+            name: EleutherAI interp
+            description: >
+              EleutherAI interpretability research program and outputs. Examples: path dependence
+              research, refusal as affine function.
+      
+      - id: understand_learning
+        name: Understand learning
+        description: >
+          Understanding training dynamics, learning processes, gradient descent behavior,
+          how features and capabilities develop during training.
+        children:
+          - id: learning_dev_interp
+            name: "Timaeus: Dev interp"
+            description: >
+              Developmental interpretability - understanding how features and circuits form
+              during training. Timaeus project focus on tracking formation of capabilities
+              and representations across training time.
+          
+          - id: learning_vaintrob_critique
+            name: Vaintrob ~critique
+            description: >
+              Vaintrob's critiques of learning theory approaches, developmental interpretability,
+              or related research directions.
+          
+          - id: learning_comp_mechanics
+            name: "Simplex: Computational mechanics"
+            description: >
+              Computational mechanics approach to understanding learning. Simplex project
+              applying computational mechanics framework to neural network training dynamics.
+          
+          - id: learning_saxe
+            name: Saxe lab
+            description: >
+              Saxe lab work on learning theory, toy models of neural networks, training dynamics,
+              analytical understanding of learning. Examples: toy models of learning dynamics,
+              induction heads formation.
+      
+      - id: model_psychology
+        name: Model psychology
+        description: >
+          Behavioral and psychological patterns in language models. Personas, behavioral
+          tendencies, model-specific quirks, and psychological frameworks for understanding
+          model behavior.
+        children:
+          - id: psych_personas
+            name: Model personas cluster
+            description: >
+              Research on model personalities, persona consistency, behavioral archetypes,
+              character-like patterns. Includes hyper-superstition, LLM psychology, and
+              systematic study of model behavioral patterns.
+
+  - id: control_thing
+    name: Control the thing
+    description: >
+      Methods to control, monitor, and safely constrain AI systems during operation.
+      Includes alignment techniques, monitoring, control evaluations, and runtime safety measures.
+    children:
+      - id: iterative_alignment
+        name: Iterative alignment
+        description: >
+          Alignment through iterative training: RLHF, DPO, constitutional AI, iterative
+          refinement approaches. Methods that improve alignment through multiple rounds
+          of feedback and training. Examples: Deliberative alignment, MONA, inoculation
+          prompting, DPO advances.
+      
+      - id: deepmind_frontier_safety
+        name: DeepMind Frontier Safety Framework
+        description: >
+          DeepMind's Frontier Safety Framework - comprehensive approach to identifying
+          and mitigating risks from frontier AI systems. Meta-framework for safety
+          protocols, risk assessment, and responsible deployment practices.
+      
+      - id: anthropic_safeguards
+        name: Anthropic Safeguards
+        description: >
+          Anthropic Safeguards team research (2025). Runtime safety measures, defensive
+          systems, and safeguards against misuse. Focus on practical deployment safety
+          beyond core alignment.
+      
+      - id: prevent_deception
+        name: Prevent deception and scheming
+        description: >
+          Detecting and preventing deceptive behaviors, scheming, hidden objectives,
+          and misaligned internal goals. Methods for identifying when models are being
+          dishonest or pursuing covert objectives.
+        children:
+          - id: deception_control_evals
+            name: Control evaluations
+            description: >
+              Evaluating deployment protocols (not just models) by testing with intentionally
+              misaligned models. Focus: organizational safety procedures and monitoring systems.
+              Insert backdoored models into deployment setup and check if protocol catches them.
+              Primarily Redwood's AI Control framework and related work. Examples: AI Control,
+              Ctrl-Z, Control Arena, SHADE-Arena, D-REX, Subversion Strategy Eval.
+          
+          - id: deception_criticisms
+            name: Criticisms
+            description: >
+              Skeptical perspectives on deception detection, control methods, or monitoring
+              approaches. Arguments about fundamental limitations or practical difficulties.
+          
+          - id: deception_mech_anomaly
+            name: Mechanistic anomaly detection
+            description: >
+              Detect deception through internal activation anomalies, even without knowing
+              what specific deception is happening. Build baseline of "normal" internal
+              functioning, flag divergences. Uses mechanistic understanding but NOT requiring
+              full interpretability. Different from whitebox probes (which test for specific
+              things) - this detects unexpected patterns. Examples: password-locked elicitation,
+              law of iterated expectations, ARC heuristic estimators.
+          
+          - id: deception_cadenza
+            name: Cadenza
+            description: >
+              Cadenza Labs project - white-box dishonesty detection using internal activations.
+              Organization-specific category for Cadenza's approach and methods. Examples:
+              Cluster-norm for unsupervised probing, dishonesty detection without labels.
+          
+          - id: deception_faithful_cot
+            name: Faithful CoT via separation
+            description: >
+              Architectural solutions to keep chain-of-thought faithful and observable. 
+              Separate reasoning from presentation so models can't hide deceptive thoughts.
+              Design models where internal reasoning must flow through auditable channel.
+              Examples: Shoggoth/face/paraphraser architecture (Kokotajlo), unoptimized
+              reasoning traces, separation of concerns.
+          
+          - id: deception_indirect
+            name: Indirect deception monitoring
+            description: >
+              Surface-level behavioral signals of deception without looking at internals.
+              Lie classifiers, sycophancy detection, simple behavioral probes. NOT mechanistic
+              (doesn't examine activations). NOT CoT-based (doesn't analyze reasoning). Just
+              input-output behavioral patterns. Examples: simple probes for deception, 
+              sycophancy detection, behavioral lie classifiers.
+      
+      - id: cot_monitoring
+        name: Chain of thought monitoring
+        description: >
+          Analyzing visible chain-of-thought outputs for safety signals. Monitoring
+          reasoning traces for problematic patterns. NOT about ensuring CoT faithfulness
+          (that's deception_faithful_cot). NOT about deception detection specifically
+          (that's deception_indirect). General safety monitoring of reasoning steps.
+          Examples: detecting dangerous reasoning, monitoring for concerning plans.
+        children:
+          - id: cot_monitoring_methods
+            name: CoT monitoring methods
+            description: >
+              Techniques for monitoring chain-of-thought reasoning for safety signals,
+              problematic patterns, or concerning reasoning steps.
+          
+          - id: cot_criticisms
+            name: CoT monitoring criticisms
+            description: >
+              Limitations of CoT monitoring, faithfulness concerns, arguments that
+              CoT may not reflect true model reasoning.
+      
+      - id: whitebox_monitoring
+        name: Whitebox monitoring
+        description: >
+          Using internal activations and probes for safety monitoring. Training specific
+          probes to detect known properties or behaviors. Different from mechanistic anomaly
+          detection (which finds unexpected patterns) - this tests for specific things you're
+          looking for. Examples: probes for specific behaviors, activation-based classifiers,
+          representation monitoring for known properties.
+        children:
+          - id: whitebox_methods
+            name: Whitebox monitoring methods
+            description: >
+              Techniques using internal activations, probes, or representation analysis
+              for monitoring model behavior and ensuring safety.
+          
+          - id: whitebox_criticisms
+            name: Whitebox monitoring criticisms
+            description: >
+              Probe specificity concerns, limitations of activation-based monitoring,
+              arguments about fundamental difficulties.
+      
+      - id: redteam_monitoring
+        name: Red-teaming monitoring
+        description: >
+          Adversarial monitoring using competitive dynamics between models. One model
+          tries to catch what another model hides. Debate-based monitoring, adversarial
+          critics. Different from control evals (which test protocols) or whitebox probes
+          (which test models) - this uses model-vs-model competition. Examples: debate
+          for oversight, adversarial critics, SHADE-Arena, prover-estimator games.
+        children:
+          - id: redteam_monitoring_methods
+            name: Red-teaming monitoring methods
+            description: >
+              Monitoring approaches based on adversarial interaction, debate, or
+              competitive dynamics. Models monitoring other models adversarially.
+          
+          - id: latent_adversarial_training
+            name: Latent adversarial training
+            description: >
+              Adversarial state manipulation, automated red-teaming of internal
+              representations, training against latent adversaries.
+      
+      - id: surgical_edits
+        name: Surgical model edits
+        description: >
+          Targeted interventions to modify model behavior without full retraining.
+          Includes activation steering, unlearning, and precise capability modification.
+        children:
+          - id: activation_engineering
+            name: Activation engineering
+            description: >
+              Steering vectors, representation engineering, directly modifying activations
+              to control behavior. Includes BiDPO and other activation-based control methods.
+          
+          - id: utility_engineering
+            name: Utility engineering
+            description: >
+              Directly modifying model utilities or objectives through targeted interventions.
+          
+          - id: unlearning
+            name: Unlearning
+            description: >
+              Removing specific capabilities or knowledge from trained models.
+              Targeted forgetting of dangerous or undesired behaviors.
+      
+      - id: goal_robustness
+        name: Goal robustness
+        description: >
+          Ensuring models maintain intended goals under distribution shift, optimization
+          pressure, or environmental changes. Includes mild optimization, reward learning,
+          and multi-agent safety.
+        children:
+          - id: mild_optimization
+            name: Mild optimisation
+            description: >
+              Approaches to reduce optimization intensity or ensure satisficing behavior.
+              MONA and related methods for preventing excessive optimization.
+          
+          - id: rl_safety
+            name: RL safety
+            description: >
+              Reinforcement learning safety methods. Includes work by Skalse, behaviorist
+              rewards, AssistanceZero, and other RL-specific safety approaches.
+          
+          - id: multiagent_safety
+            name: Multi-agent safety
+            description: >
+              Safety in multi-agent settings, coordination between AIs, emergent behaviors
+              from agent interaction. NOT cooperation theory (separate category).
+          
+          - id: assistance_games
+            name: Assistance games / reward learning
+            description: >
+              Assistance games framework, learning rewards from human behavior, provably
+              beneficial AI, correlated proxies. CIRL and related approaches.
+      
+      - id: formal_verification
+        name: Guaranteed Safe AI / Formal verification
+        description: >
+          Formal methods, mathematical proofs of safety properties, verified AI systems.
+          Work by Bengio, Tegmark, davidad, Russell, UK ARIA on provably safe systems.
+
+  - id: alternative_architectures
+    name: Alternative architectures
+    description: >
+      Fundamentally different AI system designs that might be safer by construction.
+      Non-standard approaches to building AI that avoid some failure modes of
+      current paradigms.
+    children:
+      - id: aria_safeguarding
+        name: ARIA Safeguarding
+        description: >
+          UK ARIA's safeguarding program and alternative architecture research.
+          Government-funded exploration of safer-by-design AI systems.
+      
+      - id: cognitive_software
+        name: "Conjecture: Cognitive Software"
+        description: >
+          Conjecture's cognitive programs approach, tactics, bounded tool AI.
+          Alternative paradigm based on compositional cognitive architectures.
+      
+      - id: social_instinct
+        name: Social-instinct AGI
+        description: >
+          Byrnes' social-instinct approach, brain-like AGI inspired by social circuits,
+          symbol grounding via social learning. Astera Institute work on biologically-inspired
+          safe AGI architectures.
+
+  - id: better_data
+    name: Better data
+    description: >
+      Data-level interventions for safety across the training pipeline. Includes
+      pre-training data (filtering, poisoning detection), post-training data (RLHF
+      quality, synthetic examples), and data transparency (attribution). Focus on
+      making training data safer, higher quality, or more interpretable.
+    children:
+      - id: data_filtering
+        name: Data filtering for safety
+        description: >
+          Pre-training data filtering: removing harmful content, bias mitigation,
+          toxicity filtering, unsafe capability data removal. Interventions before
+          training starts.
+      
+      - id: data_poisoning
+        name: Data poisoning defense
+        description: >
+          Detecting and removing poisoned or backdoored training data. Security
+          against adversarial data manipulation, trojans, and inserted vulnerabilities.
+      
+      - id: data_attribution
+        name: Data attribution
+        description: >
+          Understanding what training data influenced model outputs or capabilities.
+          Tracing model behavior back to training examples. Includes influence
+          functions, memorization detection.
+      
+      - id: synthetic_alignment_data
+        name: Synthetic data for alignment
+        description: >
+          Generating synthetic training data to improve alignment: synthetic preference
+          data, AI-generated safety examples, augmented alignment datasets. If
+          AI-generated, overlaps with AI-assisted alignment.
+      
+      - id: alignment_data_quality
+        name: Data quality for alignment
+        description: >
+          RLHF data quality, preference data quality, instruction-following data
+          curation. Post-training data quality for better alignment outcomes.
+
+  - id: ai_solve_alignment
+    name: Make AI solve it
+    description: >
+      Using AI systems to help with alignment research and oversight. Scalable
+      oversight, recursive improvement, AI-assisted safety work.
+    children:
+      - id: scalable_oversight
+        name: Scalable oversight
+        description: >
+          Methods for humans to oversee AI systems on tasks where humans can't directly
+          evaluate outputs. Includes prover-verifier games, weak-to-strong generalization.
+        children:
+          - id: scalable_oversight_openai
+            name: "OpenAI Superalignment / Automated Alignment Research"
+            description: >
+              OpenAI's superalignment program and automated alignment research.
+              Prover-verifier games, using AI to help with alignment research.
+          
+          - id: weak_to_strong
+            name: Weak-to-strong generalization
+            description: >
+              Weak models supervising strong models, easy-to-hard generalization.
+              Can weak supervisors elicit strong capabilities safely?
+          
+          - id: supervising_improvement
+            name: Supervising AIs improving AIs
+            description: >
+              Overseeing AI systems as they improve other AI systems. Behavioral
+              drift concerns, doubly-efficient debate, recursive improvement safety.
+          
+          - id: cyborgism
+            name: Cyborgism
+            description: >
+              Human-AI collaboration, augmentation, and cognitive partnership.
+              Janus's simulator framing, Pantheon Interface, human-plus-LLM systems.
+          
+          - id: transluce
+            name: Transluce
+            description: >
+              Transluce's monitor interface, neuron description tools, and interpretability
+              for oversight. Schmidt Sciences funded work.
+          
+          - id: deepmind_amplified_oversight
+            name: DeepMind Amplified Oversight
+            description: >
+              DeepMind's amplified oversight program. Using AI assistance to scale human
+              oversight beyond direct evaluation capabilities. Methods for leveraging AI
+              systems to help humans oversee more capable AI systems.
+      
+      - id: debate
+        name: Debate
+        description: >
+          AI debate for scalable oversight: models argue for human judge, truth emerges
+          from adversarial interaction.
+        children:
+          - id: debate_uk_aisi
+            name: UK AISI debate sequence
+            description: >
+              UK AISI's research sequence on debate for oversight and safety.
+          
+          - id: debate_deepmind
+            name: Deepmind Scalable Alignment
+            description: >
+              Deepmind's work on debate, including doubly efficient debate and
+              related scalable alignment methods.
+          
+          - id: debate_anthropic
+            name: "Anthropic: Bowman/Perez"
+            description: >
+              Anthropic work on debate and truthfulness oversight by Bowman, Perez,
+              and collaborators.
+      
+      - id: task_decomp
+        name: Task decomposition
+        description: >
+          Breaking down complex tasks into verifiable subtasks. Recursive decomposition
+          for oversight and safety.
+      
+      - id: adversarial_oversight
+        name: Adversarial oversight
+        description: >
+          Using adversarial dynamics for oversight. Competitive or adversarial
+          interactions to ensure safety.
+      
+      - id: elicit_ought
+        name: Elicit / Ought
+        description: >
+          Elicit/Ought work on process supervision, decomposition, and researcher
+          epistemics. Focus on governance researcher epistemics and research assistance.
+
+  - id: theory
+    name: Theory
+    description: >
+      Theoretical foundations for alignment: agent foundations, formal frameworks,
+      understanding agency and optimization, corrigibility, abstraction.
+    children:
+      - id: arc_vaintrob_critique
+        name: ARC Vaintrob ~critique
+        description: >
+          ARC's Vaintrob critique of various alignment approaches or theoretical
+          frameworks.
+      
+      - id: arc_theory_formal
+        name: "ARC Theory: Formalizing heuristic arguments"
+        description: >
+          ARC Theory work on formalizing heuristic arguments about AI risk.
+          Tail risk formalization, heuristic estimators. FLI/SFF funded.
+      
+      - id: misc_theory
+        name: Miscellaneous theory items
+        description: >
+          Theoretical alignment work not fitting other categories. General
+          formal frameworks, mathematical approaches to alignment problems.
+      
+      - id: understanding_agency
+        name: Understanding agency
+        description: >
+          Foundational questions about agency: what IS an agent? What IS goal-directedness?
+          What IS optimization? NOT applied methods to make agents safe - that goes elsewhere.
+          Pure theory about the nature of agency. Examples: formalizing goal-directedness,
+          measuring optimization power, understanding what makes something an agent.
+        children:
+          - id: causal_incentives
+            name: Causal Incentives
+            description: >
+              Causal world models, goal-directedness formalization, causal structure
+              of agency. Deepmind work on causal incentives framework.
+          
+          - id: hierarchical_agency
+            name: Hierarchical agency
+            description: >
+              Subagents and superagents, free-energy equilibria, compositional
+              agency, nested optimization. SFF funded.
+          
+          - id: dovetail
+            name: Dovetail research
+            description: >
+              Formalizing "structure" and "agency", foundational concepts for
+              understanding agents. LTFF funded.
+          
+          - id: boundaries_membranes
+            name: Boundaries / membranes
+            description: >
+              Causal separation, agent boundaries, where one agent ends and another
+              begins. Chris Lakin's work on boundaries.
+          
+          - id: understanding_optimization
+            name: Understanding optimisation
+            description: >
+              Optimization power, gradient hacking, mesa-optimization, what optimization
+              is and how to measure it. CLR/EA funded work.
+      
+      - id: corrigibility
+        name: Corrigibility
+        description: >
+          Theoretical work on corrigibility: allowing shutdown, being correctable,
+          not resisting modification. Formal frameworks for corrigible agents.
+        children:
+          - id: behavior_alignment_theory
+            name: Behavior alignment theory
+            description: >
+              Powerseeking theorems, CAST (Catastrophic Alignment Failure theorems),
+              shutdown problem formalization. Theoretical foundations of alignment.
+      
+      - id: ontology_identification
+        name: Ontology Identification
+        description: >
+          How to identify and align on correct concepts and abstractions for specifying
+          values. The problem: humans think in terms of "happiness" and "justice"; AIs
+          learn alien concepts. How to bridge the gap? Includes ontological crises,
+          concept identification, abstraction alignment. Related to ELK problem. Examples:
+          natural abstractions, translating between human and AI ontologies.
+        children:
+          - id: natural_abstractions
+            name: Natural abstractions
+            description: >
+              Wentworth's natural abstractions hypothesis, natural latents, convergent
+              abstractions that humans and AIs might share. EA funded.
+      
+      - id: understand_cooperation
+        name: Understand cooperation
+        description: >
+          Theoretical work on cooperation, multi-agent dynamics, s-risks, game theory
+          for AI systems.
+        children:
+          - id: pluralistic_alignment
+            name: Pluralistic alignment / collective intelligence
+            description: >
+              Aligning AI with diverse human values, collective intelligence, representing
+              multiple stakeholders. Choi, Lazar work.
+          
+          - id: clr
+            name: Center on Long-Term Risk (CLR)
+            description: >
+              CLR work on s-risks, suffering risks, cooperation theories for reducing
+              worst-case outcomes. Polaris/SFF funded.
+          
+          - id: focal
+            name: FOCAL
+            description: >
+              Game theory for AI systems, Cooperative AI Foundation work, formal
+              frameworks for multi-agent cooperation.
+          
+          - id: alternatives_utility
+            name: Alternatives to utility theory
+            description: >
+              Social choice theory, going beyond preferences, challenging coherence
+              theorems, non-utility-theoretic frameworks for AI goals.
+      
+      - id: infrastructure_agents
+        name: Infrastructure for AI Agents
+        description: >
+          Theoretical work on infrastructure, standards, protocols for AI agent
+          ecosystems. Foundations for multi-agent worlds.
+      
+      - id: shard_theory
+        name: (Descendents of) Shard theory
+        description: >
+          Shard theory and related approaches to understanding how values form
+          during training. Value formation via shards of value.
+      
+      - id: singular_learning
+        name: Singular Learning Theory
+        description: >
+          Singular learning theory applications to alignment. Mathematical framework
+          from algebraic geometry applied to neural network learning.
+      
+      - id: learning_theoretic_agenda
+        name: The Learning-Theoretic Agenda
+        description: >
+          Kosoy's learning-theoretic agenda, infra-Bayesian frameworks, formal
+          epistemology for AI. EA/SFF/ARIA funded.
+      
+      - id: qaci
+        name: Question-answer counterfactual intervals (QACI)
+        description: >
+          QACI framework, HCH-style iterated amplification, epistemic states and
+          counterfactuals. SFF funded work.
+
+  - id: sociotechnical
+    name: Sociotechnical
+    description: >
+      Alignment approaches that combine technical and social elements. Gradual
+      disempowerment, collective alignment, third-wave AI safety.
+    children:
+      - id: gradual_disempowerment
+        name: Gradual Disempowerment
+        description: >
+          Approaches focused on gradually reducing human disempowerment from AI,
+          slowing capability growth, or managing transition carefully.
+      
+      - id: third_wave
+        name: Third wave AI safety
+        description: >
+          Third wave AI safety paradigm focusing on sociotechnical systems,
+          participatory approaches, broader stakeholder inclusion.
+      
+      - id: collective_alignment
+        name: Collective alignment
+        description: >
+          Aligning AI with collective human values, democratic inputs, representing
+          diverse preferences. More implementation-focused than theoretical pluralistic
+          alignment.
+
+  - id: misc_new_agendas
+    name: Misc / for new agenda clustering
+    description: >
+      Research that doesn't fit existing categories but may form new clusters.
+      Items here should be recategorized as patterns emerge.
+    children:
+      - id: misc_multiagents
+        name: Multi-agents (misc)
+        description: >
+          Multi-agent work not fitting other categories (not safety-specific,
+          not cooperation theory, not multi-agent safety).
+      
+      - id: misc_standards
+        name: Making standards and protocols
+        description: >
+          Creating standards, protocols, or infrastructure for AI safety that
+          doesn't fit other categories.
+      
+      - id: misc_doomsayers
+        name: Doomsayers
+        description: >
+          Work focused primarily on arguing for high P(doom), existential risk
+          communication, or pessimistic takes without proposing solutions.
+      
+      - id: misc_tiling
+        name: Tiling agents
+        description: >
+          Work specifically on tiling agents, self-modification while preserving
+          goals, stable self-improvement.
+      
+      - id: misc_org_clusters
+        name: Multi-org research clusters
+        description: >
+          Research programs spanning multiple organizations that form coherent
+          agendas but don't fit above categories. 2024 had 20+ org sections
+          (Apollo, CAIS, FAR, Anthropic, OpenAI, AISIs) distributed across
+          agendas above.
+

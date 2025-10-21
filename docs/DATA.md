@@ -226,7 +226,7 @@ The classification taxonomy defines a hierarchical category structure for classi
 - Load via `load_taxonomy()` from `taxonomy.py`
 - Format for LLM prompts via `format_taxonomy_for_prompt()`
 - Validate category IDs via `taxonomy.validate_category_id(cat_id)`
-- Total: **91 leaf categories** (as of 2025-10-21)
+- Total: **95 leaf categories** (as of 2025-10-21)
 
 ### Validation Rules
 

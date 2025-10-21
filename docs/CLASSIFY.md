@@ -89,7 +89,7 @@ LLM extracts detailed metadata (stored in data JSON):
 
 **Ground truth:** `data/taxonomy.yaml` (see DATA.md for details)
 
-Each classified item must be assigned to exactly ONE leaf category from the taxonomy. The taxonomy has 8 top-level categories with 91 assignable leaf categories:
+Each classified item must be assigned to exactly ONE leaf category from the taxonomy. The taxonomy has 8 top-level categories with 95 assignable leaf categories:
 
 1. **Understand existing models** - Evals, interpretability, learning dynamics, model psychology
 2. **Control the thing** - Alignment, monitoring, control, deception detection
