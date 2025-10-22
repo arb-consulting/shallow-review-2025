@@ -5,8 +5,9 @@ import logging
 import os
 from datetime import datetime
 from pathlib import Path
-from typing import IO, Any, Literal
+from typing import IO, Any, Iterable, Literal
 
+import numpy as np
 import zstandard as zstd
 from rich.console import Console
 from rich.logging import RichHandler
@@ -310,5 +311,122 @@ def preprocess_html(html: str, model: str = "gpt-4") -> tuple[str, dict[str, int
     }
 
     return cleaned_html, stats
+
+
+def one_line_histogram(
+    data: Iterable[float],
+    bins: int = 10,
+    field_width: int = 6,
+    show_min: bool = True,
+    show_max: bool = True,
+    show_mean: bool = True,
+    show_sd: bool = True,
+    show_count: bool = True,
+    show_histogram: bool = True,
+    use_color: bool = True,
+) -> str:
+    """
+    Create a one-line histogram visualization with statistics.
+
+    Args:
+        data: Iterable of numbers to visualize
+        bins: Number of bins for histogram (default: 10)
+        field_width: Minimum width for min/max value fields (default: 6)
+        show_min: Include minimum value (default: True)
+        show_max: Include maximum value (default: True)
+        show_mean: Include mean value (default: True)
+        show_sd: Include standard deviation (default: True)
+        show_count: Include item count (default: True)
+        show_histogram: Include histogram visualization (default: True)
+        use_color: Use rich color markup (default: True)
+
+    Returns:
+        Formatted one-line string with histogram and statistics
+        Format: "<min> <histogram> <max> | mean=<mean> sd=<sd> <n> items"
+        Min is right-aligned, max is left-aligned.
+
+    Example:
+        >>> data = [1.2, 3.4, 2.1, 5.6, 4.3, 2.8, 3.9, 4.1, 2.5, 3.7]
+        >>> print(one_line_histogram(data))
+        1.20 ▁▃▂▅█▄▆▇▃▅ 5.60 | mean=3.36 sd=1.24 10 items
+    """
+    # Convert to numpy array for efficient computation
+    values = np.array(list(data), dtype=float)
+    
+    if len(values) == 0:
+        return "[empty dataset]"
+    
+    # Calculate statistics
+    min_val = float(np.min(values))
+    max_val = float(np.max(values))
+    mean_val = float(np.mean(values))
+    sd_val = float(np.std(values))
+    count = len(values)
+    
+    # Build output parts
+    parts = []
+    
+    # Min value (right-aligned)
+    if show_min:
+        min_str = f"{min_val:{field_width}.2f}"
+        if use_color:
+            min_str = f"[cyan]{min_str}[/cyan]"
+        parts.append(min_str)
+    
+    # Histogram
+    if show_histogram:
+        # Create histogram bins
+        hist_counts, bin_edges = np.histogram(values, bins=bins)
+        
+        # Handle edge case: all values are the same
+        if hist_counts.max() == 0:
+            hist_str = "█" * bins
+        else:
+            # Map counts to block characters
+            block_chars = "▁▂▃▄▅▆▇█"
+            hist_str = ''.join(
+                block_chars[min(int(x / hist_counts.max() * 7), 7)]
+                for x in hist_counts
+            )
+        
+        if use_color:
+            hist_str = f"[yellow]{hist_str}[/yellow]"
+        parts.append(hist_str)
+    
+    # Max value (left-aligned)
+    if show_max:
+        max_str = f"{max_val:<{field_width}.2f}"
+        if use_color:
+            max_str = f"[magenta]{max_str}[/magenta]"
+        parts.append(max_str)
+    
+    # Statistics section
+    stats_parts = []
+    
+    if show_mean:
+        mean_str = f"mean={mean_val:{field_width}.2f}"
+        if use_color:
+            mean_str = f"[green]{mean_str}[/green]"
+        stats_parts.append(mean_str)
+    
+    if show_sd:
+        sd_str = f"sd={sd_val:{field_width}.2f}"
+        if use_color:
+            sd_str = f"[blue]{sd_str}[/blue]"
+        stats_parts.append(sd_str)
+    
+    if show_count:
+        count_str = f"{count} items"
+        if use_color:
+            count_str = f"[dim]{count_str}[/dim]"
+        stats_parts.append(count_str)
+    
+    # Combine parts
+    result = " ".join(parts)
+    
+    if stats_parts:
+        result += " | " + " ".join(stats_parts)
+    
+    return result
 
 

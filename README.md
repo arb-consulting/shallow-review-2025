@@ -40,11 +40,23 @@ ANTHROPIC_API_KEY=your_key_here
 # Run the pipeline
 uv run python pipeline.py --help
 
-# Show version
-uv run python pipeline.py version
-
-# Show configuration
+# Show configuration and database statistics
 uv run python pipeline.py info
+
+# Add URLs to collect or classify phases
+uv run python pipeline.py add urls.txt --phase auto
+
+# Run collection phase
+uv run python pipeline.py collect --limit 100 --workers 4
+
+# Run classification phase
+uv run python pipeline.py classify --limit 100 --workers 4
+
+# Export classified papers grouped by taxonomy
+uv run python pipeline.py export-taxonomy \
+  --min-shallow-review 0.5 \
+  --min-ai-safety 0.5 \
+  --kinds paper_page,arxiv > output.md
 ```
 
 ## Project Structure

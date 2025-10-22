@@ -30,9 +30,11 @@ app = typer.Typer(
 @app.command()
 def info() -> None:
     """Show configuration, paths, and database statistics."""
+    import json
     from rich.table import Table
     from .common import DATA_PATH, PROMPTS_PATH, ROOT_PATH
     from .data_db import data_db_locked
+    from .utils import one_line_histogram
 
     console.print("[bold]Shallow Review Configuration[/bold]\n")
     console.print(f"Version: {__version__}")
@@ -59,6 +61,32 @@ def info() -> None:
         scrape_table.add_row(str(total_scrapes), str(success_scrapes), str(error_scrapes))
     
     console.print(scrape_table)
+    
+    # Scrape distributions
+    with data_db_locked() as db:
+        # Extract JSON metrics
+        scrapes_data = db.execute("SELECT data FROM scrape WHERE data IS NOT NULL AND status_code >= 200 AND status_code < 300").fetchall()
+        if scrapes_data:
+            size_full = [json.loads(row["data"]).get("size_full") for row in scrapes_data if json.loads(row["data"]).get("size_full")]
+            if size_full:
+                console.print(f"  [dim]{'size_full (bytes)':<25}[/dim] {one_line_histogram(size_full, bins=20, field_width=12)}")
+            
+            size_compressed = [json.loads(row["data"]).get("size_compressed") for row in scrapes_data if json.loads(row["data"]).get("size_compressed")]
+            if size_compressed:
+                console.print(f"  [dim]{'size_compressed':<25}[/dim] {one_line_histogram(size_compressed, bins=20, field_width=12)}")
+            
+            tokens_full = [json.loads(row["data"]).get("tokens_full") for row in scrapes_data if json.loads(row["data"]).get("tokens_full")]
+            if tokens_full:
+                console.print(f"  [dim]{'tokens_full':<25}[/dim] {one_line_histogram(tokens_full, bins=20, field_width=12)}")
+            
+            tokens_stripped = [json.loads(row["data"]).get("tokens_stripped") for row in scrapes_data if json.loads(row["data"]).get("tokens_stripped")]
+            if tokens_stripped:
+                console.print(f"  [dim]{'tokens_stripped':<25}[/dim] {one_line_histogram(tokens_stripped, bins=20, field_width=12)}")
+            
+            scrape_duration = [json.loads(row["data"]).get("scrape_duration") for row in scrapes_data if json.loads(row["data"]).get("scrape_duration")]
+            if scrape_duration:
+                console.print(f"  [dim]{'scrape_duration':<25}[/dim] {one_line_histogram(scrape_duration, bins=20, field_width=12)}")
+    
     console.print()
 
     # Collect table stats
@@ -85,6 +113,38 @@ def info() -> None:
         )
     
     console.print(collect_table)
+    
+    # Collect distributions
+    with data_db_locked() as db:
+        collect_data = db.execute("SELECT data FROM collect WHERE status = 'done' AND data IS NOT NULL").fetchall()
+        if collect_data:
+            tokens_full = [json.loads(row["data"]).get("tokens_full") for row in collect_data if json.loads(row["data"]).get("tokens_full")]
+            if tokens_full:
+                console.print(f"  [dim]{'tokens_full':<25}[/dim] {one_line_histogram(tokens_full, bins=20, field_width=12)}")
+            
+            tokens_stripped = [json.loads(row["data"]).get("tokens_stripped") for row in collect_data if json.loads(row["data"]).get("tokens_stripped")]
+            if tokens_stripped:
+                console.print(f"  [dim]{'tokens_stripped':<25}[/dim] {one_line_histogram(tokens_stripped, bins=20, field_width=12)}")
+            
+            collect_duration = [json.loads(row["data"]).get("collect_duration") for row in collect_data if json.loads(row["data"]).get("collect_duration")]
+            if collect_duration:
+                console.print(f"  [dim]{'collect_duration':<25}[/dim] {one_line_histogram(collect_duration, bins=20, field_width=12)}")
+            
+            quality_scores = [json.loads(row["data"]).get("collection_quality_score") for row in collect_data if json.loads(row["data"]).get("collection_quality_score")]
+            if quality_scores:
+                console.print(f"  [dim]{'quality_score':<25}[/dim] {one_line_histogram(quality_scores, bins=20, field_width=12)}")
+            
+            # Extract all link relevancy scores
+            all_relevancy = []
+            for row in collect_data:
+                data_obj = json.loads(row["data"])
+                links = data_obj.get("links", [])
+                for link in links:
+                    if isinstance(link, dict) and "ai_safety_relevancy" in link:
+                        all_relevancy.append(link["ai_safety_relevancy"])
+            if all_relevancy:
+                console.print(f"  [dim]{'link_relevancy':<25}[/dim] {one_line_histogram(all_relevancy, bins=20, field_width=12)}")
+    
     console.print()
 
     # Classify table stats
@@ -111,6 +171,36 @@ def info() -> None:
         )
     
     console.print(classify_table)
+    
+    # Classify distributions
+    with data_db_locked() as db:
+        # Relevance scores from columns
+        ai_safety_relevance = [row["ai_safety_relevance"] for row in db.execute("SELECT ai_safety_relevance FROM classify WHERE ai_safety_relevance IS NOT NULL").fetchall()]
+        if ai_safety_relevance:
+            console.print(f"  [dim]{'ai_safety_relevance':<25}[/dim] {one_line_histogram(ai_safety_relevance, bins=20, field_width=12)}")
+        
+        shallow_review_inclusion = [row["shallow_review_inclusion"] for row in db.execute("SELECT shallow_review_inclusion FROM classify WHERE shallow_review_inclusion IS NOT NULL").fetchall()]
+        if shallow_review_inclusion:
+            console.print(f"  [dim]{'shallow_review_inclusion':<25}[/dim] {one_line_histogram(shallow_review_inclusion, bins=20, field_width=12)}")
+        
+        collect_relevancy = [row["collect_relevancy"] for row in db.execute("SELECT collect_relevancy FROM classify WHERE collect_relevancy IS NOT NULL").fetchall()]
+        if collect_relevancy:
+            console.print(f"  [dim]{'collect_relevancy':<25}[/dim] {one_line_histogram(collect_relevancy, bins=20, field_width=12)}")
+        
+        # Extract JSON metrics
+        classify_data = db.execute("SELECT data FROM classify WHERE status = 'done' AND data IS NOT NULL").fetchall()
+        if classify_data:
+            tokens_full = [json.loads(row["data"]).get("tokens_full") for row in classify_data if json.loads(row["data"]).get("tokens_full")]
+            if tokens_full:
+                console.print(f"  [dim]{'tokens_full':<25}[/dim] {one_line_histogram(tokens_full, bins=20, field_width=12)}")
+            
+            tokens_stripped = [json.loads(row["data"]).get("tokens_stripped") for row in classify_data if json.loads(row["data"]).get("tokens_stripped")]
+            if tokens_stripped:
+                console.print(f"  [dim]{'tokens_stripped':<25}[/dim] {one_line_histogram(tokens_stripped, bins=20, field_width=12)}")
+            
+            classify_duration = [json.loads(row["data"]).get("classify_duration") for row in classify_data if json.loads(row["data"]).get("classify_duration")]
+            if classify_duration:
+                console.print(f"  [dim]{'classify_duration':<25}[/dim] {one_line_histogram(classify_duration, bins=20, field_width=12)}")
 
 
 @app.command()
@@ -502,6 +592,219 @@ def classify(
 
         console.print()
         stats.print_summary()
+
+
+@app.command()
+def export_taxonomy(
+    min_shallow_review: float = typer.Option(0.1, help="Minimum shallow_review_inclusion score"),
+    min_ai_safety: float = typer.Option(0.1, help="Minimum ai_safety_relevance score"),
+    min_collect: float = typer.Option(0.1, help="Minimum collect_relevancy score"),
+    kinds: str = typer.Option("", help="Comma-separated list of accepted kinds (empty = all)"),
+) -> None:
+    """Export taxonomy with classified papers as markdown to stdout."""
+    import json
+    from collections import defaultdict
+
+    from .data_db import data_db_locked
+    from .taxonomy import load_taxonomy
+
+    # Load taxonomy
+    taxonomy = load_taxonomy()
+    
+    # Parse kinds filter
+    kinds_filter = set()
+    if kinds:
+        kinds_filter = {k.strip() for k in kinds.split(",") if k.strip()}
+
+    # Query classified items
+    with data_db_locked() as db:
+        query = """
+            SELECT url, ai_safety_relevance, shallow_review_inclusion, 
+                   collect_relevancy, kind, data
+            FROM classify
+            WHERE status = 'done'
+              AND ai_safety_relevance >= ?
+              AND shallow_review_inclusion >= ?
+              AND (collect_relevancy >= ? OR collect_relevancy IS NULL)
+        """
+        params = [min_ai_safety, min_shallow_review, min_collect]
+        
+        if kinds_filter:
+            placeholders = ",".join("?" * len(kinds_filter))
+            query += f" AND kind IN ({placeholders})"
+            params.extend(kinds_filter)
+        
+        cursor = db.execute(query, params)
+        rows = cursor.fetchall()
+
+    if not rows:
+        console.print("[yellow]No items found matching filters[/yellow]", file=sys.stderr)
+        return
+
+    # Parse data JSON and group by top category
+    items_by_category = defaultdict(list)
+    
+    for row in rows:
+        try:
+            data = json.loads(row["data"])
+            
+            # Get top category ID
+            categories = data.get("categories", [])
+            if not categories:
+                console.print(f"[yellow]Warning: Item {row['url']} has no categories, skipping[/yellow]", file=sys.stderr)
+                continue
+            
+            top_category_id = categories[0]["id"]
+            
+            # Build item dict with all needed fields
+            item = {
+                "url": row["url"],
+                "title": data.get("title", "Untitled"),
+                "authors": data.get("authors", []),
+                "organization": data.get("organization", ""),
+                "published_date": data.get("published_date", ""),
+                "venue": data.get("venue", ""),
+                "kind": row["kind"],
+                "ai_safety_relevance": row["ai_safety_relevance"],
+                "shallow_review_inclusion": row["shallow_review_inclusion"],
+                "summary": data.get("summary", ""),
+                "key_points": data.get("key_points", []),
+            }
+            
+            items_by_category[top_category_id].append(item)
+            
+        except (json.JSONDecodeError, KeyError) as e:
+            console.print(f"[yellow]Warning: Failed to parse data for {row['url']}: {e}[/yellow]", file=sys.stderr)
+            continue
+
+    # Sort items within each category by shallow_review_inclusion (descending)
+    for cat_id in items_by_category:
+        items_by_category[cat_id].sort(key=lambda x: x["shallow_review_inclusion"], reverse=True)
+
+    # Generate markdown output
+    output_lines = []
+    output_lines.append("# AI Safety Shallow Review")
+    output_lines.append("")
+    output_lines.append(f"**Filters:** shallow_review≥{min_shallow_review}, ai_safety≥{min_ai_safety}, collect≥{min_collect}")
+    if kinds_filter:
+        output_lines.append(f"**Kinds:** {', '.join(sorted(kinds_filter))}")
+    output_lines.append("")
+    output_lines.append(f"**Total items:** {sum(len(items) for items in items_by_category.values())}")
+    output_lines.append("")
+    output_lines.append("---")
+    output_lines.append("")
+
+    # Walk taxonomy tree and output sections
+    def output_category(cat, level=1):
+        """Recursively output category sections."""
+        # Check if this category or any child has items
+        has_items = False
+        items_in_this_cat = []
+        
+        if cat.is_leaf:
+            items_in_this_cat = items_by_category.get(cat.id, [])
+            has_items = len(items_in_this_cat) > 0
+        else:
+            # Check children recursively
+            for child in cat.children:
+                if child.is_leaf:
+                    if cat.id in items_by_category or child.id in items_by_category:
+                        has_items = True
+                        break
+                else:
+                    # Recursive check (simplified - we'll just check all leaf descendants)
+                    leaf_ids = child.get_all_leaf_ids()
+                    if any(lid in items_by_category for lid in leaf_ids):
+                        has_items = True
+                        break
+        
+        # Skip categories with no items
+        if not has_items and not cat.is_leaf:
+            # Check all descendants
+            all_leaf_ids = cat.get_all_leaf_ids()
+            has_items = any(lid in items_by_category for lid in all_leaf_ids)
+            if not has_items:
+                return
+        
+        # Output section header with ID
+        header_prefix = "#" * (level + 1)
+        output_lines.append(f"{header_prefix} {cat.name} [cat:{cat.id}]")
+        output_lines.append("")
+        
+        # Output description
+        output_lines.append(cat.description.strip())
+        output_lines.append("")
+        
+        # If leaf category, output items
+        if cat.is_leaf and items_in_this_cat:
+            for item in items_in_this_cat:
+                # Format: **Title**, *Authors*, Date, Venue [stats] Summary • Key points
+                
+                # Generate a short hash from URL for ID
+                import hashlib
+                url_hash = hashlib.md5(item["url"].encode()).hexdigest()[:8]
+                
+                # Title (linked)
+                title_part = f"**[{item['title']}]({item['url']})**"
+                
+                # Authors (italicized)
+                authors_str = ", ".join(item["authors"][:3])  # First 3 authors
+                if len(item["authors"]) > 3:
+                    authors_str += " et al."
+                authors_part = f"*{authors_str}*" if authors_str else ""
+                
+                # Organization (if no authors)
+                if not authors_str and item["organization"]:
+                    authors_part = f"*{item['organization']}*"
+                
+                # Date
+                date_part = item["published_date"] if item["published_date"] else ""
+                
+                # Venue
+                venue_part = item["venue"] if item["venue"] else ""
+                
+                # Stats in brackets
+                stats_part = f"[{item['kind']}, ais={item['ai_safety_relevance']:.2f}, sr={item['shallow_review_inclusion']:.2f}, item:{url_hash}]"
+                
+                # Summary
+                summary = item["summary"].replace("\n", " ").strip()
+                
+                # Key points
+                key_points_str = ""
+                if item["key_points"]:
+                    # Join first 3 key points
+                    kp_list = item["key_points"][:3]
+                    key_points_str = " • ".join(kp.replace("\n", " ").strip() for kp in kp_list)
+                
+                # Assemble line: **Title**, *Authors*, Date, Venue [stats] Summary • Key points
+                parts = [title_part]
+                if authors_part:
+                    parts.append(authors_part)
+                if date_part:
+                    parts.append(date_part)
+                if venue_part:
+                    parts.append(venue_part)
+                parts.append(stats_part)
+                if summary:
+                    parts.append(summary)
+                if key_points_str:
+                    parts.append(key_points_str)
+                
+                output_lines.append(", ".join(parts))
+                output_lines.append("")
+        
+        # Recurse to children (for non-leaf categories)
+        if not cat.is_leaf:
+            for child in cat.children:
+                output_category(child, level + 1)
+    
+    # Output all top-level categories
+    for top_cat in taxonomy.taxonomy:
+        output_category(top_cat, level=1)
+
+    # Write to stdout (not console, which adds Rich formatting)
+    for line in output_lines:
+        print(line)
 
 
 def main() -> None:
