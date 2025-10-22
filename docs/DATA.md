@@ -17,6 +17,8 @@ data/
 
 All tables stored in `data/data.db` with **NO foreign key constraints**.
 
+**Note on column order:** Schemas below show the canonical column order for tables created from scratch. Databases migrated from earlier versions may have different column orders (with migrated columns at the end) due to SQLite's `ALTER TABLE` behavior. This is functionally equivalent - SQLite doesn't care about column order, and all queries use column names.
+
 ### scrape table
 
 Stores metadata for scraped web pages.

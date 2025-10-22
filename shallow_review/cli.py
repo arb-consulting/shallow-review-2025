@@ -642,6 +642,8 @@ def export_taxonomy(
         return
 
     # Parse data JSON and group by top category
+    from datetime import date as date_type
+    
     items_by_category = defaultdict(list)
     
     for row in rows:
@@ -663,7 +665,8 @@ def export_taxonomy(
                 "title": data.get("title", "Untitled"),
                 "authors": data.get("authors", []),
                 "organization": data.get("organization", ""),
-                "published_date": data.get("published_date", ""),
+                "date": data.get("date", ""),
+                "published_year": data.get("published_year"),
                 "venue": data.get("venue", ""),
                 "kind": row["kind"],
                 "ai_safety_relevance": row["ai_safety_relevance"],
@@ -672,7 +675,31 @@ def export_taxonomy(
                 "key_points": data.get("key_points", []),
             }
             
-            items_by_category[top_category_id].append(item)
+            # Filter by date: only include items from 2024-11-01 onwards
+            include_item = True
+            if item["date"]:
+                # Full date available - check if >= 2024-11-01
+                try:
+                    item_date = date_type.fromisoformat(item["date"])
+                    cutoff_date = date_type(2024, 11, 1)
+                    if item_date < cutoff_date:
+                        include_item = False
+                except (ValueError, TypeError):
+                    # Invalid date format - include by default
+                    pass
+            elif item["published_year"]:
+                # Only year available - accept 2024 and 2025
+                try:
+                    year = int(item["published_year"])
+                    if year < 2024:
+                        include_item = False
+                except (ValueError, TypeError):
+                    # Invalid year - include by default
+                    pass
+            # If no date info, include_item stays True (include by default)
+            
+            if include_item:
+                items_by_category[top_category_id].append(item)
             
         except (json.JSONDecodeError, KeyError) as e:
             console.print(f"[yellow]Warning: Failed to parse data for {row['url']}: {e}[/yellow]", file=sys.stderr)
@@ -683,8 +710,12 @@ def export_taxonomy(
         items_by_category[cat_id].sort(key=lambda x: x["shallow_review_inclusion"], reverse=True)
 
     # Generate markdown output
+    from datetime import datetime
+    
     output_lines = []
     output_lines.append("# AI Safety Shallow Review")
+    output_lines.append("")
+    output_lines.append(f"**Generated:** {datetime.now().strftime('%Y-%m-%d')}")
     output_lines.append("")
     output_lines.append(f"**Filters:** shallow_review≥{min_shallow_review}, ai_safety≥{min_ai_safety}, collect≥{min_collect}")
     if kinds_filter:
@@ -739,7 +770,7 @@ def export_taxonomy(
         # If leaf category, output items
         if cat.is_leaf and items_in_this_cat:
             for item in items_in_this_cat:
-                # Format: **Title**, *Authors*, Date, Venue [stats] Summary • Key points
+                # Format: - **Title**, *Authors*, Date, Venue [stats] Summary • Key points
                 
                 # Use url_hash_short from database
                 url_hash_short = item["url_hash_short"] or "unknown"
@@ -757,14 +788,18 @@ def export_taxonomy(
                 if not authors_str and item["organization"]:
                     authors_part = f"*{item['organization']}*"
                 
-                # Date
-                date_part = item["published_date"] if item["published_date"] else ""
+                # Date/Year - prefer full date, fallback to year
+                date_part = ""
+                if item.get("date"):
+                    date_part = item["date"]
+                elif item.get("published_year"):
+                    date_part = str(item["published_year"])
                 
                 # Venue
                 venue_part = item["venue"] if item["venue"] else ""
                 
                 # Stats in brackets
-                stats_part = f"[{item['kind']}, ais={item['ai_safety_relevance']:.2f}, sr={item['shallow_review_inclusion']:.2f}, item:{url_hash_short}]"
+                stats_part = f"[{item['kind']}, ais={item['ai_safety_relevance']:.2f}, **sr={item['shallow_review_inclusion']:.2f}**, item:{url_hash_short}]"
                 
                 # Summary
                 summary = item["summary"].replace("\n", " ").strip()
@@ -776,7 +811,7 @@ def export_taxonomy(
                     kp_list = item["key_points"][:3]
                     key_points_str = " • ".join(kp.replace("\n", " ").strip() for kp in kp_list)
                 
-                # Assemble line: **Title**, *Authors*, Date, Venue [stats] Summary • Key points
+                # Assemble line: - **Title**, *Authors*, Date, Venue [stats] Summary • Key points
                 parts = [title_part]
                 if authors_part:
                     parts.append(authors_part)
@@ -790,8 +825,11 @@ def export_taxonomy(
                 if key_points_str:
                     parts.append(key_points_str)
                 
-                output_lines.append(", ".join(parts))
-                output_lines.append("")
+                # Add as list item
+                output_lines.append(f"- {', '.join(parts)}")
+            
+            # Add blank line after list
+            output_lines.append("")
         
         # Recurse to children (for non-leaf categories)
         if not cat.is_leaf:
