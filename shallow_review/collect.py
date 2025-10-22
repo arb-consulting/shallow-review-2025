@@ -56,16 +56,20 @@ def add_collect_source(url: str, source: str | None = None) -> bool:
     Returns:
         True if added (new), False if already exists
     """
+    import hashlib
+    
     timestamp = datetime.now(timezone.utc).isoformat()
+    url_hash = hashlib.sha256(url.encode("utf-8")).hexdigest()
+    url_hash_short = url_hash[:8]
 
     try:
         with data_db_locked() as db:
             db.execute(
                 """
-                INSERT INTO collect (url, status, source, added_at)
-                VALUES (?, ?, ?, ?)
+                INSERT INTO collect (url, url_hash, url_hash_short, status, source, added_at)
+                VALUES (?, ?, ?, ?, ?, ?)
                 """,
-                (url, CollectStatus.NEW.value, source, timestamp),
+                (url, url_hash, url_hash_short, CollectStatus.NEW.value, source, timestamp),
             )
 
         # Update stats

@@ -33,6 +33,7 @@ def _create_tables(data_db: sqlite3.Connection, db_path: str) -> None:
         """CREATE TABLE IF NOT EXISTS scrape (
             url TEXT PRIMARY KEY,
             url_hash TEXT NOT NULL UNIQUE,
+            url_hash_short TEXT,
             kind TEXT NOT NULL,
             timestamp TEXT NOT NULL,
             status_code INTEGER,
@@ -40,11 +41,14 @@ def _create_tables(data_db: sqlite3.Connection, db_path: str) -> None:
             data JSON
         )""",
         "CREATE INDEX IF NOT EXISTS idx_scrape_url_hash ON scrape(url_hash)",
+        "CREATE INDEX IF NOT EXISTS idx_scrape_url_hash_short ON scrape(url_hash_short)",
         "CREATE INDEX IF NOT EXISTS idx_scrape_kind ON scrape(kind)",
         "CREATE INDEX IF NOT EXISTS idx_scrape_timestamp ON scrape(timestamp)",
         # Collect table
         """CREATE TABLE IF NOT EXISTS collect (
             url TEXT PRIMARY KEY,
+            url_hash TEXT,
+            url_hash_short TEXT,
             status TEXT NOT NULL,
             source TEXT,
             added_at TEXT NOT NULL,
@@ -55,9 +59,13 @@ def _create_tables(data_db: sqlite3.Connection, db_path: str) -> None:
         )""",
         "CREATE INDEX IF NOT EXISTS idx_collect_status ON collect(status)",
         "CREATE INDEX IF NOT EXISTS idx_collect_added_at ON collect(added_at)",
+        "CREATE INDEX IF NOT EXISTS idx_collect_url_hash ON collect(url_hash)",
+        "CREATE INDEX IF NOT EXISTS idx_collect_url_hash_short ON collect(url_hash_short)",
         # Classify table
         """CREATE TABLE IF NOT EXISTS classify (
             url TEXT PRIMARY KEY,
+            url_hash TEXT,
+            url_hash_short TEXT,
             status TEXT NOT NULL,
             source TEXT NOT NULL,
             source_url TEXT,
@@ -78,6 +86,8 @@ def _create_tables(data_db: sqlite3.Connection, db_path: str) -> None:
         "CREATE INDEX IF NOT EXISTS idx_classify_ai_safety_relevance ON classify(ai_safety_relevance)",
         "CREATE INDEX IF NOT EXISTS idx_classify_shallow_review_inclusion ON classify(shallow_review_inclusion)",
         "CREATE INDEX IF NOT EXISTS idx_classify_kind ON classify(kind)",
+        "CREATE INDEX IF NOT EXISTS idx_classify_url_hash ON classify(url_hash)",
+        "CREATE INDEX IF NOT EXISTS idx_classify_url_hash_short ON classify(url_hash_short)",
     ]
 
     for statement in statements:

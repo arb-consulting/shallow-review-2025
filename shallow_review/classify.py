@@ -71,17 +71,21 @@ def add_classify_candidate(
     Returns:
         True if added (new), False if already exists
     """
+    import hashlib
+    
     timestamp = datetime.now(timezone.utc).isoformat()
+    url_hash = hashlib.sha256(url.encode("utf-8")).hexdigest()
+    url_hash_short = url_hash[:8]
 
     try:
         with data_db_locked() as db:
             db.execute(
                 """
                 INSERT INTO classify 
-                (url, status, source, source_url, collect_relevancy, added_at)
-                VALUES (?, ?, ?, ?, ?, ?)
+                (url, url_hash, url_hash_short, status, source, source_url, collect_relevancy, added_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 """,
-                (url, ClassifyStatus.NEW.value, source, source_url, collect_relevancy, timestamp),
+                (url, url_hash, url_hash_short, ClassifyStatus.NEW.value, source, source_url, collect_relevancy, timestamp),
             )
 
         # Update stats

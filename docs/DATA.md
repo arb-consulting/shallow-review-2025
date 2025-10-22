@@ -25,6 +25,7 @@ Stores metadata for scraped web pages.
 CREATE TABLE scrape (
     url TEXT PRIMARY KEY,
     url_hash TEXT NOT NULL UNIQUE,
+    url_hash_short TEXT,
     kind TEXT NOT NULL,
     timestamp TEXT NOT NULL,
     status_code INTEGER,
@@ -33,13 +34,15 @@ CREATE TABLE scrape (
 );
 
 CREATE INDEX idx_scrape_url_hash ON scrape(url_hash);
+CREATE INDEX idx_scrape_url_hash_short ON scrape(url_hash_short);
 CREATE INDEX idx_scrape_kind ON scrape(kind);
 CREATE INDEX idx_scrape_timestamp ON scrape(timestamp);
 ```
 
 **Fields:**
 - `url`: Original URL (primary key - unique)
-- `url_hash`: SHA256(url) for file naming
+- `url_hash`: SHA256(url) - full 64-char hex for file naming
+- `url_hash_short`: First 8 chars of SHA256(url) - for human-readable IDs
 - `kind`: Context/type of scrape (e.g., "collect", "classify")
 - `timestamp`: ISO 8601 UTC timestamp with timezone
 - `status_code`: HTTP status code (if successful)
@@ -76,6 +79,8 @@ Tracks source pages being collected from (conferences, newsletters, etc.).
 ```sql
 CREATE TABLE collect (
     url TEXT PRIMARY KEY,
+    url_hash TEXT,
+    url_hash_short TEXT,
     status TEXT NOT NULL,
     source TEXT,
     added_at TEXT NOT NULL,
@@ -87,10 +92,14 @@ CREATE TABLE collect (
 
 CREATE INDEX idx_collect_status ON collect(status);
 CREATE INDEX idx_collect_added_at ON collect(added_at);
+CREATE INDEX idx_collect_url_hash ON collect(url_hash);
+CREATE INDEX idx_collect_url_hash_short ON collect(url_hash_short);
 ```
 
 **Fields:**
 - `url`: Source page URL (primary key)
+- `url_hash`: SHA256(url) - full 64-char hex
+- `url_hash_short`: First 8 chars of SHA256(url) - for human-readable IDs
 - `status`: Processing state (new → scrape_error/extract_error/done)
 - `source`: Optional user-supplied label for tracking
 - `added_at`: ISO 8601 UTC timestamp when added
@@ -132,6 +141,8 @@ Tracks URLs to classify (for AI safety/alignment relevance).
 ```sql
 CREATE TABLE classify (
     url TEXT PRIMARY KEY,
+    url_hash TEXT,
+    url_hash_short TEXT,
     status TEXT NOT NULL,
     source TEXT NOT NULL,
     source_url TEXT,
@@ -153,10 +164,14 @@ CREATE INDEX idx_classify_added_at ON classify(added_at);
 CREATE INDEX idx_classify_ai_safety_relevance ON classify(ai_safety_relevance);
 CREATE INDEX idx_classify_shallow_review_inclusion ON classify(shallow_review_inclusion);
 CREATE INDEX idx_classify_kind ON classify(kind);
+CREATE INDEX idx_classify_url_hash ON classify(url_hash);
+CREATE INDEX idx_classify_url_hash_short ON classify(url_hash_short);
 ```
 
 **Fields:**
 - `url`: URL to classify (primary key)
+- `url_hash`: SHA256(url) - full 64-char hex
+- `url_hash_short`: First 8 chars of SHA256(url) - for human-readable IDs
 - `status`: Processing state (new → scrape_error/classify_error/done)
 - `source`: "collect" or user-supplied label
 - `source_url`: URL of collect source page (if from collect, **not a foreign key**)

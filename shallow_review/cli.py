@@ -619,7 +619,7 @@ def export_taxonomy(
     # Query classified items
     with data_db_locked() as db:
         query = """
-            SELECT url, ai_safety_relevance, shallow_review_inclusion, 
+            SELECT url, url_hash_short, ai_safety_relevance, shallow_review_inclusion, 
                    collect_relevancy, kind, data
             FROM classify
             WHERE status = 'done'
@@ -659,6 +659,7 @@ def export_taxonomy(
             # Build item dict with all needed fields
             item = {
                 "url": row["url"],
+                "url_hash_short": row["url_hash_short"],
                 "title": data.get("title", "Untitled"),
                 "authors": data.get("authors", []),
                 "organization": data.get("organization", ""),
@@ -740,9 +741,8 @@ def export_taxonomy(
             for item in items_in_this_cat:
                 # Format: **Title**, *Authors*, Date, Venue [stats] Summary • Key points
                 
-                # Generate a short hash from URL for ID
-                import hashlib
-                url_hash = hashlib.md5(item["url"].encode()).hexdigest()[:8]
+                # Use url_hash_short from database
+                url_hash_short = item["url_hash_short"] or "unknown"
                 
                 # Title (linked)
                 title_part = f"**[{item['title']}]({item['url']})**"
@@ -764,7 +764,7 @@ def export_taxonomy(
                 venue_part = item["venue"] if item["venue"] else ""
                 
                 # Stats in brackets
-                stats_part = f"[{item['kind']}, ais={item['ai_safety_relevance']:.2f}, sr={item['shallow_review_inclusion']:.2f}, item:{url_hash}]"
+                stats_part = f"[{item['kind']}, ais={item['ai_safety_relevance']:.2f}, sr={item['shallow_review_inclusion']:.2f}, item:{url_hash_short}]"
                 
                 # Summary
                 summary = item["summary"].replace("\n", " ").strip()

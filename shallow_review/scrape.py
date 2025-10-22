@@ -383,10 +383,10 @@ def compute_scrape(
                     db.execute(
                         """
                         INSERT OR REPLACE INTO scrape 
-                        (url, url_hash, kind, timestamp, status_code, error, data)
-                        VALUES (?, ?, ?, ?, ?, NULL, ?)
+                        (url, url_hash, url_hash_short, kind, timestamp, status_code, error, data)
+                        VALUES (?, ?, ?, ?, ?, ?, NULL, ?)
                         """,
-                        (url, url_hash, kind, timestamp, status_code, data_json),
+                        (url, url_hash, url_hash[:8], kind, timestamp, status_code, data_json),
                     )
                     db.commit()
                 except Exception:
@@ -419,10 +419,10 @@ def compute_scrape(
             db.execute(
                 """
                 INSERT OR REPLACE INTO scrape 
-                (url, url_hash, kind, timestamp, status_code, error)
-                VALUES (?, ?, ?, ?, NULL, ?)
+                (url, url_hash, url_hash_short, kind, timestamp, status_code, error)
+                VALUES (?, ?, ?, ?, ?, NULL, ?)
                 """,
-                (url, url_hash, kind, timestamp, error_msg),
+                (url, url_hash, url_hash[:8], kind, timestamp, error_msg),
             )
 
         # Update stats

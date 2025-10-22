@@ -2,6 +2,31 @@
 
 This log documents major problems, solutions, lessons learned, and design decisions during development.
 
+## 2025-10-22: URL Hash Standardization
+
+**What was done:**
+- Added `url_hash` (full SHA256) and `url_hash_short` (8 chars) to all database tables
+- Migrated existing database with 892 scrapes, 189 collect, and 1657 classify entries
+- Updated all INSERT statements to populate hash columns
+- Updated `export-taxonomy` CLI command to use database hashes instead of computing
+
+**Changes:**
+- **scrape**: Added `url_hash_short` column (already had full `url_hash`)
+- **collect**: Added `url_hash` and `url_hash_short` columns
+- **classify**: Added `url_hash` and `url_hash_short` columns
+- All three tables now have indexes on both hash columns
+
+**Rationale:**
+- Short hash (8 chars) provides human-readable IDs for citation/tracking
+- Full hash enables efficient lookups and deduplication
+- Computing once at insert time avoids repeated computation
+- Consistent across all tables for referencing items
+
+**Implementation notes:**
+- Migration script computed hashes from URL column (not dependent on scrape table)
+- Hash format: SHA256(url).hexdigest(), short = first 8 chars
+- Used in markdown export as `[item:5ad3d4e2]` for robust parsing after manual edits
+
 ## 2025-10-20: Initial Infrastructure Setup
 
 **What was done:**
