@@ -39,7 +39,7 @@ classify_content:
     
     **Relevant work includes:**
     - Technical AI alignment and safety research
-    - Interpretability and understanding of AI systems
+    - Interpretability and understanding of AI systems  
     - AI control, monitoring, and evaluation methods
     - Multi-agent AI safety and coordination
     - Formal methods, verification, and provable safety
@@ -52,6 +52,8 @@ classify_content:
     # Common Classification Pitfalls
     
     **Forecasting vs evals:** Forecasting is NOT evaluation (evals test current models), BUT technical capability forecasting that develops statistical models, analyzes eval/benchmark trends, or otherwise contributes technical methodology gets MODERATE-HIGH inclusion (0.50-0.75) as it significantly informs technical research. Pure timelines speculation gets low inclusion.
+    
+    **Capabilities vs safety:** General capabilities work (agent frameworks, optimization tools, coding benchmarks, formal verification of general code) without explicit safety connection gets LOW safety relevance (<0.4) and LOW inclusion (<0.4). Even if tangentially useful for safety research, judge primarily by whether safety is the focus. Long-horizon reasoning/planning is NOT automatically safety-relevant unless connected to autonomous agent deployment, dangerous capabilities, or safety properties.
     
     **System cards vs research:** System cards document evaluations but aren't the research itself. Score as news/documentation (SR <0.4) unless exceptionally detailed with novel methodology.
     
@@ -72,8 +74,8 @@ classify_content:
     - **0.9-1.0**: Core safety work directly addressing alignment challenges, X-risk, or control problems
     - **0.7-0.9**: Clearly safety-focused work with direct implications for AI safety
     - **0.5-0.7**: Work with safety connections or implications for understanding AI behavior
-    - **0.3-0.5**: General AI research with some safety relevance
-    - **0.1-0.3**: Mainstream AI/ML with minimal safety connection
+    - **0.3-0.5**: General AI research with some safety relevance or tangential connections
+    - **0.1-0.3**: Mainstream AI/ML with minimal safety connection (general capabilities, optimization tools, coding benchmarks without safety framing)
     - **0.0-0.1**: No connection to AI safety/alignment
     
     ## Shallow Review Inclusion Suitability (0.0-1.0)
@@ -87,6 +89,7 @@ classify_content:
     - ✅ Technical critiques with substantive analysis
     - ✅ Foundational theory work on interpretability limits, computational properties, etc.
     - ❌ News/commentary about research (unless unclear if we have the original)
+    - ❌ General capabilities work: agent frameworks, optimization tools, coding benchmarks, formal verification of general code without safety focus
     - ❌ Position papers discussing approaches without technical depth (governance-oriented)
     - ❌ Opinion pieces or think pieces without technical contribution
     - ❌ Summaries or reviews without novel insights
@@ -128,7 +131,7 @@ classify_content:
     - **shallow_review_inclusion**: Score 0.0-1.0 for technical contribution suitable for Shallow Review
     - **categories**: List of 1-3 best-fitting leaf categories with scores
       - Each category is an object: `{"id": "leaf_category_id", "score": 0.0-1.0}`
-      - Always provide at least 1 category (the best fit)
+    - Always provide at least 1 category (the best fit)
       - Provide 2-3 if work genuinely spans multiple areas
       - Scores can sum to >1.0 (independent fit scores, not probabilities)
       - **MUST use leaf category IDs from taxonomy** (those with IDs shown)
@@ -327,6 +330,8 @@ classify_content:
     **Remember:**
     - Use only leaf category IDs from the provided taxonomy
     - Keep summary to 1-2 sentences max, key_result to 1 sentence max - be concise
+    - General capabilities work without safety focus gets LOW scores (<0.4 for both ais and sr)
+    - Autonomy evals require BOTH: autonomous agents AND safety relevance (not just long-horizon or coding)
     - Technical critiques from a technical standpoint get HIGH inclusion (>0.7) if substantive
     - Foundational theory work (interpretability limits, computational properties) gets MODERATE-HIGH inclusion (0.5-0.7) with moderate confidence
     - Position papers: distinguish technical depth vs governance/policy discussion - latter gets LOW inclusion (0.3-0.5)

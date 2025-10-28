@@ -105,7 +105,7 @@ class RunCollectConfig(BaseModel):
     model_config = {"frozen": True}
 
     limit: int = Field(default=100, ge=1, description="Max sources to process")
-    workers: int = Field(default=4, ge=1, le=32, description="Number of worker threads")
+    workers: int = Field(default=4, ge=1, le=128, description="Number of worker threads")
     relevancy_threshold: float = Field(
         default=0.3, ge=0.0, le=1.0, description="Minimum relevancy to extract links"
     )
@@ -121,7 +121,7 @@ class RunClassifyConfig(BaseModel):
     model_config = {"frozen": True}
 
     limit: int = Field(default=100, ge=1, description="Max candidates to process")
-    workers: int = Field(default=4, ge=1, le=32, description="Number of worker threads")
+    workers: int = Field(default=4, ge=1, le=128, description="Number of worker threads")
     min_relevancy: float = Field(
         default=0.0,
         ge=0.0,

@@ -35,11 +35,14 @@ taxonomy:
           - id: evals_autonomy
             name: Autonomy
             description: >
-              Evaluations of autonomous capabilities: self-directed task completion, tool use,
-              real-world interactions. Includes agent benchmarks, developer productivity tests,
-              web navigation, game playing, and other autonomous behavior assessments.
-              Examples: METR autonomy evals, Vending-Bench, Pokemon Red, SWE-bench, RE-Bench,
-              AI R&D capability evaluations, AgentHarm.
+              Evaluations of autonomous agent capabilities in safety-relevant contexts: self-directed
+              task completion with minimal human oversight, tool use in deployment scenarios, real-world
+              interactions with potential for harm. Focus on AUTONOMOUS AGENTS (not just long-horizon
+              reasoning) AND safety relevance (dangerous capabilities, deployment risks, real-world
+              impact). General coding benchmarks or optimization contests without safety context do NOT
+              fit here. Examples: METR autonomy evals (deployment scenarios), AgentHarm (harmful
+              autonomous behaviors), AI R&D capability evals (recursive improvement risks), SWE-bench
+              when evaluated for autonomous deployment.
           
           - id: evals_reasoning
             name: Reasoning
