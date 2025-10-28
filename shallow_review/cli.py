@@ -764,24 +764,24 @@ def export_taxonomy(
         output_lines.append("")
         
         # Output description
-        output_lines.append(cat.description.strip())
+        output_lines.append(f"**Taxonomy description:** {cat.description.strip()}")
         output_lines.append("")
         
         # If leaf category, output rubrics and items
         if cat.is_leaf:
             # Output SR2024-style rubrics (initially empty, for filling in later)
-            output_lines.append("One-sentence summary: ")
-            output_lines.append("Theory of change: ")
-            output_lines.append("See also: ")
-            output_lines.append("Orthodox problems: ")
-            output_lines.append("Target case: ")
-            output_lines.append("Broad approach: ")
-            output_lines.append("Key people: ")
-            output_lines.append("Estimated FTEs: ")
-            output_lines.append("Outputs 2025: ")
-            output_lines.append("Critiques: ")
-            output_lines.append("Funded by: ")
-            output_lines.append("Funding 2025: ")
+            output_lines.append("**One-sentence summary:**")
+            output_lines.append("**Theory of change:**")
+            output_lines.append("**See also:**")
+            output_lines.append("**Orthodox problems:**")
+            output_lines.append("**Target case:**")
+            output_lines.append("**Broad approach:**")
+            output_lines.append("**Key people:**")
+            output_lines.append("**Estimated FTEs:**")
+            output_lines.append("**Outputs in 2025:**")
+            output_lines.append("**Critiques:**")
+            output_lines.append("**Funded by:**")
+            output_lines.append("**Funding in 2025:**")
             output_lines.append("")
         
         # If leaf category with items, output them
