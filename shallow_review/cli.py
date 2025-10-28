@@ -672,6 +672,8 @@ def export_taxonomy(
                 "ai_safety_relevance": row["ai_safety_relevance"],
                 "shallow_review_inclusion": row["shallow_review_inclusion"],
                 "collect_relevancy": row["collect_relevancy"],
+                "confidence": data.get("confidence"),
+                "top_category_score": categories[0].get("score") if categories else None,
                 "summary": data.get("summary", ""),
                 "key_points": data.get("key_points", []),
             }
@@ -878,8 +880,14 @@ def export_taxonomy(
                 venue_part = item["venue"] if item["venue"] else ""
                 
                 # Stats in brackets
-                cr_str = f", cr={item['collect_relevancy']:.2f}" if item['collect_relevancy'] is not None else ""
-                stats_part = f"[{item['kind']}, ais={item['ai_safety_relevance']:.2f}, **sr={item['shallow_review_inclusion']:.2f}**{cr_str}, item:{url_hash_short}]"
+                # Old scores (disabled):
+                # cr_str = f", cr={item['collect_relevancy']:.2f}" if item['collect_relevancy'] is not None else ""
+                # stats_part = f"[{item['kind']}, ais={item['ai_safety_relevance']:.2f}, **sr={item['shallow_review_inclusion']:.2f}**{cr_str}, item:{url_hash_short}]"
+                
+                # New scores: sr, conf, cats
+                # conf_str = f", conf={item['confidence']:.2f}" if item['confidence'] is not None else ""
+                # cats_str = f", cats={item['top_category_score']:.2f}" if item['top_category_score'] is not None else ""
+                stats_part = f"[{item['kind']}, **sr={item['shallow_review_inclusion']:.2f}**, item:{url_hash_short}]"
                 
                 # Summary
                 summary = item["summary"].replace("\n", " ").strip()
