@@ -671,6 +671,7 @@ def export_taxonomy(
                 "kind": row["kind"],
                 "ai_safety_relevance": row["ai_safety_relevance"],
                 "shallow_review_inclusion": row["shallow_review_inclusion"],
+                "collect_relevancy": row["collect_relevancy"],
                 "summary": data.get("summary", ""),
                 "key_points": data.get("key_points", []),
             }
@@ -827,7 +828,8 @@ def export_taxonomy(
                 venue_part = item["venue"] if item["venue"] else ""
                 
                 # Stats in brackets
-                stats_part = f"[{item['kind']}, ais={item['ai_safety_relevance']:.2f}, **sr={item['shallow_review_inclusion']:.2f}**, item:{url_hash_short}]"
+                cr_str = f", cr={item['collect_relevancy']:.2f}" if item['collect_relevancy'] is not None else ""
+                stats_part = f"[{item['kind']}, ais={item['ai_safety_relevance']:.2f}, **sr={item['shallow_review_inclusion']:.2f}**{cr_str}, item:{url_hash_short}]"
                 
                 # Summary
                 summary = item["summary"].replace("\n", " ").strip()
