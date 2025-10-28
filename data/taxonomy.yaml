@@ -583,10 +583,14 @@ taxonomy:
               representations, training against latent adversaries.
             sr2024:
               summary: "uncover dangerous properties like scheming in a target model by having another model manipulate its state adversarially"
+              theory_of_change: "automate red-teaming, thus uncover bad goals in a test environment rather than after deployment"
+              see_also: "red-teaming, concept-based interp, Algorithmic Alignment Group"
               names: "Stephen Casper, Dylan Hadfield-Menell"
               ftes: "1-10"
               outputs: "LAT Improves Robustness to Persistent Harmful Behaviors in LLMs, LAT Defends Against Unforeseen Failure Modes"
+              critiques: "not found"
               funded_by: "?"
+              funding_2023_4: "N/A"
       
       - id: surgical_edits
         name: Surgical model edits
@@ -601,10 +605,17 @@ taxonomy:
               to control behavior. Includes BiDPO and other activation-based control methods.
             sr2024:
               summary: "a sort of interpretable finetuning. Let's see if we can programmatically modify activations to steer outputs towards what we want, in a way that generalises across models and topics"
+              theory_of_change: "test interpretability theories; find new insights from interpretable causal interventions on representations. Or: build more stuff to stack on top of finetuning. Slightly encourage the model to be nice, add one more layer of defence to our bundle of partial alignment methods"
+              see_also: "representation engineering, SAEs"
+              orthodox_problems: "1. Value is fragile and hard to specify, 4. Goals misgeneralize out of distribution, 5. Instrumental convergence, 7. Superintelligence can fool human supervisors, 9. Humans cannot be first-class parties to a superintelligent value handshake"
+              target_case: "pessimistic"
+              broad_approach: "engineering/cognitive"
               names: "Jan Wehner, Alex Turner, Nina Panickssery, Marc Carauleanu, Collin Burns, Andrew Mack, Pedro Freire, Joseph Miller, Andy Zou, Andy Arditi, Ole Jorgensen"
               ftes: "10+?"
               outputs: "Circuit Breakers, An Introduction to Representation Engineering - an activation-based paradigm for controlling LLMs, Steering Llama-2 with contrastive activation additions, Simple probes can catch sleeper agents, Refusal in LLMs is mediated by a single direction, Mechanistically Eliciting Latent Behaviors in Language Models, Uncovering Latent Human Wellbeing in Language Model Embeddings, Goodfire, LatentQA, SelfIE, Mack and Turner, Obfuscated Activations Bypass LLM Latent-Space Defenses"
+              critiques: "of ROME, open question thread for theory of impact, A Sober Look at Steering Vectors for LLMs"
               funded_by: "various, including EA funds"
+              funding_2023_4: "N/A"
           
           - id: utility_engineering
             name: Utility engineering
@@ -631,10 +642,16 @@ taxonomy:
               MONA and related methods for preventing excessive optimization.
             sr2024:
               summary: "avoid Goodharting by getting AI to satisfice rather than maximise"
+              theory_of_change: "if we fail to exactly nail down the preferences for a superintelligent agent we die to Goodharting → shift from maximising to satisficing in the agent's utility function → we get a nonzero share of the lightcone as opposed to zero; also, moonshot at this being the recipe for fully aligned AI"
+              orthodox_problems: "4. Goals misgeneralize out of distribution"
+              target_case: "pessimistic"
+              broad_approach: "cognitive"
               names: "Jobst Heitzig, Simon Fischer, Jessica Taylor"
               ftes: "?"
               outputs: "How to safely use an optimizer, Aspiration-based designs sequence, Non-maximizing policies that fulfill multi-criterion aspirations in expectation"
+              critiques: "Dearnaley"
               funded_by: "?"
+              funding_2023_4: "N/A"
           
           - id: rl_safety
             name: RL safety
@@ -655,10 +672,17 @@ taxonomy:
               beneficial AI, correlated proxies. CIRL and related approaches.
             sr2024:
               summary: "reorient the general thrust of AI research towards provably beneficial systems"
+              theory_of_change: "understand what kinds of things can go wrong when humans are directly involved in training a model → build tools that make it easier for a model to learn what humans want it to learn"
+              see_also: "RLHF and recursive reward modelling, the industrialised forms"
+              orthodox_problems: "1. Value is fragile and hard to specify, 10. Humanlike minds/goals are not necessarily safe"
+              target_case: "varies"
+              broad_approach: "engineering, cognitive"
               names: "Joar Skalse, Anca Dragan, Stuart Russell, David Krueger"
               ftes: "10+"
               outputs: "The Perils of Optimizing Learned Reward Functions, Correlated Proxies: A New Definition and Improved Mitigation for Reward Hacking, Changing and Influenceable Reward Functions, RL, but don't do anything I wouldn't do, Interpreting Preference Models w/ Sparse Autoencoders"
+              critiques: "nice summary of historical problem statements"
               funded_by: "EA funds, Open Philanthropy. Survival and Flourishing Fund, Manifund"
+              funding_2023_4: ">$1500"
       
       - id: formal_verification
         name: Guaranteed Safe AI / Formal verification
@@ -670,10 +694,17 @@ taxonomy:
           ARIA Safeguarded AI Programme, Open Agency Architecture.
         sr2024:
           summary: "formally model the behavior of cyber-physical systems, define precise constraints on what actions can occur, and require AIs to provide safety proofs for their recommended actions (correctness and uniqueness)"
+          theory_of_change: "make a formal verification system that can act as an intermediary between a human user and a potentially dangerous system and only let provably safe actions through. Notable for not requiring that we solve ELK. Does require that we solve ontology though"
+          see_also: "Bengio's AI Scientist, Safeguarded AI, Open Agency Architecture, SLES, Atlas Computing, program synthesis, Tenenbaum"
+          orthodox_problems: "1. Value is fragile and hard to specify, 4. Goals misgeneralize out of distribution, 7. Superintelligence can fool human supervisors, 9. Humans cannot be first-class parties to a superintelligent value handshake, 12. A boxed AGI might exfiltrate itself by steganography, spearphishing"
+          target_case: "(nearly) worst-case"
+          broad_approach: "cognitive"
           names: "Yoshua Bengio, Max Tegmark, Steve Omohundro, David \"davidad\" Dalrymple, Joar Skalse, Stuart Russell, Ohad Kammar, Alessandro Abate, Fabio Zanassi"
           ftes: "10-50"
           outputs: "Bayesian oracle, Towards Guaranteed Safe AI, ARIA Safeguarded AI Programme Thesis"
+          critiques: "Zvi, Gleave, Dickson"
           funded_by: "UK government, OpenPhil, Survival and Flourishing Fund, Mila / CIFAR"
+          funding_2023_4: ">$10m"
 
   - id: alternative_architectures
     name: Alternative architectures
@@ -695,10 +726,17 @@ taxonomy:
           Alternative paradigm based on compositional cognitive architectures.
         sr2024:
           summary: "make tools to write, execute and deploy cognitive programs; compose these into large, powerful systems that do what we want; make a training procedure that lets us understand what the model does and does not know at each step"
+          theory_of_change: "train a bounded tool AI to promote AI benefits without needing unbounded AIs. If the AI uses similar heuristics to us, it should default to not being extreme"
+          see_also: "AI chains"
+          orthodox_problems: "2. Corrigibility is anti-natural, 5. Instrumental convergence"
+          target_case: "pessimistic"
+          broad_approach: "engineering, cognitive"
           names: "Connor Leahy, Gabriel Alfour, Adam Shimi"
           ftes: "1-10"
           outputs: "The Tactics programming language/framework, cognitive emulations work, A Roadmap for Cognitive Software and A Humanist Future of AI"
+          critiques: "Scher, Samin, org"
           funded_by: "Plural Platform, Metaplanet, Others, Firestreak Ventures, EA Funds in 2022"
+          funding_2023_4: "N/A"
       
       - id: social_instinct
         name: Social-instinct AGI
@@ -708,10 +746,16 @@ taxonomy:
           safe AGI architectures.
         sr2024:
           summary: "Social and moral instincts are (partly) implemented in particular hardwired brain circuitry; let's figure out what those circuits are and how they work; this will involve symbol grounding"
+          theory_of_change: "Fairly direct alignment via changing training to reflect actual human reward. Get actual data about (reward, training data) → (human values) to help with theorising this map in AIs; understand human social instincts, and then maybe adapt some aspects of those for AGIs, presumably in conjunction with other non-biological ingredients"
+          orthodox_problems: "1. Value is fragile and hard to specify"
+          target_case: "worst-case"
+          broad_approach: "cognitive"
           names: "Steve Byrnes"
           ftes: "1"
           outputs: "My AGI safety research—2024 review, '25 plans, Neuroscience of human social instincts: a sketch, Intuitive Self Models"
+          critiques: "Not found"
           funded_by: "Astera Institute"
+          funding_2023_4: "N/A"
 
   - id: better_data
     name: Better data
@@ -782,10 +826,16 @@ taxonomy:
               Prover-verifier games, using AI to help with alignment research.
             sr2024:
               summary: "be ready to align a human-level automated alignment researcher"
+              theory_of_change: "get AI to help us with scalable oversight, critiques, recursive reward modelling, and so solve inner alignment"
+              orthodox_problems: "1. Value is fragile and hard to specify or 8. Superintelligence can hack software supervisors"
+              target_case: "optimistic"
+              broad_approach: "behavioural"
               names: "Jan Leike, Elriggs, Jacques Thibodeau"
               ftes: "10-50"
               outputs: "Prover-verifier games"
+              critiques: "Zvi, Christiano, MIRI, Steiner, Ladish, Wentworth, Gao"
               funded_by: "lab funders"
+              funding_2023_4: "N/A"
           
           - id: weak_to_strong
             name: Weak-to-strong generalization
@@ -794,10 +844,16 @@ taxonomy:
               Can weak supervisors elicit strong capabilities safely?
             sr2024:
               summary: "use weaker models to supervise and provide a feedback signal to stronger models"
+              theory_of_change: "find techniques that do better than RLHF at supervising superior models → track whether these techniques fail as capabilities increase further"
+              orthodox_problems: "8. Superintelligence can hack software supervisors"
+              target_case: "optimistic"
+              broad_approach: "engineering"
               names: "Jan Leike, Collin Burns, Nora Belrose, Zachary Kenton, Noah Siegel, János Kramár, Noah Goodman, Rohin Shah"
               ftes: "10-50"
               outputs: "Easy-to-Hard Generalization, Balancing Label Quantity and Quality for Scalable Elicitation, The Unreasonable Effectiveness of Easy Training Data, On scalable oversight with weak LLMs judging strong LLMs, Your Weak LLM is Secretly a Strong Teacher for Alignment"
+              critiques: "Nostalgebraist"
               funded_by: "lab funders, Eleuther funders"
+              funding_2023_4: "N/A"
           
           - id: supervising_improvement
             name: Supervising AIs improving AIs
@@ -806,10 +862,16 @@ taxonomy:
               drift concerns, doubly-efficient debate, recursive improvement safety.
             sr2024:
               summary: "scalable tracking of behavioural drift, benchmarks for self-modification"
+              theory_of_change: "early models train ~only on human data while later models also train on early model outputs, which leads to early model problems cascading; left unchecked this will likely cause problems, so we need a better iterative improvement process"
+              orthodox_problems: "7. Superintelligence can fool human supervisors or 8. Superintelligence can hack software supervisors"
+              target_case: "pessimistic"
+              broad_approach: "behavioural"
               names: "Roman Engeler, Akbir Khan, Ethan Perez"
               ftes: "1-10"
               outputs: "Weak LLMs judging strong LLMs, Scalable AI Safety via Doubly-Efficient Debate, Debating with More Persuasive LLMs Leads to More Truthful Answers, Prover-Verifier Games Improve Legibility of LLM Output, LLM Critics Help Catch LLM Bugs"
+              critiques: "Automation collapse"
               funded_by: "lab funders"
+              funding_2023_4: "N/A"
           
           - id: cyborgism
             name: Cyborgism
@@ -818,10 +880,16 @@ taxonomy:
               Janus's simulator framing, Pantheon Interface, human-plus-LLM systems.
             sr2024:
               summary: "Train human-plus-LLM alignment researchers: with humans in the loop and without outsourcing to autonomous agents"
+              theory_of_change: "Cognitive prosthetics to amplify human capability and preserve values. More alignment research per year and dollar"
+              orthodox_problems: "7. Superintelligence can fool human supervisors, 9. Humans cannot be first-class parties to a superintelligent value handshake"
+              target_case: "pessimistic"
+              broad_approach: "engineering, behavioural"
               names: "Janus, Nicholas Kees Dupuis"
               ftes: "?"
               outputs: "Pantheon Interface"
+              critiques: "self"
               funded_by: "?"
+              funding_2023_4: "N/A"
           
           - id: transluce
             name: Transluce
@@ -830,10 +898,16 @@ taxonomy:
               for oversight. Schmidt Sciences funded work.
             sr2024:
               summary: "Make open AI tools to explain AIs, including agents. E.g. feature descriptions for neuron activation patterns; an interface for steering these features; behavior elicitation agent that searches for user-specified behaviors from frontier models"
+              theory_of_change: "Introducing Transluce; improve interp and evals in public and get invited to improve lab processes"
+              orthodox_problems: "7. Superintelligence can fool human supervisors or 8. Superintelligence can hack software supervisors"
+              target_case: "pessimistic"
+              broad_approach: "cognitive"
               names: "Jacob Steinhardt, Sarah Schwettmann"
               ftes: "6"
               outputs: "Eliciting Language Model Behaviors with Investigator Agents, Monitor: An AI-Driven Observability Interface, Scaling Automatic Neuron Description"
+              critiques: "not found"
               funded_by: "Schmidt Sciences, Halcyon Futures, John Schulman, Wojciech Zaremba"
+              funding_2023_4: "N/A"
           
           - id: deepmind_amplified_oversight
             name: DeepMind Amplified Oversight
@@ -862,10 +936,16 @@ taxonomy:
               related scalable alignment methods.
             sr2024:
               summary: "make highly capable agents do what humans want, even when it is difficult for humans to know what that is"
+              theory_of_change: "\"Give humans help in supervising strong agents\" + \"Align explanations with the true reasoning process of the agent\" + \"Red team models to exhibit failure modes that don't occur in normal use\" are necessary but probably not sufficient for safe AGI"
+              orthodox_problems: "1. Value is fragile and hard to specify, 7. Superintelligence can fool human supervisors"
+              target_case: "worst-case"
+              broad_approach: "engineering, cognitive"
               names: "Rohin Shah, Jonah Brown-Cohen, Georgios Piliouras"
               ftes: "?"
               outputs: "Progress update - Doubly Efficient Debate, Inference-only Experiments"
+              critiques: "The limits of AI safety via debate"
               funded_by: "Google"
+              funding_2023_4: "N/A"
           
           - id: debate_anthropic
             name: "Anthropic: Bowman/Perez"
@@ -874,10 +954,16 @@ taxonomy:
               and collaborators.
             sr2024:
               summary: "scalable oversight of truthfulness: is it possible to develop training methods that incentivize truthfulness even when humans are unable to directly judge the correctness of a model's output?"
+              theory_of_change: "current methods like RLHF will falter as frontier AI tackles harder and harder questions → we need to build tools that help human overseers continue steering AI → let's develop theory on what approaches might scale → let's build the tools"
+              orthodox_problems: "7. Superintelligence can fool human supervisors"
+              target_case: "pessimistic"
+              broad_approach: "behavioural"
               names: "Sam Bowman, Ethan Perez, He He, Mengye Ren"
               ftes: "?"
               outputs: "Debating with more persuasive LLMs Leads to More Truthful Answers, Sleeper Agents"
+              critiques: "obfuscation, local inadequacy?, it doesn't work right now (2022)"
               funded_by: "mostly Anthropic's investors"
+              funding_2023_4: "N/A"
       
       - id: task_decomp
         name: Task decomposition
@@ -916,10 +1002,17 @@ taxonomy:
           Tail risk formalization, heuristic estimators. FLI/SFF funded.
         sr2024:
           summary: "mech interp plus formal verification. Formalize mechanistic explanations of neural network behavior, so to predict when novel input may lead to anomalous behavior"
+          theory_of_change: "find a scalable method to predict when any model will act up"
+          see_also: "ELK, mechanistic anomaly detection"
+          orthodox_problems: "4. Goals misgeneralize out of distribution, 8. Superintelligence can hack software supervisors"
+          target_case: "worst-case"
+          broad_approach: "cognitive, maths/philosophy"
           names: "Jacob Hilton, Mark Xu, Eric Neyman, Dávid Matolcsi, Victor Lecomte, George Robinson"
           ftes: "1-10"
           outputs: "Estimating tail risk, Towards a Law of Iterated Expectations for Heuristic Estimators, Probabilities of rare outputs, Bird's eye overview, Formal verification"
+          critiques: "Vaintrob. Clarification, alternative formulation"
           funded_by: "FLI, SFF"
+          funding_2023_4: "$1.7m"
       
       - id: misc_theory
         name: Miscellaneous theory items
@@ -944,10 +1037,16 @@ taxonomy:
               of agency. Deepmind work on causal incentives framework.
             sr2024:
               summary: "use causal models to understand agents. Originally this was to design environments where they lack the incentive to defect, hence the name"
+              theory_of_change: "as above"
+              orthodox_problems: "1. Value is fragile and hard to specify, 4. Goals misgeneralize out of distribution"
+              target_case: "pessimistic"
+              broad_approach: "behavioural/maths/philosophy"
               names: "Tom Everitt, Matt McDermott, Francis Rhys Ward, Jonathan Richens, Ryan Carey"
               ftes: "1-10"
               outputs: "Robust agents learn causal world models, Measuring Goal-Directedness"
+              critiques: "not found"
               funded_by: "EA funds, Manifund, Deepmind"
+              funding_2023_4: "Some tacitly from DM"
           
           - id: hierarchical_agency
             name: Hierarchical agency
@@ -956,10 +1055,17 @@ taxonomy:
               agency, nested optimization. SFF funded.
             sr2024:
               summary: "Develop formal models of subagents and superagents, use the model to specify desirable properties of whole-part relations (e.g. how to prevent human-friendly parts getting wiped out)"
+              theory_of_change: "Solve self-unalignment, prevent destructive alignment, allow for scalable noncoercion"
+              see_also: "Alignment of Complex Systems, multi-scale alignment, scale-free theories of agency, active inference, bounded rationality"
+              orthodox_problems: "5. Instrumental convergence, 9. Humans cannot be first-class parties to a superintelligent value handshake"
+              target_case: "pessimistic"
+              broad_approach: "cognitive"
               names: "Jan Kulveit, Roman Leventov, Scott Viteri, Michael Levin, Ivan Vendrov, Richard Ngo"
               ftes: "1-10"
               outputs: "Hierarchical Agency: A Missing Piece in AI Alignment, How do parts form a whole?, Free-energy equilibria, Two conceptions of active inference, generalised active inference"
+              critiques: "indirect"
               funded_by: "SFF"
+              funding_2023_4: "N/A"
           
           - id: dovetail
             name: Dovetail research
@@ -968,10 +1074,16 @@ taxonomy:
               understanding agents. LTFF funded.
             sr2024:
               summary: "Formalize key ideas (\"structure\", \"agency\", etc) mathematically"
+              theory_of_change: "generalize theorems → formalize agent foundations concepts like the agent structure problem → hopefully assist other projects through increased understanding"
+              orthodox_problems: "intended to help make progress on understanding the nature of the problems through formalization, so that they can be avoided or postponed, or more effectively solved by other research agenda"
+              target_case: "pessimistic"
+              broad_approach: "maths/philosophy"
               names: "Alex Altair, Alfred Harwood, Daniel C, Dalcy K, José Pedro Faustino"
               ftes: "2"
               outputs: "mostly exposition but it's early days. Formalization"
+              critiques: "not found"
               funded_by: "LTFF"
+              funding_2023_4: "$60,000"
           
           - id: boundaries_membranes
             name: Boundaries / membranes
@@ -980,10 +1092,17 @@ taxonomy:
               begins. Chris Lakin's work on boundaries.
             sr2024:
               summary: "Formalise one piece of morality: the causal separation between agents and their environment"
+              theory_of_change: "Formalise (part of) morality/safety, solve outer alignment"
+              see_also: "Open Agency Architecture"
+              orthodox_problems: "9. Humans cannot be first-class parties to a superintelligent value handshake"
+              target_case: "pessimistic"
+              broad_approach: "maths/philosophy"
               names: "Chris Lakin, Andrew Critch, davidad, Evan Miyazono, Manuel Baltieri"
               ftes: "0.5"
               outputs: "Chris posts"
+              critiques: "not found"
               funded_by: "?"
+              funding_2023_4: "N/A"
           
           - id: understanding_optimization
             name: Understanding optimisation
@@ -992,10 +1111,17 @@ taxonomy:
               is and how to measure it. CLR/EA funded work.
             sr2024:
               summary: "what is \"optimisation power\" (formally), how do we build tools that track it, and how relevant is any of this anyway"
+              theory_of_change: "existing theories are either rigorous OR good at capturing what we mean; let's find one that is both → use the concept to build a better understanding of how and when an AI might get more optimisation power. Would be nice if we could detect or rule out speculative stuff like gradient hacking too"
+              see_also: "developmental interpretability"
+              orthodox_problems: "5. Instrumental convergence"
+              target_case: "pessimistic"
+              broad_approach: "maths/philosophy"
               names: "Alex Flint, Guillaume Corlouer, Nicolas Macé"
               ftes: "1-10"
               outputs: "Degeneracies are sticky for SGD"
+              critiques: "not found"
               funded_by: "CLR, EA funds"
+              funding_2023_4: "N/A"
       
       - id: corrigibility
         name: Corrigibility
@@ -1012,10 +1138,17 @@ taxonomy:
               Wentworth, Thornley on theoretical foundations of alignment and corrigibility.
             sr2024:
               summary: "predict properties of AGI (e.g. powerseeking) with formal models. Corrigibility as the opposite of powerseeking"
+              theory_of_change: "figure out hypotheses about properties powerful agents will have → attempt to rigorously prove under what conditions the hypotheses hold, test them when feasible"
+              see_also: "this, EJT, Dupuis, Holtman"
+              orthodox_problems: "2. Corrigibility is anti-natural, 5. Instrumental convergence"
+              target_case: "worst-case"
+              broad_approach: "maths/philosophy"
               names: "Michael K. Cohen, Max Harms/Raelifin, John Wentworth, David Lorell, Elliott Thornley"
               ftes: "1-10"
               outputs: "CAST: Corrigibility As Singular Target, A Shutdown Problem Proposal, The Shutdown Problem: Incomplete Preferences as a Solution"
+              critiques: "none found"
               funded_by: "?"
+              funding_2023_4: "?"
           
           - id: corrigibility_other
             name: Other corrigibility
@@ -1042,10 +1175,17 @@ taxonomy:
               and testing whether features correspond to human concepts. EA funded.
             sr2024:
               summary: "check the hypothesis that our universe \"abstracts well\" and that many cognitive systems learn to use similar abstractions. Check if features correspond to small causal diagrams corresponding to linguistic constructions"
+              theory_of_change: "find all possible abstractions of a given computation → translate them into human-readable language → identify useful ones like deception → intervene when a model is using it. Also develop theory for interp more broadly; more mathematical analysis. Also maybe enables \"retargeting the search\" (direct training away from things we don't want)"
+              see_also: "causal abstractions, representational alignment, convergent abstractions"
+              orthodox_problems: "5. Instrumental convergence, 7. Superintelligence can fool human supervisors, 9. Humans cannot be first-class parties to a superintelligent value handshake"
+              target_case: "worst-case"
+              broad_approach: "cognitive"
               names: "John Wentworth, Paul Colognese, David Lorrell, Sam Eisenstat"
               ftes: "1-10"
               outputs: "Natural Latents: The Concepts, Natural Latents Are Not Robust To Tiny Mixtures, Towards a Less Bullshit Model of Semantics"
+              critiques: "Chan et al, Soto, Harwood, Soares"
               funded_by: "EA Funds"
+              funding_2023_4: "N/A?"
           
           - id: ontology_other
             name: Other ontology work
@@ -1067,10 +1207,17 @@ taxonomy:
               multiple stakeholders. Choi, Lazar work.
             sr2024:
               summary: "align AI to broader values / use AI to understand and improve coordination among humans"
+              theory_of_change: "focus on getting more people and values represented"
+              see_also: "AI Objectives Institute, Lightcone Chord, Intelligent Cooperation, Meaning Alignment Institute. See also AI-AI Bias"
+              orthodox_problems: "11. Someone else will deploy unsafe superintelligence first, 13. Fair, sane pivotal processes"
+              target_case: "optimistic"
+              broad_approach: "engineering?"
               names: "Yejin Choi, Seth Lazar, Nouha Dziri, Deger Turan, Ivan Vendrov, Jacob Lagerros"
               ftes: "10-50"
               outputs: "roadmap, workshop"
+              critiques: "none found"
               funded_by: "Foresight, Midjourney?"
+              funding_2023_4: "N/A"
           
           - id: clr
             name: Center on Long-Term Risk (CLR)
@@ -1081,10 +1228,17 @@ taxonomy:
               Examples: measurement research agenda, optimal commitments to strategies.
             sr2024:
               summary: "future agents creating s-risks is the worst of all possible problems, we should avoid that"
+              theory_of_change: "make present and future AIs inherently cooperative via improving theories of cooperation and measuring properties related to catastrophic conflict"
+              see_also: "FOCAL"
+              orthodox_problems: "1. Value is fragile and hard to specify, 3. Pivotal processes require dangerous capabilities, 4. Goals misgeneralize out of distribution"
+              target_case: "worst-case"
+              broad_approach: "maths/philosophy"
               names: "Jesse Clifton, Caspar Oesterheld, Anthony DiGiovanni, Maxime Riché, Mia Taylor"
               ftes: "10-50"
               outputs: "Measurement Research Agenda, Computing Optimal Commitments to Strategies and Outcome-conditional Utility Transfers"
+              critiques: "none found"
               funded_by: "Polaris Ventures, Survival and Flourishing Fund, Community Foundation Ireland"
+              funding_2023_4: "$1,327,000"
           
           - id: focal
             name: FOCAL
@@ -1095,10 +1249,16 @@ taxonomy:
               Includes decision-theoretic reasoning, social choice for AI alignment.
             sr2024:
               summary: "make sure advanced AI uses what we regard as proper game theory"
+              theory_of_change: "(1) keep the pre-superintelligence world sane by making AIs more cooperative; (2) remain integrated in the academic world, collaborate with academics on various topics and encourage their collaboration on x-risk; (3) hope that work on \"game theory for AIs\", which emphasises cooperation and benefit to humans, has framing & founder effects on the new academic field"
+              orthodox_problems: "1. Value is fragile and hard to specify, 10. Humanlike minds/goals are not necessarily safe"
+              target_case: "pessimistic"
+              broad_approach: "maths/philosophy"
               names: "Vincent Conitzer, Caspar Oesterheld, Vojta Kovarik"
               ftes: "1-10"
               outputs: "Foundations of Cooperative AI, A dataset of questions on decision-theoretic reasoning in Newcomb-like problems, Why should we ever automate moral decision making?, Social Choice Should Guide AI Alignment in Dealing with Diverse Human Feedback"
+              critiques: "Self-submitted: \"our theory of change is not clearly relevant to superintelligent AI\""
               funded_by: "Cooperative AI Foundation, Polaris Ventures"
+              funding_2023_4: "N/A"
           
           - id: alternatives_utility
             name: Alternatives to utility theory
@@ -1122,10 +1282,17 @@ taxonomy:
           ML agenda. Examples: gradient routing, intrinsic power-seeking work.
         sr2024:
           summary: "model the internal components of agents, use humans as a model organism of AGI (humans seem made up of shards and so might AI). Now more of an empirical ML agenda"
+          theory_of_change: "If policies are controlled by an ensemble of influences (\"shards\"), consider which training approaches increase the chance that human-friendly shards substantially influence that ensemble"
+          see_also: "Activation Engineering, Reward bases, gradient routing"
+          orthodox_problems: "2. Corrigibility is anti-natural"
+          target_case: "optimistic"
+          broad_approach: "cognitive"
           names: "Alex Turner, Quintin Pope, Alex Cloud, Jacob Goldman-Wetzler, Evzen Wybitul, Joseph Miller"
           ftes: "1-10"
           outputs: "Intrinsic Power-Seeking: AI Might Seek Power for Power's Sake, Shard Theory - is it true for humans?, Gradient routing"
+          critiques: "Chan, Soares, Miller, Lang, Kwa, Herd, Rishika, tailcalled"
           funded_by: "Open Philanthropy (via funding of MATS), EA funds, Manifund"
+          funding_2023_4: ">$581,458"
       
       - id: singular_learning
         name: Singular Learning Theory
@@ -1143,10 +1310,16 @@ taxonomy:
           bandits, infra-Bayesian haggling, quantum mechanics in infra-Bayesian physicalism.
         sr2024:
           summary: "try to formalise a more realistic agent, understand what it means for it to be aligned with us, translate between its ontology and ours, and produce desiderata for a training setup that points at coherent AGIs similar to our model of an aligned agent"
+          theory_of_change: "fix formal epistemology to work out how to avoid deep training problems"
+          orthodox_problems: "1. Value is fragile and hard to specify, 9. Humans cannot be first-class parties to a superintelligent value handshake"
+          target_case: "worst-case"
+          broad_approach: "cognitive"
           names: "Vanessa Kosoy, Diffractor"
           ftes: "3"
           outputs: "Linear infra-Bayesian Bandits, Time complexity for deterministic string machines, Infra-Bayesian Haggling, Quantum Mechanics in Infra-Bayesian Physicalism. Intro lectures"
+          critiques: "Matolcsi"
           funded_by: "EA Funds, Survival and Flourishing Fund, ARIA"
+          funding_2023_4: "$123,000"
       
       - id: qaci
         name: Question-answer counterfactual intervals (QACI)
@@ -1158,10 +1331,16 @@ taxonomy:
           and counterfactuals. SFF funded work.
         sr2024:
           summary: "Get the thing to work out its own objective function (a la HCH)"
+          theory_of_change: "make a fully formalized goal such that a computationally unbounded oracle with it would take desirable actions; and design a computationally bounded AI which is good enough to take satisfactory actions"
+          orthodox_problems: "1. Value is fragile and hard to specify, 4. Goals misgeneralize out of distribution"
+          target_case: "worst-case"
+          broad_approach: "cognitive"
           names: "Tamsin Leake, Julia Persson"
           ftes: "1-10"
           outputs: "Epistemic states as a potential benign prior"
+          critiques: "none found"
           funded_by: "Survival and Flourishing Fund"
+          funding_2023_4: "$55,000"
 
   - id: sociotechnical
     name: Sociotechnical
