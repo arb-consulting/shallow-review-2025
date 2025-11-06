@@ -1,0 +1,110 @@
+Aaron Mueller
+Adam Gleave
+AI Futures Project
+AISI
+Akbir Khan
+Alex Cloud
+Alex Flint
+Alex Turner
+Anca Dragan
+Andrew Critch
+Andrew Saxe
+Andy Arditi
+Andy Zou
+Anthropic
+Anthropic Alignment Stress-Testing
+Apollo
+Arthur Conmy
+Atticus Geiger
+Benjamin Hilton
+Beth Barnes
+Brennan Dury
+Buck Shlegeris
+Caspar Oesterheld
+Chris Lakin
+Chris Olah
+Collin Burns
+Connor Kissane
+Connor Leahy
+Dan Hendrycks
+Daniel Murfet
+David Baek
+David Bau
+David Duvenaud
+David Johnston
+David Krueger
+David Lorrell
+Decode
+Dylan Hadfield-Menell
+Elham Tabassi
+Elliott Thornley
+Epoch
+Eric J. Michaud
+Eric Neyman
+Erik Jenner
+Ethan Perez
+Evan Hubinger
+Geoffrey Irving
+George Wang
+He He
+Jacob Steinhardt
+Jan Kulveit
+Jan Leike
+Jan Wehner
+Jeffrey Ladish
+Jesse Clifton
+Jesse Hoogland
+Jesse Mu
+Jessica Rumbelow
+Jessica Taylor
+Joar Skalse
+John Schulman.
+John Wentworth
+Jonah Brown-Cohen
+Josh Engels
+Lee Sharkey
+Leo Gao
+Mantas Mazeika
+Marius Hobbhahn
+Mark Xu
+Mary Phuong
+Max Tegmark
+Meg Tong
+Mengye Ren
+METR
+Michael K. Cohen
+Monte MacDiarmid
+Mrinank Sharma
+Neel Nanda
+Nicholas Schiefer
+Nina Panickssery
+Nora Belrose
+Ole Jorgensen.
+Owain Evans
+Paul Christiano
+Paul Colognese
+Peter Park
+Quintin Pope
+Redwood
+Rob Reich
+Rohin Shah
+Roman Engeler
+Ryan Greenblatt
+Sam Bowman
+Sam Eisenstat
+Samuel Marks
+Sarah Schwettmann
+Seth Lazar
+Stephen Casper
+Steve Byrnes
+Steve Omohundro
+Stuart Russell
+Tom Everitt
+Trenton Bricken
+Vanessa Kosoy
+Vincent Conitzer
+Wes Gurnee
+Yarin Gal
+Yejin Choi
+Yoshua Bengio
+Ziming Liu

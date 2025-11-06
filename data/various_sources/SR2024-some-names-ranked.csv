@@ -1,0 +1,260 @@
+NAME,AGENDA,PROMINENCE
+Ethan Perez,Various red-teams,5.0
+Evan Hubinger,Various red-teams,5.0
+Chris Olah,Good-enough mech interp,5.0
+Neel Nanda,Good-enough mech interp,5.0
+Neel Nanda,Sparse Autoencoders,5.0
+Max Tegmark,Concept-based interp,5.0
+Yoshua Bengio,Guaranteed safe AI,5.0
+Max Tegmark,Guaranteed safe AI,5.0
+Stuart Russell,Guaranteed safe AI,5.0
+Stuart Russell,Assistance games / reward learning,5.0
+Jan Leike,OpenAI Superalignment  Automated Alignment Research,5.0
+Jan Leike,Weak-to-strong generalization,5.0
+Rohin Shah,Weak-to-strong generalization,5.0
+Ethan Perez,Supervising AIs improving AIs,5.0
+Jacob Steinhardt,Transluce,5.0
+Rohin Shah,Deepmind Scalable Alignment,5.0
+Ethan Perez,Anthropic: Bowman/Perez,5.0
+John Wentworth,Behavior alignment theory,5.0
+John Wentworth,Natural abstractions,5.0
+Evan Hubinger,Anthropic Alignment Capabilities / Alignment Science / Assurance / Trust & Safety / RSP Evaluations,5.0
+Dan Hendrycks,Center for AI Safety (CAIS),5.0
+Jacob Steinhardt,Center for AI Safety (CAIS),5.0
+Rohin Shah,Deepmind Alignment Team,5.0
+Dan Hendrycks,“Autonomous Vehicles”,5.0
+John Schulman.,OpenAI Alignment Science,5.0
+Geoffrey Irving,UK AI Safety Institute,5.0
+Paul Christiano,US AI Safety Institute,5.0
+Marius Hobbhahn,Various capability and safety evaluations,4.5
+Beth Barnes,Various capability and safety evaluations,4.5
+Owain Evans,Various capability and safety evaluations,4.5
+Beth Barnes,Various red-teams,4.5
+Lee Sharkey,Sparse Autoencoders,4.5
+Buck Shlegeris,Control evaluations,4.5
+Ryan Greenblatt,Control evaluations,4.5
+Anca Dragan,Assistance games / reward learning,4.5
+David Krueger,Assistance games / reward learning,4.5
+Owain Evans,Indirect deception monitoring,4.5
+Alex Turner,Activation engineering,4.5
+Collin Burns,Activation engineering,4.5
+Collin Burns,Weak-to-strong generalization,4.5
+Sam Bowman,Anthropic: Bowman/Perez,4.5
+Stephen Casper,Latent adversarial training,4.5
+Vanessa Kosoy,The Learning-Theoretic Agenda,4.5
+Alex Turner,(Descendents of) shard theory,4.5
+Andrew Critch,boundaries / membranes,4.5
+Lee Sharkey,Apollo,4.5
+Anca Dragan,Deepmind Alignment Team,4.5
+Adam Gleave,FAR,4.5
+David Krueger,Krueger Lab Mila,4.5
+METR,Various capability and safety evaluations,4.0
+AISI,Various capability and safety evaluations,4.0
+Apollo,Various capability and safety evaluations,4.0
+Epoch,Various capability and safety evaluations,4.0
+Mary Phuong,Various capability and safety evaluations,4.0
+Anthropic Alignment Stress-Testing,Various red-teams,4.0
+Nicholas Schiefer,Various red-teams,4.0
+Jesse Mu,Various red-teams,4.0
+David Duvenaud,Various red-teams,4.0
+Trenton Bricken,Good-enough mech interp,4.0
+Samuel Marks,Good-enough mech interp,4.0
+Nina Panickssery,Good-enough mech interp,4.0
+Arthur Conmy,Sparse Autoencoders,4.0
+Leo Gao,Sparse Autoencoders,4.0
+Connor Kissane,Sparse Autoencoders,4.0
+Samuel Marks,Sparse Autoencoders,4.0
+David Bau,Sparse Autoencoders,4.0
+Aaron Mueller,Sparse Autoencoders,4.0
+Decode,Sparse Autoencoders,4.0
+Atticus Geiger,Pr(Ai)2R: Causal Abstractions,4.0
+Wes Gurnee,Concept-based interp,4.0
+Eric J. Michaud,Concept-based interp,4.0
+David Baek,Concept-based interp,4.0
+Josh Engels,Concept-based interp,4.0
+Jessica Rumbelow,Leap,4.0
+Nora Belrose,EleutherAI interp,4.0
+Brennan Dury,EleutherAI interp,4.0
+David Johnston,EleutherAI interp,4.0
+Jesse Hoogland,Timaeus: Developmental interpretability,4.0
+George Wang,Timaeus: Developmental interpretability,4.0
+Daniel Murfet,Timaeus: Developmental interpretability,4.0
+Andrew Saxe,Saxe lab,4.0
+Redwood,Control evaluations,4.0
+Steve Omohundro,Guaranteed safe AI,4.0
+Joar Skalse,Guaranteed safe AI,4.0
+Joar Skalse,Assistance games / reward learning,4.0
+Steve Byrnes,Social-instinct AGI,4.0
+Nora Belrose,Mechanistic anomaly detection,4.0
+Erik Jenner,Mechanistic anomaly detection,4.0
+AI Futures Project,Faithful CoT through separation and paraphrasing,4.0
+Anthropic,Indirect deception monitoring,4.0
+Monte MacDiarmid,Indirect deception monitoring,4.0
+Meg Tong,Indirect deception monitoring,4.0
+Mrinank Sharma,Indirect deception monitoring,4.0
+Jan Wehner,Activation engineering,4.0
+Nina Panickssery,Activation engineering,4.0
+Andy Zou,Activation engineering,4.0
+Andy Arditi,Activation engineering,4.0
+Ole Jorgensen.,Activation engineering,4.0
+Jessica Taylor,Mild optimisation,4.0
+Connor Leahy,Conjecture: Cognitive Software,4.0
+Nora Belrose,Weak-to-strong generalization,4.0
+Roman Engeler,Supervising AIs improving AIs,4.0
+Akbir Khan,Supervising AIs improving AIs,4.0
+Sarah Schwettmann,Transluce,4.0
+Jonah Brown-Cohen,Deepmind Scalable Alignment,4.0
+He He,Anthropic: Bowman/Perez,4.0
+Mengye Ren,Anthropic: Bowman/Perez,4.0
+Dylan Hadfield-Menell,Latent adversarial training,4.0
+Tom Everitt,Causal Incentives,4.0
+Jan Kulveit,Hierarchical agency,4.0
+Quintin Pope,(Descendents of) shard theory,4.0
+Alex Cloud,(Descendents of) shard theory,4.0
+Chris Lakin,boundaries / membranes,4.0
+Alex Flint,Understanding optimisation,4.0
+Michael K. Cohen,Behavior alignment theory,4.0
+Elliott Thornley,Behavior alignment theory,4.0
+Paul Colognese,Natural abstractions,4.0
+David Lorrell,Natural abstractions,4.0
+Sam Eisenstat,Natural abstractions,4.0
+Mark Xu,ARC Theory: Formalizing heuristic arguments,4.0
+Eric Neyman,ARC Theory: Formalizing heuristic arguments,4.0
+Yejin Choi,Pluralistic alignment / collective intelligence,4.0
+Seth Lazar,Pluralistic alignment / collective intelligence,4.0
+Jesse Clifton,Center on Long-Term Risk (CLR),4.0
+Caspar Oesterheld,Center on Long-Term Risk (CLR),4.0
+Vincent Conitzer,FOCAL,4.0
+Caspar Oesterheld,FOCAL,4.0
+Andy Zou,Center for AI Safety (CAIS),4.0
+Mantas Mazeika,Center for AI Safety (CAIS),4.0
+Jeffrey Ladish,Palisade Research,4.0
+Ziming Liu,Tegmark Group / IAIFI,4.0
+Peter Park,Tegmark Group / IAIFI,4.0
+Wes Gurnee,Tegmark Group / IAIFI,4.0
+Benjamin Hilton,UK AI Safety Institute,4.0
+Yarin Gal,UK AI Safety Institute,4.0
+Elham Tabassi,US AI Safety Institute,4.0
+Rob Reich,US AI Safety Institute,4.0
+Senthooran Rajamanoharan,Sparse Autoencoders,3.5
+Eric Michaud,Sparse Autoencoders,3.5
+Paul Riechers,Simplex: computational mechanics for interp,3.5
+Adam Shai,Simplex: computational mechanics for interp,3.5
+Walter Laurito,Concept-based interp,3.5
+Kaarel Hänni,Concept-based interp,3.5
+Robbie McCorkell,Leap,3.5
+Alex Mallen,EleutherAI interp,3.5
+Lucia Quirke,EleutherAI interp,3.5
+Adam Scherlis,EleutherAI interp,3.5
+Kshitij Sachan,Control evaluations,3.5
+Alex Mallen,Control evaluations,3.5
+Kieron Kretschmar,Cadenza,3.5
+Walter Laurito,Cadenza,3.5
+Sharan Maiya,Cadenza,3.5
+Grégoire Dhimoïla,Cadenza,3.5
+Daniel Kokotajlo,Faithful CoT through separation and paraphrasing,3.5
+Marc Carauleanu,Activation engineering,3.5
+Andrew Mack,Activation engineering,3.5
+Pedro Freire,Activation engineering,3.5
+Joseph Miller,Activation engineering,3.5
+Jobst Heitzig,Mild optimisation,3.5
+Simon Fischer,Mild optimisation,3.5
+Gabriel Alfour,Conjecture: Cognitive Software,3.5
+Adam Shimi,Conjecture: Cognitive Software,3.5
+Jacques Thibodeau,OpenAI Superalignment  Automated Alignment Research,3.5
+Zachary Kenton,Weak-to-strong generalization,3.5
+Noah Siegel,Weak-to-strong generalization,3.5
+János Kramár,Weak-to-strong generalization,3.5
+Noah Goodman,Weak-to-strong generalization,3.5
+Nicholas Kees Dupuis,Cyborgism,3.5
+Tamsin Leake,Question-answer counterfactual intervals (QACI),3.5
+Julia Persson,Question-answer counterfactual intervals (QACI),3.5
+Matt McDermott,Causal Incentives,3.5
+Francis Rhys Ward,Causal Incentives,3.5
+Jonathan Richens,Causal Incentives,3.5
+Ryan Carey,Causal Incentives,3.5
+Roman Leventov,Hierarchical agency,3.5
+Scott Viteri,Hierarchical agency,3.5
+Michael Levin,Hierarchical agency,3.5
+Ivan Vendrov,Hierarchical agency,3.5
+Richard Ngo,Hierarchical agency,3.5
+Jacob Goldman-Wetzler,(Descendents of) shard theory,3.5
+Evzen Wybitul,(Descendents of) shard theory,3.5
+Joseph Miller,(Descendents of) shard theory,3.5
+Alex Altair,Dovetail research,3.5
+Alfred Harwood,Dovetail research,3.5
+Guillaume Corlouer,Understanding optimisation,3.5
+Nicolas Macé,Understanding optimisation,3.5
+Nouha Dziri,Pluralistic alignment / collective intelligence,3.5
+Deger Turan,Pluralistic alignment / collective intelligence,3.5
+Ivan Vendrov,Pluralistic alignment / collective intelligence,3.5
+Jacob Lagerros,Pluralistic alignment / collective intelligence,3.5
+Anthony DiGiovanni,Center on Long-Term Risk (CLR),3.5
+Maxime Riché,Center on Long-Term Risk (CLR),3.5
+Mia Taylor,Center on Long-Term Risk (CLR),3.5
+Vojta Kovarik,FOCAL,3.5
+Judd Rosenblatt,AE Studio,3.5
+Marc Carauleanu,AE Studio,3.5
+Diogo de Lucena,AE Studio,3.5
+Cameron Berg,AE Studio,3.5
+Jason Schreiber,Apart Research,3.5
+Esben Kran,Apart Research,3.5
+Lucius Bushnaq,Apollo,3.5
+Mikita Balesni,Apollo,3.5
+Alan Chan,Krueger Lab Mila,3.5
+Ethan Caballero,Krueger Lab Mila,3.5
+Charlie Rogers-Smith,Palisade Research,3.5
+Ben Weinstein-Raun,Palisade Research,3.5
+Dmitrii Volkov,Palisade Research,3.5
+Eric Michaud,Tegmark Group / IAIFI,3.5
+JJ Allaire,UK AI Safety Institute,3.5
+Stan van Wingerden,Timaeus: Developmental interpretability,3.0
+Alexander Gietelink Oldenziel,Timaeus: Developmental interpretability,3.0
+Basile Confavreux,Saxe lab,3.0
+Erin Grant,Saxe lab,3.0
+Stefano Sarao Mannelli,Saxe lab,3.0
+Tyler Boyd-Meredith,Saxe lab,3.0
+Victor Pedrosa,Saxe lab,3.0
+Ohad Kammar,Guaranteed safe AI,3.0
+Alessandro Abate,Guaranteed safe AI,3.0
+Fabio Zanassi,Guaranteed safe AI,3.0
+Elriggs,OpenAI Superalignment  Automated Alignment Research,3.0
+Janus,Cyborgism,3.0
+Georgios Piliouras,Deepmind Scalable Alignment,3.0
+Diffractor,The Learning-Theoretic Agenda,3.0
+Daniel C,Dovetail research,3.0
+Dalcy K,Dovetail research,3.0
+José Pedro Faustino,Dovetail research,3.0
+Evan Miyazono,boundaries / membranes,3.0
+Manuel Baltieri,boundaries / membranes,3.0
+Dávid Matolcsi,ARC Theory: Formalizing heuristic arguments,3.0
+Victor Lecomte,ARC Theory: Formalizing heuristic arguments,3.0
+George Robinson,ARC Theory: Formalizing heuristic arguments,3.0
+Natalia Pérez-Campanero Antolín,Apart Research,3.0
+Andrew Gritsevskiy,Cavendish Labs,3.0
+Joseph M. Cavanagh,Cavendish Labs,3.0
+Aaron Kirtland,Cavendish Labs,3.0
+Derik Kauffman,Cavendish Labs,3.0
+Allan Dafoe,Deepmind Alignment Team,3.0
+Dave Orr,Deepmind Alignment Team,3.0
+Sebastian Farquhar,Deepmind Alignment Team,3.0
+Adrià Garriga-Alonso,FAR,3.0
+Chris Cundy,FAR,3.0
+Mohammad Taufeeque,FAR,3.0
+Kellin Pelrine,FAR,3.0
+Sharon Li,“Autonomous Vehicles”,3.0
+Mia Glaese,OpenAI Alignment Science,3.0
+Boaz Barak,OpenAI Alignment Science,3.0
+Johannes Heidecke,OpenAI Alignment Science,3.0
+Joshua Achiam.,OpenAI AGI Readiness Mission Alignment,3.0
+post-training teams at most labs. Beren Millidge.,Iterative alignment,2.5
+"David ""davidad"" Dalrymple",Guaranteed safe AI,2.5
+Colognese,Indirect deception monitoring,2.5
+davidad,boundaries / membranes,2.5
+Max Harms/Raelifin,Behavior alignment theory,2.5
+David Lorell,Behavior alignment theory,2.5
+Jacob Hilton,ARC Theory: Formalizing heuristic arguments,2.5
+Monte Macdiarmid,Anthropic Alignment Capabilities / Alignment Science / Assurance / Trust & Safety / RSP Evaluations,2.5
+Marius Hobbhanh,Apollo,2.5
+Dawn Song (some of these are not full-time at CAIS though).,Center for AI Safety (CAIS),2.5
+Melody Guan. Lost its head,OpenAI Alignment Science,2.5
