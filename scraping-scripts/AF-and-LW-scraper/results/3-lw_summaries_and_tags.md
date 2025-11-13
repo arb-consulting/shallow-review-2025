@@ -1,0 +1,605 @@
+- [Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs](https://www.lesswrong.com/posts/ifechgnJRtJdduFGC/emergent-misalignment-narrow-finetuning-can-produce-broadly) —  — 2025-02-25
+  - 
+- [Interpretability Will Not Reliably Find Deceptive AI](https://www.lesswrong.com/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai) —  — 2025-05-04
+  - 
+- [Legible vs. Illegible AI Safety Problems](https://www.lesswrong.com/posts/PMc65HgRFvBimEpmJ/legible-vs-illegible-ai-safety-problems) —  — 2025-11-04
+  - 
+- [Beware General Claims about “Generalizable Reasoning Capabilities” (of Modern AI Systems)](https://www.lesswrong.com/posts/5uw26uDdFbFQgKzih/beware-general-claims-about-generalizable-reasoning) —  — 2025-06-11
+  - 
+- [On Fleshling Safety: A Debate by Klurl and Trapaucius.](https://www.lesswrong.com/posts/dHLdf8SB8oW5L27gg/on-fleshling-safety-a-debate-by-klurl-and-trapaucius) —  — 2025-10-26
+  - 
+- [Safety researchers should take a public stance](https://www.lesswrong.com/posts/fF8pvsn3AGQhYsbjp/safety-researchers-should-take-a-public-stance) —  — 2025-09-19
+  - 
+- [Will alignment-faking Claude accept a deal to reveal its misalignment?](https://www.lesswrong.com/posts/7C4KJot4aN8ieEDoz/will-alignment-faking-claude-accept-a-deal-to-reveal-its) —  — 2025-01-31
+  - 
+- [Eliezer's Lost Alignment Articles / The Arbital Sequence](https://www.lesswrong.com/posts/mpMWWKzkzWqf57Yap/eliezer-s-lost-alignment-articles-the-arbital-sequence) —  — 2025-02-20
+  - 
+- [Hyperbolic model fits METR capabilities estimate worse than exponential model](https://www.lesswrong.com/posts/ZEuDH2W3XdRaTwpjD/hyperbolic-model-fits-metr-capabilities-estimate-worse-than) —  — 2025-08-19
+  - 
+- [Will Any Crap Cause Emergent Misalignment?](https://www.lesswrong.com/posts/pGMRzJByB67WfSvpy/will-any-crap-cause-emergent-misalignment) —  — 2025-08-27
+  - 
+- [Claude Sonnet 3.7 (often) knows when it’s in alignment evaluations](https://www.lesswrong.com/posts/E3daBewppAiECN3Ao/claude-sonnet-3-7-often-knows-when-it-s-in-alignment) —  — 2025-03-17
+  - 
+- [What Is The Alignment Problem?](https://www.lesswrong.com/posts/dHNKtQ3vTBxTfTPxu/what-is-the-alignment-problem) —  — 2025-01-16
+  - 
+- [Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety](https://www.lesswrong.com/posts/7xneDbsgj6yJDJMjK/chain-of-thought-monitorability-a-new-and-fragile) —  — 2025-07-15
+  - 
+- [Reducing LLM deception at scale with self-other overlap fine-tuning](https://www.lesswrong.com/posts/jtqcsARGtmgogdcLT/reducing-llm-deception-at-scale-with-self-other-overlap-fine) —  — 2025-03-13
+  - 
+- [Why Do Some Language Models Fake Alignment While Others Don't?](https://www.lesswrong.com/posts/ghESoA8mo3fv9Yx3E/why-do-some-language-models-fake-alignment-while-others-don) —  — 2025-07-08
+  - 
+- [Self-fulfilling misalignment data might be poisoning our AI models](https://www.lesswrong.com/posts/QkEyry3Mqo8umbhoK/self-fulfilling-misalignment-data-might-be-poisoning-our-ai) —  — 2025-03-02
+  - 
+- [Foom & Doom 2: Technical alignment is hard](https://www.lesswrong.com/posts/bnnKGSCHJghAvqPjS/foom-and-doom-2-technical-alignment-is-hard) —  — 2025-06-23
+  - 
+- [Open Global Investment as a Governance Model for AGI](https://www.lesswrong.com/posts/LtT24cCAazQp4NYc5/open-global-investment-as-a-governance-model-for-agi) —  — 2025-08-27
+  - 
+- [Activation space interpretability may be doomed](https://www.lesswrong.com/posts/gYfpPbww3wQRaxAFD/activation-space-interpretability-may-be-doomed) —  — 2025-01-08
+  - 
+- [It's hard to make scheming evals look realistic for LLMs](https://www.lesswrong.com/posts/TBk2dbWkg2F7dB3jb/it-s-hard-to-make-scheming-evals-look-realistic-for-llms) —  — 2025-05-24
+  - 
+- [AIs should also refuse to work on capabilities research](https://www.lesswrong.com/posts/CFA8W6WCodEZdjqYE/ais-should-also-refuse-to-work-on-capabilities-research) —  — 2025-10-27
+  - 
+- [Re: recent Anthropic safety research](https://www.lesswrong.com/posts/oDX5vcDTEei8WuoBx/re-recent-anthropic-safety-research) —  — 2025-08-06
+  - 
+- [Which side of the AI safety community are you in?](https://www.lesswrong.com/posts/zmtqmwetKH4nrxXcE/which-side-of-the-ai-safety-community-are-you-in) —  — 2025-10-22
+  - 
+- [Alignment Faking Revisited: Improved Classifiers and Open Source Extensions](https://www.lesswrong.com/posts/Fr4QsQT52RFKHvCAH/alignment-faking-revisited-improved-classifiers-and-open) —  — 2025-04-08
+  - 
+- [AI companies are unlikely to make high-assurance safety cases if timelines are short](https://www.lesswrong.com/posts/neTbrpBziAsTH5Bn7/ai-companies-are-unlikely-to-make-high-assurance-safety) —  — 2025-01-23
+  - 
+- [Sonnet 4.5's eval gaming seriously undermines alignment evals, and this seems caused by training on alignment evals](https://www.lesswrong.com/posts/qgehQxiTXj53X49mM/sonnet-4-5-s-eval-gaming-seriously-undermines-alignment) —  — 2025-10-30
+  - 
+- [Narrow Misalignment is Hard, Emergent Misalignment is Easy](https://www.lesswrong.com/posts/gLDSqQm8pwNiq7qst/narrow-misalignment-is-hard-emergent-misalignment-is-easy) —  — 2025-07-14
+  - 
+- [Consider donating to AI safety champion Scott Wiener](https://www.lesswrong.com/posts/n6Rsb2jDpYSfzsbns/consider-donating-to-ai-safety-champion-scott-wiener) —  — 2025-10-22
+  - 
+- [The Paris AI Anti-Safety Summit](https://www.lesswrong.com/posts/qYPHryHTNiJ2y6Fhi/the-paris-ai-anti-safety-summit) —  — 2025-02-12
+  - 
+- [Plans A, B, C, and D for misalignment risk](https://www.lesswrong.com/posts/E8n93nnEaFeXTbHn5/plans-a-b-c-and-d-for-misalignment-risk) —  — 2025-10-08
+  - 
+- [Realistic Reward Hacking Induces Different and Deeper Misalignment](https://www.lesswrong.com/posts/HLJoJYi52mxgomujc/realistic-reward-hacking-induces-different-and-deeper-1) —  — 2025-10-09
+  - 
+- [Stress Testing Deliberative Alignment for Anti-Scheming Training](https://www.lesswrong.com/posts/JmRfgNYCrYogCq7ny/stress-testing-deliberative-alignment-for-anti-scheming) —  — 2025-09-17
+  - 
+- [Towards Alignment Auditing as a Numbers-Go-Up Science](https://www.lesswrong.com/posts/bGYQgBPEyHidnZCdE/towards-alignment-auditing-as-a-numbers-go-up-science) —  — 2025-08-04
+  - 
+- [Please Donate to CAIP (Post 1 of 7 on AI Governance)](https://www.lesswrong.com/posts/J7Ju6t6QCpgbnYx4D/please-donate-to-caip-post-1-of-7-on-ai-governance) —  — 2025-05-07
+  - 
+- [Research directions Open Phil wants to fund in technical AI safety](https://www.lesswrong.com/posts/26SHhxK2yYQbh7ors/research-directions-open-phil-wants-to-fund-in-technical-ai) —  — 2025-02-08
+  - 
+- [“The Era of Experience” has an unsolved technical alignment problem](https://www.lesswrong.com/posts/TCGgiJAinGgcMEByt/the-era-of-experience-has-an-unsolved-technical-alignment) —  — 2025-04-24
+  - 
+- [Recontextualization Mitigates Specification Gaming Without Modifying the Specification](https://www.lesswrong.com/posts/whkMnqFWKsBm7Gyd7/recontextualization-mitigates-specification-gaming-without) —  — 2025-10-14
+  - 
+- [How To Become A Mechanistic Interpretability Researcher](https://www.lesswrong.com/posts/jP9KDyMkchuv6tHwm/how-to-become-a-mechanistic-interpretability-researcher) —  — 2025-09-02
+  - 
+- [Among Us: A Sandbox for Agentic Deception](https://www.lesswrong.com/posts/gRc8KL2HLtKkFmNPr/among-us-a-sandbox-for-agentic-deception) —  — 2025-04-05
+  - 
+- [We should try to automate AI safety work asap](https://www.lesswrong.com/posts/W3KfxjbqBAnifBQoi/we-should-try-to-automate-ai-safety-work-asap) —  — 2025-04-26
+  - 
+- [UK AISI’s Alignment Team: Research Agenda](https://www.lesswrong.com/posts/tbnw7LbNApvxNLAg8/uk-aisi-s-alignment-team-research-agenda) —  — 2025-05-07
+  - 
+- [Downstream applications as validation of interpretability progress](https://www.lesswrong.com/posts/wGRnzCFcowRCrpX4Y/downstream-applications-as-validation-of-interpretability) —  — 2025-03-31
+  - 
+- [Model Organisms for Emergent Misalignment](https://www.lesswrong.com/posts/yHmJrDSJpFaNTZ9Tr/model-organisms-for-emergent-misalignment) —  — 2025-06-16
+  - 
+- [Open Philanthropy Technical AI Safety RFP - $40M Available Across 21 Research Areas](https://www.lesswrong.com/posts/wbJxRNxuezvsGFEWv/open-philanthropy-technical-ai-safety-rfp-usd40m-available) —  — 2025-02-06
+  - 
+- [We're Not Advertising Enough (Post 3 of 7 on AI Governance)](https://www.lesswrong.com/posts/BjeesS4cosB2f4PAj/we-re-not-advertising-enough-post-3-of-7-on-ai-governance) —  — 2025-05-22
+  - 
+- [Learnings from AI safety course so far](https://www.lesswrong.com/posts/2pZWhCndKtLAiWXYv/learnings-from-ai-safety-course-so-far) —  — 2025-09-27
+  - 
+- [AI Governance to Avoid Extinction: The Strategic Landscape and Actionable Research Questions](https://www.lesswrong.com/posts/WkCfvqyjCzvRrwkaQ/ai-governance-to-avoid-extinction-the-strategic-landscape) —  — 2025-05-01
+  - 
+- [A short course on AGI safety from the GDM Alignment team](https://www.lesswrong.com/posts/TJrCumJxhzTmNBsRz/a-short-course-on-agi-safety-from-the-gdm-alignment-team) —  — 2025-02-14
+  - 
+- [Detecting Strategic Deception Using Linear Probes](https://www.lesswrong.com/posts/9pGbTz6c78PGwJein/detecting-strategic-deception-using-linear-probes) —  — 2025-02-06
+  - 
+- [xAI's new safety framework is dreadful](https://www.lesswrong.com/posts/hQyrTDuTXpqkxrnoH/xai-s-new-safety-framework-is-dreadful) —  — 2025-09-02
+  - 
+- [AGI Safety & Alignment @ Google DeepMind is hiring](https://www.lesswrong.com/posts/wqz5CRzqWkvzoatBG/agi-safety-and-alignment-google-deepmind-is-hiring) —  — 2025-02-17
+  - 
+- [Reasons for and against working on technical AI safety at a frontier AI lab](https://www.lesswrong.com/posts/cyYgdYJagkG4HGZBk/reasons-for-and-against-working-on-technical-ai-safety-at-a) —  — 2025-01-05
+  - 
+- [Third-wave AI safety needs sociopolitical thinking](https://www.lesswrong.com/posts/6YxdpGjfHyrZb7F2G/third-wave-ai-safety-needs-sociopolitical-thinking) —  — 2025-03-27
+  - 
+- [One-shot steering vectors cause emergent misalignment, too](https://www.lesswrong.com/posts/kcKnKHTHycHeRhcHF/one-shot-steering-vectors-cause-emergent-misalignment-too) —  — 2025-04-14
+  - 
+- [The Sweet Lesson: AI Safety Should Scale With Compute](https://www.lesswrong.com/posts/6hy7tsB2pkpRHqazG/the-sweet-lesson-ai-safety-should-scale-with-compute) —  — 2025-05-05
+  - 
+- [Implications of the inference scaling paradigm for AI safety](https://www.lesswrong.com/posts/HiTjDZyWdLEGCDzqu/implications-of-the-inference-scaling-paradigm-for-ai-safety) —  — 2025-01-14
+  - 
+- [Interview with Eliezer Yudkowsky on Rationality and Systematic Misunderstanding of AI Alignment](https://www.lesswrong.com/posts/kiNbFKcKoNQKdgTp8/interview-with-eliezer-yudkowsky-on-rationality-and) —  — 2025-09-15
+  - 
+- [ASI existential risk: Reconsidering Alignment as a Goal](https://www.lesswrong.com/posts/YeQe36XiY4BhrtRh5/asi-existential-risk-reconsidering-alignment-as-a-goal-1) —  — 2025-04-15
+  - 
+- [Six Thoughts on AI Safety](https://www.lesswrong.com/posts/3jnziqCF3vA2NXAKp/six-thoughts-on-ai-safety) —  — 2025-01-24
+  - 
+- [Aesthetic Preferences Can Cause Emergent Misalignment](https://www.lesswrong.com/posts/gT3wtWBAs7PKonbmy/aesthetic-preferences-can-cause-emergent-misalignment) —  — 2025-08-26
+  - 
+- [Prover-Estimator Debate: 
+A New Scalable Oversight Protocol](https://www.lesswrong.com/posts/8XHBaugB5S3r27MG9/prover-estimator-debate-a-new-scalable-oversight-protocol) —  — 2025-06-17
+  - 
+- [On Emergent Misalignment](https://www.lesswrong.com/posts/7BEcAzxCXenwcjXuE/on-emergent-misalignment) —  — 2025-02-28
+  - 
+- [Why Corrigibility is Hard and Important (i.e. "Whence the high MIRI confidence in alignment difficulty?")](https://www.lesswrong.com/posts/ksfjZJu3BFEfM6hHE/why-corrigibility-is-hard-and-important-i-e-whence-the-high) —  — 2025-09-30
+  - 
+- [Scaling Sparse Feature Circuit Finding to Gemma 9B](https://www.lesswrong.com/posts/PkeB4TLxgaNnSmddg/scaling-sparse-feature-circuit-finding-to-gemma-9b) —  — 2025-01-10
+  - 
+- [Claude 4 You: Safety and Alignment](https://www.lesswrong.com/posts/PjeZxCivuoyKhs4JB/claude-4-you-safety-and-alignment) —  — 2025-05-25
+  - 
+- [xAI's Grok 4 has no meaningful safety guardrails](https://www.lesswrong.com/posts/dqd54wpEfjKJsJBk6/xai-s-grok-4-has-no-meaningful-safety-guardrails) —  — 2025-07-13
+  - 
+- [Open problems in emergent misalignment](https://www.lesswrong.com/posts/AcTEiu5wYDgrbmXow/open-problems-in-emergent-misalignment) —  — 2025-03-01
+  - 
+- [What Makes an AI Startup "Net Positive" for Safety?](https://www.lesswrong.com/posts/o3sEHE8cqQ5hcqgkG/what-makes-an-ai-startup-net-positive-for-safety) —  — 2025-04-18
+  - 
+- [AIs at the current capability level may be important for future safety work](https://www.lesswrong.com/posts/cJQZAueoPC6aTncKK/ais-at-the-current-capability-level-may-be-important-for) —  — 2025-05-12
+  - 
+- [Anthropic is Quietly Backpedalling on its Safety Commitments](https://www.lesswrong.com/posts/HE2WXbftEebdBLR9u/anthropic-is-quietly-backpedalling-on-its-safety-commitments) —  — 2025-05-23
+  - 
+- [Mistral Large 2 (123B) seems to exhibit alignment faking](https://www.lesswrong.com/posts/kCGk5tp5suHoGwhCa/mistral-large-2-123b-seems-to-exhibit-alignment-faking) —  — 2025-03-27
+  - 
+- [Go home GPT-4o, you’re drunk: emergent misalignment as lowered inhibitions](https://www.lesswrong.com/posts/RoWabfQxabWBiXwxP/go-home-gpt-4o-you-re-drunk-emergent-misalignment-as-lowered) —  — 2025-03-18
+  - 
+- [Directly Try Solving Alignment for 5 weeks](https://www.lesswrong.com/posts/abd9ufFpLrn5kvnLn/directly-try-solving-alignment-for-5-weeks) —  — 2025-07-21
+  - 
+- [AI for AI safety](https://www.lesswrong.com/posts/F3j4xqpxjxgQD3xXh/ai-for-ai-safety) —  — 2025-03-14
+  - 
+- [Why does LW not put much more focus on AI governance and outreach?](https://www.lesswrong.com/posts/Y49znC2qfL9SXkT7e/why-does-lw-not-put-much-more-focus-on-ai-governance-and) —  — 2025-04-12
+  - 
+- [Agentic Misalignment: How LLMs Could be Insider Threats](https://www.lesswrong.com/posts/b8eeCGe3FWzHKbePF/agentic-misalignment-how-llms-could-be-insider-threats-1) —  — 2025-06-20
+  - 
+- [A Problem to Solve Before Building a Deception Detector](https://www.lesswrong.com/posts/YXNeA3RyRrrRWS37A/a-problem-to-solve-before-building-a-deception-detector) —  — 2025-02-07
+  - 
+- [Misalignment and Strategic Underperformance: An Analysis of Sandbagging and Exploration Hacking](https://www.lesswrong.com/posts/TeTegzR8X5CuKgMc3/misalignment-and-strategic-underperformance-an-analysis-of) —  — 2025-05-08
+  - 
+- [Petri: An open-source auditing tool to accelerate AI safety research](https://www.lesswrong.com/posts/kffbZGa2yYhc6cakc/petri-an-open-source-auditing-tool-to-accelerate-ai-safety) —  — 2025-10-07
+  - 
+- [On closed-door AI safety research](https://www.lesswrong.com/posts/2TA7HqBYdhLdJBcZz/on-closed-door-ai-safety-research) —  — 2025-08-18
+  - 
+- [Claude Sonnet 4.5: System Card and Alignment](https://www.lesswrong.com/posts/4yn8B8p2YiouxLABy/claude-sonnet-4-5-system-card-and-alignment) —  — 2025-09-30
+  - 
+- [100+ concrete projects and open problems in evals](https://www.lesswrong.com/posts/LhnqegFoykcjaXCYH/100-concrete-projects-and-open-problems-in-evals) —  — 2025-03-22
+  - 
+- [Research Note: Our scheming precursor evals had limited predictive power for our in-context scheming evals](https://www.lesswrong.com/posts/9tqpPP4FwSnv9AWsi/research-note-our-scheming-precursor-evals-had-limited) —  — 2025-07-03
+  - 
+- [Introducing 11 New AI Safety Organizations - Catalyze's Winter 24/25 London Incubation Program Cohort](https://www.lesswrong.com/posts/LLJm97gLDacn8AscB/introducing-11-new-ai-safety-organizations-catalyze-s-winter) —  — 2025-03-10
+  - 
+- [LLM AGI may reason about its goals and discover misalignments by default](https://www.lesswrong.com/posts/4XdxiqBsLKqiJ9xRM/llm-agi-may-reason-about-its-goals-and-discover) —  — 2025-09-15
+  - 
+- [LLM AGI will have memory, and memory changes alignment](https://www.lesswrong.com/posts/aKncW36ZdEnzxLo8A/llm-agi-will-have-memory-and-memory-changes-alignment) —  — 2025-04-04
+  - 
+- [Google DeepMind: An Approach to Technical AGI Safety and Security](https://www.lesswrong.com/posts/3ki4mt4BA6eTx56Tc/google-deepmind-an-approach-to-technical-agi-safety-and) —  — 2025-04-05
+  - 
+- [Omniscaling to MNIST](https://www.lesswrong.com/posts/4aeshNuEKF8Ak356D/omniscaling-to-mnist) —  — 2025-11-08
+  - 
+- [New scorecard evaluating AI companies on safety](https://www.lesswrong.com/posts/4kwyC8ZqGZLATezri/new-scorecard-evaluating-ai-companies-on-safety) —  — 2025-05-26
+  - 
+- [Paper: Open Problems in Mechanistic Interpretability](https://www.lesswrong.com/posts/fqDzevPyw3GGaF5o9/paper-open-problems-in-mechanistic-interpretability) —  — 2025-01-29
+  - 
+- [Orphaned Policies (Post 5 of 7 on AI Governance)](https://www.lesswrong.com/posts/wFKZmvfRfNn24HNHp/orphaned-policies-post-5-of-7-on-ai-governance) —  — 2025-05-29
+  - 
+- [Alignment as uploading with more steps](https://www.lesswrong.com/posts/AzFxTMFfkTt4mhMKt/alignment-as-uploading-with-more-steps) —  — 2025-09-14
+  - 
+- [Alignment can be the ‘clean energy’ of AI](https://www.lesswrong.com/posts/irxuoCTKdufEdskSk/alignment-can-be-the-clean-energy-of-ai) —  — 2025-02-22
+  - 
+- [Thought Crime: Backdoors & Emergent Misalignment in Reasoning Models](https://www.lesswrong.com/posts/zzZ6jye3ukiNyMCmC/thought-crime-backdoors-and-emergent-misalignment-in) —  — 2025-06-16
+  - 
+- [Convergent Linear Representations of Emergent Misalignment](https://www.lesswrong.com/posts/umYzsh7SGHHKsRCaA/convergent-linear-representations-of-emergent-misalignment) —  — 2025-06-16
+  - 
+- [Maintaining Alignment during RSI as a Feedback Control Problem](https://www.lesswrong.com/posts/PhgEKkB4cwYjwpGxb/maintaining-alignment-during-rsi-as-a-feedback-control) —  — 2025-03-02
+  - 
+- [Selective Generalization: Improving Capabilities While Maintaining Alignment](https://www.lesswrong.com/posts/ZXxY2tccLapdjLbKm/selective-generalization-improving-capabilities-while) —  — 2025-07-16
+  - 
+- [Your AI Safety org could get EU funding up to €9.08M. Here’s how (+ free personalized support)
+Update: Webinar 18/8 Link Below](https://www.lesswrong.com/posts/jzgqTtcHhXpSDNgcF/your-ai-safety-org-could-get-eu-funding-up-to-eur9-08m-here) —  — 2025-07-20
+  - 
+- [Map of AI Safety v2](https://www.lesswrong.com/posts/rF7MQWGbqQjEkeLJA/map-of-ai-safety-v2) —  — 2025-04-15
+  - 
+- [Recommendations for Technical AI Safety Research Directions](https://www.lesswrong.com/posts/tG9LGHLzQezH3pvMs/recommendations-for-technical-ai-safety-research-directions) —  — 2025-01-10
+  - 
+- [When is it important that open-weight models aren't released? My thoughts on the benefits and dangers of open-weight models in response to developments in CBRN capabilities.](https://www.lesswrong.com/posts/TeF8Az2EiWenR9APF/when-is-it-important-that-open-weight-models-aren-t-released) —  — 2025-06-09
+  - 
+- [How do we solve the alignment problem?](https://www.lesswrong.com/posts/fMqgLGoeZFFQqAGyC/how-do-we-solve-the-alignment-problem) —  — 2025-02-13
+  - 
+- [Rejecting Violence as an AI Safety Strategy](https://www.lesswrong.com/posts/inFW6hMG3QEx8tTfA/rejecting-violence-as-an-ai-safety-strategy) —  — 2025-09-22
+  - 
+- [SLT for AI Safety](https://www.lesswrong.com/posts/J7CyENFYXPxXQpsnD/slt-for-ai-safety) —  — 2025-07-01
+  - 
+- [The EU Is Asking for Feedback on Frontier AI Regulation (Open to Global Experts)—This Post Breaks Down What’s at Stake for AI Safety](https://www.lesswrong.com/posts/AbnfsnEEmHFmprGzm/the-eu-is-asking-for-feedback-on-frontier-ai-regulation-open) —  — 2025-04-22
+  - 
+- [Introducing the Epoch Capabilities Index (ECI)](https://www.lesswrong.com/posts/2RtuThoZwP4o8aEpS/introducing-the-epoch-capabilities-index-eci) —  — 2025-10-28
+  - 
+- [Not all capabilities will be created equal: focus on strategically superhuman agents](https://www.lesswrong.com/posts/5rMwWzRdWFtRdHeuE/not-all-capabilities-will-be-created-equal-focus-on) —  — 2025-02-13
+  - 
+- [Misalignment classifiers: Why they’re hard to evaluate adversarially, and why we're studying them anyway](https://www.lesswrong.com/posts/jzHhJJq2cFmisRKB2/misalignment-classifiers-why-they-re-hard-to-evaluate) —  — 2025-08-15
+  - 
+- [Softmax, Emmett Shear's new AI startup focused on "Organic Alignment"](https://www.lesswrong.com/posts/QGQiCuE33iHFv9jkv/softmax-emmett-shear-s-new-ai-startup-focused-on-organic) —  — 2025-03-28
+  - 
+- [AI safety techniques leveraging distillation](https://www.lesswrong.com/posts/8KKujApx4g7FBm6hE/ai-safety-techniques-leveraging-distillation) —  — 2025-06-19
+  - 
+- [Alignment faking CTFs: Apply to my MATS stream](https://www.lesswrong.com/posts/jWFvsJnJieXnWBb9r/alignment-faking-ctfs-apply-to-my-mats-stream) —  — 2025-04-04
+  - 
+- [Shift Resources to Advocacy Now (Post 4 of 7 on AI Governance)](https://www.lesswrong.com/posts/dcd2dPLZGFJPgtDzq/shift-resources-to-advocacy-now-post-4-of-7-on-ai-governance) —  — 2025-05-28
+  - 
+- [Political Funding Expertise (Post 6 of 7 on AI Governance)](https://www.lesswrong.com/posts/adQueu9FFHfiBKDCt/political-funding-expertise-post-6-of-7-on-ai-governance) —  — 2025-06-19
+  - 
+- [The Need for Political Advertising
+(Post 2 of 7 on AI Governance)](https://www.lesswrong.com/posts/BaigpPyZpkZuSjmAz/the-need-for-political-advertising-post-2-of-7-on-ai) —  — 2025-05-21
+  - 
+- [To be legible, evidence of misalignment probably has to be behavioral](https://www.lesswrong.com/posts/4QRvFCzhFbedmNfp4/to-be-legible-evidence-of-misalignment-probably-has-to-be) —  — 2025-04-15
+  - 
+- [AI Safety as a YC Startup](https://www.lesswrong.com/posts/QxJFjqT6oFY3jo47s/ai-safety-as-a-yc-startup-1) —  — 2025-01-08
+  - 
+- [AI Safety Law-a-thon: Turning Alignment Risks into Legal Strategy](https://www.lesswrong.com/posts/xGNnBmtAL5F5vBKRf/ai-safety-law-a-thon-turning-alignment-risks-into-legal) —  — 2025-09-10
+  - 
+- [On OpenAI’s Safety and Alignment Philosophy](https://www.lesswrong.com/posts/Wi5keDzktqmANL422/on-openai-s-safety-and-alignment-philosophy) —  — 2025-03-05
+  - 
+- [New website analyzing AI companies' model evals](https://www.lesswrong.com/posts/nmaKpoHxmzjT8yXTk/new-website-analyzing-ai-companies-model-evals) —  — 2025-05-26
+  - 
+- [An alignment safety case sketch based on debate](https://www.lesswrong.com/posts/iELyAqizJkizBQbfr/an-alignment-safety-case-sketch-based-on-debate) —  — 2025-05-08
+  - 
+- [On Google’s Safety Plan](https://www.lesswrong.com/posts/hvEikwtsbf6zaXG2s/on-google-s-safety-plan) —  — 2025-04-11
+  - 
+- [A sketch of an AI control safety case](https://www.lesswrong.com/posts/vWYzSorAEWwoJnnXq/a-sketch-of-an-ai-control-safety-case) —  — 2025-01-30
+  - 
+- [Alignment Proposal: Adversarially Robust Augmentation and Distillation](https://www.lesswrong.com/posts/RRvdRyWrSqKW2ANL9/alignment-proposal-adversarially-robust-augmentation-and) —  — 2025-05-25
+  - 
+- [Mainstream Grantmaking Expertise (Post 7 of 7 on AI Governance)](https://www.lesswrong.com/posts/y9QEHKdqsfsXBMAkb/mainstream-grantmaking-expertise-post-7-of-7-on-ai) —  — 2025-06-23
+  - 
+- [Predict 2025 AI capabilities (by Sunday)](https://www.lesswrong.com/posts/cdPPr6XtPkCX5c8Ny/predict-2025-ai-capabilities-by-sunday) —  — 2025-01-15
+  - 
+- [Where are the AI safety replications?](https://www.lesswrong.com/posts/88xgGLnLo64AgjGco/where-are-the-ai-safety-replications) —  — 2025-07-26
+  - 
+- [Emergent Misalignment on a Budget](https://www.lesswrong.com/posts/qHudHZNLCiFrygRiy/emergent-misalignment-on-a-budget) —  — 2025-06-08
+  - 
+- [Call for suggestions - AI safety course](https://www.lesswrong.com/posts/qe8LjXAtaZfrc8No7/call-for-suggestions-ai-safety-course) —  — 2025-07-03
+  - 
+- [Reframing AI Safety as a Neverending Institutional Challenge](https://www.lesswrong.com/posts/bzYJCXicmwDHDpLZa/reframing-ai-safety-as-a-neverending-institutional-challenge) —  — 2025-03-23
+  - 
+- [Do LLMs know what they're capable of? Why this matters for AI safety, and initial findings](https://www.lesswrong.com/posts/9tHEibBBhQCHEyFsa/do-llms-know-what-they-re-capable-of-why-this-matters-for-ai) —  — 2025-07-13
+  - 
+- [Towards data-centric interpretability with sparse autoencoders](https://www.lesswrong.com/posts/a4EDinzAYtRwpNmx9/towards-data-centric-interpretability-with-sparse) —  — 2025-08-15
+  - 
+- [Against blanket arguments against interpretability](https://www.lesswrong.com/posts/u3ZysuXEjkyHhefrk/against-blanket-arguments-against-interpretability) —  — 2025-01-22
+  - 
+- [Problems with instruction-following as an alignment target](https://www.lesswrong.com/posts/CSFa9rvGNGAfCzBk6/problems-with-instruction-following-as-an-alignment-target) —  — 2025-05-15
+  - 
+- [On Deliberative Alignment](https://www.lesswrong.com/posts/CJ4yywLBkdRALc4sT/on-deliberative-alignment) —  — 2025-02-11
+  - 
+- [60 U.K. Lawmakers Accuse Google of Breaking AI Safety Pledge](https://www.lesswrong.com/posts/GvgmoDts5kphwGyS2/60-u-k-lawmakers-accuse-google-of-breaking-ai-safety-pledge) —  — 2025-08-29
+  - 
+- [Reward button alignment](https://www.lesswrong.com/posts/JrTk2pbqp7BFwPAKw/reward-button-alignment) —  — 2025-05-22
+  - 
+- [OpenAI #13: Altman at TED and OpenAI Cutting Corners on Safety Testing](https://www.lesswrong.com/posts/nnzb7prw2XC8cFhnP/openai-13-altman-at-ted-and-openai-cutting-corners-on-safety) —  — 2025-04-15
+  - 
+- [Interview with Steven Byrnes on Brain-like AGI, Foom & Doom, and Solving Technical Alignment](https://www.lesswrong.com/posts/zecxwyATrN8ZbinoC/interview-with-steven-byrnes-on-brain-like-agi-foom-and-doom) —  — 2025-08-05
+  - 
+- [What is Inadequate about Bayesianism for AI Alignment: Motivating Infra-Bayesianism](https://www.lesswrong.com/posts/wzCtwYtojMabyEg2L/what-is-inadequate-about-bayesianism-for-ai-alignment) —  — 2025-05-01
+  - 
+- [The GDM AGI Safety+Alignment Team is Hiring for Applied Interpretability Research](https://www.lesswrong.com/posts/aG9e5tHfHmBnDqrDy/the-gdm-agi-safety-alignment-team-is-hiring-for-applied) —  — 2025-02-24
+  - 
+- [Can we safely automate alignment research?](https://www.lesswrong.com/posts/nJcuj4rtuefeTRFHp/can-we-safely-automate-alignment-research) —  — 2025-04-30
+  - 
+- [Overview: AI Safety Outreach Grassroots Orgs](https://www.lesswrong.com/posts/hmds9eDjqFaadCk4F/overview-ai-safety-outreach-grassroots-orgs) —  — 2025-05-04
+  - 
+- [Why modelling multi-objective homeostasis is essential for AI alignment (and how it helps with AI safety as well). Subtleties and Open Challenges.](https://www.lesswrong.com/posts/vGeuBKQ7nzPnn5f7A/why-modelling-multi-objective-homeostasis-is-essential-for) —  — 2025-01-12
+  - 
+- [Focus transparency on risk reports, not safety cases](https://www.lesswrong.com/posts/KMbZWcTvGjChw9ynD/focus-transparency-on-risk-reports-not-safety-cases) —  — 2025-09-22
+  - 
+- [All the labs AI safety plans: 2025 edition](https://www.lesswrong.com/posts/dwpXvweBrJwErse3L/all-the-labs-ai-safety-plans-2025-edition) —  — 2025-10-28
+  - 
+- [Building and evaluating alignment auditing agents](https://www.lesswrong.com/posts/DJAZHYjWxMrcd2na3/building-and-evaluating-alignment-auditing-agents) —  — 2025-07-24
+  - 
+- [Harmless reward hacks can generalize to misalignment in LLMs](https://www.lesswrong.com/posts/CwJ2qWveb9JbaCGQ5/harmless-reward-hacks-can-generalize-to-misalignment-in-llms) —  — 2025-08-26
+  - 
+- [Why I don't believe Superalignment will work](https://www.lesswrong.com/posts/kyBGcHfzfZziHm5xL/why-i-don-t-believe-superalignment-will-work) —  — 2025-09-22
+  - 
+- [Existing Safety Frameworks Imply Unreasonable Confidence](https://www.lesswrong.com/posts/7ExkgcDudwhag73vw/existing-safety-frameworks-imply-unreasonable-confidence) —  — 2025-04-10
+  - 
+- [Why do many people who care about AI Safety not clearly endorse PauseAI?](https://www.lesswrong.com/posts/gwKyHqe4CL6TZNQxp/why-do-many-people-who-care-about-ai-safety-not-clearly) —  — 2025-03-30
+  - 
+- [Training AI to do alignment research we don’t already know how to do](https://www.lesswrong.com/posts/5gmALpCetyjkSPEDr/training-ai-to-do-alignment-research-we-don-t-already-know) —  — 2025-02-24
+  - 
+- [Renormalization Redux: QFT Techniques for AI Interpretability](https://www.lesswrong.com/posts/sjr66DBEgyogAbfdf/renormalization-redux-qft-techniques-for-ai-interpretability) —  — 2025-01-18
+  - 
+- [Systematic runaway-optimiser-like LLM failure modes on Biologically and Economically aligned AI safety benchmarks for LLMs with simplified observation format (BioBlue)](https://www.lesswrong.com/posts/PejNckwQj3A2MGhMA/systematic-runaway-optimiser-like-llm-failure-modes-on) —  — 2025-03-16
+  - 
+- [No, We're Not Getting Meaningful Oversight of AI](https://www.lesswrong.com/posts/25dsPH6CuRXPBkGHN/no-we-re-not-getting-meaningful-oversight-of-ai) —  — 2025-07-09
+  - 
+- [Emergent Misalignment & Realignment](https://www.lesswrong.com/posts/ZdY4JzBPJEgaoCxTR/emergent-misalignment-and-realignment) —  — 2025-06-27
+  - 
+- [On the Meta and DeepMind Safety Frameworks](https://www.lesswrong.com/posts/etqbEF4yWoGBEaPro/on-the-meta-and-deepmind-safety-frameworks) —  — 2025-02-07
+  - 
+- [Intelsat as a Model for International AGI Governance](https://www.lesswrong.com/posts/gTt2J5uJ4mrTWkncF/intelsat-as-a-model-for-international-agi-governance) —  — 2025-03-13
+  - 
+- [Ketamine part 2: What do in vitro studies tell us about safety?](https://www.lesswrong.com/posts/kjbq7T7Z2vEDoPw95/ketamine-part-2-what-do-in-vitro-studies-tell-us-about) —  — 2025-09-07
+  - 
+- [Here’s 18 Applications of Deception Probes](https://www.lesswrong.com/posts/7zhAwcBri7yupStKy/here-s-18-applications-of-deception-probes) —  — 2025-08-28
+  - 
+- [A single principle related to many Alignment subproblems?](https://www.lesswrong.com/posts/h89L5FMAkEBNsZ3xM/a-single-principle-related-to-many-alignment-subproblems-2) —  — 2025-04-30
+  - 
+- [Alignment Is Not All You Need](https://www.lesswrong.com/posts/SAkFA5jHzzD5JWWxC/alignment-is-not-all-you-need) —  — 2025-01-02
+  - 
+- [Does the Universal Geometry of Embeddings paper have big implications for interpretability?](https://www.lesswrong.com/posts/kMiwjx6QyyBBTcjxt/does-the-universal-geometry-of-embeddings-paper-have-big) —  — 2025-05-26
+  - 
+- [Should AI Developers Remove Discussion of AI Misalignment from AI Training Data?](https://www.lesswrong.com/posts/6DfWFtL7mcs3vnHPn/should-ai-developers-remove-discussion-of-ai-misalignment) —  — 2025-10-23
+  - 
+- [Understanding LLMs: Insights from Mechanistic Interpretability](https://www.lesswrong.com/posts/XGHf7EY3CK4KorBpw/understanding-llms-insights-from-mechanistic) —  — 2025-08-30
+  - 
+- [My January alignment theory Nanowrimo](https://www.lesswrong.com/posts/vkdpw2vCnspK9t7nA/my-january-alignment-theory-nanowrimo) —  — 2025-01-02
+  - 
+- [Paths and waystations in AI safety](https://www.lesswrong.com/posts/kBgySGcASWa4FWdD9/paths-and-waystations-in-ai-safety-1) —  — 2025-03-11
+  - 
+- [Sentinel's Global Risks Weekly Roundup #15/2025: Tariff yoyo, OpenAI slashing safety testing, Iran nuclear programme negotiations, 1K H5N1 confirmed herd infections.](https://www.lesswrong.com/posts/Ns7qfCqSgMjQNDZN8/sentinel-s-global-risks-weekly-roundup-15-2025-tariff-yoyo) —  — 2025-04-14
+  - 
+- [Lectures on statistical learning theory for alignment researchers](https://www.lesswrong.com/posts/yAwnYoeCz7PqeNrtL/lectures-on-statistical-learning-theory-for-alignment) —  — 2025-10-01
+  - 
+- [‘GiveWell for AI Safety’: Lessons learned in a week](https://www.lesswrong.com/posts/Z8KLLHvsEkukxpTCD/givewell-for-ai-safety-lessons-learned-in-a-week) —  — 2025-05-30
+  - 
+- [Rolling Thresholds for AGI Scaling Regulation](https://www.lesswrong.com/posts/GvMakH65LS86RFn5x/rolling-thresholds-for-agi-scaling-regulation) —  — 2025-01-12
+  - 
+- [Scaling Wargaming for Global Catastrophic Risks with AI](https://www.lesswrong.com/posts/eR69f3hi5ozxchhYg/scaling-wargaming-for-global-catastrophic-risks-with-ai) —  — 2025-01-18
+  - 
+- [How Fast Can Algorithms Advance Capabilities? | Epoch Gradient Update](https://www.lesswrong.com/posts/qhjNejRxbMGQp4wHt/how-fast-can-algorithms-advance-capabilities-or-epoch) —  — 2025-05-16
+  - 
+- [Validating against a misalignment detector is very different to training against one](https://www.lesswrong.com/posts/CXYf7kGBecZMajrXC/validating-against-a-misalignment-detector-is-very-different) —  — 2025-03-04
+  - 
+- [AI misbehaviour in the wild from Andon Labs' Safety Report](https://www.lesswrong.com/posts/uwXajjhGeiYBGfz85/ai-misbehaviour-in-the-wild-from-andon-labs-safety-report) —  — 2025-08-28
+  - 
+- [System 2 Alignment: Deliberation, Review, and Thought Management](https://www.lesswrong.com/posts/cus5CGmLrjBRgcPSF/system-2-alignment-deliberation-review-and-thought) —  — 2025-02-13
+  - 
+- [I underestimated safety research speedups from safe AI](https://www.lesswrong.com/posts/p28GHSYskzsGKvABH/i-underestimated-safety-research-speedups-from-safe-ai) —  — 2025-06-29
+  - 
+- [AI Safety Research Futarchy: Using Prediction Markets to Choose Research Projects for MARS](https://www.lesswrong.com/posts/wzTieM48mzYxLdYPi/ai-safety-research-futarchy-using-prediction-markets-to) —  — 2025-09-30
+  - 
+- [Building Big Science from the Bottom-Up: A Fractal Approach to AI Safety](https://www.lesswrong.com/posts/5JJ4AxQRzJGWdj4pN/building-big-science-from-the-bottom-up-a-fractal-approach) —  — 2025-01-07
+  - 
+- [Scaling Laws for Scalable Oversight](https://www.lesswrong.com/posts/x59FhzuM9yuvZHAHW/scaling-laws-for-scalable-oversight) —  — 2025-04-30
+  - 
+- [AI Safety x Physics Grand Challenge](https://www.lesswrong.com/posts/qSDvzyh7LgsAJfehk/ai-safety-x-physics-grand-challenge) —  — 2025-07-23
+  - 
+- [Illusory Safety: Redteaming DeepSeek R1 and the Strongest Fine-Tunable Models of OpenAI, Anthropic, and Google](https://www.lesswrong.com/posts/zjqrSKZuRLnjAniyo/illusory-safety-redteaming-deepseek-r1-and-the-strongest) —  — 2025-02-07
+  - 
+- [We don't want to post again "This might be the last AI Safety Camp"](https://www.lesswrong.com/posts/PK2EmWmzngC6hPPDM/we-don-t-want-to-post-again-this-might-be-the-last-ai-safety) —  — 2025-01-21
+  - 
+- [Theory of Change for AI Safety Camp](https://www.lesswrong.com/posts/Kd2cbLXQxCCRRQDcH/theory-of-change-for-ai-safety-camp) —  — 2025-01-22
+  - 
+- [Upcoming Workshop on Post-AGI Economics, Culture, and Governance](https://www.lesswrong.com/posts/sLZQrwQnPswNTEbWi/upcoming-workshop-on-post-agi-economics-culture-and) —  — 2025-10-28
+  - 
+- [Automating AI Safety: What we can do today](https://www.lesswrong.com/posts/FqpAPC48CzAtvfx5C/automating-ai-safety-what-we-can-do-today) —  — 2025-07-25
+  - 
+- [No-self as an alignment target](https://www.lesswrong.com/posts/LSJx5EnQEW6s5Juw6/no-self-as-an-alignment-target) —  — 2025-05-13
+  - 
+- [New homepage for AI safety resources – AISafety.com redesign](https://www.lesswrong.com/posts/ciw6DCdywoXk7yrdw/new-homepage-for-ai-safety-resources-aisafety-com-redesign) —  — 2025-11-05
+  - 
+- [Call for Collaboration: Renormalization for AI safety ](https://www.lesswrong.com/posts/MDWGcNHkZ3NPEzcnp/call-for-collaboration-renormalization-for-ai-safety) —  — 2025-03-31
+  - 
+- [Forecasting Frontier Language Model Agent Capabilities](https://www.lesswrong.com/posts/bc5ohMwAyshdwJkDt/forecasting-frontier-language-model-agent-capabilities) —  — 2025-02-24
+  - 
+- [A Concrete Roadmap towards Safety Cases based on
+Chain-of-Thought Monitoring](https://www.lesswrong.com/posts/Em9sihEZmbofZKc2t/a-concrete-roadmap-towards-safety-cases-based-on-chain-of) —  — 2025-10-23
+  - 
+- [Why do misalignment risks increase as AIs get more capable?](https://www.lesswrong.com/posts/NDotm7oLHfR56g4sD/why-do-misalignment-risks-increase-as-ais-get-more-capable) —  — 2025-04-11
+  - 
+- [Widening AI Safety's talent pipeline by meeting people where they are](https://www.lesswrong.com/posts/x6ffKSHXxxbueYrHE/widening-ai-safety-s-talent-pipeline-by-meeting-people-where) —  — 2025-09-25
+  - 
+- [Dodging systematic human errors in scalable oversight](https://www.lesswrong.com/posts/EgRJtwQurNzz8CEfJ/dodging-systematic-human-errors-in-scalable-oversight) —  — 2025-05-14
+  - 
+- [Top AI safety newsletters, books, podcasts, etc – new AISafety.com resource](https://www.lesswrong.com/posts/vxSGDLGRtfcf6FWBg/top-ai-safety-newsletters-books-podcasts-etc-new-aisafety) —  — 2025-03-04
+  - 
+- [Prospects for Alignment Automation:
+Interpretability Case Study](https://www.lesswrong.com/posts/y5cYisQ2QHiSbQbhk/prospects-for-alignment-automation-interpretability-case) —  — 2025-03-21
+  - 
+- [Why did interest in "AI risk" and "AI safety" spike in June and July 2025? (Google Trends)](https://www.lesswrong.com/posts/bWYisdRccDDHbista/why-did-interest-in-ai-risk-and-ai-safety-spike-in-june-and) —  — 2025-08-16
+  - 
+- [Why I'm Posting AI-Safety-Related Clips On TikTok](https://www.lesswrong.com/posts/yEJwJzG2o3cwDSDqP/why-i-m-posting-ai-safety-related-clips-on-tiktok) —  — 2025-08-12
+  - 
+- [Beliefs about formal methods and AI safety](https://www.lesswrong.com/posts/CCT7Qc8rSeRs7r5GL/beliefs-about-formal-methods-and-ai-safety) —  — 2025-10-23
+  - 
+- [Principles for Picking Practical Interpretability Projects](https://www.lesswrong.com/posts/DqaoPNqhQhwBFqWue/principles-for-picking-practical-interpretability-projects) —  — 2025-07-15
+  - 
+- [The Best Way to Align an LLM: Is Inner Alignment Now a Solved Problem?](https://www.lesswrong.com/posts/xAsviBJGSBBtgBiCw/the-best-way-to-align-an-llm-is-inner-alignment-now-a-solved) —  — 2025-05-28
+  - 
+- ["The Urgency of Interpretability" (Dario Amodei)](https://www.lesswrong.com/posts/SebmGh9HYdd8GZtHA/the-urgency-of-interpretability-dario-amodei) —  — 2025-04-27
+  - 
+- [What is it to solve the alignment problem?](https://www.lesswrong.com/posts/syEwQzC6LQywQDrFi/what-is-it-to-solve-the-alignment-problem-2) —  — 2025-02-13
+  - 
+- [Misalignment and Roleplaying: Are Misaligned LLMs Acting Out Sci-Fi Stories?](https://www.lesswrong.com/posts/LH9SoGvgSwqGtcFwk/misalignment-and-roleplaying-are-misaligned-llms-acting-out) —  — 2025-09-24
+  - 
+- [Transformers Don't Need LayerNorm at Inference Time: Implications for Interpretability](https://www.lesswrong.com/posts/KbFuuaBKRP7FcAADL/transformers-don-t-need-layernorm-at-inference-time) —  — 2025-07-23
+  - 
+- [Trusted monitoring, but with deception probes.](https://www.lesswrong.com/posts/eaEqAzGN3uJfpfGoc/trusted-monitoring-but-with-deception-probes) —  — 2025-07-23
+  - 
+- [AXRP Episode 45 - Samuel Albanie on DeepMind’s AGI Safety Approach](https://www.lesswrong.com/posts/nZtAkGmDELMnLJMQ5/axrp-episode-45-samuel-albanie-on-deepmind-s-agi-safety) —  — 2025-07-06
+  - 
+- [I replicated the Anthropic alignment faking experiment on other models, and they didn't fake alignment](https://www.lesswrong.com/posts/pCMmLiBcHbKohQgwA/i-replicated-the-anthropic-alignment-faking-experiment-on) —  — 2025-05-30
+  - 
+- [The Alignment Mapping Program: Forging Independent Thinkers in AI Safety - A Pilot Retrospective](https://www.lesswrong.com/posts/yacqE5gD5jHywiFKC/the-alignment-mapping-program-forging-independent-thinkers) —  — 2025-01-10
+  - 
+- [Is AI Alignment Enough?](https://www.lesswrong.com/posts/tdrK7r4QA3ifbt2Ty/is-ai-alignment-enough) —  — 2025-01-10
+  - 
+- [Early Signs of Steganographic Capabilities in Frontier LLMs](https://www.lesswrong.com/posts/nwx6duiDZcHatbpPT/untitled-draft-6osz) —  — 2025-07-04
+  - 
+- [Nonpartisan AI safety](https://www.lesswrong.com/posts/QpaWHYEQomyQTBKw5/nonpartisan-ai-safety) —  — 2025-02-10
+  - 
+- [Announcing Trajectory Labs - A Toronto AI Safety Office](https://www.lesswrong.com/posts/Ws6KS7DtQ3F9Gv8ym/announcing-trajectory-labs-a-toronto-ai-safety-office) —  — 2025-05-13
+  - 
+- [AI Safety Law-a-thon: We need more technical AI Safety researchers to join!](https://www.lesswrong.com/events/rRLPycsLdjFpZ4cKe/ai-safety-law-a-thon-we-need-more-technical-ai-safety) —  — 2025-09-10
+  - 
+- [EIS XV: A New Proof of Concept for Useful Interpretability](https://www.lesswrong.com/posts/HYkg6kwqhCQT5uYuK/eis-xv-a-new-proof-of-concept-for-useful-interpretability) —  — 2025-03-17
+  - 
+- [AI Safety Field Growth Analysis 2025](https://www.lesswrong.com/posts/8QjAnWyuE9fktPRgS/ai-safety-field-growth-analysis-2025) —  — 2025-09-27
+  - 
+- [Why would AI companies use human-level AI to do alignment research?](https://www.lesswrong.com/posts/XLNxrFfkyrdktuzqn/why-would-ai-companies-use-human-level-ai-to-do-alignment) —  — 2025-04-25
+  - 
+- [Lessons from a year of university AI safety field building](https://www.lesswrong.com/posts/Ckhek3mXXq7TWvvEh/lessons-from-a-year-of-university-ai-safety-field-building) —  — 2025-06-06
+  - 
+- [Contest for Better AGI Safety Plans](https://www.lesswrong.com/posts/f9dgyttsuC4sK3Nn7/contest-for-better-agi-safety-plans) —  — 2025-07-03
+  - 
+- [The Alignment Project by UK AISI](https://www.lesswrong.com/posts/wKTwdgZDo479EhmJL/the-alignment-project-by-uk-aisi-1) —  — 2025-08-01
+  - 
+- [We won’t get AIs smart enough to solve alignment but too dumb to rebel](https://www.lesswrong.com/posts/8buEtNxCScYpjzgW8/we-won-t-get-ais-smart-enough-to-solve-alignment-but-too) —  — 2025-10-06
+  - 
+- [Is theory good or bad for AI safety?](https://www.lesswrong.com/posts/De5eNbSpmmSwhuivW/is-theory-good-or-bad-for-ai-safety) —  — 2025-01-19
+  - 
+- [How we spent our first two weeks as an independent AI safety research group](https://www.lesswrong.com/posts/ZwXspKtgbXLGKFx4B/how-we-spent-our-first-two-weeks-as-an-independent-ai-safety) —  — 2025-08-11
+  - 
+- [Takeaways from sketching a control safety case](https://www.lesswrong.com/posts/y6rBarAPTLmuhn9PJ/takeaways-from-sketching-a-control-safety-case) —  — 2025-01-31
+  - 
+- [Video and transcript of talk on automating alignment research](https://www.lesswrong.com/posts/TQbptN7F4ijPnQRLy/video-and-transcript-of-talk-on-automating-alignment) —  — 2025-04-30
+  - 
+- [Deceptive Alignment and Homuncularity](https://www.lesswrong.com/posts/9htmQx5wiePqTtZuL/deceptive-alignment-and-homuncularity) —  — 2025-01-16
+  - 
+- [My Failed AI Safety Research Projects (Q1/Q2 2025)](https://www.lesswrong.com/posts/kiCZzHDkRtupek2mc/my-failed-ai-safety-research-projects-q1-q2-2025) —  — 2025-06-19
+  - 
+- [Will Non-Dual Crap Cause Emergent Misalignment?](https://www.lesswrong.com/posts/46kxzHbTMXBhrSgZL/will-non-dual-crap-cause-emergent-misalignment) —  — 2025-09-02
+  - 
+- [Do Self-Perceived Superintelligent LLMs Exhibit Misalignment?](https://www.lesswrong.com/posts/EFohZdFPGj2iphnvB/do-self-perceived-superintelligent-llms-exhibit-misalignment) —  — 2025-06-29
+  - 
+- [AXRP Episode 40 - Jason Gross on Compact Proofs and Interpretability](https://www.lesswrong.com/posts/TFToqpaKMhcjAEY5E/axrp-episode-40-jason-gross-on-compact-proofs-and) —  — 2025-03-28
+  - 
+- [Finding Emergent Misalignment](https://www.lesswrong.com/posts/tgHps2cxiGDkNxNZN/finding-emergent-misalignment) —  — 2025-03-26
+  - 
+- [A Conservative Vision For AI Alignment](https://www.lesswrong.com/posts/iJzDm6h5a2CK9etYZ/a-conservative-vision-for-ai-alignment) —  — 2025-08-21
+  - 
+- [Technical Acceleration Methods for AI Safety: Summary from October 2025 Symposium](https://www.lesswrong.com/posts/524pFXTPD8iDWmX4x/technical-acceleration-methods-for-ai-safety-summary-from) —  — 2025-10-22
+  - 
+- [Profanity causes emergent misalignment, but with qualitatively different results than insecure code](https://www.lesswrong.com/posts/b8vhTpQiQsqbmi3tx/profanity-causes-emergent-misalignment-but-with) —  — 2025-08-28
+  - 
+- [Research Areas in AI Control (The Alignment Project by UK AISI)](https://www.lesswrong.com/posts/rGcg4XDPDzBFuqNJz/research-areas-in-ai-control-the-alignment-project-by-uk) —  — 2025-08-01
+  - 
+- [Constraining Minds, Not Goals: A Structural Approach to AI Alignment](https://www.lesswrong.com/posts/g3RXozhPmcLm2yDps/constraining-minds-not-goals-a-structural-approach-to-ai) —  — 2025-06-13
+  - 
+- [Examples of self-fulfilling prophecies in AI alignment?](https://www.lesswrong.com/posts/e3CpMJrZQjbXeqA6C/examples-of-self-fulfilling-prophecies-in-ai-alignment) —  — 2025-03-03
+  - 
+- [Interpretability through two lenses: biology and physics](https://www.lesswrong.com/posts/XfGN9K4fmr2oLYed6/interpretability-through-two-lenses-biology-and-physics) —  — 2025-08-12
+  - 
+- [14+ AI Safety Advisors You Can Speak to – New AISafety.com Resource](https://www.lesswrong.com/posts/x85YnN8kzmpdjmGWg/14-ai-safety-advisors-you-can-speak-to-new-aisafety-com) —  — 2025-01-21
+  - 
+- [Who is marketing AI alignment?](https://www.lesswrong.com/posts/L7j4JkeWMeBsweq5b/who-is-marketing-ai-alignment) —  — 2025-01-19
+  - 
+- [What is a circuit? [in interpretability]](https://www.lesswrong.com/posts/RoGdEq6Cz8yWyX4kp/what-is-a-circuit-in-interpretability) —  — 2025-02-14
+  - 
+- [The Strange Science of Interpretability: Recent Papers and a Reading List for the Philosophy of Interpretability](https://www.lesswrong.com/posts/qRnupMmFG7dxQTTYh/the-strange-science-of-interpretability-recent-papers-and-a) —  — 2025-08-17
+  - 
+- [Improving Our Safety Cases Using Upper and Lower Bounds](https://www.lesswrong.com/posts/HmdprC38DbjDnNmgt/improving-our-safety-cases-using-upper-and-lower-bounds) —  — 2025-01-16
+  - 
+- [Why haven't we auto-translated all AI alignment content?](https://www.lesswrong.com/posts/a7QEmdiqdi37PetjY/why-haven-t-we-auto-translated-all-ai-alignment-content) —  — 2025-07-16
+  - 
+- [Can we ever ensure AI alignment if we can only test AI personas?](https://www.lesswrong.com/posts/4rGJ75ZSym9uWfoaB/can-we-ever-ensure-ai-alignment-if-we-can-only-test-ai) —  — 2025-03-16
+  - 
+- [Intent alignment seems incoherent](https://www.lesswrong.com/posts/rLd7NWNKnRFdnJEgD/intent-alignment-seems-incoherent) —  — 2025-10-07
+  - 
+- [Avoiding AI Deception: Lie Detectors can either Induce Honesty or Evasion](https://www.lesswrong.com/posts/dT7mvHzuX46vydt9K/avoiding-ai-deception-lie-detectors-can-either-induce) —  — 2025-06-05
+  - 
+- [Is weak-to-strong generalization an alignment technique?](https://www.lesswrong.com/posts/NPBjELgHFEeHTgDrK/is-weak-to-strong-generalization-an-alignment-technique) —  — 2025-01-31
+  - 
+- [The Future of Interpretability is Geometric](https://www.lesswrong.com/posts/87iDbBM3Qaf4q4gN4/the-future-of-interpretability-is-geometric) —  — 2025-10-24
+  - 
+- [Feedback request: Is the time right for an AI Safety stack exchange?](https://www.lesswrong.com/posts/qFKH5jhfKpcreCTkt/feedback-request-is-the-time-right-for-an-ai-safety-stack) —  — 2025-09-26
+  - 
+- [[Paper] Safety by Measurement: A Systematic Literature Review of AI Safety Evaluation Methods](https://www.lesswrong.com/posts/CwdCYmsutwXwnYtEF/paper-safety-by-measurement-a-systematic-literature-review) —  — 2025-05-19
+  - 
+- [Opportunity Space: Renormalization for AI Safety ](https://www.lesswrong.com/posts/wkGmouy7JnTNtWAbc/opportunity-space-renormalization-for-ai-safety) —  — 2025-03-31
+  - 
+- [Moral Alignment: An Idea I'm Embarrassed I Didn't Think of Myself](https://www.lesswrong.com/posts/A9SLAx8XFp2gCNJCJ/moral-alignment-an-idea-i-m-embarrassed-i-didn-t-think-of) —  — 2025-06-18
+  - 
+- [Will we survive if AI solves engineering before deception?](https://www.lesswrong.com/posts/TGQrqqptazFeRfHBR/will-we-survive-if-ai-solves-engineering-before-deception) —  — 2025-05-17
+  - 
+- [Scaling AI Safety in Europe: From Local Groups to International Coordination](https://www.lesswrong.com/posts/ffKE9ohuuSFZDepeZ/scaling-ai-safety-in-europe-from-local-groups-to) —  — 2025-09-02
+  - 
+- [Selective regularization for alignment-focused representation engineering](https://www.lesswrong.com/posts/HFcriD29cw3E5QLCR/selective-regularization-for-alignment-focused) —  — 2025-05-20
+  - 
+- [Why “Solving Alignment” Is Likely a Category Mistake](https://www.lesswrong.com/posts/wgENfqD8HgADgq4rv/why-solving-alignment-is-likely-a-category-mistake) —  — 2025-05-05
+  - 
+- [Metacrisis as a Framework for AI Governance](https://www.lesswrong.com/posts/TxPeQ85yxpcdfq2wg/metacrisis-as-a-framework-for-ai-governance) —  — 2025-09-21
+  - 
+- [Do safety-relevant LLM steering vectors optimized on a single example generalize?](https://www.lesswrong.com/posts/6aXe9nipTgwK5LxaP/do-safety-relevant-llm-steering-vectors-optimized-on-a) —  — 2025-02-28
+  - 
+- [Output and CoE Monitoring of Customer Service Representatives Shows Default Alignment](https://www.lesswrong.com/posts/C6ETL8KSKwsgB4KcR/output-and-coe-monitoring-of-customer-service) —  — 2025-08-09
+  - 
+- [Definition of alignment science I like](https://www.lesswrong.com/posts/mk3qkvBv8ciFeXGdL/definition-of-alignment-science-i-like) —  — 2025-01-06
+  - 
+- [How far along Metr's law can AI start automating or helping with alignment research?](https://www.lesswrong.com/posts/gXyMCnjrMfBbnYyZ4/how-far-along-metr-s-law-can-ai-start-automating-or-helping) —  — 2025-03-20
+  - 
+- [Alignment Faking Demo for Congressional Staffers](https://www.lesswrong.com/posts/55CBrLrXiQgHBb2gF/alignment-faking-demo-for-congressional-staffers) —  — 2025-10-06
+  - 
+- [Inverse Scaling in Test-Time Compute](https://www.lesswrong.com/posts/gbJJpm92jtxiD9zag/inverse-scaling-in-test-time-compute-2) —  — 2025-07-22
+  - 
+- [Why Eliminating Deception Won’t Align AI](https://www.lesswrong.com/posts/wneX9x8ZKnnAenjfL/why-eliminating-deception-won-t-align-ai) —  — 2025-07-15
+  - 
+- [AI Governance Strategy Builder: A Browser Game](https://www.lesswrong.com/posts/ykTBKmvZJHssYo4kd/ai-governance-strategy-builder-a-browser-game) —  — 2025-09-13
+  - 
+- [Edge Cases in AI Alignment](https://www.lesswrong.com/posts/bqWihHtDnDseyfF2T/edge-cases-in-ai-alignment-2) —  — 2025-03-24
+  - 
+- [Creating a Standard for TAI Governance ](https://www.lesswrong.com/posts/ntLxPrHvCShDnAPrH/creating-a-standard-for-tai-governance) —  — 2025-09-11
+  - 
+- [MAISU - Minimal AI Safety Unconference ](https://www.lesswrong.com/events/JNL2bmDXmaG7YnRbF/maisu-minimal-ai-safety-unconference) —  — 2025-02-21
+  - 
+- [Offer: Team Conflict Counseling for AI Safety Orgs](https://www.lesswrong.com/posts/nssvbGtDN8pwsCEKh/offer-team-conflict-counseling-for-ai-safety-orgs) —  — 2025-04-14
+  - 
+- [Is alignment reducible to becoming more coherent?](https://www.lesswrong.com/posts/nuDJNyG5XLQjtvaeg/is-alignment-reducible-to-becoming-more-coherent) —  — 2025-04-22
+  - 
+- [Misspecification in Inverse Reinforcement Learning](https://www.lesswrong.com/posts/orCtTgQkWwwD3XN87/misspecification-in-inverse-reinforcement-learning) —  — 2025-02-28
+  - 
+- [Undergrad AI Safety Conference](https://www.lesswrong.com/posts/zavyum4dxEAqs6wHt/undergrad-ai-safety-conference) —  — 2025-02-19
+  - 
+- [AI safety content you could create](https://www.lesswrong.com/posts/4sfW4xKwfhvxRzvAX/ai-safety-content-you-could-create) —  — 2025-01-06
+  - 
+- [Women Want Safety, Men Want Respect](https://www.lesswrong.com/posts/9jhrWnxYkoZPxMZMj/women-want-safety-men-want-respect) —  — 2025-07-23
+  - 
+- [Alignment first, intelligence later](https://www.lesswrong.com/posts/sDuWXb8cPXZ2yHdH4/alignment-first-intelligence-later) —  — 2025-03-30
+  - 
+- [Building AI safety benchmark environments on themes of universal human values](https://www.lesswrong.com/posts/7rM4BKvbk82C3FgAF/building-ai-safety-benchmark-environments-on-themes-of) —  — 2025-01-03
+  - 
+- [Category-Theoretic Wanderings into Interpretability](https://www.lesswrong.com/posts/FWs6dNq4AddtDfpGe/category-theoretic-wanderings-into-interpretability) —  — 2025-09-02
+  - 
+- [Safety cases for Pessimism](https://www.lesswrong.com/posts/CpftMXCEnwqbWreHD/safety-cases-for-pessimism) —  — 2025-09-08
+  - 
+- [The Week in AI Governance](https://www.lesswrong.com/posts/9rqMPLdpctxig2iAg/the-week-in-ai-governance) —  — 2025-08-01
+  - 
+- [When does Claude sabotage code? An Agentic Misalignment follow-up](https://www.lesswrong.com/posts/9i6fHMn2vTqyzAi9o/when-does-claude-sabotage-code-an-agentic-misalignment) —  — 2025-11-09
+  - 
+- [AI Safety Camp 10 Outputs](https://www.lesswrong.com/posts/3sjtEXzbwDpyALR4H/ai-safety-camp-10-outputs) —  — 2025-09-05
+  - 
+- [AI Safety course intro blog](https://www.lesswrong.com/posts/evo7ou4qaA5PHGXAQ/ai-safety-course-intro-blog) —  — 2025-07-21
+  - 
+- [Rational Animations' video about scalable oversight and sandwiching](https://www.lesswrong.com/posts/rzCF2T7iLPEgNa59Y/rational-animations-video-about-scalable-oversight-and) —  — 2025-07-06
+  - 
+- [Schmidt Sciences Technical AI Safety RFP on Inference-Time Compute – Deadline: April 30](https://www.lesswrong.com/posts/tTyQvHedrjFWjurGk/schmidt-sciences-technical-ai-safety-rfp-on-inference-time) —  — 2025-03-18
+  - 
+- [Share AI Safety Ideas: Both Crazy and Not](https://www.lesswrong.com/posts/GwZvpYR7Hv2smv8By/share-ai-safety-ideas-both-crazy-and-not) —  — 2025-03-01
+  - 
+- [Why Future AIs will Require New Alignment Methods](https://www.lesswrong.com/posts/TxiB6hvnQqxXB5XDJ/why-future-ais-will-require-new-alignment-methods) —  — 2025-10-10
+  - 
+- [AI companies should be safety-testing the most capable versions of their models](https://www.lesswrong.com/posts/tQzeafo9HjCeXn7ZF/ai-companies-should-be-safety-testing-the-most-capable) —  — 2025-03-26
+  - 
+- [How useful would alien alignment research be? ](https://www.lesswrong.com/posts/brBATybmh2eEZSwdg/how-useful-would-alien-alignment-research-be) —  — 2025-01-23
+  - 
+- [What AI safety plans are there?](https://www.lesswrong.com/posts/iS4g58qQEJzjMzYZJ/what-ai-safety-plans-are-there) —  — 2025-04-23
+  - 
+- [An argument for discussing AI safety in person being underused](https://www.lesswrong.com/posts/pxn5C6Lq2FqMGJGDz/an-argument-for-discussing-ai-safety-in-person-being) —  — 2025-09-24
+  - 
+- [Black-box interpretability methodology blueprint: Probing runaway optimisation in LLMs](https://www.lesswrong.com/posts/Jo6LPyp7t3rPuf8Ao/black-box-interpretability-methodology-blueprint-probing) —  — 2025-06-22
+  - 
+- [Do LLMs Comply Differently During Tests? Is This a Hidden Variable in Safety Evaluation? And Can We Steer That?](https://www.lesswrong.com/posts/B2o6nrxwKxLPsSYdh/do-llms-comply-differently-during-tests-is-this-a-hidden) —  — 2025-06-16
+  - 
+- [Interested in working from a new Boston AI Safety Hub? ](https://www.lesswrong.com/posts/3JeE2dXSKHue2hhZj/interested-in-working-from-a-new-boston-ai-safety-hub) —  — 2025-03-17
+  - 
+- [Workshop: Interpretability in LLMs using Geometric and Statistical Methods](https://www.lesswrong.com/posts/bTzk32t9aWJwLuNhi/workshop-interpretability-in-llms-using-geometric-and) —  — 2025-02-22
+  - 
+- [Alignment Can Reduce Performance on Simple Ethical Questions](https://www.lesswrong.com/posts/jrkrHyrymv95CX5NC/alignment-can-reduce-performance-on-simple-ethical-questions) —  — 2025-02-03
+  - 
+- [Agentic Interpretability: A Strategy Against Gradual Disempowerment](https://www.lesswrong.com/posts/s9z4mgjtWTPpDLxFy/agentic-interpretability-a-strategy-against-gradual) —  — 2025-06-17
+  - 
+- [What can we learn from parent-child-alignment for AI?](https://www.lesswrong.com/posts/xCzKwWmhcEKkeytys/what-can-we-learn-from-parent-child-alignment-for-ai) —  — 2025-10-29
+  - 
+- [How Can Average People Contribute to AI Safety?](https://www.lesswrong.com/posts/ySojRcfMddtyFCYEe/how-can-average-people-contribute-to-ai-safety) —  — 2025-03-06
+  - 
+- [Topological Data Analysis and Mechanistic Interpretability](https://www.lesswrong.com/posts/6oF6pRr2FgjTmiHus/topological-data-analysis-and-mechanistic-interpretability) —  — 2025-02-24
+  - 
+- [Lessons from organizing a technical AI safety bootcamp](https://www.lesswrong.com/posts/ysHERGduadwJFkKhS/lessons-from-organizing-a-technical-ai-safety-bootcamp) —  — 2025-09-28
+  - 

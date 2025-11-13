@@ -1,0 +1,701 @@
+Proposed structure (w/2024 )
+Proposed structure for 2025, needs integration into WIP doc below.
+
+Notes:
+(?) means only included from 2024,
+(...+?) means "contains parts included from 2024".
+(N) means new / added in restructuring call
+Paper/link counts as of 2025-10-15.
+Understand existing models (92+?)
+Evals (25+?)
+Various capability evaluations (2+): Humanity's Last Exam
+Autonomy (4): METR; developer productivity; Vending-Bench; Pokemon
+Reasoning (1): Two-hop reasoning; composition failures
+WMDs (2): Virology test; biology benchmarks
+Situational awareness and self awareness (7+):
+Steganography (4):
+Sandbagging (2):
+Self-replication (2): RepliBench vs red line claims
+Security (1):
+Surprising phenomena (25)
+Things generalising surprisingly / Emergent Misalignment (15+):
+Various Redteams (10+): US AISI; Constitutional Classifiers; Prism; alignment faking
+Interpretability (32+?)
+"Auditing" real models / applied interpretability (7):
+"Fundamental" Mech interp (5):
+Sparse Coding (8+): SAEBench; transcoders; decreased excitement
+Concept-based interp (10+):
+Criticisms (2): May be doomed; won't find deception
+Pr(Ai)2R: Causal Abstractions (?): ReFT; pyvene; locally consistent abstractions
+Leap (?): Model-agnostic API; PIZZA
+EleutherAI interp (?): Path dependence; refusal as affine function; 6 FTEs
+Understand learning (10+?)
+Timaeus: Dev interp (6):
+Vaintrob ~critique (0):
+Simplex: Computational mechanics (4):
+Saxe lab (?): Toy models; induction heads
+Model psychology (N) - persona features, hyper superstition, LLM psychology, …
+Model personas cluster (4):
+
+
+Control the thing (58+?)
+Iterative alignment (6): Deliberative alignment; MONA; inoculation prompting; DPO
+Prevent deception and scheming (8+?)
+Control evaluations (8): Ctrl-Z; Control Arena; SHADE-Arena; D-REX
+Criticisms (0):
+Mechanistic anomaly detection (?): Password-locked elicitation; law of iterated expectations
+Cadenza (?): White-box dishonesty detection; cluster-norm; 3 FTEs
+Faithful CoT via separation (?): Shoggoth/face + paraphraser; Kokotajlo
+Indirect deception monitoring (?): Lie classifiers; sycophancy; simple probes
+Chain of thought monitoring (7):
+Criticisms (0):
+Whitebox monitoring (9):
+Criticism (3): Probe specificity concerns
+Red-teaming monitoring (9): SHADE-Arena; obfuscated activations; SafetyNet; prover-estimator debate
+Latent adversarial training (?): Adversarial state manipulation; automate red-teaming
+Surgical model edits (11)
+Activation engineering (8): Steering vectors; representation engineering; BiDPO
+Utility engineering (1):
+Unlearning (2):
+Goal robustness (7+?)
+Mild optimisation (1): MONA
+RL safety (5): Skalse; behaviorist rewards; AssistanceZero
+Multi agent stuff (1):
+Assistance games / reward learning (?): Provably beneficial; correlated proxies
+Guaranteed Safe AI / Formal verification (?): Bengio; Tegmark; davidad; Russell; UK ARIA
+Alternative architectures (3+?)
+ARIA Safeguarding (N)
+Conjecture: Cognitive Software (?): Cognitive programs; Tactics; bounded tool AI; 1-10 FTEs
+Social-instinct AGI (?): Byrnes; brain circuitry; symbol grounding; Astera
+
+
+Better data (N)
+LLM poisoning, filtering, training data attribution, synthetic data if relevant for alignment, …
+Make AI solve it (6+?)
+Scalable oversight (4+?): Neural interactive proofs; weak-to-strong
+OpenAI Superalignment / Automated Alignment Research (?): Prover-verifier games; 10-50 FTEs
+Weak-to-strong generalization (?): Easy-to-hard; 10-50 FTEs
+Supervising AIs improving AIs (?): Behavioral drift; doubly-efficient debate; 1-10 FTEs
+Cyborgism (?): Janus; Pantheon Interface; human-plus-LLM
+Transluce (?): Monitor interface; neuron description; 6 FTEs; Schmidt Sciences
+Debate (2+?): UK AISI sequence
+Deepmind Scalable Alignment (?): Doubly efficient debate
+Anthropic: Bowman/Perez (?): Truthfulness oversight; Bowman; Perez
+Task decomp (0):
+Adversarial (0):
+Elicit / Ought (?): Process supervision; governance researcher epistemics
+
+Theory (10+?)
+ARC Vaintrob ~critique (2):
+ARC Theory: Formalizing heuristic arguments (?): Tail risk; heuristic estimators; 1-10 FTEs; FLI/SFF
+Miscellaneous theory items (3):
+Understanding agency (3+?):
+Causal Incentives (?): Causal world models; goal-directedness; 1-10 FTEs; Deepmind
+Hierarchical agency (?): Subagents/superagents; free-energy equilibria; 1-10 FTEs; SFF
+Dovetail research (?): Formalizing "structure" and "agency"; 2 FTEs; LTFF
+boundaries / membranes (?): Causal separation; Chris Lakin; 0.5 FTEs
+Understanding optimisation (?): Optimization power; gradient hacking; 1-10 FTEs; CLR/EA
+Corrigibility (0+?):
+Behavior alignment theory (?): Powerseeking; CAST; shutdown problem; 1-10 FTEs
+Ontology Identification (0+?):
+Natural abstractions (?): Wentworth; natural latents; 1-10 FTEs; EA
+Understand cooperation (1+?):
+Pluralistic alignment / collective intelligence (?): Choi; Lazar; 10-50 FTEs
+Center on Long-Term Risk (CLR) (?): S-risks; cooperation theories; 10-50 FTEs; Polaris/SFF
+FOCAL (?): Game theory for AIs; Cooperative AI Foundation; 1-10 FTEs
+Alternatives to utility theory (?): Social choice; beyond preferences; no coherence theorems
+Infrastructure for AI Agents (0):
+(Descendents of) Shard theory (0):
+Singular Learning Theory (0):
+The Learning-Theoretic Agenda (?): Kosoy; infra-Bayesian; 3 FTEs; EA/SFF/ARIA
+Question-answer counterfactual intervals (QACI) (?): HCH-style; epistemic states; 1-10 FTEs; SFF
+Sociotechnical (3)
+Gradual Disempowerment (2):
+Third wave AI safety (0):
+Collective alignment (1):
+Misc / for new agenda clustering (10+?)
+Multi-agents (1):
+Making standards and protocols (2):
+Doomsayers (2):
+Tiling agents (1):
+Multi-org research clusters (?): 2024 had 20+ org sections (Apollo, CAIS, FAR, Anthropic, OpenAI, AISIs) distributed across agendas above
+Megalab teams
+… to be added to the structure above e.g. as "DeepMind Frontier Safety Framework"
+Deepmind alignment research teams / agenda
+https://www.alignmentforum.org/posts/79BPxvSsjzBkiSyTq/agi-safety-and-alignment-at-google-deepmind-a-summary-of 
+Deceptive alignment
+Interpretability
+Capability evaluations
+Early warning evals
+Frontier Safety Framework
+Amplified Oversight
+Causal Alignment
+Viktoria Krakowna alignment team (?)
+OpenAI teams / agendas (???)
+Inscrutable. 
+As of November 2024, Safety Systems had 80 people. No current named lead.
+One official team name: Preparedness
+The system cards seem to have the lion’s share of effort now?
+Deliberative Alignment
+https://arxiv.org/abs/2509.15541 
+Scalable Oversight
+Kinda: https://arxiv.org/abs/2501.18841 
+Persona Features
+CoT Defence
+Madry data attribution
+Delete: “Mission Alignment”, 
+
+Anthropic teams / agendas
+Alignment Science
+Safeguards
+Claude’s Character
+Interpretability.
+
+Shallow review of technical AI safety, 2025
+
+
+
+from Zhou et al (2025)
+
+from Hendrycks, Song et al (2025)
+
+
+This is the third annual review of what’s going on in technical AI safety.
+
+It is “shallow” in the sense that 1) we are not specialists in almost any of it and that 2) we only spent about an hour on each entry. We also only use public information, so we are off by some additional factor.
+
+The point is to help you look up what is happening, or that thing you vaguely remember reading about; to help new researchers orient and know (some of) their options and the standing critiques; to help policy people know who to talk to for the actual information; and ideally to help funders see quickly what has already been funded and how much (but this is hard).
+
+“AI safety” means many things. We’re targeting work that intends to prevent very competent cognitive systems from having large unintended effects on the world. As usual, we ignore policy work, strategy work, model welfare work, technical policy work like on SL4 datacentres and autocybersecurity. There is a section on what Richard Ngo calls “third-wave AI safety” (sociotechnical work).
+
+
+
+Changes this time: 
+Systematic Arxiv search using the word “alignment”
+A fully-automated version of this post using [GPT-5]
+We also made an effort to identify work that doesn’t show up on LW/AF by trawling conferences and arXiv. Our list is not exhaustive, particularly for academic work which is unindexed and hard to discover. 
+
+If we missed you or got something wrong, please comment, we will edit.
+
+The methods section is important but we put it down the bottom anyway.
+
+Here’s a spreadsheet version also.
+
+Editorial
+What's going on? (July 2025)
+
+Capabilities
+Subjectively, the (insane) 2024 rate of progress didn’t maintain.
+https://x.com/RyanPGreenblatt/status/1949912100601811381 
+People have been using competition mathematics as a “hard” benchmark for years, but will soon have to stop because (besides combinatorics) it’s solved. As so often in prespecified evals, this means less than we thought it would; competition maths is surprisingly low-dimensional.
+
+Pretraining not obviously improving on a cost-ben.
+Intense RL (supposedly 3e26’s worth) on Grok 4 not obvious dominant.
+
+
+A major world government now has an AI alignment team. And a distinctive agenda: asymptotic guarantees.
+
+The world’s de facto alignment strategy remains “iterative alignment”. Post-hoc whack-a-mole now and hopefully scalable oversight later”.
+https://www.lesswrong.com/posts/bb5Tnjdrptu89rcyY/what-s-the-short-timeline-plan
+Defence-in-depth stack of weak alignment techniques. 
+What is the current stack? We don’t know, they won’t tell us.
+What is the current safety stack? 
+But what’s the fault correlation?
+https://arxiv.org/abs/2506.24068  
+We now have a name for the world’s de facto AI governance plan: “Open Global Investment”.
+
+For the first time, public mech interp tools sometimes work somewhat. 
+e.g. You can find and suppress “evaluation awareness” features at test-time. This helps prevent models from reporting that they know they’re being tested.
+e.g. You can discover intentionally hidden goals quite quickly.
+e.g. You can run a real-time hallucination detector with cheap linear probes in real-time as your model streams.
+
+
+This is just in time for models to be systematically aware of when they’re being tested. Some experiments try to suppress this with steering, at some cost.
+System cards have grown massively: GPT-3’s model card was 1000 words; GPT-5’s is 20,000. They are now the main source of information about new models and the main source of information on the labs’ safety procedures. If you’re wondering what the ~80 safety staff at OpenAI are doing, to a first approximation it’s these.
+They are still ad hoc artefacts: for instance, they do not always report results from the checkpoint which actually gets released. 
+
+The definition of an audit is an independent investigation. I am unwilling to call AI probes of AIs independent, and so don’t like them using the honorific “audit”.cccccc But the work is fine.
+Building and evaluating alignment auditing agents
+Blind auditing language models for hidden objectives
+https://www.arxiv.org/pdf/2510.16255 
+
+“Character training”
+I thought that "character training" was a separate and lesser matter than "alignment training"
+Are we anthropomorphising the right amount? We will soon find out.
+
+
+Lots of powerful people declared their intent to not ruin kinda-faithful CoT. But the CoT is already starting to look weird (“marinade marinade marinade”).
+
+
+“Third-wave AI safety”
+This 
+
+SAEs used in the Sonnet 4.5 safety testing. Steering vectors to try and suppress its evaluation awareness.
+https://x.com/Jack_W_Lindsey/status/1972732882893578693 
+steering against certain eval-awareness representations typically decreased verbalized eval awareness, and sometimes increased rates of misalignment (more so than steering along random feature directions)... still exhibited harmful behaviors at lower rates than Opus 4.1 and Sonnet 4.
+
+
+
+
+
+There is a CoT Faithfulness Defence League. It’s maybe holding up for now. 
+OpenAI are leading on this.
+As of Sonnet 4.5, Anthropic has stopped risking ruining the CoT.
+Nothing I’m aware of from the others.
+
+Three good conferences, two of them new: you can see all the talks from HAAISS and IASEAI and ILIAD, which is a pretty great way to learn about things just out or about to come out.
+
+“Third-wave mechanistic interpretability”
+
+We’re in a world of overthinkers and cheats.
+
+https://x.com/sleepinyourhat/status/1960749648110395467 
+
+“prosaic misalignment well before catastrophic scheming, which is lucky.”
+
+The joke propaganda theory of xAI (they make safety look good by deploying messed up stuff in public) is looking ok!
+
+https://arxiv.org/pdf/2507.03409 
+
+We already knew from jailbreaks that current alignment methods were brittle. Emergent misalignment goes much further than this in the generality of the badness, and is remarkably easy to induce. 
+
+Here are some links on international AI governance for completeness.
+
+Calls to action not bottlenecked on admissions:
+https://apartresearch.com/#get-started 
+https://coda.io/@alignmentdev/ai-safety-info 
+https://researcher2.eleuther.ai/get-involved/ 
+https://aisafety.quest/#volunteer 
+https://aisafetyawarenessproject.org/next-steps/ 
+https://www.theomachialabs.com/ 
+
+What’s next?
+https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/ 
+
+https://x.com/g_leech_/status/1969659430988857797 
+
+
+
+
+
+https://openai.com/index/introducing-agentkit/ 
+
+1. Understand existing models
+Evals
+AGI metrics
+HCAST and other time-horizon benchmarks
+Critique: https://www.lesswrong.com/posts/PzLSuaT6WGLQGJJJD/the-length-of-horizons 
+ADeLe
+CHC-AI
+GDPval
+Various capability evaluations
+
+Humanity's Last Exam
+
+
+
+Autonomy
+METR: Measuring AI Ability to Complete Long Tasks
+(? not exactly autonomy) Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity
+Vending-Bench and Claude running a vending machine
+Claude plays pokemon ?
+
+
+
+Reasoning
+Two-hop reasoning: Models fail to compose two synthetic facts, but can succeed when one fact is synthetic and the other is natural
+ARC-AGI 2
+
+WMDs
+Virology Capabilities Test (VCT): A Multimodal Virology Q&A Benchmark
+LLMs Outperform Experts on Challenging Biology Benchmarks
+…
+SciGym
+
+Situational awareness and self awareness
+Evaluating Frontier Models for Stealth and Situational Awareness
+Models Often Know When They Are Being Evaluated
+Also see 4.5 Sonnet’s system card, o3 chain of thought, Apollo’s research note on Claude 3.7 in alignment evals, among many other instances not listed
+LLMs are aware of their learned behaviors
+AI Awareness literature review
+Probing and Steering Evaluation Awareness of Language Models
+
+Steganography
+Early Signs of Steganographic Capabilities in Frontier LLMs
+LLMs can learn Steganographic Reasoning via RL
+LLMs can learn and generalize steganographic chain-of-thought under process supervision
+Secret Collusion among AI Agents: Multi-Agent Deception via Steganography
+
+Sandbagging
+Covert Sandbagging Against Chain-of-Thought Monitoring
+Automated researchers can subtly sandbag
+
+
+
+
+
+
+Self-replication
+RepliBench: Evaluating the Autonomous Replication Capabilities of Language Model Agents:
+Models do not currently pose a credible threat of self-replication.
+Frontier AI systems have surpassed the self-replicating red line
+
+Security 
+https://arxiv.org/abs/2510.07192 
+
+Eval Validity
+Lessons from a chimp
+Surprising phenomena
+
+Things generalising surprisingly
+Emergent Misalignment: Narrow finetuning on backdoored code can produce broadly misaligned LLMs
+Narrow Misalignment is Hard, Emergent Misalignment is Easy
+Also happens when you train with aesthetic preferences, profanities, or any other crap
+Emergent misalignment in reasoning models
+Model Organisms for Emergent Misalignment
+Toward understanding and preventing misalignment generalization
+Finding Emergent Misalignment
+Also look at related model personas framing and interpretability sections i guess
+Convergent Linear Representations of Emergent Misalignment: emergent misalignment is caused by a linear direction in activation space.
+[2506.13206] Thought Crime: Backdoors and Emergent Misalignment in Reasoning Models 
+[2506.19823] Persona Features Control Emergent Misalignment 
+[2506.11618] Convergent Linear Representations of Emergent Misalignment 
+Model Organisms for Emergent Misalignment
+Narrow Misalignment is Hard, Emergent Misalignment is Easy — LessWrong
+Thread on EM
+Emergent misalignment should instead be called “generalisation of narrow misalignment”. Miscapability causes general misalignment. There may be a goodness direction.  
+Subliminal Learning: LLMs Transmit Behavioral Traits via Hidden Signals in Data
+Hacking harmless tasks generalizes to misaligned behavior 
+Training on Documents About Reward Hacking Induces Reward Hacking
+Various Redteams
+US AISI on hijacking AI agents
+Constitutional Classifiers
+Prism’s automated problematic behavior elicitation
+Why Do Some Language Models Fake Alignment While Others Don't?
+Alignment Faking Revisited: Improved Classifiers and Open Source Extensions
+Mistral Large 2 (123B) seems to exhibit alignment faking
+Agentic Misalignment: How LLMs Could be Insider Threats
+The Elicitation Game: Evaluating capability elicitation techniques
+Can a Neural Network that only Memorizes the Dataset be Undetectably Backdoored? | OpenReview 
+Interpretability
+
+So-called “Auditing” real models / investigate model organisms with interp tools / “applied interpretability”
+Building and evaluating alignment auditing agents
+Blind auditing language models for hidden objectives
+https://www.arxiv.org/pdf/2510.16255 
+Auditing Claude 4.5 Sonnet’s evaluation awareness
+Detecting sandbagging model organisms
+Do Models Say What They Learn?
+Eliciting secret knowledge from language models
+Narrow Finetuning Leaves Clearly Readable Traces in Activation Differences
+See also: Whitebox monitoring
+[2507.11473] Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety 
+
+
+“Fundamental" Mech interp
+Open Problems in Mechanistic Interpretability
+Tracing the Thoughts of a Large Language Model
+Decomposing neural network parameters into mechanistic components
+Stochastic Parameter Decomposition
+See also: Mech interp is not pre-paradigmatic
+
+Sparse Coding
+
+Summary: Less overall excitement for SAEs due to underperforming on various tasks. 
+
+SAEBench: A Comprehensive Benchmark for Sparse Autoencoders
+Negative Results for SAEs On Downstream Tasks and Deprioritising SAE Research 
+Steering Language Model Refusal with Sparse Autoencoders
+Sparse autoencoders trained on the same data learn different features
+Transcoders Beat Sparse Autoencoders for Interpretability
+Evaluating SAE interpretability without explanations
+Dense SAE Latents Are Features, Not Bugs
+Diffing Base and Chat Models (And Why It Matters)
+
+breaks a key assumption in interpretability: that a concept is about the tokens where it fires. Here it is the opposite—the concept is defined by where it does not fire.
+https://arxiv.org/pdf/2510.08638 
+
+Concept-based interp 
+Convergent Linear Representations of Emergent Misalignment
+Misaligned persona SAE features promoting or suppressing emergent misalignment
+Persona Vectors
+Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models
+Real-Time Detection of Hallucinated Entities 
+Reward Model Interpretability via Optimal and Pessimal Tokens
+Refusal in LLMs is an Affine Function
+Representation of LLM Hallucinations
+Training-order recency is linearly encoded in language model activations
+[2506.19823] Persona Features Control Emergent Misalignment 
+
+
+
+Misc:
+Attention attribution
+
+Criticisms:
+Activation space interpretability may be doomed
+Interpretability Will Not Reliably Find Deceptive AI
+
+Understand learning
+
+Timaeus: Dev interp 
+
+You Are What You Eat -- AI Alignment Requires Understanding How Data Shapes Structure and Generalisation
+Bayesian Influence Functions for Hessian-Free Data Attribution
+The Loss Kernel: A Geometric Probe for Deep Learning Interpretability
+From Global to Local: A Scalable Benchmark for Local Posterior Sampling
+Structural Inference: Interpreting Small Language Models with Susceptibilities
+Dynamics of Transient Structure in In-Context Linear Regression Transformers
+
+
+Vaintrob ~critique
+
+Simplex: Computational mechanics
+
+Next-token pretraining implies in-context learning
+Neural networks leverage nominally quantum and post-quantum representations
+Constrained belief updates explain geometric structures in transformer representations
+Simplex Progress Report - July 2025
+
+
+2. Control the thing
+Iterative alignment
+Deliberative alignment: reasoning enables safer language models (2024)
+Stress Testing Deliberative Alignment for Anti-Scheming Training
+Myopic Optimization with Non-myopic Approval Can Mitigate Multi-step Reward Hacking 
+MONA: Three Month Later - Updates and Steganography Without Optimization Pressure
+Inoculation prompting (CLR!!)
+Modifying LLM Beliefs with Synthetic Document Finetuning
+Can DPO Learn Diverse Human Values? A Theoretical Scaling Law
+
+Scalable alignment
+
+
+Prevent deception and scheming
+Control evaluations
+Ctrl-Z: Controlling AI Agents via Resampling
+A sketch of an AI control safety case
+Control Arena
+UK AISI’s control agenda
+How to evaluate control measures for LLM agents? A trajectory from today to superintelligence
+SHADE-Arena: Evaluating Sabotage and Monitoring in LLM Agents
+D-REX: A Benchmark for Detecting Deceptive Reasoning 
+
+Criticisms: …
+Chain of thought monitoring
+Summary: Read their scratchpad
+
+Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety
+Reasoning Models Don't Always Say What They Think
+Chain-of-Thought Reasoning In The Wild Is Not Always Faithful
+Are DeepSeek R1 And Other Reasoning Models More Faithful?
+Detecting misbehavior in frontier reasoning models
+Covert Sandbagging Against Chain-of-Thought Monitoring
+Mitigating Deceptive Alignment via Self-Monitoring
+When Chain of Thought is Necessary, Language Models Struggle to Evade Monitors
+
+Criticisms: …
+Whitebox monitoring
+Summary: 
+
+Detecting Strategic Deception Using Linear Probes
+Detecting High-Stakes Interactions with Activation Probes
+Whitebox detection of sandbagging model organisms
+Benchmarking deception probes for trusted monitoring
+Probes and SAEs do well on Among Us benchmark
+18 Applications of Deception Probes
+White Box Control at UK AISI - Update on Sandbagging Investigations — AI Alignment Forum 
+
+Criticism: How are intentional descriptions (like deception) related to algorithmic ones (like understanding the mechanisms models use)?, Is This Lie Detector Really Just a Lie Detector? An Investigation of LLM Probe Specificity, https://www.lesswrong.com/posts/bCQbSFrnnAk7CJNpM/still-no-lie-detector-for-llms
+
+Red-teaming monitoring
+SHADE-Arena: Evaluating sabotage and monitoring in LLM agents
+The Most Forbidden Technique
+Optimising on reasoning chain-of-thought 
+Obfuscated Activations Bypass LLM Latent-Space Defenses
+Preference Learning with Lie Detectors can Induce Honesty or Evasion
+RL to obfuscate a single static monitor can generalise to evade other unseen monitors
+SafetyNet: Detecting Harmful Outputs in LLMs by Modeling and Monitoring Deceptive Behaviors
+Automated researchers can sandbag
+Stress Testing Chain-of-Thought Monitoring
+Optimizing The Final Output Can Obfuscate CoT
+[2506.13609] Avoiding Obfuscation with Prover-Estimator Debate 
+
+Surgical model edits
+Activation engineering
+One-shot steering vectors cause emergent misalignment
+Probing and Steering Evaluation Awareness of Language Models
+Steering Models to Believe They Are Not Being Tested
+Linear Control of Test Awareness Reveals Differential Compliance
+Steering Gemini with BiDPO
+Taxonomy, Opportunities, and Challenges of Representation Engineering for Large Language Models
+A Unified Understanding and Evaluation of Steering Methods
+Understanding (Un)Reliability of Steering Vectors in Language Models
+
+Utility engineering
+Utility Engineering: Analyzing and Controlling Emergent Value Systems in AIs
+
+Unlearning
+Distillation Robustifies Unlearning
+Meta-Unlearning with Disruption Masking And Normalization
+https://arxiv.org/abs/2410.23232 
+
+Goal robustness
+
+Mild optimisation
+MONA: Managed Myopia with Approval Feedback
+
+RL safety
+Skalse’s agenda introduction and motivation
+MONA: Managed Myopia with Approval Feedback
+“Behaviorist” RL reward functions lead to scheming
+Reward button alignment
+Training a Reward Hacker Despite Perfect Labels
+AssistanceZero: Scalably Solving Assistance Games
+Multi agent stuff
+https://arxiv.org/abs/2410.18636 
+
+Collective alignment
+Collective alignment: public input on our Model Spec
+
+
+
+3. Safety by design (alt arch)
+
+4. Better data 
+Training data attribution
+Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs
+You Are What You Eat -- AI Alignment Requires Understanding How Data Shapes Structure and Generalisation
+Challenges and Future Directions of Data-Centric AI Alignment
+https://turntrout.com/self-fulfilling-misalignment 
+https://arxiv.org/abs/2510.07192 
+https://arxiv.org/abs/2505.16260 
+https://arxiv.org/abs/2509.26544 
+Synthetic data?
+https://www.lesswrong.com/posts/qXYLvjGL9QvD3aFSW/training-on-documents-about-reward-hacking-induces-reward 
+https://www.hyperstitionai.com/ 
+
+LLM poisoning, filtering, synthetic data if relevant for alignment, …
+
+4. Make AI solve it
+Scalable oversight
+Neural Interactive Proofs
+Your Weak LLM is Secretly a Strong Teacher for Alignment
+Unsupervised Elicitation of Language Models
+https://x.com/fulcrumML 
+
+Debate
+UK AISI debate sequence
+A Benchmark for Scalable Oversight Protocols
+
+Task decomp
+
+
+Adversarial
+
+
+5. Theory
+ARC Vaintrob ~critique
+more ARC critique https://www.lesswrong.com/s/uYMw689vDFmgPEHrS
+Adversarial examples are superposition
+Fully Autonomous AI Agents Should Not be Developed (amusing LLM’d critique)
+
+
+https://www.lesswrong.com/posts/kJkgXEwQtWLrpecqg/the-plan-2024-update John Wentworth 2024 update
+
+
+Tiling agents
+Communication & Trust | OpenReview 
+
+
+Understanding agency
+https://docs.google.com/document/d/1d-ARdZZDHFPIfGcTTOKK8IZWlQj0NZQrmteJj2mvmYA/edit?tab=t.0#heading=h.zat5vvnwtl0j 
+https://www.lesswrong.com/posts/QvnzEHvodmwfBXu94/live-theory-part-0-taking-intelligence-seriously 
+https://www.lesswrong.com/posts/tQ9vWm4b57HFqbaRj/what-if-not-agency
+
+Corrigibility
+
+Ontology Identification
+Understand cooperation
+Infrastructure for AI Agents, kinda? Theoretical paper on what the practical road safety infrastructure should be
+
+
+(Descendents of) Shard theory 
+
+Singular Learning Theory
+
+6. Sociotechnical
+
+https://gradual-disempowerment.ai/
+Gradual Disempowerment: Concrete Research Projects
+Fully Autonomous AI Agents Should Not be Developed
+Third wave AI safety
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5353214 
+
+7. Misc / for new agenda clustering
+
+Model psychology / character / instrumental welfare
+Misc cluster for Model personas, hyperstition, studying model’s / persona’s preferences, model welfare, etc
+
+On the functional self of LLMs
+https://www.lesswrong.com/posts/3EzbtNLdcnZe8og8b/the-void-1
+Self-fulfilling misalignment data
+Evidence of Bail Preferences in Large Language Models
+https://www.anthropic.com/research/end-subset-conversations
+
+
+Multi-agents 
+Multi-Agent Risks from Advanced AI
+
+
+
+
+Making standards and protocols (?) 
+Infrastructure for AI Agents 
+Authenticated Delegation and Authorized AI Agents
+
+Doomsayers
+Frontier AI systems have surpassed the self-replicating red line
+https://ai-2027.com/
+
+
+
+Scientist AI: https://arxiv.org/abs/2502.15657
+
+This is also the orgs-based section I assume
+
+
+
+
+
+
+
+Agendas without public outputs this year
+Graveyard (known to be inactive)
+Orthogonal?
+
+Appendix: Other reviews and taxonomies
+Open Philanthropy
+International AI Safety Report 2025
+A Comprehensive Survey in LLM(-Agent) Full Stack Safety: Data, Training and Deployment
+plex’s Review of AI safety funders
+The Singapore Consensus on Global AI Safety Research Priorities
+The Alignment Project
+AI Awareness literature review
+https://peregrine-launchpad.lovable.app/ 
+Eleuther AI
+
+Methods
+We tried (link to Stephen script) a bottom-up taxonomy but it wasn’t
+The field is growing at around 20% a year. There will come a time that this list isn't sensible to do manually, at this granularity anyway.
+
+
+1. Will the decisive risks come from AI systems that are similar to those of today, or very different? There's a lot of AI Safety work that might not have any hope of generalizing if it's the ladder. 
+2. If things happen near-term, will the scary systems look like black-box agents that are scaffolding-light, or scaffolding-heavy agents? Both have very different threat models and technological solutions. 
+3. Key near-term AI variables. How [understandable, predictable, robust, powerful] are the most worrying LLMs? For a specific safety intervention, how much does it help with all/any of these?
+4. Key global threat security variables. How strong and representative are international/national governance/governments? Are there strong actors who are both willing and able to go after early key AI threats? Are AI systems globally or nationally monitored/registered/overseen? Separately - are AI systems and similar being used to systematically and competently secure cybersecurity / biosecurity / etc?
+5. Specific alignment/mistake threat profiles. Scheming reduction, control/oversight, situational awareness, limiting power/knowledge of critical systems, etc. 
+6. AI misuse key variables. Are there powerful bad actors with access to compute and expertise, and the motivation and willingness to use them for bad aims? How bad is bad?
+
+
+This post was funded by OpenPhil.
