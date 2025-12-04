@@ -437,6 +437,119 @@ def extract_agenda_metadata(
 
 
 # ============================================================================
+# Paper Enrichment Functions
+# ============================================================================
+
+
+def enrich_papers_from_db(doc: ProcessedDocument, verbose: bool = False) -> tuple[int, int]:
+    """Enrich Paper objects with data from classify database and add missing papers.
+    
+    Args:
+        doc: ProcessedDocument with parsed papers
+        verbose: If True, show detailed list of missing URLs
+        
+    Returns:
+        Tuple of (enriched_count, added_count) - papers enriched and papers added to DB
+    """
+    if not _SHALLOW_REVIEW_AVAILABLE:
+        logger.warning("shallow_review modules not available - skipping paper enrichment")
+        return (0, 0)
+    
+    from draft_parser import Paper
+    
+    # Collect all paper URLs from all agendas
+    paper_urls: set[str] = set()
+    papers_by_url: dict[str, list[Paper]] = {}
+    
+    for item in doc.items:
+        if item.agenda_metadata and item.agenda_metadata.outputs:
+            for output in item.agenda_metadata.outputs:
+                if isinstance(output, Paper) and output.url:
+                    paper_urls.add(output.url)
+                    if output.url not in papers_by_url:
+                        papers_by_url[output.url] = []
+                    papers_by_url[output.url].append(output)
+    
+    if not paper_urls:
+        return (0, 0)
+    
+    enriched_count = 0
+    added_count = 0
+    missing_urls: list[tuple[str, str]] = []  # (original_url, normalized_url)
+    
+    # Look up papers in database
+    with data_db_locked() as db:
+        for url in paper_urls:
+            normalized = normalize_url(url)
+            
+            # Try normalized URL first, then original
+            row = db.execute(
+                "SELECT data FROM classify WHERE url = ? OR url = ?",
+                (normalized, url)
+            ).fetchone()
+            
+            if row and row["data"]:
+                # Enrich all Paper objects with this URL
+                try:
+                    data = json.loads(row["data"])
+                    for paper in papers_by_url[url]:
+                        paper.title = data.get("title")
+                        paper.authors = data.get("authors", [])
+                        paper.author_organizations = data.get("author_organizations", [])
+                        paper.date = data.get("date")
+                        paper.published_year = data.get("published_year")
+                        paper.venue = data.get("venue")
+                        paper.kind = data.get("kind")
+                        paper.summary = data.get("summary")
+                        paper.key_result = data.get("key_result")
+                        enriched_count += 1
+                except (json.JSONDecodeError, KeyError) as e:
+                    logger.warning(f"Failed to parse classify data for {url}: {e}")
+            else:
+                # Paper not in database - add it
+                missing_urls.append((url, normalized))
+    
+    # Add missing papers to classify table
+    if missing_urls:
+        from shallow_review.classify import add_classify_candidate
+        
+        console.print(f"[yellow]Found {len(missing_urls)} papers not in database, adding to classify table...[/yellow]")
+        for original_url, normalized_url in missing_urls:
+            try:
+                is_new = add_classify_candidate(
+                    url=normalized_url,
+                    source="draft_parser",
+                    source_url=None,
+                    collect_relevancy=None,
+                )
+                if is_new:
+                    added_count += 1
+                    logger.info(f"Added missing paper to classify: {normalized_url}")
+                    if original_url != normalized_url:
+                        logger.debug(f"  (normalized from: {original_url})")
+                else:
+                    # Race condition - was added between check and add
+                    logger.debug(f"Paper already exists (race condition): {normalized_url}")
+            except Exception as e:
+                logger.error(f"Failed to add paper {normalized_url} to classify: {e}")
+                console.print(f"[red]Error: Failed to add {normalized_url}: {e}[/red]")
+        
+        # Warn about all missing papers
+        console.print(
+            f"[yellow]Warning: {len(missing_urls)} paper URLs not found in database "
+            f"({added_count} added, {len(missing_urls) - added_count} already existed or failed)[/yellow]"
+        )
+        if verbose:
+            for original_url, normalized_url in missing_urls[:10]:  # Show first 10
+                display_url = normalized_url if original_url == normalized_url else f"{original_url} → {normalized_url}"
+                console.print(f"  [dim]- {display_url}[/dim]")
+            if len(missing_urls) > 10:
+                console.print(f"  [dim]... and {len(missing_urls) - 10} more[/dim]")
+    
+    return (enriched_count, added_count)
+
+
+# ============================================================================
 # Validation Functions
 # ============================================================================
 
@@ -713,7 +826,16 @@ def parse(
             progress.update(task, advance=1)
 
     # ========================================================================
-    # Step 3: Validate structure
+    # Step 3: Enrich papers from database
+    # ========================================================================
+    console.print("[cyan]Step 3: Enriching papers from database...[/cyan]")
+    enriched_count, added_count = enrich_papers_from_db(doc, verbose=verbose)
+    console.print(
+        f"[green]Enriched {enriched_count} papers, added {added_count} new papers to classify table[/green]"
+    )
+
+    # ========================================================================
+    # Step 4: Validate structure
     # ========================================================================
     console.print("[cyan]Step 3: Validating parsed document...[/cyan]")
     errors, warnings = validate_document_structure(doc)
