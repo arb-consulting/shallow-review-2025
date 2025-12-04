@@ -709,7 +709,7 @@ def parse(
     ),
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable verbose logging"),
     limit: int | None = typer.Option(
-        None, "--limit", "-n", help="Limit processing to first N sections/agendas (for testing)"
+        None, "--limit", "-n", help="Limit LLM extraction to first N agendas (full document is always parsed)"
     ),
 ) -> None:
     """Parse a draft document into structured JSON using Claude Haiku.
@@ -740,43 +740,23 @@ def parse(
     console.print(f"[cyan]Step 1: Parsing document structure from {input_file}...[/cyan]")
     doc = parse_document(input_path)
 
-    # Count agendas
-    agenda_items = [item for item in doc.items if item.item_type == ItemType.AGENDA]
+    # Count all sections and agendas (always parse full document)
+    all_agenda_items = [item for item in doc.items if item.item_type == ItemType.AGENDA]
     total_sections = len([i for i in doc.items if i.item_type == ItemType.SECTION])
-    total_agendas = len(agenda_items)
+    total_agendas = len(all_agenda_items)
     
-    # Apply limit if specified
+    console.print(
+        f"[green]Found {total_sections} sections with {total_agendas} agendas[/green]"
+    )
+    
+    # Apply limit only to LLM processing (not document parsing)
     if limit is not None:
-        # Count items (sections + agendas) and limit to first N, preserving order
-        item_count = 0
-        limited_items: list[DocumentItem] = []
-        limited_agenda_items: list[DocumentItem] = []
-        
-        for item in doc.items:
-            # Always include non-section/agenda items (papers, etc.)
-            if item.item_type not in (ItemType.SECTION, ItemType.AGENDA):
-                limited_items.append(item)
-            else:
-                # For sections/agendas, check limit
-                if item_count >= limit:
-                    break
-                limited_items.append(item)
-                if item.item_type == ItemType.AGENDA:
-                    limited_agenda_items.append(item)
-                item_count += 1
-        
-        doc.items = limited_items
-        agenda_items = limited_agenda_items
-        
-        limited_sections = len([i for i in doc.items if i.item_type == ItemType.SECTION])
+        agenda_items = all_agenda_items[:limit]
         console.print(
-            f"[green]Found {total_sections} sections with {total_agendas} agendas "
-            f"(limited to first {limit} items: {limited_sections} sections, {len(agenda_items)} agendas)[/green]"
+            f"[yellow]Limiting LLM processing to first {limit} agendas (out of {total_agendas})[/yellow]"
         )
     else:
-        console.print(
-            f"[green]Found {total_sections} sections with {total_agendas} agendas[/green]"
-        )
+        agenda_items = all_agenda_items
 
     # Build agenda list for LLM (for see_also resolution)
     agenda_list = [
