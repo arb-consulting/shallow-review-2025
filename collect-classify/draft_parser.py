@@ -372,18 +372,19 @@ def find_markers_and_headers(text: str) -> list[tuple[str, str, int, int, int]]:
     """
     items = []
 
-    # Find all [sec:...] and [a:...] markers
-    pattern = r"\[(sec|a):([^\]]+)\]"
-    for match in re.finditer(pattern, text):
+    # Find all [sec:...] and [a:...] markers (handle both escaped \[...\] and unescaped [...])
+    # Try escaped brackets first: \[(sec|a):...\]
+    pattern_escaped = r"\\\[(sec|a):([^\]]+?)\\\]"
+    for match in re.finditer(pattern_escaped, text):
         marker_type = match.group(1)  # 'sec' or 'a'
-        marker_id = match.group(2).replace("\\", "")  # Strip backslashes
+        marker_id = match.group(2).replace("\\", "")  # Strip any backslashes from ID
         start_pos = match.start()
         end_pos = match.end()
-
-        # Skip markers inside markdown link URLs: [text](url-with-[a:...])
-        # Check if we're inside parentheses (markdown link URL)
+        
+        # Skip markers inside markdown link URLs or HTML anchors (check below)
         before_marker = text[:start_pos]
-        # Find the last unclosed parenthesis before this marker
+        
+        # Check if inside markdown link URL
         paren_depth = 0
         for i in range(len(before_marker) - 1, -1, -1):
             if before_marker[i] == ')':
@@ -391,13 +392,11 @@ def find_markers_and_headers(text: str) -> list[tuple[str, str, int, int, int]]:
             elif before_marker[i] == '(':
                 paren_depth -= 1
                 if paren_depth < 0:
-                    # We're inside a markdown link URL, skip this marker
                     break
         if paren_depth < 0:
             continue
-
-        # Skip markers inside HTML anchor attributes: {#anchor-[a:...]}
-        # Check if we're inside curly braces
+        
+        # Check if inside HTML anchor attribute
         brace_depth = 0
         for i in range(len(before_marker) - 1, -1, -1):
             if before_marker[i] == '}':
@@ -405,29 +404,78 @@ def find_markers_and_headers(text: str) -> list[tuple[str, str, int, int, int]]:
             elif before_marker[i] == '{':
                 brace_depth -= 1
                 if brace_depth < 0:
-                    # We're inside an HTML anchor attribute, skip this marker
                     break
         if brace_depth < 0:
             continue
-
-        # Find the header on the same line as this marker (markers appear at end of header lines)
-        # Look backwards to find the start of the current line, then check for header
+        
+        # Find header level
         line_start = text.rfind('\n', 0, start_pos) + 1
         line_text = text[line_start:end_pos]
-        # Check if this line starts with a header
         header_match = re.match(r"^(#+)\s+(.+)$", line_text)
         if header_match:
-            header_level = len(header_match.group(1))  # Count of #
+            header_level = len(header_match.group(1))
         else:
-            # Fallback: look forward for next header (shouldn't happen normally)
             remaining_text = text[start_pos:]
             next_header_match = re.search(r"^(.*?)^(#+)\s+(.+)$", remaining_text, re.MULTILINE | re.DOTALL)
             if next_header_match:
-                header_level = len(next_header_match.group(2))  # Count of #
+                header_level = len(next_header_match.group(2))
             else:
-                # Default header level based on type
                 header_level = 1 if marker_type == "sec" else 2
-
+        
+        items.append((marker_type, marker_id, header_level, start_pos))
+    
+    # Also match unescaped brackets: [(sec|a):...]
+    pattern_normal = r"\[(sec|a):([^\]]+)\]"
+    for match in re.finditer(pattern_normal, text):
+        marker_type = match.group(1)
+        marker_id = match.group(2).replace("\\", "")
+        start_pos = match.start()
+        end_pos = match.end()
+        
+        # Skip if this would be a duplicate (already matched as escaped)
+        # Check if there's a backslash before the opening bracket
+        if start_pos > 0 and text[start_pos - 1] == '\\':
+            continue
+        
+        # Skip markers inside markdown link URLs or HTML anchors
+        before_marker = text[:start_pos]
+        
+        paren_depth = 0
+        for i in range(len(before_marker) - 1, -1, -1):
+            if before_marker[i] == ')':
+                paren_depth += 1
+            elif before_marker[i] == '(':
+                paren_depth -= 1
+                if paren_depth < 0:
+                    break
+        if paren_depth < 0:
+            continue
+        
+        brace_depth = 0
+        for i in range(len(before_marker) - 1, -1, -1):
+            if before_marker[i] == '}':
+                brace_depth += 1
+            elif before_marker[i] == '{':
+                brace_depth -= 1
+                if brace_depth < 0:
+                    break
+        if brace_depth < 0:
+            continue
+        
+        # Find header level
+        line_start = text.rfind('\n', 0, start_pos) + 1
+        line_text = text[line_start:end_pos]
+        header_match = re.match(r"^(#+)\s+(.+)$", line_text)
+        if header_match:
+            header_level = len(header_match.group(1))
+        else:
+            remaining_text = text[start_pos:]
+            next_header_match = re.search(r"^(.*?)^(#+)\s+(.+)$", remaining_text, re.MULTILINE | re.DOTALL)
+            if next_header_match:
+                header_level = len(next_header_match.group(2))
+            else:
+                header_level = 1 if marker_type == "sec" else 2
+        
         items.append((marker_type, marker_id, header_level, start_pos))
 
     # Calculate end positions (start of next marker or end of document)
@@ -457,6 +505,8 @@ def extract_header_name(text: str, start_pos: int) -> tuple[str, int]:
     if header_match:
         header_level = len(header_match.group(1))
         header_name = header_match.group(2).strip().rstrip("\\ \t")
+        # Remove escaped brackets: \[ -> [, \] -> ]
+        header_name = header_name.replace("\\[", "[").replace("\\]", "]")
         return header_name, header_level
     return "", 0
 
