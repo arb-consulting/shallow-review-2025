@@ -212,6 +212,106 @@ The text below is the content of a single agenda (marked with [a:...]). Extract 
 - Parsing issues: confusion about structure, ambiguous attributions, etc.
 If everything looks correct and complete, return an empty list.
 
+**EXAMPLES:**
+
+Example 1 - Lab/Organization (a:openai):
+
+Input text:
+```
+**See also:** iterative alignment, safeguards, personas.
+
+**Host org structure**: public benefit corp
+
+**Teams**: Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety, Robustness, Safety Research, Trustworthy AI, new Misalignment Research team [coming](https://archive.is/eDB1D)), Preparedness, Model Policy, Safety and Security Committee, Safety Advisory Group. The [Persona Features](https://www.arxiv.org/pdf/2506.19823) paper had a distinct author list. No named successor to Superalignment.
+
+**Public alignment agenda:** [None](https://openai.com/safety/how-we-think-about-safety-alignment/). Barak [offers](https://www.lesswrong.com/posts/3jnziqCF3vA2NXAKp/six-thoughts-on-ai-safety) personal [views](https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/).
+
+**Public plan**: [Preparedness Framework](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf)
+
+**Critiques:** [Stein-Perlman](https://ailabwatch.org/companies/openai), [Stewart](https://intelligence.org/2025/03/31/a-response-to-openais-how-we-think-about-safety-and-alignment/), [underelicitation](https://www.lesswrong.com/posts/AK6AihHGjirdoiJg6/ai-companies-eval-reports-mostly-don-t-support-their-claims)
+
+**Some names:** Johannes Heidecke, Boaz Barak, Mia Glaese, Jenny Nitishinskaya, Lama Ahmad, Naomi Bashkansky, Miles Wang
+
+**Funded by:** Microsoft, [AWS](https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure), Oracle, NVIDIA, SoftBank, G42, AMD
+```
+
+Expected output:
+```json
+{
+  "who_edits": null,
+  "one_sentence_summary": null,
+  "theory_of_change": null,
+  "see_also": ["sec:iterative_alignment", "a:anthropic_safeguards", "a:psych_personas"],
+  "orthodox_problems": [],
+  "target_case": null,
+  "broad_approach": null,
+  "some_names": ["Johannes Heidecke", "Boaz Barak", "Mia Glaese", "Jenny Nitishinskaya", "Lama Ahmad", "Naomi Bashkansky", "Miles Wang"],
+  "estimated_ftes": null,
+  "critiques": "[Stein-Perlman](https://ailabwatch.org/companies/openai), [Stewart](https://intelligence.org/2025/03/31/a-response-to-openais-how-we-think-about-safety-and-alignment/), [underelicitation](https://www.lesswrong.com/posts/AK6AihHGjirdoiJg6/ai-companies-eval-reports-mostly-don-t-support-their-claims)",
+  "funded_by": "Microsoft, [AWS](https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure), Oracle, NVIDIA, SoftBank, G42, AMD",
+  "funding_in_2025": null,
+  "organization_structure": "public benefit corp",
+  "teams": "Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety, Robustness, Safety Research, Trustworthy AI, new Misalignment Research team [coming](https://archive.is/eDB1D)), Preparedness, Model Policy, Safety and Security Committee, Safety Advisory Group. The [Persona Features](https://www.arxiv.org/pdf/2506.19823) paper had a distinct author list. No named successor to Superalignment.",
+  "public_alignment_agenda": "[None](https://openai.com/safety/how-we-think-about-safety-alignment/). Barak [offers](https://www.lesswrong.com/posts/3jnziqCF3vA2NXAKp/six-thoughts-on-ai-safety) personal [views](https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/). **Public plan**: [Preparedness Framework](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf)",
+  "framework": null,
+  "outputs": [],
+  "other_attributes": {},
+  "parsing_issues": []
+}
+```
+
+Example 2 - Research Agenda (sec:iterative_alignment):
+
+Input text:
+```
+**Who edits (internal):** Stag✅
+**One-sentence summary:** nudging base models by optimising their output. (Type specimens: RLHF, Constitutional, DPO, SFT, HHH, RLAIF.)
+**Theory of change:** LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.
+**See also:** [prosaic alignment](https://www.lesswrong.com/posts/5ciYedyQDDqAcrDLr/a-positive-case-for-how-we-might-succeed-at-prosaic-ai), [incrementalism](https://www.lesswrong.com/posts/TALmStNf6479uTwzT/ai-alignment-metastrategy#Incrementalist_Metastrategy), [alignment-by-default](https://www.lesswrong.com/posts/Nwgdq6kHke5LY692J/alignment-by-default), [character training](#character-training-and-persona-steering-[a:psych_personas])
+**Orthodox problems:** this agenda implicitly questions this framing.
+**Target case:** optimistic-case
+**Broad approach:** engineering
+**Some names:** post-training teams at most labs.
+**Estimated FTEs:** 1200+
+**Critiques:** [Bellot](https://arxiv.org/abs/2506.02923), [Alfour](https://cognition.cafe/p/ai-alignment-based-on-intentions), [STACK](https://arxiv.org/abs/2506.24068), [AI Alignment Strategies from a Risk Perspective](https://arxiv.org/abs/2510.11235)
+**Funded by:** most of the industry
+```
+
+Expected output:
+```json
+{
+  "who_edits": "Stag✅",
+  "one_sentence_summary": "nudging base models by optimising their output. (Type specimens: RLHF, Constitutional, DPO, SFT, HHH, RLAIF.)",
+  "theory_of_change": "LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.",
+  "see_also": ["a:psych_personas"],
+  "orthodox_problems": [],
+  "target_case": "average_case",
+  "broad_approach": "engineering",
+  "some_names": ["post-training teams at most labs"],
+  "estimated_ftes": "1200+",
+  "critiques": "[Bellot](https://arxiv.org/abs/2506.02923), [Alfour](https://cognition.cafe/p/ai-alignment-based-on-intentions), [STACK](https://arxiv.org/abs/2506.24068), [AI Alignment Strategies from a Risk Perspective](https://arxiv.org/abs/2510.11235)",
+  "funded_by": "most of the industry",
+  "funding_in_2025": null,
+  "organization_structure": null,
+  "teams": null,
+  "public_alignment_agenda": null,
+  "framework": null,
+  "outputs": [],
+  "other_attributes": {},
+  "parsing_issues": ["Orthodox problems field says 'this agenda implicitly questions this framing' - unclear which problems this relates to"]
+}
+```
+
+Note in examples:
+- Extract text EXACTLY as written, preserving markdown formatting
+- For "see_also": resolve external links to agenda IDs when possible (e.g., "character training" with link to [a:psych_personas] becomes "a:psych_personas")
+- For "target_case": map "optimistic-case" to "average_case" (closest match)
+- For organization/labs: focus on teams, funders, structure, public plans
+- For research agendas: focus on theory of change, orthodox problems, target case, broad approach
+- Merge "Public alignment agenda" and "Public plan" fields into single "public_alignment_agenda"
+
+IMPORTANT: Return valid JSON only. Do not use backslash escapes except for standard JSON escapes (\\n, \\t, \\", \\\\). Preserve markdown formatting exactly as written in the source.
+
 Respond with a JSON object matching this structure:
 {
   "who_edits": "string or null",
