@@ -31,9 +31,11 @@ from draft_parser import (
     BROAD_APPROACHES,
     ORTHODOX_PROBLEMS,
     TARGET_CASES,
-    AgendaMetadata,
+    AgendaAttributes,
     DocumentItem,
     ItemType,
+    Paper,
+    PreparsedDocument,
     ProcessedDocument,
     extract_all_links_from_file,
     parse_document,
@@ -358,13 +360,69 @@ def _should_retry(exception):
     before_sleep=before_sleep_log(logger, logging.WARNING),
     reraise=True,
 )
+
+
+def clean_agenda_content(content: str) -> str:
+    """Remove structured fields from content, keeping only unstructured prose.
+    
+    After LLM extraction, we remove all the "**Field Name:** value" patterns
+    since they're now in structured fields. This keeps only unstructured text
+    that doesn't fit into any specific field.
+    
+    Args:
+        content: Original agenda content
+        
+    Returns:
+        Cleaned content with only unstructured prose
+    """
+    if not content:
+        return ""
+    
+    # Split by paragraphs (double newline)
+    paragraphs = re.split(r'\n\n+', content)
+    cleaned_paragraphs = []
+    
+    for para in paragraphs:
+        # Skip empty paragraphs
+        if not para.strip():
+            continue
+            
+        # Skip marker lines like [a:openai] or [sec:...]
+        if re.match(r'^\s*\\?\[(?:a|sec):[^\]]+\\?\]\s*$', para.strip()):
+            logger.debug(f"Skipping marker line: {para.strip()[:50]}")
+            continue
+        
+        # Skip paragraphs that start with a structured field marker "**Field:**" or "**Field**:"
+        # This includes the entire paragraph (field name + value)
+        # Handle both formats: **Field**: (colon outside) and **Field:** (colon inside bold)
+        stripped = para.strip()
+        if re.match(r'^\s*\*\*[^*]+(:\*\*|\*\*:)\s*', stripped):
+            logger.debug(f"Skipping structured field: {stripped[:80]}")
+            continue
+        
+        # Skip header markers that might be at the end (e.g., "## Next Section")
+        if re.match(r'^\s*#+\s+', para.strip()):
+            logger.debug(f"Skipping header: {para.strip()[:50]}")
+            continue
+        
+        # Keep this paragraph - it's unstructured content
+        logger.debug(f"Keeping paragraph: {para.strip()[:80]}")
+        cleaned_paragraphs.append(para.strip())
+    
+    # Join paragraphs with double newline
+    cleaned = '\n\n'.join(cleaned_paragraphs)
+    
+    logger.debug(f"Cleaned content length: {len(cleaned)} (from {len(content)})")
+    return cleaned
+
+
 def extract_agenda_metadata(
     agenda_id: str,
     section_id: str | None,
     title: str,
     content: str,
     agenda_list: list[dict[str, str]],
-) -> AgendaMetadata:
+) -> AgendaAttributes:
     """Extract structured metadata from agenda content using Claude Haiku.
 
     Args:
@@ -382,7 +440,7 @@ def extract_agenda_metadata(
     # Defensive checks
     if not content or not content.strip():
         logger.warning(f"Empty content for {agenda_id}, returning empty metadata")
-        return AgendaMetadata(
+        return AgendaAttributes(
             parsing_issues=[f"Empty content provided for extraction"]
         )
 
@@ -400,7 +458,7 @@ def extract_agenda_metadata(
         )
     except Exception as e:
         logger.error(f"Failed to render prompt for {agenda_id}: {e}")
-        return AgendaMetadata(
+        return AgendaAttributes(
             parsing_issues=[f"Prompt rendering failed: {str(e)}"]
         )
 
@@ -414,21 +472,21 @@ def extract_agenda_metadata(
         )
     except Exception as e:
         logger.error(f"LLM call failed for {agenda_id}: {e}")
-        return AgendaMetadata(
+        return AgendaAttributes(
             parsing_issues=[f"LLM call failed: {str(e)}"]
         )
 
     # Extract response
     if not response or not response.choices or not response.choices[0].message:
         logger.error(f"Invalid LLM response for {agenda_id}")
-        return AgendaMetadata(
+        return AgendaAttributes(
             parsing_issues=[f"Invalid LLM response structure"]
         )
 
     response_text = response.choices[0].message.content
     if not response_text:
         logger.error(f"Empty LLM response for {agenda_id}")
-        return AgendaMetadata(
+        return AgendaAttributes(
             parsing_issues=[f"Empty LLM response"]
         )
 
@@ -468,7 +526,7 @@ def extract_agenda_metadata(
     except json.JSONDecodeError as e:
         logger.error(f"Failed to parse JSON for {agenda_id}: {e}")
         logger.debug(f"Response text: {response_text[:500]}")
-        return AgendaMetadata(
+        return AgendaAttributes(
             parsing_issues=[f"JSON parsing failed: {str(e)}"]
         )
 
@@ -516,7 +574,7 @@ def extract_agenda_metadata(
     # Note: outputs field in response contains URLs, but we already have parsed outputs
     # from the initial parsing, so we'll keep those
     try:
-        agenda = AgendaMetadata(
+        agenda = AgendaAttributes(
             who_edits=data.get("who_edits"),
             one_sentence_summary=data.get("one_sentence_summary"),
             theory_of_change=data.get("theory_of_change"),
@@ -538,7 +596,7 @@ def extract_agenda_metadata(
         )
     except ValidationError as e:
         logger.error(f"Validation error for {agenda_id}: {e}")
-        return AgendaMetadata(
+        return AgendaAttributes(
             parsing_issues=[f"Validation error: {str(e)}"]
         )
 
@@ -585,8 +643,8 @@ def enrich_papers_from_db(doc: ProcessedDocument, verbose: bool = False) -> tupl
     papers_by_url: dict[str, list[Paper]] = {}
     
     for item in doc.items:
-        if item.agenda_metadata and item.agenda_metadata.outputs:
-            for output in item.agenda_metadata.outputs:
+        if item.agenda_attributes and item.agenda_attributes.outputs:
+            for output in item.agenda_attributes.outputs:
                 if isinstance(output, Paper) and output.url:
                     paper_urls.add(output.url)
                     if output.url not in papers_by_url:
@@ -771,27 +829,27 @@ def validate_document_structure(
 
             # Check agenda has reasonable amount of fields (at least 5 non-empty)
             # Only check for agendas that were LLM-processed
-            if item.agenda_metadata and item.id in llm_processed_agenda_ids:
+            if item.agenda_attributes and item.id in llm_processed_agenda_ids:
                 field_count = sum(
                     [
-                        1 if item.agenda_metadata.who_edits else 0,
-                        1 if item.agenda_metadata.one_sentence_summary else 0,
-                        1 if item.agenda_metadata.theory_of_change else 0,
-                        1 if item.agenda_metadata.see_also else 0,
-                        1 if item.agenda_metadata.orthodox_problems else 0,
-                        1 if item.agenda_metadata.target_case else 0,
-                        1 if item.agenda_metadata.broad_approach else 0,
-                        1 if item.agenda_metadata.some_names else 0,
-                        1 if item.agenda_metadata.estimated_ftes else 0,
-                        1 if item.agenda_metadata.critiques else 0,
-                        1 if item.agenda_metadata.funded_by else 0,
-                        1 if item.agenda_metadata.funding_in_2025 else 0,
-                        1 if item.agenda_metadata.organization_structure else 0,
-                        1 if item.agenda_metadata.teams else 0,
-                        1 if item.agenda_metadata.public_alignment_agenda else 0,
-                        1 if item.agenda_metadata.framework else 0,
-                        1 if item.agenda_metadata.outputs else 0,
-                        1 if item.agenda_metadata.other_attributes else 0,
+                        1 if item.agenda_attributes.who_edits else 0,
+                        1 if item.agenda_attributes.one_sentence_summary else 0,
+                        1 if item.agenda_attributes.theory_of_change else 0,
+                        1 if item.agenda_attributes.see_also else 0,
+                        1 if item.agenda_attributes.orthodox_problems else 0,
+                        1 if item.agenda_attributes.target_case else 0,
+                        1 if item.agenda_attributes.broad_approach else 0,
+                        1 if item.agenda_attributes.some_names else 0,
+                        1 if item.agenda_attributes.estimated_ftes else 0,
+                        1 if item.agenda_attributes.critiques else 0,
+                        1 if item.agenda_attributes.funded_by else 0,
+                        1 if item.agenda_attributes.funding_in_2025 else 0,
+                        1 if item.agenda_attributes.organization_structure else 0,
+                        1 if item.agenda_attributes.teams else 0,
+                        1 if item.agenda_attributes.public_alignment_agenda else 0,
+                        1 if item.agenda_attributes.framework else 0,
+                        1 if item.agenda_attributes.outputs else 0,
+                        1 if item.agenda_attributes.other_attributes else 0,
                     ]
                 )
                 if field_count < 5:
@@ -801,10 +859,10 @@ def validate_document_structure(
                     )
                 
                 # Validate see_also IDs reference valid items
-                if item.agenda_metadata.see_also:
+                if item.agenda_attributes.see_also:
                     valid_ids = set(items_by_id.keys())
                     invalid_refs = [
-                        ref for ref in item.agenda_metadata.see_also
+                        ref for ref in item.agenda_attributes.see_also
                         if ref not in valid_ids
                     ]
                     if invalid_refs:
@@ -814,10 +872,10 @@ def validate_document_structure(
                         )
                     
                     # Check for duplicate see_also entries
-                    if len(item.agenda_metadata.see_also) != len(set(item.agenda_metadata.see_also)):
+                    if len(item.agenda_attributes.see_also) != len(set(item.agenda_attributes.see_also)):
                         duplicates = [
-                            ref for ref in set(item.agenda_metadata.see_also)
-                            if item.agenda_metadata.see_also.count(ref) > 1
+                            ref for ref in set(item.agenda_attributes.see_also)
+                            if item.agenda_attributes.see_also.count(ref) > 1
                         ]
                         warnings.append(
                             f"Agenda '{item.name}' ({item.id}) has duplicate see_also entries: "
@@ -825,9 +883,9 @@ def validate_document_structure(
                         )
                 
                 # Validate outputs URLs are valid if present
-                if item.agenda_metadata.outputs:
+                if item.agenda_attributes.outputs:
                     from draft_parser import Paper
-                    for output in item.agenda_metadata.outputs:
+                    for output in item.agenda_attributes.outputs:
                         if isinstance(output, Paper) and output.url:
                             if not output.url.startswith(("http://", "https://")):
                                 warnings.append(
@@ -929,9 +987,9 @@ def parse(
         task = progress.add_task(f"Processing {len(agenda_items)} agendas...", total=len(agenda_items))
 
         for item in agenda_items:
-            if not item.agenda_metadata:
+            if not item.agenda_attributes:
                 # Initialize if missing
-                item.agenda_metadata = AgendaMetadata()
+                item.agenda_attributes = AgendaAttributes()
 
             progress.update(
                 task, description=f"Processing {item.id}...", advance=0
@@ -952,31 +1010,34 @@ def parse(
                 )
 
                 # Merge extracted metadata (preserve outputs from initial parsing)
-                item.agenda_metadata.who_edits = extracted.who_edits
-                item.agenda_metadata.one_sentence_summary = extracted.one_sentence_summary
-                item.agenda_metadata.theory_of_change = extracted.theory_of_change
+                item.agenda_attributes.who_edits = extracted.who_edits
+                item.agenda_attributes.one_sentence_summary = extracted.one_sentence_summary
+                item.agenda_attributes.theory_of_change = extracted.theory_of_change
                 # Merge see_also (initial parsing may have extracted some)
-                existing_see_also = set(item.agenda_metadata.see_also or [])
+                existing_see_also = set(item.agenda_attributes.see_also or [])
                 new_see_also = set(extracted.see_also or [])
-                item.agenda_metadata.see_also = list(existing_see_also | new_see_also)
-                item.agenda_metadata.orthodox_problems = extracted.orthodox_problems
-                item.agenda_metadata.target_case = extracted.target_case
-                item.agenda_metadata.broad_approach = extracted.broad_approach
-                item.agenda_metadata.some_names = extracted.some_names
-                item.agenda_metadata.estimated_ftes = extracted.estimated_ftes
-                item.agenda_metadata.critiques = extracted.critiques
-                item.agenda_metadata.funded_by = extracted.funded_by
-                item.agenda_metadata.funding_in_2025 = extracted.funding_in_2025
-                item.agenda_metadata.organization_structure = extracted.organization_structure
-                item.agenda_metadata.teams = extracted.teams
-                item.agenda_metadata.public_alignment_agenda = extracted.public_alignment_agenda
-                item.agenda_metadata.framework = extracted.framework
+                item.agenda_attributes.see_also = list(existing_see_also | new_see_also)
+                item.agenda_attributes.orthodox_problems = extracted.orthodox_problems
+                item.agenda_attributes.target_case = extracted.target_case
+                item.agenda_attributes.broad_approach = extracted.broad_approach
+                item.agenda_attributes.some_names = extracted.some_names
+                item.agenda_attributes.estimated_ftes = extracted.estimated_ftes
+                item.agenda_attributes.critiques = extracted.critiques
+                item.agenda_attributes.funded_by = extracted.funded_by
+                item.agenda_attributes.funding_in_2025 = extracted.funding_in_2025
+                item.agenda_attributes.organization_structure = extracted.organization_structure
+                item.agenda_attributes.teams = extracted.teams
+                item.agenda_attributes.public_alignment_agenda = extracted.public_alignment_agenda
+                item.agenda_attributes.framework = extracted.framework
                 # Merge other_attributes
-                item.agenda_metadata.other_attributes.update(extracted.other_attributes)
+                item.agenda_attributes.other_attributes.update(extracted.other_attributes)
                 # Merge parsing_issues
-                existing_issues = set(item.agenda_metadata.parsing_issues or [])
+                existing_issues = set(item.agenda_attributes.parsing_issues or [])
                 new_issues = set(extracted.parsing_issues or [])
-                item.agenda_metadata.parsing_issues = list(existing_issues | new_issues)
+                item.agenda_attributes.parsing_issues = list(existing_issues | new_issues)
+                
+                # Clean content: remove structured fields that were successfully extracted
+                item.content = clean_agenda_content(item.content or "")
                 
                 # Mark as LLM-processed
                 llm_processed_agenda_ids.add(item.id)
@@ -986,8 +1047,8 @@ def parse(
                 console.print(
                     f"[yellow]Warning: Failed to extract {item.id}: {e}[/yellow]"
                 )
-                if item.agenda_metadata:
-                    item.agenda_metadata.parsing_issues.append(
+                if item.agenda_attributes:
+                    item.agenda_attributes.parsing_issues.append(
                         f"LLM extraction failed: {str(e)}"
                     )
 
@@ -1010,8 +1071,8 @@ def parse(
 
     # Add LLM-detected parsing issues to warnings
     for item in doc.items:
-        if item.agenda_metadata and item.agenda_metadata.parsing_issues:
-            for issue in item.agenda_metadata.parsing_issues:
+        if item.agenda_attributes and item.agenda_attributes.parsing_issues:
+            for issue in item.agenda_attributes.parsing_issues:
                 warnings.append(f"{item.id}: {issue}")
 
     # Display errors and warnings

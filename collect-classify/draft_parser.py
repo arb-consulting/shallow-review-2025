@@ -168,7 +168,7 @@ class OutputSectionHeader(BaseModel):
     original_md: str = Field(description="Original markdown text as read from source")
 
 
-class AgendaMetadata(BaseModel):
+class AgendaAttributes(BaseModel):
     """Structured metadata extracted from a research agenda.
 
     Standard attributes have dedicated fields, non-standard ones go in other_attributes,
@@ -223,11 +223,6 @@ class AgendaMetadata(BaseModel):
         default_factory=dict, description="Attributes not matching standard fields"
     )
 
-    # Parsing quality and error detection
-    parsing_issues: list[str] = Field(
-        default_factory=list,
-        description="Log of issues detected during parsing (missing headers, format problems, etc.)"
-    )
 
 
 class DocumentItem(BaseModel):
@@ -237,23 +232,36 @@ class DocumentItem(BaseModel):
     name: str = Field(description="Display name/title")
     header_level: int = Field(description="Markdown header level (1-6)")
     parent_id: str | None = Field(default=None, description="Parent item ID if nested")
-    content: str | None = Field(default=None, description="Textual content right after the header (raw markdown)")
+    content: str | None = Field(default=None, description="Markdown content. Entire section/agenda text without header for PreparsedDocument. In ProcessedDocument, an additional markdown content after the header - this should be empty for most agendas.")
     item_type: ItemType = Field(description="Type of item")
 
     # Agenda-specific fields (only populated for agendas)
-    agenda_metadata: AgendaMetadata | None = Field(
+    agenda_attributes: AgendaAttributes | None = Field(
         default=None, description="Metadata for agendas (populated by LLM)"
+    )
+
+    # Parsing quality and error detection
+    parsing_issues: list[str] = Field(
+        default_factory=list,
+        description="Log of issues detected during parsing (missing headers, format problems, extra/unexpected data, etc.)"
     )
 
 
 class ProcessedDocument(BaseModel):
-    """The fully processed draft document with flat structure."""
+    """The fully processed draft document with flat structure, after LLM extraction."""
 
     source_file: str
     items: list[DocumentItem] = Field(
-        default_factory=list, description="Flat list of items in document order"
+        default_factory=list, description="Flat list of items in document order (sections and agendas), after LLM extraction."
     )
 
+class PreparsedDocument(BaseModel):
+    """The preparsed draft document with flat structure, before LLM extraction."""
+
+    source_file: str
+    items: list[DocumentItem] = Field(
+        default_factory=list, description="Flat list of items in document order (sections and agendas), before LLM extraction."
+    )
 
 # ============================================================================
 # Text Scrubbing Functions
@@ -592,16 +600,17 @@ def parse_outputs_section(content: str) -> list[Paper | OutputSectionHeader]:
     return items
 
 
-def parse_document(file_path: Path) -> ProcessedDocument:
-    """Parse a draft markdown document into flat structure.
+def parse_document(file_path: Path) -> PreparsedDocument:
+    """Parse a draft markdown document into flat structure (IDs, names, levels only).
 
-    This performs basic structural parsing. The LLM extraction happens separately.
+    This performs ONLY structural parsing: extracting IDs, names, header levels, and raw content.
+    All metadata extraction (see_also, outputs, attributes) happens in Step 2 via LLM.
 
     Args:
         file_path: Path to markdown file
 
     Returns:
-        ProcessedDocument with flat list of items (metadata fields will be populated by LLM)
+        PreparsedDocument with flat list of items (no agenda_attributes populated yet)
     """
     text = file_path.read_text(encoding="utf-8")
     
@@ -628,6 +637,7 @@ def parse_document(file_path: Path) -> ProcessedDocument:
     parent_stack: list[tuple[str, int]] = []
 
     for marker_type, marker_id, header_level, start_pos, end_pos in markers:
+        # Extract raw content (everything between this marker and the next)
         content = text[start_pos:end_pos]
         
         # Defensive: Check for empty content
@@ -647,6 +657,7 @@ def parse_document(file_path: Path) -> ProcessedDocument:
             # Match both escaped \[...\] and unescaped [...]
             header_name = re.sub(r'(?:\\\[|\[)(?:sec|a):[^\]]+(?:\\\]|\])', '', header_name)
             header_name = header_name.strip()
+        
         if detected_level > 0:
             header_level = detected_level
         
@@ -673,75 +684,19 @@ def parse_document(file_path: Path) -> ProcessedDocument:
         else:
             item_type = ItemType.AGENDA
 
-        # For agendas, parse outputs section and extract early fields
-        agenda_metadata = None
-        item_content = content  # Will be modified for agendas
-        if marker_type == "a":
-            # Extract "See also" if present
-            # Look for "**See also:**" anywhere in content
-            see_also = []
-            see_also_pattern = r"\*\*See also:\*\*\s*(.+?)(?=\n\s*\*\*|\n\s*##|\Z)"
-            see_also_match = re.search(see_also_pattern, item_content, re.MULTILINE | re.DOTALL)
-            if see_also_match:
-                see_also_text = see_also_match.group(1).strip()
-                # Extract agenda/section IDs from the text (look for [a:...] or [sec:...] patterns)
-                for match in re.finditer(r"\[(a|sec):([^\]]+)\]", see_also_text):
-                    extracted_id = f"{match.group(1)}:{match.group(2)}"
-                    see_also.append(extracted_id)
-                # Remove the "See also" section from content to avoid duplication
-                item_content = re.sub(see_also_pattern, "", item_content, flags=re.MULTILINE | re.DOTALL).strip()
-            
-            # Look for "Outputs in 2025:" section
-            outputs_match = re.search(
-                r"(?i)\*\*Outputs in 2025:\*\*\s*\n(.*?)(?=\n\s*\*\*|\n\s*##|\Z)",
-                item_content,
-                re.DOTALL,
-            )
-            if outputs_match:
-                outputs_content = outputs_match.group(1)
-                if not outputs_content.strip():
-                    logger.warning(f"Empty outputs section for {item_id}")
-                    outputs = []
-                else:
-                    try:
-                        outputs = parse_outputs_section(outputs_content)
-                        # Defensive: validate we got some items
-                        if not outputs:
-                            logger.warning(f"Parsed outputs section for {item_id} but got no items")
-                    except Exception as e:
-                        logger.warning(f"Failed to parse outputs for {item_id}: {e}")
-                        outputs = []
-                # Remove outputs section from content (already parsed, don't send to LLM)
-                item_content = re.sub(
-                    r"(?i)\*\*Outputs in 2025:\*\*\s*\n.*?(?=\n\s*\*\*|\n\s*##|\Z)",
-                    "",
-                    item_content,
-                    flags=re.DOTALL,
-                ).strip()
-            else:
-                outputs = []
-            
-            # Defensive: warn if content is very short after removing structured fields
-            if len(item_content.strip()) < 50:
-                logger.warning(
-                    f"Content for {item_id} is very short ({len(item_content.strip())} chars) "
-                    f"after removing structured fields. May indicate parsing issues."
-                )
-
-            agenda_metadata = AgendaMetadata(see_also=see_also, outputs=outputs)
-
+        # Store entire content (sans header) - LLM will parse it in Step 2
         item = DocumentItem(
             id=item_id,
             name=header_name,
             header_level=header_level,
             parent_id=parent_id,
-            content=item_content,
+            content=content,
             item_type=item_type,
-            agenda_metadata=agenda_metadata,
+            agenda_attributes=None,  # Will be populated by LLM
         )
         items.append(item)
 
         # Push to stack (both sections and agendas can be parents)
         parent_stack.append((item_id, header_level))
 
-    return ProcessedDocument(source_file=str(file_path), items=items)
+    return PreparsedDocument(source_file=str(file_path), items=items)
