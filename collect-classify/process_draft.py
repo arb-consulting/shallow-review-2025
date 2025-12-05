@@ -191,9 +191,9 @@ Extract the following information from the content:
 - funded_by: From "**Funded by:**" - Funders (optional)
 - funding_in_2025: From "**Funding in 2025:**" - Dollar amounts (optional)
 - organization_structure: From "**Host org structure:**" or "**Structure:**" - Organization type (e.g., "public benefit corp", "for-profit", "research laboratory subsidiary of a for-profit")
-- teams: From "**Teams:**" - Teams/divisions description in markdown (for labs)
-- public_alignment_agenda: From "**Public alignment agenda:**" and/or "**Public plan:**" - Merge both if present (for labs)
-- framework: From "**Framework:**" - Framework link/description in markdown (for labs)
+- teams: From "**Teams:**" - Teams/divisions description in markdown (e.g. for labs)
+- public_alignment_agenda: From "**Public alignment agenda:**" and/or "**Public plan:**" - Merge both if present (e.g. for labs)
+- framework: From "**Framework:**" - Framework link/description in markdown (e.g. for labs)
 
 **Available Agendas and Sections** (use these IDs in see_also):
 {% for item in agenda_list %}
@@ -235,203 +235,144 @@ If everything looks correct and complete, return an empty list.
 
 Example 1 - Lab/Organization (a:openai):
 
-Input text:
-```
-**See also:** iterative alignment, safeguards, personas.
-
-**Host org structure**: public benefit corp
-
-**Teams**: Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety, Robustness, Safety Research, Trustworthy AI, new Misalignment Research team [coming](https://archive.is/eDB1D)), Preparedness, Model Policy, Safety and Security Committee, Safety Advisory Group. The [Persona Features](https://www.arxiv.org/pdf/2506.19823) paper had a distinct author list. No named successor to Superalignment.
-
-**Public alignment agenda:** [None](https://openai.com/safety/how-we-think-about-safety-alignment/). Barak [offers](https://www.lesswrong.com/posts/3jnziqCF3vA2NXAKp/six-thoughts-on-ai-safety) personal [views](https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/).
-
-**Public plan**: [Preparedness Framework](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf)
-
-**Critiques:** [Stein-Perlman](https://ailabwatch.org/companies/openai), [Stewart](https://intelligence.org/2025/03/31/a-response-to-openais-how-we-think-about-safety-and-alignment/), [underelicitation](https://www.lesswrong.com/posts/AK6AihHGjirdoiJg6/ai-companies-eval-reports-mostly-don-t-support-their-claims)
-
-**Some names:** Johannes Heidecke, Boaz Barak, Mia Glaese, Jenny Nitishinskaya, Lama Ahmad, Naomi Bashkansky, Miles Wang
-
-**Funded by:** Microsoft, [AWS](https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure), Oracle, NVIDIA, SoftBank, G42, AMD
-
-**Outputs in 2025:**
-
-* Their 60-page System Cards now contain a large amount of their public safety work.
-* [https://alignment.openai.com/](https://alignment.openai.com/)
-* [**Monitoring Reasoning Models for Misbehavior**](https://arxiv.org/abs/2503.11926)
-```
-
-Expected output (agenda_attributes only, DocumentItem wrapper omitted for brevity):
+Input DocumentItem:
 ```json
 {
-  "who_edits": null,
-  "one_sentence_summary": null,
-  "theory_of_change": null,
-  "see_also": ["sec:iterative_alignment", "a:anthropic_safeguards", "a:psych_personas"],
-  "orthodox_problems": [],
-  "target_case": null,
-  "broad_approach": null,
-  "some_names": ["Johannes Heidecke", "Boaz Barak", "Mia Glaese", "Jenny Nitishinskaya", "Lama Ahmad", "Naomi Bashkansky", "Miles Wang"],
-  "estimated_ftes": null,
-  "critiques": "[Stein-Perlman](https://ailabwatch.org/companies/openai), [Stewart](https://intelligence.org/2025/03/31/a-response-to-openais-how-we-think-about-safety-and-alignment/), [underelicitation](https://www.lesswrong.com/posts/AK6AihHGjirdoiJg6/ai-companies-eval-reports-mostly-don-t-support-their-claims)",
-  "funded_by": "Microsoft, [AWS](https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure), Oracle, NVIDIA, SoftBank, G42, AMD",
-  "funding_in_2025": null,
-  "organization_structure": "public benefit corp",
-  "teams": "Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety, Robustness, Safety Research, Trustworthy AI, new Misalignment Research team [coming](https://archive.is/eDB1D)), Preparedness, Model Policy, Safety and Security Committee, Safety Advisory Group. The [Persona Features](https://www.arxiv.org/pdf/2506.19823) paper had a distinct author list. No named successor to Superalignment.",
-  "public_alignment_agenda": "[None](https://openai.com/safety/how-we-think-about-safety-alignment/). Barak [offers](https://www.lesswrong.com/posts/3jnziqCF3vA2NXAKp/six-thoughts-on-ai-safety) personal [views](https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/). **Public plan**: [Preparedness Framework](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf)",
-  "framework": null,
-  "outputs": [
-    {
-      "url": null,
-      "original_md": "* Their 60-page System Cards now contain a large amount of their public safety work.",
-      "title": null,
-      "authors": [],
-      "author_organizations": [],
-      "date": null,
-      "published_year": null,
-      "venue": null,
-      "kind": null,
-      "summary": null,
-      "key_result": null
-    },
-    {
-      "url": "https://alignment.openai.com/",
-      "original_md": "* [https://alignment.openai.com/](https://alignment.openai.com/)",
-      "title": null,
-      "authors": [],
-      "author_organizations": [],
-      "date": null,
-      "published_year": null,
-      "venue": null,
-      "kind": null,
-      "summary": null,
-      "key_result": null
-    },
-    {
-      "url": "https://arxiv.org/abs/2503.11926",
-      "original_md": "* [**Monitoring Reasoning Models for Misbehavior**](https://arxiv.org/abs/2503.11926)",
-      "title": null,
-      "authors": [],
-      "author_organizations": [],
-      "date": null,
-      "published_year": null,
-      "venue": null,
-      "kind": null,
-      "summary": null,
-      "key_result": null
-    }
-  ],
-  "other_attributes": {},
+  "id": "a:openai",
+  "name": "OpenAI Safety",
+  "header_level": 2,
+  "parent_id": "sec:big_labs",
+  "content": null,
+  "item_type": "agenda",
+  "agenda_attributes": null,
+  "parsing_issues": []
+}
+```
+
+Content:
+<content>
+**See also:** iterative alignment, safeguards, personas.
+**Host org structure**: public benefit corp
+**Teams**: Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety)
+**Public alignment agenda:** [None](https://openai.com/safety). Barak [offers](https://lesswrong.com) personal views.
+**Public plan**: [Preparedness Framework](https://cdn.openai.com/pdf/preparedness-framework.pdf)
+**Critiques:** [Stein-Perlman](https://ailabwatch.org/companies/openai)
+**Some names:** Johannes Heidecke, Boaz Barak
+**Funded by:** Microsoft, AWS, Oracle
+**Outputs in 2025:**
+* Their System Cards contain safety work.
+* [https://alignment.openai.com/](https://alignment.openai.com/)
+</content>
+
+Output DocumentItem (only non-default values shown):
+```json
+{
+  "id": "a:openai",
+  "name": "OpenAI Safety",
+  "header_level": 2,
+  "parent_id": "sec:big_labs",
+  "content": null,
+  "item_type": "agenda",
+  "agenda_attributes": {
+    "see_also": ["sec:iterative_alignment", "a:anthropic_safeguards", "a:psych_personas"],
+    "some_names": ["Johannes Heidecke", "Boaz Barak"],
+    "critiques": "[Stein-Perlman](https://ailabwatch.org/companies/openai)",
+    "funded_by": "Microsoft, AWS, Oracle",
+    "organization_structure": "public benefit corp",
+    "teams": "Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety)",
+    "public_alignment_agenda": "[None](https://openai.com/safety). Barak [offers](https://lesswrong.com) personal views. **Public plan**: [Preparedness Framework](https://cdn.openai.com/pdf/preparedness-framework.pdf)",
+    "outputs": [
+      {"original_md": "* Their System Cards contain safety work."},
+      {"url": "https://alignment.openai.com/", "original_md": "* [https://alignment.openai.com/](https://alignment.openai.com/)"}
+    ]
+  },
   "parsing_issues": []
 }
 ```
 
 Example 2 - Research Agenda (sec:iterative_alignment):
 
-Input text:
+Input DocumentItem:
+```json
+{
+  "id": "sec:iterative_alignment",
+  "name": "Iterative alignment",
+  "header_level": 2,
+  "parent_id": null,
+  "content": null,
+  "item_type": "section",
+  "agenda_attributes": null,
+  "parsing_issues": []
+}
 ```
+
+Content:
+<content>
 **Who edits (internal):** Stag✅
-**One-sentence summary:** nudging base models by optimising their output. (Type specimens: RLHF, Constitutional, DPO, SFT, HHH, RLAIF.)
-**Theory of change:** LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.
-**See also:** [prosaic alignment](https://www.lesswrong.com/posts/5ciYedyQDDqAcrDLr/a-positive-case-for-how-we-might-succeed-at-prosaic-ai), [incrementalism](https://www.lesswrong.com/posts/TALmStNf6479uTwzT/ai-alignment-metastrategy#Incrementalist_Metastrategy), [alignment-by-default](https://www.lesswrong.com/posts/Nwgdq6kHke5LY692J/alignment-by-default), [character training](#character-training-and-persona-steering-[a:psych_personas])
+**One-sentence summary:** nudging base models by optimising their output.
+**Theory of change:** LLMs don't seem very dangerous and might scale to AGI, assume alignment is a superficial feature.
+**See also:** [character training](#character-training-[a:psych_personas])
 **Orthodox problems:** this agenda implicitly questions this framing.
 **Target case:** optimistic-case
 **Broad approach:** engineering
 **Some names:** post-training teams at most labs.
 **Estimated FTEs:** 1200+
-**Critiques:** [Bellot](https://arxiv.org/abs/2506.02923), [Alfour](https://cognition.cafe/p/ai-alignment-based-on-intentions), [STACK](https://arxiv.org/abs/2506.24068), [AI Alignment Strategies from a Risk Perspective](https://arxiv.org/abs/2510.11235)
 **Funded by:** most of the industry
-**Outputs in 2025:** Subdivided as follows:
+**Outputs:** Subdivided as follows:
 
 ### Iterative alignment at pretrain-time
-
-**One-sentence summary:** build better structures to adjust weights before training altogether.
-* [**Towards Cognitively-Faithful Decision-Making Models**](https://arxiv.org/abs/2509.04445)
-* [**ACE and Diverse Generalization via Selective Disagreement**](https://arxiv.org/abs/2509.07955)
+* [**Towards Cognitively-Faithful Models**](https://arxiv.org/abs/2509.04445)
 
 ### Iterative alignment at post-train-time
+* [**RLHS: Mitigating Misalignment**](https://arxiv.org/abs/2501.08617)
+</content>
 
-**One-sentence summary:** modify weights after pre-training.
-* [**RLHS: Mitigating Misalignment in RLHF**](https://arxiv.org/abs/2501.08617)
-```
-
-Expected output (agenda_attributes only):
+Output DocumentItem (only non-default values shown):
 ```json
 {
-  "who_edits": "Stag✅",
-  "one_sentence_summary": "nudging base models by optimising their output. (Type specimens: RLHF, Constitutional, DPO, SFT, HHH, RLAIF.)",
-  "theory_of_change": "LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.",
-  "see_also": ["a:psych_personas"],
-  "orthodox_problems": [],
-  "target_case": "average_case",
-  "broad_approach": "engineering",
-  "some_names": ["post-training teams at most labs"],
-  "estimated_ftes": "1200+",
-  "critiques": "[Bellot](https://arxiv.org/abs/2506.02923), [Alfour](https://cognition.cafe/p/ai-alignment-based-on-intentions), [STACK](https://arxiv.org/abs/2506.24068), [AI Alignment Strategies from a Risk Perspective](https://arxiv.org/abs/2510.11235)",
-  "funded_by": "most of the industry",
-  "funding_in_2025": null,
-  "organization_structure": null,
-  "teams": null,
-  "public_alignment_agenda": null,
-  "framework": null,
-  "outputs": [
-    {
-      "name": "Iterative alignment at pretrain-time",
-      "header_level": 3,
-      "description": "**One-sentence summary:** build better structures to adjust weights before training altogether.",
-      "original_md": "### Iterative alignment at pretrain-time\n\n**One-sentence summary:** build better structures to adjust weights before training altogether."
-    },
-    {
-      "url": "https://arxiv.org/abs/2509.04445",
-      "original_md": "* [**Towards Cognitively-Faithful Decision-Making Models**](https://arxiv.org/abs/2509.04445)",
-      "title": null,
-      "authors": [],
-      "author_organizations": [],
-      "date": null,
-      "published_year": null,
-      "venue": null,
-      "kind": null,
-      "summary": null,
-      "key_result": null
-    },
-    {
-      "url": "https://arxiv.org/abs/2509.07955",
-      "original_md": "* [**ACE and Diverse Generalization via Selective Disagreement**](https://arxiv.org/abs/2509.07955)",
-      "title": null,
-      "authors": [],
-      "author_organizations": [],
-      "date": null,
-      "published_year": null,
-      "venue": null,
-      "kind": null,
-      "summary": null,
-      "key_result": null
-    },
-    {
-      "name": "Iterative alignment at post-train-time",
-      "header_level": 3,
-      "description": "**One-sentence summary:** modify weights after pre-training.",
-      "original_md": "### Iterative alignment at post-train-time\n\n**One-sentence summary:** modify weights after pre-training."
-    },
-    {
-      "url": "https://arxiv.org/abs/2501.08617",
-      "original_md": "* [**RLHS: Mitigating Misalignment in RLHF**](https://arxiv.org/abs/2501.08617)",
-      "title": null,
-      "authors": [],
-      "author_organizations": [],
-      "date": null,
-      "published_year": null,
-      "venue": null,
-      "kind": null,
-      "summary": null,
-      "key_result": null
-    }
-  ],
-  "other_attributes": {},
+  "id": "sec:iterative_alignment",
+  "name": "Iterative alignment",
+  "header_level": 2,
+  "parent_id": null,
+  "content": null,
+  "item_type": "section",
+  "agenda_attributes": {
+    "who_edits": "Stag✅",
+    "one_sentence_summary": "nudging base models by optimising their output.",
+    "theory_of_change": "LLMs don't seem very dangerous and might scale to AGI, assume alignment is a superficial feature.",
+    "see_also": ["a:psych_personas"],
+    "target_case": "average_case",
+    "broad_approach": "engineering",
+    "some_names": ["post-training teams at most labs"],
+    "estimated_ftes": "1200+",
+    "funded_by": "most of the industry",
+    "outputs": [
+      {
+        "name": "Iterative alignment at pretrain-time",
+        "header_level": 3,
+        "original_md": "### Iterative alignment at pretrain-time"
+      },
+      {
+        "url": "https://arxiv.org/abs/2509.04445",
+        "original_md": "* [**Towards Cognitively-Faithful Models**](https://arxiv.org/abs/2509.04445)"
+      },
+      {
+        "name": "Iterative alignment at post-train-time",
+        "header_level": 3,
+        "original_md": "### Iterative alignment at post-train-time"
+      },
+      {
+        "url": "https://arxiv.org/abs/2501.08617",
+        "original_md": "* [**RLHS: Mitigating Misalignment**](https://arxiv.org/abs/2501.08617)"
+      }
+    ]
+  },
   "parsing_issues": ["Orthodox problems field says 'this agenda implicitly questions this framing' - unclear which problems this relates to"]
 }
 ```
 
 Note in examples:
+- **Omit default values**: Fields with defaults (null, [], {}) can be omitted from output for brevity. The examples above show only non-default values.
 - Extract text EXACTLY as written, preserving markdown formatting
 - For "see_also": resolve external links to agenda IDs when possible (e.g., "character training" with link to [a:psych_personas] becomes "a:psych_personas")
 - For "target_case": map "optimistic-case" to "average_case" (closest match)
@@ -440,56 +381,40 @@ Note in examples:
 - Merge "Public alignment agenda" and "Public plan" fields into single "public_alignment_agenda"
 - For "outputs": Extract all items from "**Outputs in 2025:**" or "**Outputs:**" section
   - URLs go in "url" field, preserve full markdown in "original_md"
-  - Items without URLs have url=null
-  - Subsection headers become OutputSectionHeader items (with name, header_level, description, original_md)
-  - Preserve order and structure, leave database fields (title, authors, etc.) as null
+  - Items without URLs: omit "url" field (defaults to null), include "original_md"
+  - Subsection headers: OutputSectionHeader with "name", "header_level", "original_md" (omit description if not present)
+  - Preserve order and structure, leave database fields (title, authors, etc.) as null (can be omitted)
 
-IMPORTANT: Return valid JSON only. Do not use backslash escapes except for standard JSON escapes (\\n, \\t, \\", \\\\). Preserve markdown formatting exactly as written in the source.
+IMPORTANT: 
+- Return valid JSON only. Do not use backslash escapes except for standard JSON escapes (\\n, \\t, \\", \\\\).
+- Preserve markdown formatting exactly as written in the source.
+- **Omit fields with default values** (null, [], {}) for brevity - they will be filled in automatically.
 
-Respond with a complete DocumentItem JSON object:
+Respond with a complete DocumentItem JSON object (example with ALL fields shown):
 ```json
 {
   "id": "a:openai",  // MUST match input exactly
   "name": "OpenAI Safety",  // MUST match input exactly
   "header_level": 2,  // MUST match input exactly
-  "parent_id": "sec:big_labs",  // MUST match input exactly (or null)
+  "parent_id": "sec:big_labs",  // MUST match input exactly
   "content": null,  // ALWAYS null
   "item_type": "agenda",  // MUST match input exactly
   "agenda_attributes": {
-    "who_edits": "string or null",
-    "one_sentence_summary": "string or null",
-    "theory_of_change": "string or null",
-    "see_also": ["a:id1", "a:id2", "sec:id1"],
-    "orthodox_problems": ["problem_id1", "problem_id2"],
-    "target_case": "case_id or null",
-    "broad_approach": "approach_id or null",
+    // Only include fields with non-default values:
+    "who_edits": "Name✅",
+    "one_sentence_summary": "Brief description",
+    "see_also": ["a:id1", "sec:id2"],
     "some_names": ["Name1", "Name2"],
-    "estimated_ftes": "string or null",
-    "critiques": "markdown text with links and descriptions or null",
-    "funded_by": "string or null",
-    "funding_in_2025": "string or null",
-    "organization_structure": "string or null",
-    "teams": "string or null",
-    "public_alignment_agenda": "markdown link/description or null",
-    "framework": "markdown link/description or null",
+    "funded_by": "Company A, Company B",
     "outputs": [
       {
         "url": "https://arxiv.org/abs/1234.5678",
-        "original_md": "* [**Paper Title**](https://arxiv.org/abs/1234.5678)",
-        "title": null,
-        "authors": [],
-        "author_organizations": [],
-        "date": null,
-        "published_year": null,
-        "venue": null,
-        "kind": null,
-        "summary": null,
-        "key_result": null
+        "original_md": "* [**Paper Title**](https://arxiv.org/abs/1234.5678)"
       }
-    ],
-    "other_attributes": {"attribute_name": "value"}
+    ]
+    // Omit: orthodox_problems (empty), target_case (null), teams (null), etc.
   },
-  "parsing_issues": ["issue description", ...]  // Last field
+  "parsing_issues": []  // Last field, can be omitted if empty
 }
 ```
 """
