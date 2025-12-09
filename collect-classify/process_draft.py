@@ -292,8 +292,6 @@ def enrich_papers_from_db(doc: ProcessedDocument, verbose: bool = False) -> tupl
                         paper.published_year = data.get("published_year")
                         paper.venue = data.get("venue")
                         paper.kind = data.get("kind")
-                        paper.summary = data.get("summary")
-                        paper.key_result = data.get("key_result")
                         enriched_count += 1
                 except (json.JSONDecodeError, KeyError) as e:
                     logger.warning(f"Failed to parse classify data for {url}: {e}")

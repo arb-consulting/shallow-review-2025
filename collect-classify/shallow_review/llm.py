@@ -33,18 +33,18 @@ logger = logging.getLogger(__name__)
 _setup_lock = threading.Lock()
 _setup_done = False
 
-# Thread-local storage for tracking cache bypass on retries
+# Thread-local storage for tracking retry attempt number for cache bypass
 _thread_locals = threading.local()
 
 
-def _should_bypass_cache() -> bool:
-    """Check if we should bypass cache for this request (due to ValidationError retry)."""
-    return getattr(_thread_locals, "bypass_cache", False)
+def _get_retry_attempt() -> int:
+    """Get current retry attempt number (0 for first attempt, 1+ for retries)."""
+    return getattr(_thread_locals, "retry_attempt", 0)
 
 
-def _set_cache_bypass(bypass: bool) -> None:
-    """Set cache bypass flag for this thread."""
-    _thread_locals.bypass_cache = bypass
+def _set_retry_attempt(attempt: int) -> None:
+    """Set retry attempt number for this thread."""
+    _thread_locals.retry_attempt = attempt
 
 
 def setup_litellm(cache_dir: Path | None = None) -> None:
@@ -66,12 +66,20 @@ def setup_litellm(cache_dir: Path | None = None) -> None:
         cache_dir.mkdir(exist_ok=True, parents=True)
         litellm.cache = Cache(type="disk", disk_cache_dir=str(cache_dir))  # type: ignore[arg-type]
 
-        # Configure Helicone callback for observability
-        if os.getenv("HELICONE_API_KEY"):
-            litellm.success_callback = ["helicone"]
-            logger.info("Helicone callback enabled for observability")
+        # Suppress litellm INFO logs
+        litellm.set_verbose = False
+        # Also configure litellm logger to WARNING level
+        litellm_logger = logging.getLogger("LiteLLM")
+        litellm_logger.setLevel(logging.WARNING)
+
+        # Configure Helicone as proxy
+        helicone_api_key = os.getenv("HELICONE_API_KEY")
+        if helicone_api_key:
+            litellm.api_base = "https://anthropic.helicone.ai/v1"
+            litellm.headers = {"Helicone-Auth": f"Bearer {helicone_api_key}"}
+            logger.info("Helicone proxy configured")
         else:
-            logger.warning("Helicone API key not set, observability disabled")
+            logger.warning("HELICONE_API_KEY not set, Helicone proxy disabled")
 
         _setup_done = True
         logger.info(f"Litellm initialized with cache at {cache_dir}")
@@ -105,22 +113,39 @@ def _should_retry(exception):
     """Determine if we should retry on this exception (but never retry KeyboardInterrupt)."""
     if isinstance(exception, KeyboardInterrupt):
         return False
-    return isinstance(exception, (RateLimitError, APIError, ValidationError))
+    # Retry on API errors, rate limits, and parsing/validation errors
+    return isinstance(
+        exception,
+        (
+            RateLimitError,
+            APIError,
+            ValidationError,
+            ValueError,  # JSON extraction errors
+            json.JSONDecodeError,  # JSON parsing errors
+        ),
+    )
 
 
 def _on_retry_before_sleep(retry_state):
     """
-    Callback before retry sleep - handles cache invalidation for ValidationError.
+    Callback before retry sleep - tracks retry attempt for cache bypass via max_tokens increment.
 
-    When ValidationError occurs (due to bad JSON/validation), we need to invalidate
-    the disk cache entry so the retry fetches fresh data and overwrites the bad cache.
+    When parsing or validation errors occur, we bypass cache by incrementing max_tokens
+    by 1, 2, 3, ... starting from the first retry, creating a different cache key for each retry.
+    - First attempt (attempt_number=1) fails -> next retry uses increment=1
+    - First retry (attempt_number=2) fails -> next retry uses increment=2
+    - Second retry (attempt_number=3) fails -> next retry uses increment=3
     """
     exception = retry_state.outcome.exception()
-    if isinstance(exception, ValidationError):
-        # Mark that we need to delete cache entry before retry
-        _set_cache_bypass(True)
+    if isinstance(exception, (ValidationError, ValueError, json.JSONDecodeError)):
+        # Store retry increment: use attempt_number as the increment for the next retry
+        # attempt_number=1 (first attempt fails) -> increment=1 for next retry
+        # attempt_number=2 (first retry fails) -> increment=2 for next retry
+        retry_increment = retry_state.attempt_number
+        _set_retry_attempt(retry_increment)
         logger.warning(
-            f"ValidationError on attempt {retry_state.attempt_number}, will clear cache on retry"
+            f"{type(exception).__name__} on attempt {retry_state.attempt_number}, "
+            f"will bypass cache by incrementing max_tokens by {retry_increment} on next retry"
         )
 
     # Call the default before_sleep logger
@@ -155,8 +180,8 @@ def get_completion(
     Uses tenacity for intelligent retries on rate limits, API errors, and validation failures.
     For structured output, extracts JSON from response and validates with Pydantic.
 
-    On ValidationError, deletes the bad cache entry before retry so the retry fetches
-    fresh data and caches it with the correct key (overwriting the bad entry).
+    On parsing/validation errors, bypasses cache by incrementing max_tokens by
+    (attempt_number - 1), creating a different cache key for each retry.
 
     Args:
         template_vars: Variables for Jinja2 template rendering (used for both prompts)
@@ -257,53 +282,26 @@ def get_completion(
     if is_shutdown_requested():
         raise KeyboardInterrupt("Shutdown requested before API call")
 
+    # Get retry attempt number for cache bypass (increment max_tokens to create different cache key)
+    retry_increment = _get_retry_attempt()
+    adjusted_max_tokens = max_tokens + retry_increment
+    
+    # Reset retry attempt for next call
+    _set_retry_attempt(0)
+
     # Build completion kwargs with request timeout
+    # Adjust max_tokens on retries to bypass cache (creates different cache key)
     completion_kwargs = {
         "model": model,
         "messages": messages,
         "caching": True,
-        "max_tokens": max_tokens,
+        "max_tokens": adjusted_max_tokens,
         "timeout": 120.0,  # 2 minute timeout for API calls
         **kwargs,
     }
-
-    # Delete bad cache entry if retrying after ValidationError
-    # This ensures retry fetches fresh data and caches it with the correct key
-    if _should_bypass_cache() and litellm.cache is not None:
-        try:
-            # Compute cache key the same way litellm does
-            cache_key = litellm.cache.get_cache_key(**completion_kwargs)
-            if cache_key:
-                # Delete the bad cached entry from the underlying diskcache
-                cache_obj = litellm.cache.cache
-                deleted = False
-
-                # Try delete method
-                if hasattr(cache_obj, "delete"):
-                    cache_obj.delete(cache_key)
-                    deleted = True
-                # Try dictionary-style deletion
-                elif hasattr(cache_obj, "__delitem__"):
-                    try:
-                        del cache_obj[cache_key]
-                        deleted = True
-                    except KeyError:
-                        pass  # Entry didn't exist
-                # Try pop method
-                elif hasattr(cache_obj, "pop"):
-                    cache_obj.pop(cache_key, None)
-                    deleted = True
-
-                if deleted:
-                    logger.info("Deleted bad cache entry, retry will fetch fresh")
-                else:
-                    logger.warning(f"Could not delete cache entry, cache type: {type(cache_obj)}")
-        except Exception as e:
-            # Don't fail if cache deletion fails, just log
-            logger.warning(f"Failed to delete cache entry: {e}")
-
-    # Clear bypass flag so we use normal caching on this retry
-    _set_cache_bypass(False)
+    
+    if retry_increment > 0:
+        logger.info(f"Bypassing cache by using max_tokens={adjusted_max_tokens} (base={max_tokens} + {retry_increment})")
 
     # Check if model is Anthropic
     model_lower = model.lower()
@@ -334,6 +332,12 @@ def get_completion(
         request_shutdown()
         raise
 
+    # Log input tokens
+    input_tokens = 0
+    if response and hasattr(response, "usage") and response.usage:
+        input_tokens = getattr(response.usage, "prompt_tokens", 0) or 0
+    logger.info(f"LLM call ({model}): {input_tokens} input tokens")
+
     # Update stats
     _update_stats(response, stats_subtree)
 
@@ -347,7 +351,13 @@ def get_completion(
 
         # Parse and validate with Pydantic
         json_data = json.loads(json_str)
-        validated_response = response_type.model_validate(json_data)
+        try:
+            validated_response = response_type.model_validate(json_data)
+        except ValidationError as e:
+            # Log the full JSON that failed validation for debugging
+            logger.error(f"ValidationError: {e}")
+            logger.error(f"Failed JSON (full):\n{json_str}")
+            raise  # Re-raise to trigger retry mechanism
 
         return validated_response
     else:

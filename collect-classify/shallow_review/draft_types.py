@@ -149,8 +149,6 @@ class Paper(BaseModel):
     kind: str | None = Field(
         default=None, description="Content type (e.g., 'paper_published', 'paper_preprint', 'blog_post')"
     )
-    summary: str | None = Field(default=None, description="2-3 sentence summary of the work")
-    key_result: str | None = Field(default=None, description="Main finding or contribution")
 
 
 class OutputSectionHeader(BaseModel):

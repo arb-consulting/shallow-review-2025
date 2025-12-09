@@ -5,14 +5,26 @@ Provides parallelized LLM extraction of agenda attributes from draft markdown do
 
 import json
 import logging
+import os
+import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import yaml
+from anthropic import transform_schema, Anthropic
 from jinja2 import Template
 from pydantic import ValidationError
+from tenacity import (
+    before_sleep_log,
+    retry,
+    retry_if_exception,
+    stop_after_attempt,
+    wait_exponential,
+)
 
 from .common import PROMPTS_PATH, is_shutdown_requested
+from .draft_types import DocumentItem
+from .llm import _get_retry_attempt, _set_retry_attempt, setup_litellm
 
 logger = logging.getLogger(__name__)
 
@@ -88,46 +100,7 @@ def extract_agenda_attributes(
         item.parsing_issues.append(f"Prompt rendering failed: {str(e)}")
         return item
 
-    # Call LLM
-    try:
-        response = completion(
-            model="claude-sonnet-4-5",
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=8000,  # Increased for full DocumentItem output
-            reasoning_effort="medium",
-        )
-    except Exception as e:
-        logger.error(f"LLM call failed for {item.id}: {e}")
-        from .draft_types import AgendaAttributes
-        item.agenda_attributes = AgendaAttributes()
-        item.parsing_issues.append(f"LLM call failed: {str(e)}")
-        return item
-
-    # Extract response
-    if not response or not response.choices or not response.choices[0].message:
-        logger.error(f"Invalid LLM response for {item.id}")
-        from .draft_types import AgendaAttributes
-        item.agenda_attributes = AgendaAttributes()
-        item.parsing_issues.append("Invalid LLM response structure")
-        return item
-
-    response_text = response.choices[0].message.content
-    if not response_text:
-        logger.error(f"Empty LLM response for {item.id}")
-        from .draft_types import AgendaAttributes
-        item.agenda_attributes = AgendaAttributes()
-        item.parsing_issues.append("Empty LLM response")
-        return item
-
-    # Parse JSON from response (handle markdown code blocks)
-    import re
-    json_match = re.search(r"```(?:json)?\s*\n(.*?)\n```", response_text, re.DOTALL)
-    if json_match:
-        json_text = json_match.group(1)
-    else:
-        json_text = response_text
-    
-    # Fix common JSON escape issues from LLM output
+    # Helper function to fix JSON escape issues from LLM output
     def fix_json_escapes(text: str) -> str:
         """Fix invalid backslash escapes in JSON text."""
         result = text.replace('\\', '\\\\')  # Escape all backslashes
@@ -141,19 +114,132 @@ def extract_agenda_attributes(
         result = result.replace('\\\\"', '\\"')
         result = result.replace('\\\\\\\\', '\\\\')  # Fix double-escaped backslashes
         return result
-    
-    json_text = fix_json_escapes(json_text)
 
-    # Parse as DocumentItem
-    from .draft_types import DocumentItem
+    def _on_retry_before_sleep(retry_state):
+        """Callback before retry - tracks retry attempt for cache bypass via max_tokens increment."""
+        exception = retry_state.outcome.exception()
+        if isinstance(exception, (ValidationError, ValueError, json.JSONDecodeError)):
+            # Store retry increment: use attempt_number as the increment for the next retry
+            # attempt_number=1 (first attempt fails) -> increment=1 for next retry
+            # attempt_number=2 (first retry fails) -> increment=2 for next retry
+            retry_increment = retry_state.attempt_number
+            _set_retry_attempt(retry_increment)
+            logger.warning(
+                f"{type(exception).__name__} on attempt {retry_state.attempt_number}, "
+                f"will bypass cache by incrementing max_tokens by {retry_increment} on next retry"
+            )
+        # Call the default before_sleep logger
+        before_sleep_log(logger, logging.WARNING)(retry_state)
+
+    def _should_retry(exception):
+        """Determine if we should retry on this exception."""
+        from openai import APIError, RateLimitError
+        # Retry on API errors, rate limits, and parsing/validation errors
+        return isinstance(
+            exception,
+            (RateLimitError, APIError, ValidationError, ValueError, json.JSONDecodeError),
+        )
+
+    # Call LLM and parse response with retry logic for parsing/validation errors
+    # This inner function will be retried if parsing/validation fails
+    @retry(
+        retry=retry_if_exception(_should_retry),
+        stop=stop_after_attempt(5),
+        wait=wait_exponential(multiplier=2, min=4, max=64),
+        before_sleep=_on_retry_before_sleep,
+        reraise=True,
+    )
+    def _call_llm_and_parse() -> DocumentItem:
+        """Call LLM and parse response. Raises parsing/validation errors to trigger retry."""
+        
+        assert os.environ.get("ANTHROPIC_API_KEY") is not None, "ANTHROPIC_API_KEY is not set"
+        assert os.environ.get("HELICONE_API_KEY") is not None, "HELICONE_API_KEY is not set"
+        
+        # Get retry attempt number for cache bypass (increment max_tokens to create different cache key)
+        base_max_tokens = 16000
+        retry_increment = _get_retry_attempt()
+        adjusted_max_tokens = base_max_tokens + retry_increment
+        
+        # Reset retry attempt for next call
+        _set_retry_attempt(0)
+        
+        if retry_increment > 0:
+            logger.info(
+                f"Bypassing cache for {item.id} ({item.name}): "
+                f"using max_tokens={adjusted_max_tokens} "
+                f"(base={base_max_tokens} + {retry_increment})"
+            )
+
+        # Initialize Anthropic client with Helicone integration
+        client = Anthropic(
+            api_key=os.environ.get("ANTHROPIC_API_KEY"),
+            base_url="https://anthropic.helicone.ai",
+            default_headers={
+                "Helicone-Auth": f"Bearer {os.environ.get('HELICONE_API_KEY')}",
+                "Helicone-Cache-Enabled": "true",
+            },
+        )
+
+        # Call Anthropic API with extended thinking
+        response = client.messages.create(
+            model="claude-sonnet-4-5",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=adjusted_max_tokens,
+            thinking={"type": "enabled", "budget_tokens": 2048},
+        )
+
+        # Extract response text
+        # With extended thinking, response.content contains ThinkingBlock(s) followed by TextBlock(s)
+        if not response or not response.content:
+            raise ValueError("Invalid LLM response structure")
+
+        # Find the first TextBlock (skip ThinkingBlocks)
+        response_text = None
+        for block in response.content:
+            if hasattr(block, 'text'):
+                response_text = block.text
+                break
+        
+        if not response_text:
+            raise ValueError("Empty LLM response or no TextBlock found")
+
+        # Parse JSON from response (handle markdown code blocks)
+        json_match = re.search(r"```(?:json)?\s*\n(.*?)\n```", response_text, re.DOTALL)
+        if json_match:
+            json_text = json_match.group(1)
+        else:
+            json_text = response_text
+
+        # Fix common JSON escape issues
+        json_text = fix_json_escapes(json_text)
+
+        # Parse and validate as DocumentItem
+        # This will raise ValidationError or JSONDecodeError if parsing fails
+        try:
+            return DocumentItem.model_validate_json(json_text)
+        except ValidationError as e:
+            # Log the full JSON that failed validation for debugging
+            logger.error(f"ValidationError for {item.id} ({item.name}): {e}")
+            logger.error(f"Failed JSON (full):\n{json_text}")
+            raise  # Re-raise to trigger retry mechanism
+
+    # Call with retry logic - parsing/validation errors will trigger retries
     try:
-        returned_item = DocumentItem.model_validate_json(json_text)
-    except (json.JSONDecodeError, ValidationError) as e:
-        logger.error(f"Failed to parse JSON for {item.id}: {e}")
-        logger.debug(f"Response text: {response_text[:500]}")
+        returned_item = _call_llm_and_parse()
+    except (json.JSONDecodeError, ValidationError, ValueError) as e:
+        # After all retries exhausted, log and return error
+        logger.error(f"Failed to parse JSON for {item.id} after retries: {e}")
+        logger.debug(f"Last error: {str(e)[:500]}")
         from .draft_types import AgendaAttributes
         item.agenda_attributes = AgendaAttributes()
-        item.parsing_issues.append(f"JSON parsing failed: {str(e)}")
+        item.parsing_issues.append(f"JSON parsing failed after retries: {str(e)}")
+        return item
+    except Exception as e:
+        # Other errors (API errors, etc.)
+        logger.error(f"LLM call failed for {item.id}: {e}")
+        from .draft_types import AgendaAttributes
+        item.agenda_attributes = AgendaAttributes()
+        item.parsing_issues.append(f"LLM call failed: {str(e)}")
         return item
     
     # Validate structural fields are unchanged
