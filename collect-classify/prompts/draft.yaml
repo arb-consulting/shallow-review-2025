@@ -2,86 +2,114 @@
 
 extract_agenda_attributes:
   user: |
-    You are extracting structured metadata from a research agenda in a shallow review document.
+    You are extracting structured metadata given a single research agenda. The given agenda is part of the "Shallow review of technical AI safety" document.
     
     You will receive:
-    1. A DocumentItem structure (JSON) with id, name, header_level, parent_id, item_type already filled
+    1. A DocumentItem structure (JSON) in <document_item></document_item> with id, name, header_level, parent_id, item_type already filled
     2. The markdown content for this item in <content></content> XML tags
     
     Your task: Return the SAME DocumentItem structure with agenda_attributes populated and parsing_issues added. Preserve id, name, header_level, parent_id, and item_type fields exactly.
     
-    **Input DocumentItem:**
-    ```json
-    {{ item_json }}
-    ```
+    # Input DocumentItem
     
-    **Markdown content to extract from:**
+    <document_item>
+    {{ item_json }}
+    </document_item>
+    
+    # Markdown content to extract from
+
     <content>
     {{ content }}
     </content>
     
-    Extract the following information from the content:
+    # Extract the following information from the content
     
-    **Standard Attributes** (extract if present, look for these bold headers):
+    ## Standard Attributes
+
+    Extract if present, look for these line prefixes, usually bold:
+
     - who_edits: From "**Who edits (internal):**" - Editor name, possibly with status emoji
-    - one_sentence_summary: From "**One-sentence summary:**" - Brief description
-    - theory_of_change: From "**Theory of change:**" - How this work contributes to safety
-    - see_also: From "**See also:**" - Related agenda IDs (list of strings like "a:id1", "a:id2", "sec:id1"). Use the agenda list below to resolve plain text references to IDs.
+    - one_sentence_summary: From "**One-sentence summary:**" - Brief description as one markdown text block (optional)
+    - theory_of_change: From "**Theory of change:**" - How this work contributes to safety as one markdown text block (optional)
+    - see_also: From "**See also:**" - Related agenda IDs (list of strings like "a:id1", "a:id2", "sec:id1"), mixed with markdown text (external see also links and text that does not match any of the agendas). Use the agenda list below to resolve plain text references to IDs.
     - orthodox_problems: From "**Orthodox problems:**" - List of orthodox problem IDs (see table below)
     - target_case: From "**Target case:**" - Target case ID (see table below)
     - broad_approach: From "**Broad approach:**" - Broad approach ID (see table below)
     - some_names: From "**Some names:**" - Key researchers (list)
     - estimated_ftes: From "**Estimated FTEs:**" - Workforce estimate
-    - critiques: From "**Critiques:**" - Critiques as markdown text (links, descriptions, etc.)
-    - funded_by: From "**Funded by:**" - Funders (optional)
-    - funding_in_2025: From "**Funding in 2025:**" - Dollar amounts (optional)
-    - organization_structure: From "**Host org structure:**" or "**Structure:**" - Organization type (e.g., "public benefit corp", "for-profit", "research laboratory subsidiary of a for-profit")
-    - teams: From "**Teams:**" - Teams/divisions description in markdown (e.g. for labs)
-    - public_alignment_agenda: From "**Public alignment agenda:**" and/or "**Public plan:**" - Merge both if present (e.g. for labs)
-    - framework: From "**Framework:**" - Framework link/description in markdown (e.g. for labs)
+    - critiques: From "**Critiques:**" - Critiques as one markdown text block (links, descriptions, etc., optional)
+    - funded_by: From "**Funded by:**" - Funders as one markdown text block (optional)
+
+    ## Other Attributes
+
+    Any attributes with line prefix that don't match the standard ones above but clearly indicate an attribute:
     
-    **Available Agendas and Sections** (use these IDs in see_also):
+    - other_attributes: a dictionary of other attributes that don't fit into the standard attributes. The keys may be: 
+      - "Structure" (also from "Host org structure") (e.g., "public benefit corp", "for-profit", "research laboratory subsidiary of a for-profit")
+      - "Teams"
+      - "Public alignment agenda" (sometimes also from "Public plan")
+      - "Framework": Framework link/description in markdown (sometimes also from "Public plan", depending on context)
+    - Store the keys as plain text (remove bolding, ":", etc.)
+
+    # Available Agendas and Sections
+
+    Use these IDs in see_also. Note the match is semantic and can be approximate.
     {% for item in agenda_list %}
     - {{ item.id }}: {{ item.name }}
     {% endfor %}
     
-    **Orthodox Problems** (use IDs from this table):
+    # Orthodox Problems
+
+    Use IDs from this list. Note the match is semantic and can be approximate. In some cases, the ortodox problem may not match any of the listed problems - in that case, include it as "other: <original_text>".
     {% for problem_id, problem_info in orthodox_problems.items() %}
     - {{ problem_id }}: {{ problem_info.name }}
     {% endfor %}
     
-    **Target Cases** (use IDs from this table):
+    # Target Cases
+
+    Use IDs from this list. Note the match is semantic and can be approximate.
     {% for case_id, case_info in target_cases.items() %}
     - {{ case_id }}: {{ case_info.name }}
     {% endfor %}
     
-    **Broad Approaches** (use IDs from this table):
+    # Broad Approaches
+
+    Use IDs from this list. Note the match is semantic and can be approximate.
     {% for approach_id, approach_info in broad_approaches.items() %}
     - {{ approach_id }}: {{ approach_info.name }}
     {% endfor %}
     
-    **Outputs** (extract from "**Outputs in 2025:**" or "**Outputs:**" section if present):
-    - Extract all output items (papers, blog posts, etc.) as a flat list
-    - For items with URLs: Extract the URL and preserve the original markdown
-    - For items without URLs: Set url=null and preserve the original markdown in original_md
-    - For subsection headers (e.g., "### Interpretability at pretrain-time"): Create OutputSectionHeader items with name, header_level, and original_md
-    - Ignore the header depth - just preserve the structure and order
-    - Leave title, authors, date, venue, kind, summary, key_result as null (they will be enriched from database later)
+    # Outputs
+
+    Extract from "**Outputs in 2025:**" or "**Outputs:**" attributes if present. Note that this part is always last in the content, and it may contain subsections.
+    Extract as a list of links (to papers and other outputs), non-link references (eg. "Countless examples on X") and output subsection headers, preserving the order.
+    - For links with URLs and plain-text URLs: Extract the URL as `{"link_url": URL, "link_text": TEXT_OR_NULL, "original_md": ORIGINAL_MD}`
+    - For text items without URLs: Extract as `{"link_url": null, "link_text": CLEANED_TEXT, "original_md": ORIGINAL_MD}`
+    - For subsection headers (e.g., "#### Experimental results"): Extract as `{"section_name": "Experimental results", "header_level": 4, "original_md": ORIGINAL_MD}`
+    - In the output JSON, leave title, authors, date, year etc. absent (they will be enriched from database later)
     
-    **Other Attributes**: Any attributes with **Attribute Name:** format that don't match the standard ones above.
-    
-    **Parsing Issues**: Detect and report any issues with the content or parsing:
-    - Source document issues: missing headers, wrong sec:/a: markers, formatting problems
-    - Content issues: empty/minimal content, mismatched titles, wrong company/org info
+    # Parsing Issues
+
+    Detect and report any issues with the content or parsing:
+    - Source document issues: missing headers, wrong sec:/a: markers, serious formatting problems, parsing ambiguity, etc.
+    - Content issues: empty/minimal content, mismatched titles, clearly wrong company/org info, etc.
     - Parsing issues: confusion about structure, ambiguous attributions, etc.
     If everything looks correct and complete, return an empty list.
     
-    **EXAMPLES:**
+    # General instructions
+
+    - If a value is specified as "", "None", "Unknown", "?", "N/A" etc., treat the field as absent.
+    - Do not output null values for fields that are absent (incl. above) or empty - leave the field undefined.
+    - Fix mismatched markdown formatting in the content. Tend to remove formatting rather than add item.
+    - Remove trailing periods from text items, except for one-sentence summaries, theory of change, and any markdown field that already consists of sentences. Plain lists should never end in a period.
+    - Ignore minor formatting issues like extra spaces, trailing spaces, etc. Similarly, some of the attribute names may be not bolded, slanted, etc. Remove spurious formatting from attribute values, e.g. when the entire value is in italic, remove the italic formatting.
+
+    # EXAMPLES
     
-    Example 1 - Lab/Organization (a:openai):
+    ## Example 1: Lab/Organization
     
-    Input DocumentItem:
-    ```json
+    Example 1 Input JSON:
+    <example1_document_item>
     {
       "id": "a:openai",
       "name": "OpenAI Safety",
@@ -92,24 +120,37 @@ extract_agenda_attributes:
       "agenda_attributes": null,
       "parsing_issues": []
     }
-    ```
+    </example1_document_item>
     
-    Content:
-    <content>
-    **See also:** iterative alignment, safeguards, personas.
+    Example 1 Content:
+    <example1_content>
+    ## OpenAI Safety \[a:openai\]
+
+    **See also:** iterative alignment, safeguards, personas. 
+
     **Host org structure**: public benefit corp
-    **Teams**: Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety)
-    **Public alignment agenda:** [None](https://openai.com/safety). Barak [offers](https://lesswrong.com) personal views.
-    **Public plan**: [Preparedness Framework](https://cdn.openai.com/pdf/preparedness-framework.pdf)
-    **Critiques:** [Stein-Perlman](https://ailabwatch.org/companies/openai)
-    **Some names:** Johannes Heidecke, Boaz Barak
-    **Funded by:** Microsoft, AWS, Oracle
+
+    **Teams**: Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety, Robustness, Safety Research, Trustworthy AI, new Misalignment Research team [coming](https://archive.is/eDB1D)), Preparedness, Model Policy, Safety and Security Committee, Safety Advisory Group. The [Persona Features](https://www.arxiv.org/pdf/2506.19823) paper had a distinct author list. No named successor to Superalignment.
+
+    **Public alignment agenda:** [None](https://openai.com/safety/how-we-think-about-safety-alignment/). Barak [offers](https://www.lesswrong.com/posts/3jnziqCF3vA2NXAKp/six-thoughts-on-ai-safety) personal [views](https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/).
+
+    **Public plan**: [Preparedness Framework](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf)
+
+    **Critiques:** [Stein-Perlman](https://ailabwatch.org/companies/openai), [defense](https://www.wired.com/story/openai-anduril-defense/). It’s [difficult](https://conversationswithtyler.com/episodes/sam-altman-2/) to model OpenAI as a single agent: “*ALTMAN: I very rarely get to have anybody work on anything. One thing about researchers is they’re going to work on what they’re going to work on, and that’s that.”*
+
+    **Some names:** Johannes Heidecke, Boaz Barak.
+
+    **Funded by:** Microsoft, [AWS](https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure), Oracle, NVIDIA, SoftBank, G42, AMD, Dragoneer, Coatue, Thrive, Altimeter, MGX, Blackstone, TPG, T. Rowe Price, Andreessen Horowitz, D1 Capital Partners, Fidelity Investments, Founders Fund, Sequoia…
+
     **Outputs in 2025:**
-    * Their System Cards contain safety work.
-    * [https://alignment.openai.com/](https://alignment.openai.com/)
-    </content>
+
+    * Their 60-page System Cards now contain a large amount of their public safety work.   
+    * [https://alignment.openai.com/](https://alignment.openai.com/)   
+    * [**Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation**](https://arxiv.org/abs/2503.11926)  
+    * [**Persona Features Control Emergent Misalignment**](https://arxiv.org/abs/2506.19823)
+    </example1_content>
     
-    Output DocumentItem (only non-default values shown):
+    Example 1 Output JSON:
     ```json
     {
       "id": "a:openai",
@@ -121,143 +162,140 @@ extract_agenda_attributes:
       "agenda_attributes": {
         "see_also": ["sec:iterative_alignment", "a:anthropic_safeguards", "a:psych_personas"],
         "some_names": ["Johannes Heidecke", "Boaz Barak"],
-        "critiques": "[Stein-Perlman](https://ailabwatch.org/companies/openai)",
-        "funded_by": "Microsoft, AWS, Oracle",
-        "organization_structure": "public benefit corp",
-        "teams": "Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety)",
-        "public_alignment_agenda": "[None](https://openai.com/safety). Barak [offers](https://lesswrong.com) personal views. **Public plan**: [Preparedness Framework](https://cdn.openai.com/pdf/preparedness-framework.pdf)",
+        "critiques": "[Stein-Perlman](https://ailabwatch.org/companies/openai), [defense](https://www.wired.com/story/openai-anduril-defense/). It’s [difficult](https://conversationswithtyler.com/episodes/sam-altman-2/) to model OpenAI as a single agent: *“ALTMAN: I very rarely get to have anybody work on anything. One thing about researchers is they’re going to work on what they’re going to work on, and that’s that.”*",
+        "funded_by": "Microsoft, [AWS](https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure), Oracle, NVIDIA, SoftBank, G42, AMD, Dragoneer, Coatue, Thrive, Altimeter, MGX, Blackstone, TPG, T. Rowe Price, Andreessen Horowitz, D1 Capital Partners, Fidelity Investments, Founders Fund, Sequoia…",
+        "other_attributes": {
+          "Structure": "public benefit corp",
+          "Teams": "Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety, Robustness, Safety Research, Trustworthy AI, new Misalignment Research team [coming](https://archive.is/eDB1D)), Preparedness, Model Policy, Safety and Security Committee, Safety Advisory Group. The [Persona Features](https://www.arxiv.org/pdf/2506.19823) paper had a distinct author list. No named successor to Superalignment.",
+          "Public alignment agenda": "[None](https://openai.com/safety/how-we-think-about-safety-alignment/). Barak [offers](https://www.lesswrong.com/posts/3jnziqCF3vA2NXAKp/six-thoughts-on-ai-safety) personal [views](https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/).",
+          "Framework": "[Preparedness Framework](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf)"
+        },
         "outputs": [
-          {"original_md": "* Their System Cards contain safety work."},
-          {"url": "https://alignment.openai.com/", "original_md": "* [https://alignment.openai.com/](https://alignment.openai.com/)"}
+          {"link_url": null, "link_text": "Their 60-page System Cards now contain a large amount of their public safety work.", "original_md": "* Their 60-page System Cards now contain a large amount of their public safety work."},
+          {"link_url": "https://alignment.openai.com/", "link_text": "https://alignment.openai.com/", "original_md": "* [https://alignment.openai.com/](https://alignment.openai.com/)"},
+          {"link_url": "https://arxiv.org/abs/2503.11926", "link_text": "Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation", "original_md": "* [**Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation**](https://arxiv.org/abs/2503.11926)"},
+          {"link_url": "https://arxiv.org/abs/2506.19823", "link_text": "Persona Features Control Emergent Misalignment", "original_md": "* [**Persona Features Control Emergent Misalignment**](https://arxiv.org/abs/2506.19823)"}
         ]
       },
       "parsing_issues": []
     }
     ```
     
-    Example 2 - Research Agenda (sec:iterative_alignment):
+    # Example 2: Research Agenda
     
-    Input DocumentItem:
-    ```json
+    Example 2 Input JSON:
+    <example2_document_item>
     {
-      "id": "a:iterative_alignment",
-      "name": "Iterative alignment",
+      "id": "a:evals_capability",
+      "name": "Capability evals",
       "header_level": 2,
-      "parent_id": null,
+      "parent_id": "sec:evals",
       "content": null,
-      "item_type": "section",
+      "item_type": "agenda",
       "agenda_attributes": null,
       "parsing_issues": []
     }
-    ```
+    </example2_document_item>
     
-    Content:
-    <content>
+    Example 2 Content:
+    <example2_content>
+    **Who edits (internal):** **Stephen** ✅  
+    **One-sentence summary:** Make tools that can actually check whether a model has a certain capability or propensity.
+    **Theory of change:** Keep a close eye on what capabilities are acquired when, so that frontier labs and regulators are better informed on what security measures are already necessary (and hopefully they extrapolate). You can’t regulate without them.  
+    **See also:** [Deepmind’s frontier safety framework](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/), [Aether](https://www.lesswrong.com/posts/B8Cmtf5gdHwxb8qtT/aether-july-2025-update). AGI metrics 
+    **Orthodox problems:** none; a barometer for risk.  
+    **Target case:** optimistic.  
+    **Broad approach:** behavioral.  
+    **Some names:** METR, AISI, Apollo Research, Marrius Hobbhahn, Meg Tong, Mary Phuong, Beth Barnes, Thomas Kwa, Joel Becker.
+
+    **Estimated FTEs:** 100+  
+    **Critiques:** [Large Language Models Often Know When They Are Being Evaluated](https://arxiv.org/abs/2505.23836)**,** [AI Sandbagging: Language Models can Strategically Underperform on Evaluations](https://arxiv.org/abs/2406.07358), 
+    **Funded by:** basically everyone. Google, Microsoft, Open Philanthropy, LTFF, Governments etc  
+    **Outputs in 2025:**
+
+    * [**Forecasting Rare Language Model Behaviors**](https://arxiv.org/abs/2502.16797), *Erik Jones, Meg Tong, Jesse Mu et al.*, 2025-02-24, arXiv  
+    * [**Model Tampering Attacks Enable More Rigorous Evaluations of LLM Capabilities**](https://arxiv.org/abs/2502.05209), *Zora Che, Stephen Casper, Robert Kirk et al.*, 2025-02-03, arXiv (accepted to TMLR)  
+
+    ### Game-theoretic evals
+    * [**The Elicitation Game: Evaluating Capability Elicitation Techniques**](https://arxiv.org/abs/2502.02180), *Felix Hofstätter, Teun van der Weij, Jayden Teoh et al.*, 2025-02-04, arXiv  
+    * https://alignment.anthropic.com/2024/rogue-eval/index.html, 2024, Anthropic Alignment Science Blog
+    *
+    </example2_content>
     
-    **Who edits (internal):** Stag✅
-    **One-sentence summary:** nudging base models by optimising their output.
-    **Theory of change:** LLMs don't seem very dangerous and might scale to AGI, assume alignment is a superficial feature.
-    **See also:** character training
-    **Orthodox problems:** this agenda implicitly questions this framing.
-    **Target case:** optimistic-case
-    **Broad approach:** Engineering
-    **Some names:** post-training teams at most labs.
-    **Estimated FTEs:** 1200+
-    **Funded by:** most of the industry
-    **Outputs:** Subdivided as follows:
-    
-    ### Iterative alignment at pretrain-time
-    * [**Towards Cognitively-Faithful Models**](https://arxiv.org/abs/2509.04445)
-    
-    ### Iterative alignment at post-train-time
-    * [https://arxiv.org/abs/2501.08617](https://arxiv.org/abs/2501.08617), Kaiqu Liang, Haimin Hu, Ryan Liu, Thomas L. Griffiths, Jaime Fernández Fisac, 2025 
-    * https://arxiv.org/abs/2503.04569
-    </content>
-    
-    Output DocumentItem (only non-default values shown):
+    Example 2 Output JSON:
     ```json
     {
-      "id": "sec:iterative_alignment",
-      "name": "Iterative alignment",
+      "id": "a:evals_capability",
+      "name": "Capability evals",
       "header_level": 2,
-      "parent_id": null,
+      "parent_id": "sec:evals",
       "content": null,
-      "item_type": "section",
+      "item_type": "agenda",
       "agenda_attributes": {
-        "who_edits": "Stag✅",
-        "one_sentence_summary": "nudging base models by optimising their output.",
-        "theory_of_change": "LLMs don't seem very dangerous and might scale to AGI, assume alignment is a superficial feature.",
-        "see_also": ["a:psych_personas"],
+        "who_edits": "Stephen✅",
+        "one_sentence_summary": "Make tools that can actually check whether a model has a certain capability or propensity. We default to low-n sampling of a vast latent space but aim to do better.",
+        "theory_of_change": "Keep a close eye on what capabilities are acquired when, so that frontier labs and regulators are better informed on what security measures are already necessary (and hopefully they extrapolate). You can’t regulate without them.",
+        "see_also": ["[Deepmind’s frontier safety framework](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/)", "[Aether](https://www.lesswrong.com/posts/B8Cmtf5gdHwxb8qtT/aether-july-2025-update)", "a:agi_metrics"],
+        "orthodox_problems": ["other:none; a barometer for risk."],
         "target_case": "average_case",
-        "broad_approach": "engineering",
-        "some_names": ["post-training teams at most labs"],
-        "estimated_ftes": "1200+",
-        "funded_by": "most of the industry",
+        "broad_approach": "behaviorist_science",
+        "some_names": ["METR", "AISI", "Apollo Research", "Marrius Hobbhahn", "Meg Tong", "Mary Phuong", "Beth Barnes", "Thomas Kwa", "Joel Becker"],
+        "estimated_ftes": "100+",
+        "funded_by": "basically everyone. Google, Microsoft, Open Philanthropy, LTFF, Governments etc",
         "outputs": [
           {
-            "name": "Iterative alignment at pretrain-time",
+            "link_url": "https://arxiv.org/abs/2502.16797",
+            "link_text": "Forecasting Rare Language Model Behaviors",
+            "original_md": "* [**Forecasting Rare Language Model Behaviors**](https://arxiv.org/abs/2502.16797), *Erik Jones, Meg Tong, Jesse Mu et al.*, 2025-02-24, arXiv"
+          },
+          {
+            "link_url": "https://arxiv.org/abs/2502.05209",
+            "link_text": "Model Tampering Attacks Enable More Rigorous Evaluations of LLM Capabilities",
+            "original_md": "* [**Model Tampering Attacks Enable More Rigorous Evaluations of LLM Capabilities**](https://arxiv.org/abs/2502.05209), *Zora Che, Stephen Casper, Robert Kirk et al.*, 2025-02-03, arXiv (accepted to TMLR)"
+          }
+          {
+            "section_name": "Game-theoretic evals",
             "header_level": 3,
-            "original_md": "### Iterative alignment at pretrain-time"
+            "original_md": "### Game-theoretic evals"
           },
           {
-            "url": "https://arxiv.org/abs/2509.04445",
-            "original_md": "* [**Towards Cognitively-Faithful Models**](https://arxiv.org/abs/2509.04445)"
+            "link_url": "https://arxiv.org/abs/2502.02180",
+            "link_text": "The Elicitation Game: Evaluating Capability Elicitation Techniques",
+            "original_md": "* [**The Elicitation Game: Evaluating Capability Elicitation Techniques**](https://arxiv.org/abs/2502.02180), *Felix Hofstätter, Teun van der Weij, Jayden Teoh et al.*, 2025-02-04, arXiv"
           },
           {
-            "name": "Iterative alignment at post-train-time",
-            "header_level": 3,
-            "original_md": "### Iterative alignment at post-train-time"
-          },
-          {
-            "url": "https://arxiv.org/abs/2501.08617",
-            "original_md": "* [**RLHS: Mitigating Misalignment**](https://arxiv.org/abs/2501.08617), Kaiqu Liang, Haimin Hu, Ryan Liu, Thomas L. Griffiths, Jaime Fernández Fisac, 2025"
-          },
-          {
-            "url": "https://arxiv.org/abs/2503.04569",
-            "original_md": "* https://arxiv.org/abs/2503.04569"
+            "link_url": "https://alignment.anthropic.com/2024/rogue-eval/index.html",
+            "link_text": null,
+            "original_md": "* https://alignment.anthropic.com/2024/rogue-eval/index.html, 2024, Anthropic Alignment Science Blog"
           }
         ]
       },
       "parsing_issues": [
-        "Orthodox problems field says 'this agenda implicitly questions this framing' - unclear which problems this relates to",
-        "Target case field says 'optimistic-case' - closest match is 'average_case'",
-        "Funded by field says 'most of the industry' - unclear which industry this relates to"
+        "Orthodox problems field says 'none; a barometer for risk.' - no matching problem found, kept as 'other: none; a barometer for risk.'",
+        "Target case field says 'optimistic.' - closest match is 'average_case'",
       ]
     }
     ```
     
-    Note in examples:
+    ## Notes on examples:
+
     - **Omit default values**: Fields with defaults (null, [], {}) can be omitted from output for brevity. The examples above show only non-default values.
-    - Extract text EXACTLY as written, preserving markdown formatting
-    - For "see_also": resolve external links to agenda IDs when possible (e.g., "character training" with link to [a:psych_personas] becomes "a:psych_personas")
-    - For "target_case": map "optimistic-case" to "optimistic_case" (closest match)
-    - For organization/labs: focus on teams, funders, structure, public plans
-    - For research agendas: focus on theory of change, orthodox problems, target case, broad approach
-    - Merge "Public alignment agenda" and "Public plan" fields into single "public_alignment_agenda"
-    - For "outputs": Extract all items from "**Outputs in 2025:**" or "**Outputs:**" section
-      - URLs go in "url" field, preserve full markdown in "original_md"
-      - Items without URLs: omit "url" field (defaults to null), include "original_md"
-      - Subsection headers: OutputSectionHeader with "name", "header_level", "original_md" (omit description if not present)
-      - Preserve order and structure, leave database fields (title, authors, etc.) as null (can be omitted)
-    
-    IMPORTANT: 
     - Return valid JSON only. Do not use backslash escapes except for standard JSON escapes (\\n, \\t, \\", \\\\).
     - Preserve markdown formatting exactly as written in the source.
-    - **Omit fields with default values** (null, [], {}) for brevity - they will be filled in automatically.
     
-    **JSON Schema for Output:**
+    # JSON Schema for Output
     
-    DocumentItem (must match input structure exactly):
+    Root DocumentItem (must match input structure exactly):
     - id: string (REQUIRED, must match input)
     - name: string (REQUIRED, must match input)
     - header_level: integer (REQUIRED, must match input)
     - parent_id: string | null (REQUIRED, must match input)
-    - agenda_attributes: AgendaAttributes | null (populate this)
-    - content: string | null (REQUIRED, only the relevant content that is not represented in agenda_attributes, e.g. quotes, non-internal meta or epistemic remarks etc.; stand-alone markdown text)
+    - agenda_attributes: AgendaAttributes | null (REQUIRED, populate this)
+    - content: string | null (REQUIRED, only the relevant content that is not represented in agenda_attributes, e.g. quotes, non-internal meta or epistemic remarks etc.; stand-alone markdown text; this should be empty for most agendas)
     - item_type: "section" | "agenda" (REQUIRED, must match input)
     - parsing_issues: string[] (defaults to [])
     
-    AgendaAttributes (omit fields with default values):
+    AgendaAttributes (omit fields with default values, only populate the fields that are present):
     - who_edits: string | null
     - one_sentence_summary: string | null
     - theory_of_change: string | null
@@ -269,21 +307,15 @@ extract_agenda_attributes:
     - estimated_ftes: string | null
     - critiques: string | null
     - funded_by: string | null
-    - funding_in_2025: string | null
-    - organization_structure: string | null
-    - teams: string | null
-    - public_alignment_agenda: string | null
-    - framework: string | null
     - outputs: (Paper | OutputSectionHeader)[] (defaults to [])
     - other_attributes: object (defaults to {})
     
-    Paper:
-    - url: string | null
+    Paper (also used for non-paper links and plaintext/non-link references):
+    - link_url: string | null
+    - link_text: string | null
     - original_md: string (REQUIRED)
-    - title, authors, author_organizations, date, published_year, venue, kind, summary, key_result: (omit, defaults to null/[])
     
     OutputSectionHeader:
-    - name: string (REQUIRED)
+    - section_name: string (REQUIRED)
     - header_level: integer (REQUIRED)
-    - description: string | null
     - original_md: string (REQUIRED)
