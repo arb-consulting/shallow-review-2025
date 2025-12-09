@@ -34,21 +34,21 @@
 
 {# Theory of change with label #}
 {% if attrs.theory_of_change -%}
-*≈ Theory of change:* {{ attrs.theory_of_change }}
-
+* *Theory of change:* {{ attrs.theory_of_change }}
 {% endif -%}
 
-{# Metadata lines with labels and two spaces for line breaks #}
-{% set line1_parts = [] -%}
+{# Metadata lines with labels as list items #}
 {% if attrs.broad_approach and attrs.broad_approach in broad_approaches -%}
-{% set _ = line1_parts.append('⚙ *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* ' + broad_approaches[attrs.broad_approach].name.lower()) -%}
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* {{ broad_approaches[attrs.broad_approach].name.lower() -}}
+{% if attrs.target_case and attrs.target_case in target_cases -%}
+{{" · " -}}
+{% else -%}
+{{"  \n" -}}
+{% endif -%}
 {% endif -%}
 {% if attrs.target_case and attrs.target_case in target_cases -%}
 {% set target_name = target_cases[attrs.target_case].name.lower().replace('-case', '') -%}
-{% set _ = line1_parts.append('◐ *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* ' + target_name) -%}
-{% endif -%}
-{% if line1_parts -%}
-{{ line1_parts | join(' · ') }}  
+* *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* {{ target_name }}  
 {% endif -%}
 
 {# Orthodox problems with full names #}
@@ -60,60 +60,65 @@
 {% endif -%}
 {% endfor -%}
 {% if problem_names -%}
-⚠ *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: {{ problem_names | join(', ') }}  
+* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: {{ problem_names | join(', ') }}  
 {% endif -%}
 {% endif -%}
 
-{# Other attributes - one per line after see_also #}
+{# Other attributes - one per line #}
 {% if attrs.other_attributes -%}
 {% for key, value in attrs.other_attributes.items() -%}
-{{ " ○ " }}*{{ key }}*: {{ value }}  
+* *{{ key }}*: {{ value }}  
 {% endfor -%}
 {% endif -%}
 
 {# See also with label #}
 {% if attrs.see_also -%}
-↔ *See also:* {{ attrs.see_also | map('format_see_also_ref', items_by_id) | join(' · ') }}  
+* *See also:* {{ attrs.see_also | map('format_see_also_ref', items_by_id) | join(' · ') }}  
 {% endif -%}
 
 {# Key people/researchers with label #}
 {% if attrs.some_names -%}
-☉ *Some names:* {{ attrs.some_names | join(', ') }}  
+* *Some names:* {{ attrs.some_names | join(', ') }}  
 {% endif -%}
 
 {# Critiques with label #}
 {% if attrs.critiques -%}
-✗ *Critiques:* {% for item in attrs.critiques | split_critiques -%}
+* *Critiques:* {% for item in attrs.critiques | split_critiques -%}
 {% if not loop.first %}, {% endif %}{{ item }}
 {%- endfor %}  
 {% endif -%}
 
-{# Funding and FTEs on one line #}
-{% set funding_parts = [] -%}
+{# Funding and FTEs as separate list items #}
 {% if attrs.funded_by -%}
-{% set _ = funding_parts.append(' *$ Funded by:* ' + attrs.funded_by) -%}
+* *Funded by:* {{ attrs.funded_by }}  
 {% endif -%}
 {% if attrs.estimated_ftes -%}
-{% set _ = funding_parts.append('*⫼ Estimated FTEs:* ' + attrs.estimated_ftes) -%}
-{% endif -%}
-{% if funding_parts -%}
-{{ funding_parts | join(' · ') }} 
-
+* *Estimated FTEs:* {{ attrs.estimated_ftes }}  
 {% endif -%}
 
 {# Outputs section #}
 {% if attrs.outputs -%}
- ▹ *Some outputs:*
-{# ▸ *Some outputs:*   #}
-{# *Some outputs:*   #}
+
+{# * *Some outputs:*  
+{% for output in attrs.outputs -%}
+{% if output.__class__.__name__ == 'Paper' -%}
+{{ "" }}  ▸ {{ format_paper(output) }}  
+{% elif output.__class__.__name__ == 'OutputSectionHeader' -%}
+*{{ output.section_name }}*  
+{% endif -%}
+{% endfor -%}
+{% endif -%}
+{% endif -%}
+{%- endmacro %} #}
+
+* *Some outputs:*
+{# * *Some outputs:*   #}
 {% for output in attrs.outputs -%}
 {% if output.__class__.__name__ == 'Paper' -%}
 {# * {{ format_paper(output) }}   #}
-{# ▸ {{ format_paper(output) }}   #}
-{{ format_paper(output) -}}
+{{ format_paper(output)}}
 {% elif output.__class__.__name__ == 'OutputSectionHeader' -%}
-{# *{{ output.section_name }}*   #}
-*{{ output.section_name -}}*
+*{{ output.section_name}}*
 {% endif -%}
 {% if not loop.last %} · {% endif -%}
 {% endfor -%}
