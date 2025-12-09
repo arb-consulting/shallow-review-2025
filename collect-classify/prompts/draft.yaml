@@ -33,8 +33,8 @@ extract_agenda_attributes:
     - theory_of_change: From "**Theory of change:**" - How this work contributes to safety as one markdown text block (optional)
     - see_also: From "**See also:**" - Related agenda IDs (list of strings like "a:id1", "a:id2", "sec:id1"), mixed with markdown text (external see also links and text that does not match any of the agendas). Use the agenda list below to resolve plain text references to IDs.
     - orthodox_problems: From "**Orthodox problems:**" - List of orthodox problem IDs (see table below)
-    - target_case: From "**Target case:**" - Target case ID (see table below)
-    - broad_approach: From "**Broad approach:**" - Broad approach ID (see table below)
+    - target_case: From "**Target case:**" - Target case ID (see table below). If present, this must be one of: "average_case", "pessimistic_case", or "worst_case".
+    - broad_approach: From "**Broad approach:**" - Broad approach ID (see table below). If present, this must be one of: "engineering", "behaviorist_science", or "cognitivist_science".
     - some_names: From "**Some names:**" - Key researchers (list)
     - estimated_ftes: From "**Estimated FTEs:**" - Workforce estimate
     - critiques: From "**Critiques:**" - Critiques as one markdown text block (links, descriptions, etc., optional)
@@ -55,21 +55,21 @@ extract_agenda_attributes:
 
     Use these IDs in see_also. Note the match is semantic and can be approximate.
     {% for item in agenda_list %}
-    - {{ item.id }}: {{ item.name }}
+    - {{ item.name }}: {{ item.id }}
     {% endfor %}
     
     # Orthodox Problems
 
     Use IDs from this list. Note the match is semantic and can be approximate. In some cases, the ortodox problem may not match any of the listed problems - in that case, include it as "other: <original_text>".
     {% for problem_id, problem_info in orthodox_problems.items() %}
-    - {{ problem_id }}: {{ problem_info.name }}
+    - {{ problem_info.name }}: {{ problem_id }}
     {% endfor %}
     
     # Target Cases
 
     Use IDs from this list. Note the match is semantic and can be approximate.
     {% for case_id, case_info in target_cases.items() %}
-    - {{ case_id }}: {{ case_info.name }}
+    - {{ case_info.name }}: {{ case_id }}
     {% endfor %}
     
     # Broad Approaches
@@ -94,6 +94,7 @@ extract_agenda_attributes:
     - Source document issues: missing headers, wrong sec:/a: markers, serious formatting problems, parsing ambiguity, etc.
     - Content issues: empty/minimal content, mismatched titles, clearly wrong company/org info, etc.
     - Parsing issues: confusion about structure, ambiguous attributions, etc.
+    - If a field is empty or just "None", "Unknown", "?", "N/A" etc., do not mention it as a parsing issue.
     If everything looks correct and complete, return an empty list.
     
     # General instructions

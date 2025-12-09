@@ -11,6 +11,7 @@ import sys
 from pathlib import Path
 import litellm
 import typer
+import yaml
 from jinja2 import Template
 from litellm.caching.caching import Cache
 from pydantic import ValidationError
@@ -255,11 +256,11 @@ def enrich_papers_from_db(doc: ProcessedDocument, verbose: bool = False) -> tupl
     for item in doc.items:
         if item.agenda_attributes and item.agenda_attributes.outputs:
             for output in item.agenda_attributes.outputs:
-                if isinstance(output, Paper) and output.url:
-                    paper_urls.add(output.url)
-                    if output.url not in papers_by_url:
-                        papers_by_url[output.url] = []
-                    papers_by_url[output.url].append(output)
+                if isinstance(output, Paper) and output.link_url:
+                    paper_urls.add(output.link_url)
+                    if output.link_url not in papers_by_url:
+                        papers_by_url[output.link_url] = []
+                    papers_by_url[output.link_url].append(output)
     
     if not paper_urls:
         return (0, 0)
@@ -453,11 +454,6 @@ def validate_document_structure(
                         1 if item.agenda_attributes.estimated_ftes else 0,
                         1 if item.agenda_attributes.critiques else 0,
                         1 if item.agenda_attributes.funded_by else 0,
-                        1 if item.agenda_attributes.funding_in_2025 else 0,
-                        1 if item.agenda_attributes.organization_structure else 0,
-                        1 if item.agenda_attributes.teams else 0,
-                        1 if item.agenda_attributes.public_alignment_agenda else 0,
-                        1 if item.agenda_attributes.framework else 0,
                         1 if item.agenda_attributes.outputs else 0,
                         1 if item.agenda_attributes.other_attributes else 0,
                     ]
@@ -469,12 +465,12 @@ def validate_document_structure(
                     )
                 
                 # Validate see_also IDs reference valid items
+                # Note: Items that don't start with "a:" or "sec:" are markdown links and are valid
                 if item.agenda_attributes.see_also:
                     valid_ids = set(items_by_id.keys())
-                    invalid_refs = [
-                        ref for ref in item.agenda_attributes.see_also
-                        if ref not in valid_ids
-                    ]
+                    # Only validate items that look like IDs (start with a: or sec:)
+                    id_refs = [ref for ref in item.agenda_attributes.see_also if ref.startswith(("a:", "sec:"))]
+                    invalid_refs = [ref for ref in id_refs if ref not in valid_ids]
                     if invalid_refs:
                         errors.append(
                             f"Agenda '{item.name}' ({item.id}) has invalid see_also references: "
@@ -496,11 +492,11 @@ def validate_document_structure(
                 if item.agenda_attributes.outputs:
                     from shallow_review.draft_types import Paper
                     for output in item.agenda_attributes.outputs:
-                        if isinstance(output, Paper) and output.url:
-                            if not output.url.startswith(("http://", "https://")):
+                        if isinstance(output, Paper) and output.link_url:
+                            if not output.link_url.startswith(("http://", "https://")):
                                 warnings.append(
                                     f"Agenda '{item.name}' ({item.id}) has invalid output URL: "
-                                    f"{output.url}"
+                                    f"{output.link_url}"
                                 )
     
     # Warn about agendas not LLM-processed
@@ -518,7 +514,7 @@ def validate_document_structure(
 def parse(
     input_file: str = typer.Argument(..., help="Path to draft markdown file"),
     output_file: str | None = typer.Option(
-        None, "--output", "-o", help="Output JSON file path (default: <input>-parsed.json)"
+        None, "--output", "-o", help="Output file path base (generates both .json and .yaml, default: <input>-parsed)"
     ),
     cache_dir: str | None = typer.Option(
         None, "--cache-dir", help="LLM cache directory (default: .llm_cache)"
@@ -529,10 +525,11 @@ def parse(
     ),
     workers: int = typer.Option(4, "--workers", "-w", help="Number of parallel workers for LLM extraction"),
 ) -> None:
-    """Parse a draft document into structured JSON using Claude Haiku.
+    """Parse a draft document into structured JSON and YAML.
 
     Step 1: Parses the document structure (sections [sec:...] and agendas [a:...])
-    Step 2: Uses Claude Haiku to extract structured metadata from each agenda.
+    Step 2: Uses Claude Sonnet to extract structured metadata from each agenda.
+    Step 3: Outputs both JSON and YAML formats.
     """
     setup_logging(verbose)
 
@@ -545,11 +542,14 @@ def parse(
     cache_path = Path(cache_dir) if cache_dir else None
     setup_litellm(cache_path)
 
-    # Determine output path
+    # Determine output paths (JSON and YAML)
     if output_file is None:
-        output_path = input_path.parent / f"{input_path.stem}-parsed.json"
+        output_json_path = input_path.parent / f"{input_path.stem}-parsed.json"
+        output_yaml_path = input_path.parent / f"{input_path.stem}-parsed.yaml"
     else:
-        output_path = Path(output_file)
+        output_json_path = Path(output_file)
+        # Generate YAML path by replacing extension
+        output_yaml_path = output_json_path.with_suffix('.yaml')
 
     # ========================================================================
     # Step 1: Parse document structure
@@ -672,11 +672,17 @@ def parse(
         items=doc.items
     )
 
-    # Write output
-    output_data = processed_doc.model_dump()
-    output_path.write_text(json.dumps(output_data, indent=2, default=str))
-
-    console.print(f"\n[green]Parsed document written to {output_path}[/green]")
+    # Write both JSON and YAML output
+    # Use mode='json' to serialize enums and other Python objects as primitives
+    output_data = processed_doc.model_dump(mode='json')
+    
+    # Write JSON
+    output_json_path.write_text(json.dumps(output_data, indent=2, default=str))
+    console.print(f"\n[green]JSON output written to {output_json_path}[/green]")
+    
+    # Write YAML
+    output_yaml_path.write_text(yaml.dump(output_data, default_flow_style=False, sort_keys=False, allow_unicode=True))
+    console.print(f"[green]YAML output written to {output_yaml_path}[/green]")
 
     # Exit with error code if errors found
     if errors:

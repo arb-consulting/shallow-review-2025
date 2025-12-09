@@ -295,6 +295,9 @@ def extract_header_name(text: str, start_pos: int) -> tuple[str, int]:
 def parse_outputs_section(content: str) -> list[Paper | OutputSectionHeader]:
     """Parse an outputs section into papers and section headers.
 
+    NOTE: This function is deprecated. The LLM now extracts outputs directly from
+    the agenda content. This is kept for backward compatibility and testing only.
+
     Returns a flat list where headers and papers are siblings, preserving order.
     Headers conceptually group subsequent papers until the next header.
 
@@ -317,25 +320,10 @@ def parse_outputs_section(content: str) -> list[Paper | OutputSectionHeader]:
             header_level = len(header_match.group(1))
             header_name = header_match.group(2).strip()
 
-            # Look ahead for description text (until next header or list item)
-            description_lines = []
-            i += 1
-            while i < len(lines):
-                next_line = lines[i].rstrip()
-                # Stop at next header or list item
-                if re.match(r"^#{3,4}\s+", next_line) or re.match(r"^[\*\-\+]", next_line):
-                    break
-                if next_line.strip():
-                    description_lines.append(next_line)
-                i += 1
-            i -= 1  # Back up one line
-
-            description = "\n".join(description_lines).strip() if description_lines else None
             header = OutputSectionHeader(
-                name=header_name,
+                section_name=header_name,
                 header_level=header_level,
-                description=description,
-                original_md=line + (f"\n{description}" if description else ""),
+                original_md=line,
             )
             items.append(header)
             i += 1
@@ -348,9 +336,15 @@ def parse_outputs_section(content: str) -> list[Paper | OutputSectionHeader]:
 
             # Extract URL if present
             url_match = re.search(r"https?://[^\s<>\"'\]\)]*[^\s<>\"'\]\),.\!?;:]", paper_text)
-            url = url_match.group(0) if url_match else None
+            link_url = url_match.group(0) if url_match else None
+            
+            # Extract link text from markdown [text](url) if present
+            link_text = None
+            md_link_match = re.match(r"\[([^\]]+)\]\([^)]+\)", paper_text)
+            if md_link_match:
+                link_text = md_link_match.group(1)
 
-            paper = Paper(url=url, original_md=line)
+            paper = Paper(link_url=link_url, link_text=link_text, original_md=line)
             items.append(paper)
             i += 1
             continue

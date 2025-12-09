@@ -124,15 +124,18 @@ class ItemType(str, Enum):
 
 
 class Paper(BaseModel):
-    """A research output (paper, blog post, etc.) in the outputs section.
+    """A research output (paper, blog post, link, or non-link reference) in the outputs section.
 
-    Fields from the database (classify.data JSON) are populated when available.
+    This model is used for all output items including papers, blog posts, plain URLs,
+    and non-link text references. Fields from the database (classify.data JSON) are
+    populated when available for items with URLs.
     """
 
-    url: str | None = Field(default=None, description="URL if linked")
+    link_url: str | None = Field(default=None, description="URL if present (for papers, blogs, etc.)")
+    link_text: str | None = Field(default=None, description="Display text or title extracted from markdown")
     original_md: str = Field(description="Original markdown text as read from source")
 
-    # Database fields (from classify.data JSON)
+    # Database fields (from classify.data JSON) - populated later for items with URLs
     title: str | None = Field(default=None, description="Paper title")
     authors: list[str] = Field(default_factory=list, description="List of author names")
     author_organizations: list[str] = Field(
@@ -157,9 +160,8 @@ class OutputSectionHeader(BaseModel):
     but structurally papers and headers are siblings in a flat list.
     """
 
-    name: str = Field(description="Section header name")
+    section_name: str = Field(description="Section header name")
     header_level: int = Field(description="Markdown header level (typically 3, 4 or more)")
-    description: str | None = Field(default=None, description="Optional text block describing the section")
     original_md: str = Field(description="Original markdown text as read from source")
 
 
@@ -191,21 +193,6 @@ class AgendaAttributes(BaseModel):
         default=None, description="Critiques as markdown text (links, descriptions, etc.)"
     )
     funded_by: str | None = Field(default=None, description="Funding sources")
-    funding_in_2025: str | None = Field(default=None, description="Funding information for 2025")
-
-    # Organization-specific attributes
-    organization_structure: str | None = Field(
-        default=None, description="Organization structure (e.g., 'public benefit corp', 'for-profit')"
-    )
-    teams: str | None = Field(
-        default=None, description="Teams/divisions description in markdown"
-    )
-    public_alignment_agenda: str | None = Field(
-        default=None, description="Public alignment agenda and/or public plan in markdown"
-    )
-    framework: str | None = Field(
-        default=None, description="Framework link/description in markdown"
-    )
 
     # Outputs - flat list of papers and section headers (preserving order)
     outputs: list[Paper | OutputSectionHeader] = Field(

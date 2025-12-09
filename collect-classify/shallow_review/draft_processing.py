@@ -91,10 +91,10 @@ def extract_agenda_attributes(
     # Call LLM
     try:
         response = completion(
-            model="claude-haiku-4-5",
+            model="claude-sonnet-4-5",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=8000,  # Increased for full DocumentItem output
-            temperature=0.0,
+            reasoning_effort="medium",
         )
     except Exception as e:
         logger.error(f"LLM call failed for {item.id}: {e}")
@@ -189,9 +189,12 @@ def extract_agenda_attributes(
     attrs = returned_item.agenda_attributes
     
     # Validate see_also IDs exist in agenda_list
+    # Note: Items that don't start with "a:" or "sec:" are markdown links and are valid
     valid_agenda_ids = {a["id"] for a in agenda_list}
     if attrs.see_also:
-        invalid_see_also = set(attrs.see_also) - valid_agenda_ids
+        # Filter to only check items that look like IDs (start with a: or sec:)
+        id_refs = [ref for ref in attrs.see_also if ref.startswith(("a:", "sec:"))]
+        invalid_see_also = set(id_refs) - valid_agenda_ids
         if invalid_see_also:
             logger.warning(
                 f"Invalid see_also IDs for {item.id}: {invalid_see_also}. "
@@ -202,8 +205,11 @@ def extract_agenda_attributes(
             )
 
     # Validate orthodox_problems IDs
+    # Note: Items starting with "other:" are allowed as catch-all for non-matching problems
     if attrs.orthodox_problems:
-        invalid_problems = [p for p in attrs.orthodox_problems if p not in orthodox_problems]
+        # Filter out "other:" entries before validation
+        id_problems = [p for p in attrs.orthodox_problems if not p.startswith("other:")]
+        invalid_problems = [p for p in id_problems if p not in orthodox_problems]
         if invalid_problems:
             logger.warning(
                 f"Invalid orthodox_problem IDs for {item.id}: {invalid_problems}"
