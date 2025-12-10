@@ -1012,7 +1012,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 **Orthodox problems:** Goals misgeneralize out of distribution, value is fragile and hard to specify.
 **Target case:** Average case.
 **Broad approach:** Behavioral
-**Key people:** Philipp Alexander Kreer, Wilson Wu, Jin Hwa Lee, Matthew Smith, Abhilasha Ravichander, Andrew Wang, Jiacheng Liu, Jiaqi Ma, Junwei Deng, Yijun Pan.
+**Some names:** Philipp Alexander Kreer, Wilson Wu, Jin Hwa Lee, Matthew Smith, Abhilasha Ravichander, Andrew Wang, Jiacheng Liu, Jiaqi Ma, Junwei Deng, Yijun Pan.
 **Estimated FTEs:** 30-60.
 **Funded by:** Various academic groups
 
@@ -1159,7 +1159,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 **Who edits (internal): Stephen ** ✅
 **One-sentence summary:** Discover connections deep learning AI systems have with human brains and human learning processes. Develop an ‘alignment moonshot’ based on a coherent theory of learning which applies to both humans and AI systems.
 **Theory of change:** Humans learn trust, honesty, self-maintenance, and corrigibility; if we understand how they do maybe we can get future AI systems to learn them.
-**See also:** active learning, ACS
+**See also:** active learning, ACS research
 **Orthodox problems:** Goals misgeneralize out of distribution.
 **Target case:** pessimistic
 **Broad approach:** cognitive
@@ -1584,7 +1584,6 @@ Develop a principled scientific understanding that will help us reliably underst
 * [**Getting aligned on representational alignment**](https://arxiv.org/abs/2310.13018)
 * [**Platonic representation hypothesis**](https://phillipi.github.io/prh/)
 * [**Rosas**](https://www.youtube.com/watch?v=Nr9eMobqUOo&t=3s)
-* [**Natural Latents: Latent Variables Stable Across Ontologies**](https://arxiv.org/abs/2509.03780)
 * [**Factored space models: Towards causality between levels of abstraction**](https://arxiv.org/abs/2412.02579)
 * [**A single principle related to many Alignment subproblems?**](https://lesswrong.com/posts/h89L5FMAkEBNsZ3xM/a-single-principle-related-to-many-alignment-subproblems-2)
 

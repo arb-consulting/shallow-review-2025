@@ -583,7 +583,7 @@ def parse(
     # ========================================================================
     # Step 2: Extract metadata with LLM (parallelized)
     # ========================================================================
-    console.print(f"[cyan]Step 2: Extracting metadata with Claude Haiku ({workers} workers)...[/cyan]")
+    console.print(f"[cyan]Step 2: Extracting metadata with LLM ({workers} workers)...[/cyan]")
 
     # Track which agendas were LLM-processed
     llm_processed_agenda_ids: set[str] = set()
@@ -879,7 +879,7 @@ def format(
 def _sort_papers_by_relevancy(doc: ProcessedDocument, verbose: bool = False) -> int:
     """Sort papers in each agenda's outputs by shallow_review_inclusion score (descending).
     
-    Papers without a score in the database are sorted to the end.
+    Papers without a score in the database are sorted first (before ranked papers).
     If OutputSectionHeaders are present, papers are sorted within each section.
     
     Args:
@@ -961,9 +961,9 @@ def _sort_papers_by_relevancy(doc: ProcessedDocument, verbose: bool = False) -> 
             if header:
                 new_outputs.append(header)
             
-            # Sort papers by score (descending), missing scores go to end
+            # Sort papers by score (descending), missing scores go to start
             papers_with_scores = [
-                (url_to_score.get(p.link_url, -1.0) if p.link_url else -1.0, p)
+                (url_to_score.get(p.link_url, float('inf')) if p.link_url else float('inf'), p)
                 for p in papers
             ]
             papers_with_scores.sort(key=lambda x: x[0], reverse=True)
@@ -988,7 +988,7 @@ def generate_doc(
         None, "--output", "-o", help="Output file path (default: <input>-doc.md)"
     ),
     template_file: str | None = typer.Option(
-        None, "--template", "-t", help="Path to Jinja2 template (default: templates/document.md.jinja)"
+        None, "--template", "-t", help="Path to Jinja2 template (default: templates/document-lists.md.jinja)"
     ),
     format: str = typer.Option(
         "md", "--format", "-f", help="Output format: md or html (not yet implemented)"
@@ -1013,7 +1013,7 @@ def generate_doc(
     
     # Determine template path
     if template_file is None:
-        template_path = Path(__file__).parent / "templates" / "document.md.jinja"
+        template_path = Path(__file__).parent / "templates" / "document-lists.md.jinja"
     else:
         template_path = Path(template_file)
     

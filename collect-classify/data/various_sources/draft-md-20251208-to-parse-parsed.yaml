@@ -8736,9 +8736,7 @@ items:
       kind: paper_published
     other_attributes: {}
   parsing_issues:
-  - Field label 'Key people:' used instead of standard 'Some names:' - mapped to some_names
-  - Broad approach field says 'Behavioral' instead of 'Behaviorist science' - mapped
-    to behaviorist_science
+  - Broad approach field says 'Behavioral' - mapped to 'behaviorist_science'
 - id: a:interp_other
   name: Other interpretability
   header_level: 3
@@ -10003,7 +10001,7 @@ items:
       if we understand how they do maybe we can get future AI systems to learn them.
     see_also:
     - active learning
-    - ACS
+    - ACS research
     orthodox_problems:
     - goals_misgeneralize
     target_case_id: pessimistic_case
@@ -10102,9 +10100,7 @@ items:
       venue: Google Docs
       kind: error_detected
     other_attributes: {}
-  parsing_issues:
-  - See also references 'active learning' and 'ACS' do not match any known agenda
-    IDs - kept as plain text
+  parsing_issues: []
 - id: sec:safety_by_construction
   name: Safety by construction
   header_level: 1
@@ -12152,18 +12148,6 @@ items:
       published_year: 2025
       venue: HAAISS 2025
       kind: error_detected
-    - link_url: https://arxiv.org/abs/2509.03780
-      link_text: 'Natural Latents: Latent Variables Stable Across Ontologies'
-      original_md: '* [**Natural Latents: Latent Variables Stable Across Ontologies**](https://arxiv.org/abs/2509.03780)'
-      title: 'Natural Latents: Latent Variables Stable Across Ontologies'
-      authors:
-      - John Wentworth
-      - David Lorell
-      author_organizations: []
-      date: '2025-09-04'
-      published_year: 2025
-      venue: arXiv
-      kind: paper_preprint
     - link_url: https://arxiv.org/abs/2412.02579
       link_text: 'Factored space models: Towards causality between levels of abstraction'
       original_md: '* [**Factored space models: Towards causality between levels of
@@ -12194,8 +12178,8 @@ items:
       kind: lesswrong
     other_attributes: {}
   parsing_issues:
-  - 'Duplicate output: ''Natural Latents: Latent Variables Stable Across Ontologies''
-    appears twice in the outputs list'
+  - Broad approach field says 'cognitive' - mapped to 'cognitivist_science' (cognitivist
+    science)
 - id: a:learning_theoretic_agenda
   name: The Learning-Theoretic Agenda
   header_level: 2
