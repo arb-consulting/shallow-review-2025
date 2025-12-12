@@ -1,0 +1,54 @@
+.modal-body {
+  padding: 2rem;
+  overflow-y: auto;
+  
+  .content-section {
+    margin-bottom: 0.5rem; 
+    
+    .attribute-block {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.6;
+    }
+
+    .icon-col {
+        flex-shrink: 0;
+        color: var(--text-secondary);
+        width: 1.2em; /* Fixed width to align text blocks */
+        text-align: center;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        margin-top: 0.1em; /* Slight adjustment for baseline */
+    }
+
+    .content-col {
+        flex: 1;
+    }
+
+    .meta-label {
+        font-style: italic; 
+        color: var(--text-secondary);
+        margin-right: 0.5rem;
+    }
+
+    .meta-value {
+        /* Default text style */
+    }
+    
+    ul.paper-list {
+        list-style-type: none;
+        padding-left: 0; /* No extra padding needed since it's already indented by content-col */
+        margin: 0;
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    .paper-authors {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+  }
+}

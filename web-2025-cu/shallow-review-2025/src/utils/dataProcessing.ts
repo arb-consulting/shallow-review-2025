@@ -1,6 +1,8 @@
 import type { DocumentItem, ProcessedDocument } from '../types';
 import sourceData from '../data/source.json';
 
+export type WeightMode = 'uniform' | 'fte' | 'papers';
+
 export interface ChartNode {
   name: string;
   value: number;
@@ -79,7 +81,20 @@ function shortenName(name: string): string {
   return name;
 }
 
-export function buildChartHierarchy(): ChartNode[] {
+function parseFTE(fteStr: string | null | undefined): number {
+  if (!fteStr) return 5; // Default to 5 if unspecified
+  const matches = fteStr.match(/\d+/g);
+  if (!matches) return 5;
+  
+  const nums = matches.map(Number);
+  if (nums.length === 0) return 5;
+  if (nums.length === 1) return nums[0];
+  // Average if range
+  const sum = nums.reduce((a, b) => a + b, 0);
+  return sum / nums.length;
+}
+
+export function buildChartHierarchy(mode: WeightMode = 'uniform'): ChartNode[] {
   const data = getProcessedData();
   const items = data.items;
   
@@ -88,9 +103,17 @@ export function buildChartHierarchy(): ChartNode[] {
 
   // First pass: create all nodes
   items.forEach(item => {
+    let value = 1;
+    if (mode === 'fte') {
+      value = parseFTE(item.agenda_attributes?.estimated_ftes);
+    } else if (mode === 'papers') {
+      const count = item.agenda_attributes?.outputs?.length || 0;
+      value = Math.max(0.5, count); // Ensure at least small visibility
+    }
+
     itemMap.set(item.id, {
       name: shortenName(item.name),
-      value: 1,
+      value: value,
       id: item.id,
       item: item,
       children: []
@@ -113,8 +136,8 @@ export function buildChartHierarchy(): ChartNode[] {
   // Calculate values
   function calculateValues(node: ChartNode): number {
     if (!node.children || node.children.length === 0) {
-      node.value = 1;
-      return 1;
+      // Leaf node value is already set
+      return node.value;
     }
     let sum = 0;
     node.children.forEach(child => {

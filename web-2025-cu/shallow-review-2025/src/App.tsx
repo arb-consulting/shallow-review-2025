@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { SunburstChart } from './components/SunburstChart';
 import { AgendaModal } from './components/AgendaModal';
 import { useTheme } from './contexts/ThemeContext';
-import { getItemById, type ChartNode } from './utils/dataProcessing';
+import { getItemById, type ChartNode, type WeightMode } from './utils/dataProcessing';
 import type { DocumentItem } from './types';
 import { Moon, Sun } from 'lucide-react';
 
@@ -10,6 +10,7 @@ function App() {
   const { theme, toggleTheme } = useTheme();
   const [selectedItem, setSelectedItem] = useState<DocumentItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [weightMode, setWeightMode] = useState<WeightMode>('uniform');
 
   // Sync state with URL hash on load and hashchange
   useEffect(() => {
@@ -47,7 +48,35 @@ function App() {
   return (
     <div className="app-container">
       <header className="header">
-        <h1>Shallow Review 2025</h1>
+        <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
+           <h1>Shallow Review 2025</h1>
+           <div className="weight-controls" style={{display: 'flex', gap: '0.5rem', marginLeft: '1rem', fontSize: '0.9rem', background: 'rgba(128,128,128,0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px'}}>
+              <label>
+                <input 
+                  type="radio" 
+                  name="weight" 
+                  checked={weightMode === 'uniform'} 
+                  onChange={() => setWeightMode('uniform')}
+                /> Uniform
+              </label>
+              <label>
+                <input 
+                  type="radio" 
+                  name="weight" 
+                  checked={weightMode === 'fte'} 
+                  onChange={() => setWeightMode('fte')}
+                /> FTEs
+              </label>
+              <label>
+                <input 
+                  type="radio" 
+                  name="weight" 
+                  checked={weightMode === 'papers'} 
+                  onChange={() => setWeightMode('papers')}
+                /> Papers
+              </label>
+           </div>
+        </div>
         <div className="controls">
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
@@ -56,7 +85,7 @@ function App() {
       </header>
 
       <main style={{ flex: 1, position: 'relative' }}>
-        <SunburstChart onNodeClick={handleNodeClick} />
+        <SunburstChart onNodeClick={handleNodeClick} weightMode={weightMode} />
       </main>
 
       <AgendaModal 

@@ -92,6 +92,10 @@ a {
   }
 }
 
+.weight-controls {
+  pointer-events: auto; /* Ensure clickable */
+}
+
 .theme-toggle {
   background: none;
   border: 1px solid var(--border-color);
@@ -175,62 +179,9 @@ a {
   }
 }
 
-.modal-body {
-  padding: 2rem;
-  overflow-y: auto;
-  
-  .content-section {
-    margin-bottom: 1.5rem;
-    
-    h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .symbol {
-      color: var(--text-secondary);
-      font-family: var(--font-sans);
-    }
-    
-    ul {
-      list-style-type: none;
-      padding-left: 1.2rem;
-      
-      li {
-        margin-bottom: 0.5rem;
-        position: relative;
-        
-        &:before {
-          content: "•";
-          position: absolute;
-          left: -1rem;
-          color: var(--text-secondary);
-        }
-      }
-    }
-  }
-  
-  .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1rem;
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-      
-      .meta-item {
-          display: flex;
-          align-items: center;
-          gap: 0.3rem;
-      }
-  }
-}
+@import 'modal';
 
 /* Tooltip styling for ECharts */
 .echarts-tooltip {
     font-family: var(--font-sans) !important;
 }
-

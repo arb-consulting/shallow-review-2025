@@ -1,14 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 import { useTheme } from '../contexts/ThemeContext';
-import { buildChartHierarchy, type ChartNode } from '../utils/dataProcessing';
+import { buildChartHierarchy, type ChartNode, type WeightMode } from '../utils/dataProcessing';
 import { applyPaletteToData } from '../utils/colorUtils';
 
 interface SunburstChartProps {
   onNodeClick: (node: ChartNode) => void;
+  weightMode: WeightMode;
 }
 
-export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => {
+export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick, weightMode }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const chartInstance = useRef<echarts.EChartsType | null>(null);
   const { theme } = useTheme();
@@ -35,7 +36,7 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
     }
 
     // Prepare data
-    const rawData = buildChartHierarchy();
+    const rawData = buildChartHierarchy(weightMode);
     const data = applyPaletteToData(rawData);
 
     // Chart Options
@@ -46,8 +47,15 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
         formatter: (params: any) => {
           const data = params.data as ChartNode;
           if (data.isExtension) return ''; // Hide tooltip for extension nodes
-          // Show tooltip for all nodes to ensure full names are visible if truncated
-          return `<div class="echarts-tooltip"><strong>${data.name}</strong></div>`;
+          
+          let valLabel = '';
+          if (weightMode === 'fte' && data.item?.agenda_attributes?.estimated_ftes) {
+             valLabel = `<br/>FTEs: ${data.item.agenda_attributes.estimated_ftes}`;
+          } else if (weightMode === 'papers' && data.item?.agenda_attributes?.outputs) {
+             valLabel = `<br/>Papers: ${data.item.agenda_attributes.outputs.length}`;
+          }
+
+          return `<div class="echarts-tooltip"><strong>${data.name}</strong>${valLabel}</div>`;
         },
         backgroundColor: theme === 'dark' ? 'rgba(50,50,50,0.9)' : 'rgba(255,255,255,0.9)',
         borderColor: theme === 'dark' ? '#555' : '#ccc',
@@ -75,7 +83,8 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
             borderColor: theme === 'dark' ? '#121212' : '#FDFDFD'
           },
           emphasis: {
-            focus: 'ancestor'
+            // 'none' prevents fading others, but we want highlighting.
+            focus: 'none'
           },
           levels: [
             // Level -1: Dummy
@@ -93,8 +102,9 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
             {
                 radius: ['0%', '10%'],
                 itemStyle: { borderWidth: 2 },
+                silent: true,
                 label: { 
-                  // rotate: 0, 
+                  rotate: 0, 
                   fontWeight: 'bold', 
                   fontSize: 14,
                   minAngle: 10
@@ -132,13 +142,12 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
               label: { 
                 rotate: 'radial',
                 padding: 5, 
-                // color: '#fff', 
-                textBorderWidth: 2,
+                color: theme === 'light' ? '#000' : '#fff', // Black in light mode
+                textBorderWidth: 0,
                 minAngle: 2,
                 fontSize: 15,
                 // align: 'center',
                 position: 'outside',
-                silent: false,
               }
             }
           ]
@@ -148,7 +157,7 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
 
     chartInstance.current.setOption(option);
 
-  }, [theme, onNodeClick]);
+  }, [theme, onNodeClick, weightMode]);
 
   return <div ref={chartRef} style={{ width: '100%', height: '100%' }} />;
 };
