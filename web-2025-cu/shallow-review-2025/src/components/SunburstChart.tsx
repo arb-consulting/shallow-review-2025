@@ -78,6 +78,17 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
             focus: 'ancestor'
           },
           levels: [
+            // Level -1: Dummy
+            {
+                radius: ['0%', '0%'],
+                itemStyle: { borderWidth: 2 },
+                label: { 
+                  // rotate: 0, 
+                  fontWeight: 'bold', 
+                  fontSize: 14,
+                  minAngle: 10
+                }
+            },
             // Level -1: Center
             {
                 radius: ['0%', '10%'],
@@ -91,38 +102,43 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
             },
             // Level 0: Roots
             {
-              radius: ['10%', '30%'],
+              radius: ['10%', '70%'],
               itemStyle: { borderWidth: 2 },
               label: { 
                 // rotate: 0, 
                 fontWeight: 'bold', 
-                fontSize: 14,
-                minAngle: 10
+                fontSize: 15,
+                minAngle: 10,
+                align: 'left',
+                padding: 15,
               }
             },
             // Level 1: Middle Ring (Sections/Extensions)
             {
-              radius: ['30%', '45%'],
+              radius: ['45%', '70%'],
               itemStyle: { borderWidth: 1 },
               label: { 
                 // rotate: 'radial', 
+                align: 'left',
                 minAngle: 5,
-                fontSize: 11
+                fontSize: 13,
+                padding: 10,
               }
             },
             // Level 2: Outer Ring (Agendas)
             {
-              radius: ['45%', '95%'],
+              radius: ['70%', '73%'],
               itemStyle: { borderWidth: 1 },
               label: { 
-                // rotate: 'tangential',
-                padding: 3, 
-                color: '#fff', 
+                rotate: 'radial',
+                padding: 5, 
+                // color: '#fff', 
                 textBorderWidth: 2,
                 minAngle: 2,
-                fontSize: 11,
-                align: 'center',
-                position: 'inside' 
+                fontSize: 15,
+                // align: 'center',
+                position: 'outside',
+                silent: false,
               }
             }
           ]
