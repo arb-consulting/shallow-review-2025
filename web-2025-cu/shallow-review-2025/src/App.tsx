@@ -79,47 +79,54 @@ function App() {
 
   return (
     <div className="app-container">
-      <header className="header">
-        <div className="header-left">
+      <aside className="sidebar">
+        <header className="sidebar-header">
            <h1>Shallow Review of Technical AI Safety 2025</h1>
-           <div className="weight-controls">
-              <button 
-                className={weightMode === 'uniform' ? 'active' : ''} 
-                onClick={() => setWeightMode('uniform')}
-              >Uniform</button>
-              <button 
-                className={weightMode === 'fte' ? 'active' : ''} 
-                onClick={() => setWeightMode('fte')}
-              >FTEs</button>
-              <button 
-                className={weightMode === 'papers' ? 'active' : ''} 
-                onClick={() => setWeightMode('papers')}
-              >Papers</button>
+           
+           <div className="sidebar-controls">
+               <div className="weight-controls">
+                  <button 
+                    className={weightMode === 'uniform' ? 'active' : ''} 
+                    onClick={() => setWeightMode('uniform')}
+                  >Uniform</button>
+                  <button 
+                    className={weightMode === 'fte' ? 'active' : ''} 
+                    onClick={() => setWeightMode('fte')}
+                  >FTEs</button>
+                  <button 
+                    className={weightMode === 'papers' ? 'active' : ''} 
+                    onClick={() => setWeightMode('papers')}
+                  >Papers</button>
+               </div>
+               
+               <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
+                 {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+               </button>
            </div>
-        </div>
-        <div className="controls">
-          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
-             {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-          </button>
-        </div>
-      </header>
+        </header>
 
-      <main style={{ flex: 1, position: 'relative' }}>
+        <div className="intro-text">
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+           <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </aside>
+
+      <main className="chart-area">
         <SunburstChart onNodeClick={handleNodeClick} weightMode={weightMode} />
+        
+        <AgendaModal 
+          isOpen={isModalOpen} 
+          onClose={handleCloseModal} 
+          item={selectedItem} 
+        />
+
+        <DefinitionsModal
+          isOpen={isDefModalOpen}
+          onClose={handleCloseDefModal}
+          initialScrollToId={defScrollToId}
+          activeType={activeDefType}
+        />
       </main>
-
-      <AgendaModal 
-        isOpen={isModalOpen} 
-        onClose={handleCloseModal} 
-        item={selectedItem} 
-      />
-
-      <DefinitionsModal
-        isOpen={isDefModalOpen}
-        onClose={handleCloseDefModal}
-        initialScrollToId={defScrollToId}
-        activeType={activeDefType}
-      />
     </div>
   );
 }

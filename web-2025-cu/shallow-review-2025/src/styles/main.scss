@@ -65,44 +65,63 @@ a {
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Side by side layout */
   overflow: hidden;
   position: relative;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    overflow-y: auto;
+  }
 }
 
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem;
+.sidebar {
+  width: 35%; /* Approx 1/3 */
+  min-width: 320px;
+  max-width: 500px;
+  padding: 2.5rem 2rem;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+  background-color: var(--bg-color);
+  border-right: 1px solid var(--border-color);
   z-index: 10;
-  pointer-events: none; /* Allow clicking through to chart */
+  box-shadow: 2px 0 10px rgba(0,0,0,0.02); /* Subtle shadow for depth */
   
-  .header-left {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    pointer-events: auto;
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem;
   }
+}
 
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  
   h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 0;
     line-height: 1.1;
     color: var(--text-color);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     font-family: var(--font-serif);
-    text-shadow: 0 0 1px var(--bg-color); /* Subtle readability against chart */
   }
-  
-  .controls {
-    pointer-events: auto;
-  }
+}
+
+.sidebar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
 }
 
 .weight-controls {
@@ -143,22 +162,48 @@ a {
   background: none;
   border: 1px solid var(--border-color);
   color: var(--text-color);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   cursor: pointer;
   border-radius: 4px;
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  background: rgba(var(--bg-color), 0.5); /* Semi-transparent background */
-  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
     background-color: rgba(128, 128, 128, 0.1);
   }
 }
 
+.intro-text {
+  font-size: 1.15rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  font-family: var(--font-serif);
+  
+  p {
+    margin-bottom: 1.2rem;
+  }
+}
+
+.chart-area {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--chart-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @media (max-width: 768px) {
+    height: 60vh; /* Give space on mobile */
+    min-height: 400px;
+  }
+}
+
 /* Modal Styles */
 .modal-overlay {
-  position: fixed;
+  position: absolute; /* Desktop: inside chart area */
   top: 0;
   left: 0;
   right: 0;
@@ -173,6 +218,11 @@ a {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s, visibility 0.2s;
+  
+  @media (max-width: 768px) {
+    position: fixed; /* Mobile: full screen */
+    z-index: 2000;
+  }
   
   &.open {
     opacity: 1;
