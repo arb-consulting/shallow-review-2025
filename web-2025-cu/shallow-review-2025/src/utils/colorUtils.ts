@@ -1,13 +1,18 @@
 
 export const MAIN_PALETTE = [
   '#03045E', // Deep Blue
-  '#2C5A5B', // Teal
-  '#E8B243', // Gold
-  '#BE6823', // Orange
-  '#5F8366', // Green
-  '#7E885E', // Sage
-  '#8D6E63', // Brown
-  '#546E7A', // Blue Grey
+  '#D84315', // Deep Orange
+  '#2E7D32', // Green
+  '#F9A825', // Yellow
+  '#6A1B9A', // Purple
+  '#00838F', // Cyan
+  '#AD1457', // Pink
+  '#283593', // Indigo
+  '#4E342E', // Brown
+  '#455A64', // Blue Grey
+  '#C62828', // Red
+  '#0277BD', // Light Blue
+  '#9E9D24', // Lime
 ];
 
 export const colorUtils = {
@@ -45,21 +50,37 @@ export const applyPaletteToData = (data: any[]) => {
       let color: string
       
       if (level === 0) {
+        // Root node (Level 0) - "AI Safety"
+        color = '#ffffff'; 
+      } else if (level === 1) {
+        // Main Sections (Level 1) - Assign from Palette
         color = MAIN_PALETTE[mainColorIndex % MAIN_PALETTE.length]
         mainColorIndex++
-      } else if (level === 1 && parentColor) {
-        const lightenAmount = 15 + (index * 3) % 15
-        color = colorUtils.lighten(parentColor, lightenAmount)
       } else if (level >= 2 && parentColor) {
-        const desatAmount = 10 + (index * 2) % 20
-        color = colorUtils.desaturate(parentColor, desatAmount)
+        // Agendas (Level 2+) - Derive from Parent
+        if (item.isExtension) {
+          // If it's an extension node, make it invisible (opacity 0)
+          // We keep the color logic just in case, but it won't be seen
+          color = parentColor;
+        } else {
+          // Otherwise vary lightness slightly to distinguish adjacent sectors
+          const lightenAmount = 5 + (index % 3) * 5
+          color = colorUtils.lighten(parentColor, lightenAmount)
+        }
       } else {
         color = '#666666'
       }
 
       const newItem = {
         ...item,
-        itemStyle: { color },
+        itemStyle: { 
+          // Merge existing style if any (e.g. from dataProcessing)
+          ...item.itemStyle,
+          // Enforce our calculated opacity/color
+          ...(item.isExtension ? { color, opacity: 0 } : { color, opacity: 1 }),
+          // For the center node, ensure opacity 1
+          ...(level === 0 ? { opacity: 1 } : {})
+        },
       }
       
       if (item.children) {
@@ -72,4 +93,3 @@ export const applyPaletteToData = (data: any[]) => {
   
   return applyColors(data)
 }
-

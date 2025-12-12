@@ -27,7 +27,8 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
 
       // Handle click
       chartInstance.current.on('click', (params: any) => {
-        if (params.data && params.data.item) {
+        // Don't trigger for extension nodes (which should be invisible anyway)
+        if (params.data && params.data.item && !params.data.isExtension) {
           onNodeClick(params.data as ChartNode);
         }
       });
@@ -44,6 +45,8 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
         show: true,
         formatter: (params: any) => {
           const data = params.data as ChartNode;
+          if (data.isExtension) return ''; // Hide tooltip for extension nodes
+          // Show tooltip for all nodes to ensure full names are visible if truncated
           return `<div class="echarts-tooltip"><strong>${data.name}</strong></div>`;
         },
         backgroundColor: theme === 'dark' ? 'rgba(50,50,50,0.9)' : 'rgba(255,255,255,0.9)',
@@ -56,18 +59,15 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
         {
           type: 'sunburst',
           data: data,
-          radius: [0, '90%'],
+          radius: [0, '95%'],
+          sort: undefined,
           label: {
-            rotate: 'radial',
+            // Default label config
             show: true,
-            fontSize: 12,
-            color: '#fff', // Always white on colored segments? Or adapt?
+            color: '#fff',
             textBorderColor: 'rgba(0,0,0,0.5)',
             textBorderWidth: 2,
-            formatter: (params: any) => {
-              // Hide label if arc is too small?
-              return params.name;
-            }
+            formatter: (params: any) => params.name
           },
           itemStyle: {
             borderRadius: 2,
@@ -78,27 +78,52 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
             focus: 'ancestor'
           },
           levels: [
+            // Level -1: Center
             {
-              r0: '0%',
-              r: '15%',
+                radius: ['0%', '10%'],
+                itemStyle: { borderWidth: 2 },
+                label: { 
+                  // rotate: 0, 
+                  fontWeight: 'bold', 
+                  fontSize: 14,
+                  minAngle: 10
+                }
+            },
+            // Level 0: Roots
+            {
+              radius: ['10%', '30%'],
               itemStyle: { borderWidth: 2 },
-              label: { rotate: 'radial', fontWeight: 'bold', fontSize: 12 }
+              label: { 
+                // rotate: 0, 
+                fontWeight: 'bold', 
+                fontSize: 14,
+                minAngle: 10
+              }
             },
+            // Level 1: Middle Ring (Sections/Extensions)
             {
-              r0: '15%',
-              r: '45%',
-              itemStyle: { borderWidth: 1 }
-            },
-            {
-              r0: '45%',
-              r: '72%',
-              itemStyle: { borderWidth: 1 }
-            },
-            {
-              r0: '72%',
-              r: '95%',
+              radius: ['30%', '45%'],
               itemStyle: { borderWidth: 1 },
-              label: { position: 'outside', padding: 3, color: theme === 'dark' ? '#eee' : '#333', textBorderWidth: 0 }
+              label: { 
+                // rotate: 'radial', 
+                minAngle: 5,
+                fontSize: 11
+              }
+            },
+            // Level 2: Outer Ring (Agendas)
+            {
+              radius: ['45%', '95%'],
+              itemStyle: { borderWidth: 1 },
+              label: { 
+                // rotate: 'tangential',
+                padding: 3, 
+                color: '#fff', 
+                textBorderWidth: 2,
+                minAngle: 2,
+                fontSize: 11,
+                align: 'center',
+                position: 'inside' 
+              }
             }
           ]
         }
@@ -111,4 +136,3 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick }) => 
 
   return <div ref={chartRef} style={{ width: '100%', height: '100%' }} />;
 };
-
