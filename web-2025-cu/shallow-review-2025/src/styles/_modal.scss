@@ -1,54 +1,175 @@
+/* Agenda Modal Content Styles */
 .modal-body {
   padding: 2rem;
   overflow-y: auto;
-  
-  .content-section {
-    margin-bottom: 0.5rem; 
+  font-family: var(--font-serif);
+}
+
+.content-renderer {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.content-section {
+  margin-bottom: 0.8rem;
+
+  &.summary {
+    font-size: 1.1em;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  &.outputs {
+    margin-top: 1.5rem;
+  }
+}
+
+.attribute-block {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+
+  .icon-col {
+    flex: 0 0 1.5rem;
+    font-family: monospace;
+    color: var(--text-color);
+    user-select: none;
+    font-size: 1rem;
+  }
+
+  .content-col {
+    flex: 1;
+    display: block;
     
-    .attribute-block {
-        display: flex;
-        gap: 0.5rem;
-        margin-bottom: 0.8rem;
-        line-height: 1.6;
-    }
-
-    .icon-col {
-        flex-shrink: 0;
-        color: var(--text-secondary);
-        width: 1.2em; /* Fixed width to align text blocks */
-        text-align: center;
-        font-family: var(--font-sans);
-        font-size: 0.9rem;
-        margin-top: 0.1em; /* Slight adjustment for baseline */
-    }
-
-    .content-col {
-        flex: 1;
-    }
-
     .meta-label {
-        font-style: italic; 
+        font-style: italic;
         color: var(--text-secondary);
-        margin-right: 0.5rem;
+        font-size: 1rem;
+        font-weight: normal;
+        margin-right: 0.4rem;
     }
 
     .meta-value {
-        /* Default text style */
-    }
-    
-    ul.paper-list {
-        list-style-type: none;
-        padding-left: 0; /* No extra padding needed since it's already indented by content-col */
-        margin: 0;
+        color: var(--text-color);
         
-        li {
-            margin-bottom: 0.5rem;
+        a {
+            color: var(--text-color);
+            text-decoration: underline;
+            text-decoration-color: var(--text-secondary);
+            
+            &:hover {
+                color: var(--link-color);
+            }
         }
     }
+}
+}
 
-    .paper-authors {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
+.paper-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    
+    li {
+        margin-bottom: 0.5rem;
+        
+        a {
+             font-weight: 500;
+             color: var(--text-color);
+        }
+        
+        .paper-authors {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-left: 0.3rem;
+        }
     }
-  }
+    
+    h4 {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+}
+
+
+/* Definitions Modal Styles */
+.def-section {
+    margin-bottom: 2rem;
+    
+    .def-section-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0.5rem;
+    }
+
+    .def-item {
+        margin-bottom: 1.5rem;
+        
+        .def-name {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            
+            a {
+                font-weight: bold;
+                color: var(--text-color);
+                text-decoration: none;
+                border-bottom: 1px dotted var(--text-secondary);
+                
+                &:hover {
+                    border-bottom-style: solid;
+                }
+            }
+        }
+
+        .def-description {
+            margin-bottom: 0.8rem;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        .def-agendas {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            
+            strong {
+                color: var(--text-color);
+                margin-right: 0.5rem;
+            }
+
+            ul {
+                list-style-type: none;
+                padding-left: 0;
+                display: inline; /* Display inline list */
+                
+                li {
+                    display: inline;
+                    
+                    &:after {
+                        content: ", ";
+                    }
+                    
+                    &:last-child:after {
+                        content: "";
+                    }
+                    
+                    a {
+                        color: var(--text-secondary);
+                        border-bottom: 1px dotted var(--text-secondary);
+                        &:hover {
+                            color: var(--link-color);
+                            border-bottom-style: solid;
+                        }
+                    }
+                }
+            }
+            
+            .no-agendas {
+                font-style: italic;
+            }
+        }
+    }
 }

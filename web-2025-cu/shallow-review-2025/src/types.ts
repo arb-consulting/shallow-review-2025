@@ -1,16 +1,19 @@
 export interface OrthodoxProblem {
   name: string;
   url: string;
+  description?: string;
 }
 
 export interface TargetCase {
   name: string;
   url: string;
+  description?: string;
 }
 
 export interface BroadApproach {
   name: string;
   url: string;
+  description?: string;
 }
 
 export type ItemType = 'section' | 'agenda';

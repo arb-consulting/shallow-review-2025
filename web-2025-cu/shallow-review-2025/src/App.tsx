@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { SunburstChart } from './components/SunburstChart';
 import { AgendaModal } from './components/AgendaModal';
+import { DefinitionsModal, type DefinitionType } from './components/DefinitionsModal';
 import { useTheme } from './contexts/ThemeContext';
 import { getItemById, type ChartNode, type WeightMode } from './utils/dataProcessing';
 import type { DocumentItem } from './types';
@@ -10,20 +11,45 @@ function App() {
   const { theme, toggleTheme } = useTheme();
   const [selectedItem, setSelectedItem] = useState<DocumentItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDefModalOpen, setIsDefModalOpen] = useState(false);
+  const [defScrollToId, setDefScrollToId] = useState<string | undefined>(undefined);
+  const [activeDefType, setActiveDefType] = useState<DefinitionType>('all');
   const [weightMode, setWeightMode] = useState<WeightMode>('uniform');
 
   // Sync state with URL hash on load and hashchange
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1); // remove #
-      if (hash) {
+      if (hash.startsWith('def:')) {
+        setDefScrollToId(hash);
+        
+        // Parse type from hash #def:TYPE:ID
+        const parts = hash.split(':');
+        if (parts.length >= 2) {
+             const type = parts[1];
+             if (['approach', 'case', 'problem'].includes(type)) {
+                 setActiveDefType(type as DefinitionType);
+             } else {
+                 setActiveDefType('all');
+             }
+        } else {
+             setActiveDefType('all');
+        }
+        
+        setIsDefModalOpen(true);
+        // Ensure agenda modal is closed
+        setIsModalOpen(false);
+      } else if (hash) {
         const item = getItemById(hash);
         if (item) {
           setSelectedItem(item);
           setIsModalOpen(true);
+          // Ensure def modal is closed
+          setIsDefModalOpen(false);
         }
       } else {
         setIsModalOpen(false);
+        setIsDefModalOpen(false);
       }
     };
 
@@ -44,6 +70,12 @@ function App() {
     history.pushState("", document.title, window.location.pathname + window.location.search);
     setIsModalOpen(false);
   };
+
+  const handleCloseDefModal = () => {
+    // Clear hash
+    history.pushState("", document.title, window.location.pathname + window.location.search);
+    setIsDefModalOpen(false);
+  }
 
   return (
     <div className="app-container">
@@ -92,6 +124,13 @@ function App() {
         isOpen={isModalOpen} 
         onClose={handleCloseModal} 
         item={selectedItem} 
+      />
+
+      <DefinitionsModal
+        isOpen={isDefModalOpen}
+        onClose={handleCloseDefModal}
+        initialScrollToId={defScrollToId}
+        activeType={activeDefType}
       />
     </div>
   );

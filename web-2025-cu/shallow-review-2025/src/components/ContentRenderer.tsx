@@ -56,13 +56,27 @@ export const ContentRenderer: React.FC<ContentRendererProps> = ({ attributes }) 
       )}
 
       <div className="content-section">
-        {attributes.broad_approach_text && (
+        {attributes.broad_approach_text && attributes.broad_approach_id && (
+          <Attribute label="General Approach:" icon={ICONS.broad_approach}>
+            <a href={`#def:approach:${attributes.broad_approach_id}`}>
+              <ReactMarkdown components={{ p: 'span' }}>{attributes.broad_approach_text}</ReactMarkdown>
+            </a>
+          </Attribute>
+        )}
+        {attributes.broad_approach_text && !attributes.broad_approach_id && (
           <Attribute label="General Approach:" icon={ICONS.broad_approach}>
             <ReactMarkdown components={{ p: 'span' }}>{attributes.broad_approach_text}</ReactMarkdown>
           </Attribute>
         )}
         
-        {attributes.target_case_text && (
+        {attributes.target_case_text && attributes.target_case_id && (
+          <Attribute label="Target Case:" icon={ICONS.target_case}>
+            <a href={`#def:case:${attributes.target_case_id}`}>
+              <ReactMarkdown components={{ p: 'span' }}>{attributes.target_case_text}</ReactMarkdown>
+            </a>
+          </Attribute>
+        )}
+        {attributes.target_case_text && !attributes.target_case_id && (
           <Attribute label="Target Case:" icon={ICONS.target_case}>
             <ReactMarkdown components={{ p: 'span' }}>{attributes.target_case_text}</ReactMarkdown>
           </Attribute>
@@ -77,7 +91,7 @@ export const ContentRenderer: React.FC<ContentRendererProps> = ({ attributes }) 
               return prob ? (
                  <span key={probId}>
                    {idx > 0 && ', '}
-                   <a href={prob.url} target="_blank" rel="noopener noreferrer">{prob.name}</a>
+                   <a href={`#def:problem:${probId}`}>{prob.name}</a>
                  </span>
               ) : null;
             })}

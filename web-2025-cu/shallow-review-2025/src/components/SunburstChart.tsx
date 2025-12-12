@@ -102,9 +102,8 @@ export const SunburstChart: React.FC<SunburstChartProps> = ({ onNodeClick, weigh
             {
                 radius: ['0%', '10%'],
                 itemStyle: { borderWidth: 2 },
-                silent: true,
                 label: { 
-                  rotate: 0, 
+                  // rotate: 0, 
                   fontWeight: 'bold', 
                   fontSize: 14,
                   minAngle: 10

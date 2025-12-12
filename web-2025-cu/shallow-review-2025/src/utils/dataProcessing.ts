@@ -226,3 +226,42 @@ export function getItemById(id: string): DocumentItem | undefined {
   const data = getProcessedData();
   return data.items.find(item => item.id === id);
 }
+
+export function getAgendasByAttribute() {
+  const data = getProcessedData();
+  const agendas = data.items.filter(item => item.item_type === 'agenda');
+  
+  const result: Record<string, Record<string, DocumentItem[]>> = {
+    approach: {},
+    case: {},
+    problem: {}
+  };
+
+  agendas.forEach(agenda => {
+    if (!agenda.agenda_attributes) return;
+    
+    // Broad Approach
+    if (agenda.agenda_attributes.broad_approach_id) {
+      const key = agenda.agenda_attributes.broad_approach_id;
+      if (!result.approach[key]) result.approach[key] = [];
+      result.approach[key].push(agenda);
+    }
+
+    // Target Case
+    if (agenda.agenda_attributes.target_case_id) {
+      const key = agenda.agenda_attributes.target_case_id;
+      if (!result.case[key]) result.case[key] = [];
+      result.case[key].push(agenda);
+    }
+
+    // Orthodox Problems
+    if (agenda.agenda_attributes.orthodox_problems) {
+      agenda.agenda_attributes.orthodox_problems.forEach(probId => {
+        if (!result.problem[probId]) result.problem[probId] = [];
+        result.problem[probId].push(agenda);
+      });
+    }
+  });
+
+  return result;
+}
