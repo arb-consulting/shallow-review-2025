@@ -13,7 +13,7 @@
 {# Macro to format see_also references #}
 {% macro format_see_also_ref(ref, items_by_id) -%}
 {%- if ref in items_by_id -%}
-[{{ items_by_id[ref].name }}](#{{ ref }})
+[{{ items_by_id[ref].name }}](#{{ ref.split(':')[1] }})
 {%- else -%}
 {{ ref }}
 {%- endif %}
@@ -67,7 +67,7 @@
 
 {# See also with label #}
 {% if attrs.see_also -%}
-* *See also:* {{ attrs.see_also | map('format_see_also_ref', items_by_id) | join(' · ') }}
+* *See also:* {{ attrs.see_also | map('format_see_also_ref', items_by_id) | join(' · ') | replace('#sec:', '#') | replace('#a:', '#') }}
 {% endif -%}
 
 {# Key people/researchers with label #}

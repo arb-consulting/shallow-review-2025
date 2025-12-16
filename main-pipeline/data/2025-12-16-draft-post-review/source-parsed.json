@@ -2,7 +2,7 @@
   "source_file": "data/2025-12-16-draft-post-review/source.md",
   "items": [
     {
-      "id": "sec:labs_giant_companies_",
+      "id": "sec:Labs_giant_companies_",
       "name": "Labs (giant companies)",
       "header_level": 1,
       "parent_id": null,
@@ -12,10 +12,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:openai",
+      "id": "a:OpenAI",
       "name": "OpenAI",
       "header_level": 3,
-      "parent_id": "sec:labs_giant_companies_",
+      "parent_id": "sec:Labs_giant_companies_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -23,9 +23,9 @@
         "one_sentence_summary": null,
         "theory_of_change": null,
         "see_also": [
-          "sec:iterative_alignment",
-          "a:safeguards_inference_time_auxiliaries_",
-          "a:character_training_and_persona_steering"
+          "sec:Iterative_alignment",
+          "a:Safeguards_inference_time_auxiliaries_",
+          "a:Character_training_and_persona_steering"
         ],
         "orthodox_problems": [],
         "target_case_id": null,
@@ -323,7 +323,7 @@
         ],
         "other_attributes": {
           "Structure": "public benefit corp",
-          "Teams": "Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety, Robustness, Safety Research, Trustworthy AI, new Misalignment Research team [coming](https://archive.is/eDB1D)), Preparedness, Model Policy, Safety and Security Committee, Safety Advisory Group. The [Persona Features](https://www.arxiv.org/pdf/2506.19823) paper had a distinct author list. No named successor to Superalignment.",
+          "Safety teams": "Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety, Robustness, Safety Research, Trustworthy AI, new Misalignment Research team [coming](https://archive.is/eDB1D)), Preparedness, Model Policy, Safety and Security Committee, Safety Advisory Group. The [Persona Features](https://www.arxiv.org/pdf/2506.19823) paper had a distinct author list. No named successor to Superalignment.",
           "Public alignment agenda": "[None](https://openai.com/safety/how-we-think-about-safety-alignment/). Boaz Barak [offers](https://www.lesswrong.com/posts/3jnziqCF3vA2NXAKp/six-thoughts-on-ai-safety) personal [views](https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/).",
           "Framework": "[Preparedness Framework](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf)"
         }
@@ -331,10 +331,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:google_deepmind",
+      "id": "a:Google_Deepmind",
       "name": "Google Deepmind",
       "header_level": 3,
-      "parent_id": "sec:labs_giant_companies_",
+      "parent_id": "sec:Labs_giant_companies_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -342,7 +342,7 @@
         "one_sentence_summary": null,
         "theory_of_change": null,
         "see_also": [
-          "sec:white_box_safety_i_e_interpretability_",
+          "sec:White_box_safety_i_e_Interpretability_",
           "Scalable Oversight"
         ],
         "orthodox_problems": [],
@@ -710,10 +710,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:anthropic",
+      "id": "a:Anthropic",
       "name": "Anthropic",
       "header_level": 3,
-      "parent_id": "sec:labs_giant_companies_",
+      "parent_id": "sec:Labs_giant_companies_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -721,7 +721,7 @@
         "one_sentence_summary": null,
         "theory_of_change": null,
         "see_also": [
-          "sec:white_box_safety_i_e_interpretability_",
+          "sec:White_box_safety_i_e_Interpretability_",
           "Scalable Oversight"
         ],
         "orthodox_problems": [],
@@ -755,7 +755,7 @@
           "Joe Benton"
         ],
         "estimated_ftes": null,
-        "critiques": "[Stein](https://ailabwatch.org/anthropic-opinions)-[Perlman](https://ailabwatch.org/companies/anthropic), [Casper](https://www.lesswrong.com/posts/pH6tyhEnngqWAXi9i/eis-xiii-reflections-on-anthropic-s-sae-research-circa-may#A_review___thoughts), [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%2Dpeople%20going%20to%20work%20at%20AI%20companies%20\\(and/or%2C%20at%20Anthropic%20in%20particular\\).), [underelicitation](https://www.lesswrong.com/posts/AK6AihHGjirdoiJg6/ai-companies-eval-reports-mostly-don-t-support-their-claims), [Greenblatt](https://nitter.net/RyanPGreenblatt/status/1925992236648464774), [Samin](https://www.lesswrong.com/posts/5aKRshJzhojqfbRyo/unless-its-governance-changes-anthropic-is-untrustworthy), [defense](https://techcrunch.com/2024/11/07/anthropic-teams-up-with-palantir-and-aws-to-sell-its-ai-to-defense-customers/), [Existing Safety Frameworks Imply Unreasonable Confidence](https://lesswrong.com/posts/7ExkgcDudwhag73vw/existing-safety-frameworks-imply-unreasonable-confidence)",
+        "critiques": "[Stein](https://ailabwatch.org/anthropic-opinions)[-Perlman](https://ailabwatch.org/companies/anthropic), [Casper](https://www.lesswrong.com/posts/pH6tyhEnngqWAXi9i/eis-xiii-reflections-on-anthropic-s-sae-research-circa-may#A_review___thoughts), [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%2Dpeople%20going%20to%20work%20at%20AI%20companies%20\\(and/or%2C%20at%20Anthropic%20in%20particular\\).), [underelicitation](https://www.lesswrong.com/posts/AK6AihHGjirdoiJg6/ai-companies-eval-reports-mostly-don-t-support-their-claims), [Greenblatt](https://nitter.net/RyanPGreenblatt/status/1925992236648464774), [Samin](https://www.lesswrong.com/posts/5aKRshJzhojqfbRyo/unless-its-governance-changes-anthropic-is-untrustworthy), [defense](https://techcrunch.com/2024/11/07/anthropic-teams-up-with-palantir-and-aws-to-sell-its-ai-to-defense-customers/), [Existing Safety Frameworks Imply Unreasonable Confidence](https://lesswrong.com/posts/7ExkgcDudwhag73vw/existing-safety-frameworks-imply-unreasonable-confidence)",
         "funded_by": "Amazon, Google, ICONIQ, Fidelity, Lightspeed, Altimeter, Baillie Gifford, BlackRock, Blackstone, Coatue, D1 Capital Partners, General Atlantic, General Catalyst, GIC, Goldman Sachs, Insight Partners, Jane Street, Ontario Teachers' Pension Plan, Qatar Investment Authority, TPG, T. Rowe Price, WCM, XN",
         "outputs": [
           {
@@ -1206,10 +1206,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:xai",
+      "id": "a:xAI",
       "name": "xAI",
       "header_level": 3,
-      "parent_id": "sec:labs_giant_companies_",
+      "parent_id": "sec:Labs_giant_companies_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -1234,7 +1234,7 @@
           "Alexander Pan"
         ],
         "estimated_ftes": null,
-        "critiques": "[framework](https://www.lesswrong.com/posts/hQyrTDuTXpqkxrnoH/xai-s-new-safety-framework-is-dreadful), [hacking](https://x.com/g_leech_/status/1990543987846078854), [broken promises](https://x.com/g_leech_/status/1990734517145911593), [Stein](https://ailabwatch.org/companies/xai)-[Perlman](https://ailabwatch.org/resources/integrity#xai), [insecurity](https://nitter.net/elonmusk/status/1961904269545648624), [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\\(and/or%2C%20at%20Anthropic%20in%20particular\\).) on labs in general",
+        "critiques": "[framework](https://www.lesswrong.com/posts/hQyrTDuTXpqkxrnoH/xai-s-new-safety-framework-is-dreadful), [hacking](https://x.com/g_leech_/status/1990543987846078854), [broken promises](https://x.com/g_leech_/status/1990734517145911593), [Stein](https://ailabwatch.org/companies/xai)\\-[Perlman](https://ailabwatch.org/resources/integrity#xai), [insecurity](https://nitter.net/elonmusk/status/1961904269545648624), [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\\(and/or%2C%20at%20Anthropic%20in%20particular\\).) on labs in general",
         "funded_by": "A16Z, Blackrock, Fidelity, Kingdom, Lightspeed, MGX, Morgan Stanley, Sequoia\u2026",
         "outputs": [],
         "other_attributes": {
@@ -1246,10 +1246,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:meta",
+      "id": "a:Meta",
       "name": "Meta",
       "header_level": 3,
-      "parent_id": "sec:labs_giant_companies_",
+      "parent_id": "sec:Labs_giant_companies_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -1257,7 +1257,7 @@
         "one_sentence_summary": null,
         "theory_of_change": null,
         "see_also": [
-          "a:capability_removal_unlearning"
+          "a:Capability_removal_unlearning"
         ],
         "orthodox_problems": [],
         "target_case_id": null,
@@ -1316,7 +1316,7 @@
             "kind": "paper_preprint"
           },
           {
-            "link_url": "https://arxiv.org/pdf/2510.00938",
+            "link_url": "https://arxiv.org/pdf/2510.00938%20",
             "link_text": "Large Reasoning Models Learn Better Alignment from Flawed Thinking",
             "original_md": "[Large Reasoning Models Learn Better Alignment from Flawed Thinking](https://arxiv.org/pdf/2510.00938%20)",
             "title": "Large Reasoning Models Learn Better Alignment from Flawed Thinking",
@@ -1368,16 +1368,16 @@
             "kind": "error_detected"
           },
           {
-            "link_url": "https://ai.meta.com/blog/practical-ai-agent-security/",
+            "link_url": "https://ai.meta.com/blog/practical-ai-agent-security/%20",
             "link_text": "Agents Rule of Two: A Practical Approach to AI Agent Security",
             "original_md": "[Agents Rule of Two: A Practical Approach to AI Agent Security](https://ai.meta.com/blog/practical-ai-agent-security/%20)",
-            "title": "Agents Rule of Two: A Practical Approach to AI Agent Security",
+            "title": "Connect 2024: The responsible approach we're taking to generative AI",
             "authors": [],
             "author_organizations": [
               "Meta"
             ],
-            "date": "2025-10-31",
-            "published_year": 2025,
+            "date": "2024-09-25",
+            "published_year": 2024,
             "venue": "Meta AI Blog",
             "kind": "blog_post"
           },
@@ -1406,10 +1406,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:china",
+      "id": "a:China",
       "name": "China",
       "header_level": 3,
-      "parent_id": "sec:labs_giant_companies_",
+      "parent_id": "sec:Labs_giant_companies_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -1434,10 +1434,10 @@
       ]
     },
     {
-      "id": "a:others",
+      "id": "a:Others",
       "name": "Others",
       "header_level": 3,
-      "parent_id": "sec:labs_giant_companies_",
+      "parent_id": "sec:Labs_giant_companies_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -1462,7 +1462,7 @@
       ]
     },
     {
-      "id": "sec:black_box_safety_understand_and_control_current_model_behaviour_",
+      "id": "sec:Black_box_safety_understand_and_control_current_model_behaviour_",
       "name": "Black-box safety (understand and control current model behaviour)",
       "header_level": 1,
       "parent_id": null,
@@ -1472,20 +1472,20 @@
       "parsing_issues": []
     },
     {
-      "id": "sec:iterative_alignment",
+      "id": "sec:Iterative_alignment",
       "name": "Iterative alignment",
       "header_level": 2,
-      "parent_id": "sec:black_box_safety_understand_and_control_current_model_behaviour_",
+      "parent_id": "sec:Black_box_safety_understand_and_control_current_model_behaviour_",
       "content": "Nudging base models by optimising their output. Worked on by the post-training teams at most labs, estimating the FTEs at \\>500 in some sense. Funded by most of the industry.\n\n* *General theory of change:* \"LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.\"\n\n* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* engineering  \u00b7  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* average\n\n* *General critiques:* [Bellot](https://arxiv.org/abs/2506.02923), [Alfour](https://cognition.cafe/p/ai-alignment-based-on-intentions), [STACK](https://arxiv.org/abs/2506.24068)*,* [AI Alignment Strategies from a Risk Perspective](https://arxiv.org/abs/2510.11235), [AI Alignment based on Intentions does not work](https://t.co/OTnrYRVsPS)*,* [Distortion of AI Alignment: Does Preference Optimization Optimize for Preferences?](https://arxiv.org/abs/2505.23749)*,* [Murphy\u2019s Laws of AI Alignment: Why the Gap Always Wins](https://arxiv.org/abs/2509.05381), [Alignment remains a hard, unsolved problem](https://www.alignmentforum.org/posts/epjuxGnSPof3GnMSL)",
       "item_type": "section",
       "agenda_attributes": null,
       "parsing_issues": []
     },
     {
-      "id": "a:iterative_alignment_at_pretrain_time",
+      "id": "a:Iterative_alignment_at_pretrain_time",
       "name": "Iterative alignment at pretrain-time",
       "header_level": 3,
-      "parent_id": "sec:iterative_alignment",
+      "parent_id": "sec:Iterative_alignment",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -1573,10 +1573,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:iterative_alignment_at_post_train_time",
+      "id": "a:Iterative_alignment_at_post_train_time",
       "name": "Iterative alignment at post-train-time",
       "header_level": 3,
-      "parent_id": "sec:iterative_alignment",
+      "parent_id": "sec:Iterative_alignment",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -1920,10 +1920,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:black_box_make_ai_solve_it",
+      "id": "a:Black_box_make_AI_solve_it",
       "name": "Black-box make-AI-solve-it",
       "header_level": 3,
-      "parent_id": "sec:iterative_alignment",
+      "parent_id": "sec:Iterative_alignment",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -1931,8 +1931,8 @@
         "one_sentence_summary": "Focus on using existing models to improve and align further models.",
         "theory_of_change": "\"LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.\"",
         "see_also": [
-          "sec:make_ai_solve_it",
-          "a:debate"
+          "sec:Make_AI_solve_it",
+          "a:Debate"
         ],
         "orthodox_problems": [],
         "target_case_id": "average_case",
@@ -2179,16 +2179,16 @@
       "parsing_issues": []
     },
     {
-      "id": "a:inoculation_prompting",
+      "id": "a:Inoculation_prompting",
       "name": "Inoculation prompting",
       "header_level": 3,
-      "parent_id": "sec:iterative_alignment",
+      "parent_id": "sec:Iterative_alignment",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
         "who_edits": null,
         "one_sentence_summary": "Prompt mild misbehaviour in training, to prevent the failure mode where once AI misbehaves in a mild way, it will be more inclined towards all bad behaviour.",
-        "theory_of_change": "\"LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.\"",
+        "theory_of_change": "LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.",
         "see_also": [],
         "orthodox_problems": [],
         "target_case_id": "average_case",
@@ -2291,19 +2291,19 @@
       "parsing_issues": []
     },
     {
-      "id": "a:inference_time_in_context_learning",
+      "id": "a:Inference_time_In_context_learning",
       "name": "Inference-time: In-context learning",
       "header_level": 3,
-      "parent_id": "sec:iterative_alignment",
+      "parent_id": "sec:Iterative_alignment",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
         "who_edits": null,
         "one_sentence_summary": "Investigate what runtime guidelines, rules, or examples provided to an LLM yield better behavior.",
-        "theory_of_change": "\"LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.\"",
+        "theory_of_change": "LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.",
         "see_also": [
           "model spec as prompt",
-          "a:model_specs_and_constitutions"
+          "a:Model_specs_and_constitutions"
         ],
         "orthodox_problems": [],
         "target_case_id": "average_case",
@@ -2416,20 +2416,20 @@
       "parsing_issues": []
     },
     {
-      "id": "a:inference_time_steering",
+      "id": "a:Inference_time_Steering",
       "name": "Inference-time: Steering",
       "header_level": 3,
-      "parent_id": "sec:iterative_alignment",
+      "parent_id": "sec:Iterative_alignment",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
         "who_edits": null,
         "one_sentence_summary": "Manipulate an LLM's internal representations/token probabilities without touching weights.",
-        "theory_of_change": "LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.",
+        "theory_of_change": "\"LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent.\"",
         "see_also": [
-          "a:activation_engineering",
-          "a:character_training_and_persona_steering",
-          "a:safeguards_inference_time_auxiliaries_"
+          "a:Activation_engineering",
+          "a:Character_training_and_persona_steering",
+          "a:Safeguards_inference_time_auxiliaries_"
         ],
         "orthodox_problems": [],
         "target_case_id": "average_case",
@@ -2526,10 +2526,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:capability_removal_unlearning",
+      "id": "a:Capability_removal_unlearning",
       "name": "Capability removal: unlearning",
       "header_level": 3,
-      "parent_id": "sec:iterative_alignment",
+      "parent_id": "sec:Iterative_alignment",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -2537,9 +2537,9 @@
         "one_sentence_summary": "Developing methods to selectively remove specific information, capabilities, or behaviors from a trained model (e.g. without retraining it from scratch). A mixture of black-box and white-box approaches.",
         "theory_of_change": "If an AI learns dangerous knowledge (e.g., dual-use capabilities like virology or hacking, or knowledge of their own safety controls) or exhibits undesirable behaviors (e.g., memorizing private data), we can specifically erase this \"bad\" knowledge post-training, which is much cheaper and faster than retraining, thereby making the model safer. Alternatively, intervene in pre-training, to prevent the model from learning it in the first place (even when data filtering is imperfect). You could imagine also unlearning propensities to power-seeking, deception, sycophancy, or spite.",
         "see_also": [
-          "a:data_filtering",
-          "sec:white_box_safety_i_e_interpretability_",
-          "a:various_redteams"
+          "a:Data_filtering",
+          "sec:White_box_safety_i_e_Interpretability_",
+          "a:Various_Redteams"
         ],
         "orthodox_problems": [
           "superintelligence_hack_software",
@@ -3008,14 +3008,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach field contains 'cognitive / engineering' which represents multiple approaches - leaving broad_approach_id null"
+        "Broad approach field contains 'cognitive / engineering' - this is a mixed approach, so broad_approach_id is left null"
       ]
     },
     {
-      "id": "a:control",
+      "id": "a:Control",
       "name": "Control",
       "header_level": 3,
-      "parent_id": "sec:iterative_alignment",
+      "parent_id": "sec:Iterative_alignment",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -3526,14 +3526,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach field contains 'engineering / behavioural' - mixed approach, so broad_approach_id set to null"
+        "Broad approach field contains multiple approaches: 'engineering / behavioural' - broad_approach_id set to null"
       ]
     },
     {
-      "id": "a:safeguards_inference_time_auxiliaries_",
+      "id": "a:Safeguards_inference_time_auxiliaries_",
       "name": "Safeguards (inference-time auxiliaries)",
       "header_level": 3,
-      "parent_id": "sec:iterative_alignment",
+      "parent_id": "sec:Iterative_alignment",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -3541,8 +3541,8 @@
         "one_sentence_summary": "Layers of inference-time defenses, such as classifiers, monitors, and rapid-response protocols, to detect and block jailbreaks, prompt injections, and other harmful model behaviors.",
         "theory_of_change": "By building a bunch of scalable and hardened things on top of an unsafe model, we can defend against known and unknown attacks, monitor for misuse, and prevent models from causing harm, even if the core model has vulnerabilities.",
         "see_also": [
-          "a:various_redteams",
-          "sec:iterative_alignment"
+          "a:Various_Redteams",
+          "sec:Iterative_alignment"
         ],
         "orthodox_problems": [
           "superintelligence_fool_supervisors",
@@ -3752,10 +3752,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:chain_of_thought_monitoring",
+      "id": "a:Chain_of_thought_monitoring",
       "name": "Chain of thought monitoring",
       "header_level": 3,
-      "parent_id": "sec:iterative_alignment",
+      "parent_id": "sec:Iterative_alignment",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -3763,8 +3763,8 @@
         "one_sentence_summary": "Supervise an AI's natural-language (output) \"reasoning\" to detect misalignment, scheming, or deception, rather than studying the actual internal states.",
         "theory_of_change": "The reasoning process (Chain of Thought, or CoT) of an AI provides a legible signal of its internal state and intentions. By monitoring this CoT, supervisors (human or AI) can detect misalignment, scheming, or reward hacking before it results in a harmful final output. This allows for more robust oversight than supervising outputs alone, but it relies on the CoT remaining faithful (i.e., accurately reflecting the model's reasoning) and not becoming obfuscated under optimization pressure.",
         "see_also": [
-          "sec:white_box_safety_i_e_interpretability_",
-          "a:steganography_evals"
+          "sec:White_box_safety_i_e_Interpretability_",
+          "a:Steganography_evals"
         ],
         "orthodox_problems": [
           "superintelligence_fool_supervisors",
@@ -4169,20 +4169,20 @@
       "parsing_issues": []
     },
     {
-      "id": "sec:model_psychology",
+      "id": "sec:Model_psychology",
       "name": "Model psychology",
       "header_level": 2,
-      "parent_id": "sec:black_box_safety_understand_and_control_current_model_behaviour_",
+      "parent_id": "sec:Black_box_safety_understand_and_control_current_model_behaviour_",
       "content": "This section consists of a bottom-up set of things people happen to be doing, rather than a normative taxonomy.",
       "item_type": "section",
       "agenda_attributes": null,
       "parsing_issues": []
     },
     {
-      "id": "a:model_values_model_preferences",
+      "id": "a:Model_values_model_preferences",
       "name": "Model values / model preferences",
       "header_level": 3,
-      "parent_id": "sec:model_psychology",
+      "parent_id": "sec:Model_psychology",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -4493,10 +4493,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:character_training_and_persona_steering",
+      "id": "a:Character_training_and_persona_steering",
       "name": "Character training and persona steering",
       "header_level": 3,
-      "parent_id": "sec:model_psychology",
+      "parent_id": "sec:Model_psychology",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -4504,11 +4504,11 @@
         "one_sentence_summary": "Map, shape, and control the personae of language models, such that new models embody desirable values (e.g., honesty, empathy) rather than undesirable ones (e.g., sycophancy, self-perpetuating behaviors).",
         "theory_of_change": "If post-training, prompting, and activation-engineering interact with some kind of structured 'persona space', then better understanding it should benefit the design, control, and detection of LLM personas.",
         "see_also": [
-          "Simulators",
-          "a:activation_engineering",
-          "a:emergent_misalignment",
-          "a:hyperstition_studies",
-          "a:anthropic",
+          "[Simulators](#a:simulators)",
+          "a:Activation_engineering",
+          "a:Emergent_misalignment",
+          "a:Hyperstition_studies",
+          "a:Anthropic",
           "[Cyborgism](https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism)",
           "shard theory",
           "[AI psychiatry](https://nitter.net/Jack_W_Lindsey/status/1948138767753326654#m)",
@@ -4520,7 +4520,7 @@
         "target_case_id": "average_case",
         "target_case_text": "average",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitivist science",
+        "broad_approach_text": "cognitive",
         "some_names": [
           "Truthful AI",
           "OpenAI",
@@ -4769,15 +4769,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "See also reference 'Simulators' does not match any known agenda ID - kept as plain text",
-        "Broad approach listed as 'cognitive' - mapped to 'cognitivist_science'"
+        "Broad approach field says 'cognitive' - interpreted as 'cognitivist science'"
       ]
     },
     {
-      "id": "a:emergent_misalignment",
+      "id": "a:Emergent_misalignment",
       "name": "Emergent misalignment",
       "header_level": 3,
-      "parent_id": "sec:model_psychology",
+      "parent_id": "sec:Model_psychology",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -4786,7 +4785,7 @@
         "theory_of_change": "Predict, detect, and prevent models from developing broadly harmful behaviors (like deception or shutdown resistance) when fine-tuned on seemingly unrelated tasks. Find, preserve, and robustify this correlated representation of the good.",
         "see_also": [
           "auditing real models",
-          "a:pragmatic_interpretability"
+          "a:Pragmatic_interpretability"
         ],
         "orthodox_problems": [
           "goals_misgeneralize",
@@ -5128,24 +5127,23 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "See also item 'auditing real models' does not match any known agenda ID",
-        "Broad approach field says 'behavioural' - mapped to 'behaviorist science'"
+        "See also mentions 'auditing real models' which doesn't match any known agenda ID - kept as plain text"
       ]
     },
     {
-      "id": "a:model_specs_and_constitutions",
+      "id": "a:Model_specs_and_constitutions",
       "name": "Model specs and constitutions",
       "header_level": 3,
-      "parent_id": "sec:model_psychology",
+      "parent_id": "sec:Model_psychology",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
         "who_edits": null,
         "one_sentence_summary": "Write detailed, natural language descriptions of values and rules for models to follow, then instill these values and rules into models via techniques like Constitutional AI or deliberative alignment.",
-        "theory_of_change": "Model specs and constitutions serve three purposes. First, they provide a clear standard of behavior which can be used to *train* models to value what we want them to value. Second, they serve as something closer to a ground truth standard for evaluating the degree of misalignment ranging from \"models straightforwardly obey the spec\" to \"models flagrantly disobey the spec\". A combination of scalable stress-testing and reinforcement for obedience can be used to iteratively reduce the risk of misalignment. Third, they get more useful as models' instruction-following capability improves.",
+        "theory_of_change": "Model specs and constitutions serve three purposes. First, they provide a clear standard of behavior which can be used to *train* models to value what we want them to value. Second, they serve as something closer to a ground truth standard for evaluating the degree of misalignment ranging from  \"models straightforwardly obey the spec\" to \"models flagrantly disobey the spec\". A combination of scalable stress-testing and reinforcement for obedience can be used to iteratively reduce the risk of misalignment. Third, they get more useful as models' instruction-following capability improves.",
         "see_also": [
-          "sec:iterative_alignment",
-          "sec:model_psychology"
+          "sec:Iterative_alignment",
+          "sec:Model_psychology"
         ],
         "orthodox_problems": [
           "value_fragile"
@@ -5177,16 +5175,18 @@
             "kind": "blog_post"
           },
           {
-            "link_url": null,
-            "link_text": "Google doesn't have anything public. The [Gemini system prompt](https://github.com/elder-plinius/CL4R1T4S/blob/main/GOOGLE/Gemini-2.5-Pro-04-18-2025.md) is very short and dry and doesn't even have any rules for handling copyrighted, let alone wetter stuff",
+            "link_url": "https://github.com/elder-plinius/CL4R1T4S/blob/main/GOOGLE/Gemini-2.5-Pro-04-18-2025.md",
+            "link_text": "Google doesn't have anything public. The Gemini system prompt is very short and dry and doesn't even have any rules for handling copyrighted, let alone wetter stuff",
             "original_md": "Google doesn't have anything public. The [Gemini system prompt](https://github.com/elder-plinius/CL4R1T4S/blob/main/GOOGLE/Gemini-2.5-Pro-04-18-2025.md) is very short and dry and doesn't even have any rules for handling copyrighted, let alone wetter stuff",
-            "title": null,
+            "title": "Gemini-2.5-Pro-04-18-2025 System Prompt",
             "authors": [],
-            "author_organizations": [],
-            "date": null,
-            "published_year": null,
-            "venue": null,
-            "kind": null
+            "author_organizations": [
+              "Google"
+            ],
+            "date": "2025-04-18",
+            "published_year": 2025,
+            "venue": "GitHub",
+            "kind": "other"
           },
           {
             "link_url": "https://arxiv.org/abs/2412.16339",
@@ -5376,10 +5376,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:model_psychopathology",
+      "id": "a:Model_psychopathology",
       "name": "Model psychopathology",
       "header_level": 3,
-      "parent_id": "sec:model_psychology",
+      "parent_id": "sec:Model_psychology",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -5387,7 +5387,7 @@
         "one_sentence_summary": "Find interesting LLM phenomena like glitch [tokens](https://vgel.me/posts/seahorse/) and the reversal curse; these are vital data for theory.",
         "theory_of_change": "The study of 'pathological' phenomena in LLMs is potentially key for theoretically modelling LLM cognition and LLM training-dynamics (compare: the study of aphasia and visual processing disorder in humans plays a key role cognitive science), and in particular for developing a good theory of generalization in LLMS",
         "see_also": [
-          "a:emergent_misalignment",
+          "a:Emergent_misalignment",
           "mechanistic anomaly detection"
         ],
         "orthodox_problems": [
@@ -5396,7 +5396,7 @@
         "target_case_id": "pessimistic_case",
         "target_case_text": "pessimistic",
         "broad_approach_id": null,
-        "broad_approach_text": "behavioural / cognitive",
+        "broad_approach_text": "behaviorist / cognitivist",
         "some_names": [
           "Janus",
           "Truthful AI",
@@ -5607,24 +5607,24 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach field contains 'behavioural/cognitive' which is a mix of approaches - broad_approach_id left as null, text normalized to 'behavioural / cognitive'"
+        "Broad approach field says 'behavioural/cognitive' - indicating mixed approach, set broad_approach_id to null and broad_approach_text to 'behaviorist / cognitivist'"
       ]
     },
     {
-      "id": "sec:better_data",
+      "id": "sec:Better_data",
       "name": "Better data",
       "header_level": 2,
-      "parent_id": "sec:black_box_safety_understand_and_control_current_model_behaviour_",
+      "parent_id": "sec:Black_box_safety_understand_and_control_current_model_behaviour_",
       "content": "",
       "item_type": "section",
       "agenda_attributes": null,
       "parsing_issues": []
     },
     {
-      "id": "a:data_filtering",
+      "id": "a:Data_filtering",
       "name": "Data filtering",
       "header_level": 3,
-      "parent_id": "sec:better_data",
+      "parent_id": "sec:Better_data",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -5632,10 +5632,10 @@
         "one_sentence_summary": "Builds safety into models from the start by removing harmful or toxic content (like dual-use info) from the pretraining data, rather than relying only on post-training alignment.",
         "theory_of_change": "By curating the pretraining data, we can prevent the model from learning dangerous capabilities (e.g., dual-use info) or undesirable behaviors (e.g., toxicity) in the first place, making safety more robust and \"tamper-resistant\" than post-training patches.",
         "see_also": [
-          "a:data_quality_for_alignment",
-          "a:data_poisoning_defense",
-          "a:synthetic_data_for_alignment",
-          "a:capability_removal_unlearning"
+          "a:Data_quality_for_alignment",
+          "a:Data_poisoning_defense",
+          "a:Synthetic_data_for_alignment",
+          "a:Capability_removal_unlearning"
         ],
         "orthodox_problems": [
           "goals_misgeneralize",
@@ -5775,10 +5775,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:hyperstition_studies",
+      "id": "a:Hyperstition_studies",
       "name": "Hyperstition studies",
       "header_level": 3,
-      "parent_id": "sec:better_data",
+      "parent_id": "sec:Better_data",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -5786,7 +5786,7 @@
         "one_sentence_summary": "Study, steer, and intervene on the following feedback loop: \"we produce stories about how present and future AI systems behave\" \u2192 \"these stories become training data for the AI\" \u2192 \"these stories shape how AI systems in fact behave\".",
         "theory_of_change": "Measure the influence of existing AI narratives in the training data \u2192 seed and develop more salutary ontologies and self-conceptions for AI models \u2192 control and redirect AI models' self-concepts through selectively amplifying certain components of the training data.",
         "see_also": [
-          "a:data_filtering",
+          "a:Data_filtering",
           "[active inference](https://arxiv.org/abs/2311.10215)",
           "LLM whisperers"
         ],
@@ -5869,13 +5869,15 @@
         ],
         "other_attributes": {}
       },
-      "parsing_issues": []
+      "parsing_issues": [
+        "Broad approach field says 'cognitive' - mapped to 'cognitivist_science'"
+      ]
     },
     {
-      "id": "a:data_poisoning_defense",
+      "id": "a:Data_poisoning_defense",
       "name": "Data poisoning defense",
       "header_level": 3,
-      "parent_id": "sec:better_data",
+      "parent_id": "sec:Better_data",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -5883,9 +5885,9 @@
         "one_sentence_summary": "Develops methods to detect and prevent malicious or backdoor-inducing samples from being included in the training data.",
         "theory_of_change": "By identifying and filtering out malicious training examples, we can prevent attackers from creating hidden backdoors or triggers that would cause aligned models to behave dangerously.",
         "see_also": [
-          "a:data_filtering",
-          "a:safeguards_inference_time_auxiliaries_",
-          "a:various_redteams",
+          "a:Data_filtering",
+          "a:Safeguards_inference_time_auxiliaries_",
+          "a:Various_Redteams",
           "adversarial robustness"
         ],
         "orthodox_problems": [
@@ -5966,10 +5968,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:synthetic_data_for_alignment",
+      "id": "a:Synthetic_data_for_alignment",
       "name": "Synthetic data for alignment",
       "header_level": 3,
-      "parent_id": "sec:better_data",
+      "parent_id": "sec:Better_data",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -5977,11 +5979,11 @@
         "one_sentence_summary": "Uses AI-generated data (e.g., critiques, preferences, or self-labeled examples) to scale and improve alignment, especially for superhuman models.",
         "theory_of_change": "We can overcome the bottleneck of human feedback and data by using models to generate vast amounts of high-quality, targeted data for safety, preference tuning, and capability elicitation.",
         "see_also": [
-          "a:data_quality_for_alignment",
-          "a:data_filtering",
+          "a:Data_quality_for_alignment",
+          "a:Data_filtering",
           "scalable oversight",
           "automated alignment research",
-          "a:weak_to_strong_generalization"
+          "a:Weak_to_strong_generalization"
         ],
         "orthodox_problems": [
           "goals_misgeneralize",
@@ -6144,10 +6146,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:data_quality_for_alignment",
+      "id": "a:Data_quality_for_alignment",
       "name": "Data quality for alignment",
       "header_level": 3,
-      "parent_id": "sec:better_data",
+      "parent_id": "sec:Better_data",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -6155,10 +6157,10 @@
         "one_sentence_summary": "Improves the quality, signal-to-noise ratio, and reliability of human-generated preference and alignment data.",
         "theory_of_change": "The quality of alignment is heavily dependent on the quality of the data (e.g., human preferences); by improving the \"signal\" from annotators and reducing noise/bias, we will get more robustly aligned models.",
         "see_also": [
-          "a:synthetic_data_for_alignment",
+          "a:Synthetic_data_for_alignment",
           "scalable oversight",
-          "a:assistance_games_assistive_agents",
-          "a:model_values_model_preferences"
+          "a:Assistance_games_assistive_agents",
+          "a:Model_values_model_preferences"
         ],
         "orthodox_problems": [
           "superintelligence_fool_supervisors",
@@ -6175,7 +6177,7 @@
           "Danqing Shi"
         ],
         "estimated_ftes": "20-50",
-        "critiques": "[**A Statistical Case Against Empirical Human-AI Alignment**](https://arxiv.org/abs/2502.14581)",
+        "critiques": "[A Statistical Case Against Empirical Human-AI Alignment](https://arxiv.org/abs/2502.14581)",
         "funded_by": "Anthropic, Google DeepMind, OpenAI, Meta AI, various academic groups",
         "outputs": [
           {
@@ -6277,20 +6279,20 @@
       "parsing_issues": []
     },
     {
-      "id": "sec:goal_robustness",
+      "id": "sec:Goal_robustness",
       "name": "Goal robustness",
       "header_level": 2,
-      "parent_id": "sec:black_box_safety_understand_and_control_current_model_behaviour_",
+      "parent_id": "sec:Black_box_safety_understand_and_control_current_model_behaviour_",
       "content": "",
       "item_type": "section",
       "agenda_attributes": null,
       "parsing_issues": []
     },
     {
-      "id": "a:mild_optimisation",
+      "id": "a:Mild_optimisation",
       "name": "Mild optimisation",
       "header_level": 3,
-      "parent_id": "sec:goal_robustness",
+      "parent_id": "sec:Goal_robustness",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -6304,7 +6306,7 @@
         "target_case_id": null,
         "target_case_text": "mixed",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitivist science",
+        "broad_approach_text": "cognitive",
         "some_names": [],
         "estimated_ftes": "10-50",
         "critiques": null,
@@ -6379,14 +6381,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Target case is 'mixed' which doesn't map to a single standard case (average_case, pessimistic_case, worst_case), kept as text only"
+        "Target case is 'mixed' - target_case_id left null, target_case_text set to 'mixed'"
       ]
     },
     {
-      "id": "a:rl_safety",
+      "id": "a:RL_safety",
       "name": "RL safety",
       "header_level": 3,
-      "parent_id": "sec:goal_robustness",
+      "parent_id": "sec:Goal_robustness",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -6394,11 +6396,11 @@
         "one_sentence_summary": "Improves the robustness of reinforcement learning agents by addressing core problems in reward learning, goal misgeneralization, and specification gaming.",
         "theory_of_change": "Standard RL objectives (like maximizing expected value) are brittle and lead to goal misgeneralization or specification gaming; by developing more robust frameworks (like pessimistic RL, minimax regret, or provable inverse reward learning), we can create agents that are safe even when misspecified.",
         "see_also": [
-          "a:behavior_alignment_theory",
-          "a:assistance_games_assistive_agents",
-          "sec:goal_robustness",
-          "sec:iterative_alignment",
-          "a:mild_optimisation",
+          "a:Behavior_alignment_theory",
+          "a:Assistance_games_assistive_agents",
+          "sec:Goal_robustness",
+          "sec:Iterative_alignment",
+          "a:Mild_optimisation",
           "scalable oversight",
           "[The Theoretical Reward Learning Research Agenda: Introduction and Motivation](https://www.alignmentforum.org/posts/pJ3mDD7LfEwp3s5vG/the-theoretical-reward-learning-research-agenda-introduction)"
         ],
@@ -6629,10 +6631,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:assistance_games_assistive_agents",
+      "id": "a:Assistance_games_assistive_agents",
       "name": "Assistance games, assistive agents",
       "header_level": 3,
-      "parent_id": "sec:goal_robustness",
+      "parent_id": "sec:Goal_robustness",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -6640,7 +6642,7 @@
         "one_sentence_summary": "Formalize how AI assistants learn about human preferences given uncertainty and partial observability, and construct environments which better incentivize AIs to learn what we want them to learn.",
         "theory_of_change": "Understand what kinds of things can go wrong when humans are directly involved in training a model \u2192 build tools that make it easier for a model to learn what humans want it to learn.",
         "see_also": [
-          "a:guaranteed_safe_ai"
+          "a:Guaranteed_Safe_AI"
         ],
         "orthodox_problems": [
           "value_fragile",
@@ -6765,15 +6767,15 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Target case field says 'varies' - leaving both target_case_id and target_case_text as null/varies",
-        "Broad approach is 'engineering / cognitive' - this combines multiple approaches, so broad_approach_id is left null"
+        "Target case field says 'varies' - set target_case_id to null and target_case_text to 'varies'",
+        "Broad approach field says 'engineering / cognitive' (multiple approaches) - set broad_approach_id to null"
       ]
     },
     {
-      "id": "a:harm_reduction_for_open_weights",
+      "id": "a:Harm_reduction_for_open_weights",
       "name": "Harm reduction for open weights",
       "header_level": 3,
-      "parent_id": "sec:goal_robustness",
+      "parent_id": "sec:Goal_robustness",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -6781,9 +6783,9 @@
         "one_sentence_summary": "Develops methods, primarily based on pretraining data intervention, to create tamper-resistant safeguards that prevent open-weight models from being maliciously fine-tuned to remove safety features or exploit dangerous capabilities.",
         "theory_of_change": "Open-weight models allow adversaries to easily remove post-training safety (like refusal training) via simple fine-tuning; by making safety an intrinsic property of the model's learned knowledge and capabilities (e.g., by ensuring \"deep ignorance\" of dual-use information), the safeguards become far more difficult and expensive to remove.",
         "see_also": [
-          "a:data_filtering",
-          "a:capability_removal_unlearning",
-          "a:data_poisoning_defense"
+          "a:Data_filtering",
+          "a:Capability_removal_unlearning",
+          "a:Data_poisoning_defense"
         ],
         "orthodox_problems": [
           "someone_else_deploys"
@@ -6975,10 +6977,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:the_neglected_approaches_approach",
+      "id": "a:The_Neglected_Approaches_Approach",
       "name": "The \"Neglected Approaches\" Approach",
       "header_level": 3,
-      "parent_id": "sec:goal_robustness",
+      "parent_id": "sec:Goal_robustness",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -6986,7 +6988,7 @@
         "one_sentence_summary": "Agenda-agnostic approaches to identifying good but overlooked empirical alignment ideas, working with theorists who could use engineers, and prototyping them.",
         "theory_of_change": "Empirical search for \"negative alignment taxes\" (prioritizing methods that simultaneously enhance alignment and capabilities)",
         "see_also": [
-          "sec:iterative_alignment",
+          "sec:Iterative_alignment",
           "automated alignment research",
           "Beijing Key Laboratory of Safe AI and Superalignment",
           "Aligned AI"
@@ -7067,7 +7069,7 @@
       "parsing_issues": []
     },
     {
-      "id": "sec:white_box_safety_i_e_interpretability_",
+      "id": "sec:White_box_safety_i_e_Interpretability_",
       "name": "White-box safety (i.e. Interpretability)",
       "header_level": 1,
       "parent_id": null,
@@ -7077,10 +7079,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:reverse_engineering",
+      "id": "a:Reverse_engineering",
       "name": "Reverse engineering",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -7097,7 +7099,7 @@
         "target_case_id": "worst_case",
         "target_case_text": "worst-case",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitive",
+        "broad_approach_text": "cognitivist science",
         "some_names": [
           "Lucius Bushnaq",
           "Dan Braun",
@@ -7754,10 +7756,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:extracting_latent_knowledge",
+      "id": "a:Extracting_latent_knowledge",
       "name": "Extracting latent knowledge",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -7765,9 +7767,9 @@
         "one_sentence_summary": "Identify and decoding the \"true\" beliefs or knowledge represented inside a model's activations, even when the model's output is deceptive or false.",
         "theory_of_change": "Powerful models may know things they do not say (e.g. that they are currently being tested). If we can translate this latent knowledge directly from the model's internals, we can supervise them reliably even when they attempt to deceive human evaluators or when the task is too difficult for humans to verify directly.",
         "see_also": [
-          "a:ai_explanations_of_ais",
-          "a:heuristic_explanations",
-          "a:lie_and_deception_detectors"
+          "a:AI_explanations_of_AIs",
+          "a:Heuristic_explanations",
+          "a:Lie_and_deception_detectors"
         ],
         "orthodox_problems": [
           "superintelligence_fool_supervisors"
@@ -7775,7 +7777,7 @@
         "target_case_id": "worst_case",
         "target_case_text": "worst-case",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitive",
+        "broad_approach_text": "cognitivist science",
         "some_names": [
           "Bartosz Cywi\u0144ski",
           "Emil Ryd",
@@ -7965,13 +7967,15 @@
         ],
         "other_attributes": {}
       },
-      "parsing_issues": []
+      "parsing_issues": [
+        "One-sentence summary has minor grammatical issue: 'Identify and decoding' should likely be 'Identifying and decoding'"
+      ]
     },
     {
-      "id": "a:lie_and_deception_detectors",
+      "id": "a:Lie_and_deception_detectors",
       "name": "Lie and deception detectors",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -7979,15 +7983,15 @@
         "one_sentence_summary": "Detect when a model is being deceptive or lying by building white- or black-box detectors. Some work below requires intent in their definition, while other work focuses only on whether the model states something it believes to be false, regardless of intent.",
         "theory_of_change": "Such detectors could flag suspicious behavior during evaluations or deployment, augment training to reduce deception, or audit models pre-deployment. Specific applications include alignment evaluations (e.g. by validating answers to introspective questions), safeguarding evaluations (catching models that \"sandbag\", that is, strategically underperform to pass capability tests), and large-scale deployment monitoring. An honest version of a model could also provide oversight during training or detect cases where a model behaves in ways it understands are unsafe.",
         "see_also": [
-          "a:reverse_engineering",
-          "a:ai_deception_evals",
-          "a:sandbagging_evals"
+          "a:Reverse_engineering",
+          "a:AI_deception_evals",
+          "a:Sandbagging_evals"
         ],
         "orthodox_problems": [],
         "target_case_id": "pessimistic_case",
         "target_case_text": "pessimistic",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitive",
+        "broad_approach_text": "cognitivist science",
         "some_names": [
           "Cadenza",
           "Sam Marks",
@@ -8223,14 +8227,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "See also links reference '#a:interp_fundamental' but the agenda list has 'a:reverse_engineering' - mapped to closest match"
+        "Broad approach field says 'cognitive' - mapped to 'cognitivist_science' and normalized to 'cognitivist science'"
       ]
     },
     {
-      "id": "a:model_diffing",
+      "id": "a:Model_diffing",
       "name": "Model diffing",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -8238,8 +8242,8 @@
         "one_sentence_summary": "Understand what happens when a model is finetuned, what the \"diff\" between the finetuned and the original model consists in.",
         "theory_of_change": "By identifying the mechanistic differences between a base model and its fine-tune (e.g., after RLHF), maybe we can verify that safety behaviors are robustly \"internalized\" rather than superficially patched, and detect if dangerous capabilities or deceptive alignment have been introduced without needing to re-analyze the entire model. The diff is also much smaller, since most parameters don't change, which means you can use heavier methods on them.",
         "see_also": [
-          "a:sparse_coding",
-          "a:reverse_engineering"
+          "a:Sparse_Coding",
+          "a:Reverse_engineering"
         ],
         "orthodox_problems": [
           "value_fragile"
@@ -8429,10 +8433,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:sparse_coding",
+      "id": "a:Sparse_Coding",
       "name": "Sparse Coding",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -8440,8 +8444,8 @@
         "one_sentence_summary": "Decompose the polysemantic activations of the residual stream into a sparse linear combination of monosemantic \"features\" which correspond to interpretable concepts.",
         "theory_of_change": "Get a principled decomposition of an LLM's activation into atomic components \u2192 identify deception and other misbehaviors.",
         "see_also": [
-          "[Concept-based interpretability](#a:interp_concept_based)",
-          "[Reverse engineering](#a:interp_fundamental)"
+          "sec:Concept_based_interpretability",
+          "a:Reverse_engineering"
         ],
         "orthodox_problems": [
           "value_fragile",
@@ -8957,7 +8961,7 @@
           },
           {
             "link_url": "https://arxiv.org/abs/2505.20063",
-            "link_text": "SAEs Are Good for Steering -- If You Select the Right Features",
+            "link_text": "SAEs Are Good for Steering \\-- If You Select the Right Features",
             "original_md": "[SAEs Are Good for Steering \\-- If You Select the Right Features](https://arxiv.org/abs/2505.20063)",
             "title": "SAEs Are Good for Steering -- If You Select the Right Features",
             "authors": [
@@ -9300,14 +9304,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach field contains 'engineering / cognitive' - mixed approaches, so broad_approach_id set to null"
+        "Broad approach text 'engineering / cognitive' - 'cognitive' likely means 'cognitivist science'. Set broad_approach_id to null due to multiple approaches."
       ]
     },
     {
-      "id": "a:causal_abstractions",
+      "id": "a:Causal_Abstractions",
       "name": "Causal Abstractions",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -9315,8 +9319,8 @@
         "one_sentence_summary": "Verify that a neural network implements a specific high-level causal model (like a logical algorithm) by finding a mapping between high-level variables and low-level neural representations.",
         "theory_of_change": "By establishing a causal mapping between a black-box neural network and a human-interpretable algorithm, we can check whether the model is using safe reasoning processes and predict its behavior on unseen inputs, rather than relying on behavioural testing alone.",
         "see_also": [
-          "sec:concept_based_interpretability",
-          "a:reverse_engineering"
+          "sec:Concept_based_interpretability",
+          "a:Reverse_engineering"
         ],
         "orthodox_problems": [
           "goals_misgeneralize"
@@ -9324,7 +9328,7 @@
         "target_case_id": "worst_case",
         "target_case_text": "worst-case",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitive",
+        "broad_approach_text": "cognitivist science",
         "some_names": [
           "Atticus Geiger",
           "Christopher Potts",
@@ -9396,10 +9400,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:data_attribution",
+      "id": "a:Data_attribution",
       "name": "Data attribution",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -9407,7 +9411,7 @@
         "one_sentence_summary": "Quantifies the influence of individual training data points on a model's specific behavior or output, allowing researchers to trace model properties (like misalignment, bias, or factual errors) back to their source in the training set.",
         "theory_of_change": "By attributing harmful, biased, or unaligned behaviors to specific training examples, researchers can audit proprietary models, debug training data, enable effective data deletion/unlearning",
         "see_also": [
-          "a:data_quality_for_alignment"
+          "a:Data_quality_for_alignment"
         ],
         "orthodox_problems": [
           "goals_misgeneralize",
@@ -9416,7 +9420,7 @@
         "target_case_id": "average_case",
         "target_case_text": "average",
         "broad_approach_id": "behaviorist_science",
-        "broad_approach_text": "behaviorist science",
+        "broad_approach_text": "behavioural",
         "some_names": [
           "Roger Grosse",
           "Philipp Alexander Kreer",
@@ -9711,13 +9715,15 @@
         ],
         "other_attributes": {}
       },
-      "parsing_issues": []
+      "parsing_issues": [
+        "Broad approach field says 'behavioural' - mapped to 'behaviorist_science'"
+      ]
     },
     {
-      "id": "a:pragmatic_interpretability",
+      "id": "a:Pragmatic_interpretability",
       "name": "Pragmatic interpretability",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -9725,8 +9731,8 @@
         "one_sentence_summary": "Directly tackling concrete, safety-critical problems on the path to AGI by using lightweight interpretability tools (like steering and probing) and empirical feedback from proxy tasks, rather than pursuing complete mechanistic reverse-engineering.",
         "theory_of_change": "By applying interpretability skills to concrete problems, researchers can rapidly develop monitoring and control tools (e.g., steering vectors or probes) that have immediate, measurable impact on real-world safety issues like detecting hidden goals or emergent misalignment.",
         "see_also": [
-          "a:reverse_engineering",
-          "sec:concept_based_interpretability"
+          "a:Reverse_engineering",
+          "sec:Concept_based_interpretability"
         ],
         "orthodox_problems": [
           "superintelligence_fool_supervisors",
@@ -9735,7 +9741,7 @@
         "target_case_id": null,
         "target_case_text": "mixed",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitivist science",
+        "broad_approach_text": "cognitive",
         "some_names": [
           "Lee Sharkey",
           "Dario Amodei",
@@ -9851,15 +9857,15 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Target case is 'mixed' - leaving target_case_id as null and setting target_case_text to 'mixed'",
-        "Broad approach 'cognitive' standardized to 'cognitivist science'"
+        "Target case field says 'mixed' - cannot map to a single target case ID, left target_case_id as null",
+        "Broad approach says 'cognitive' - mapped to 'cognitivist_science'"
       ]
     },
     {
-      "id": "a:other_interpretability",
+      "id": "a:Other_interpretability",
       "name": "Other interpretability",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -9867,8 +9873,8 @@
         "one_sentence_summary": "Interpretability that does not fall well into other categories.",
         "theory_of_change": "Explore alternative conceptual frameworks (e.g., agentic, propositional) and physics-inspired methods (e.g., renormalization). Or be \"pragmatic\".",
         "see_also": [
-          "a:reverse_engineering",
-          "sec:concept_based_interpretability"
+          "a:Reverse_engineering",
+          "sec:Concept_based_interpretability"
         ],
         "orthodox_problems": [
           "superintelligence_fool_supervisors",
@@ -9891,7 +9897,7 @@
           "Jacob Pfau"
         ],
         "estimated_ftes": "30-60",
-        "critiques": "[The Misguided Quest for Mechanistic AI Interpretability](https://aifrontiersmedia.substack.com/p/the-misguided-quest-for-mechanistic), [Interpretability Will Not Reliably Find Deceptive AI](https://www.lesswrong.com/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai)",
+        "critiques": "[The Misguided Quest for Mechanistic AI Interpretability](https://aifrontiersmedia.substack.com/p/the-misguided-quest-for-mechanistic), [Interpretability Will Not Reliably Find Deceptive AI](https://www.lesswrong.com/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai).",
         "funded_by": null,
         "outputs": [
           {
@@ -10261,15 +10267,15 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Target case is 'mixed' - leaving target_case_id as null and setting target_case_text to 'mixed'",
-        "Broad approach lists multiple approaches ('engineering / cognitive') - leaving broad_approach_id as null and setting broad_approach_text to 'engineering / cognitive'"
+        "Target case is 'mixed' - left as text only since no single case ID applies",
+        "Broad approach is 'engineering / cognitive' - left as text only since multiple approaches are listed"
       ]
     },
     {
-      "id": "a:learning_dynamics_and_developmental_interpretability",
+      "id": "a:Learning_dynamics_and_developmental_interpretability",
       "name": "Learning dynamics and developmental interpretability",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -10277,8 +10283,8 @@
         "one_sentence_summary": "Builds tools for detecting, locating, and interpreting key structural shifts, phase transitions, and emergent phenomena (like grokking or deception) that occur during a model's training and in-context learning phases.",
         "theory_of_change": "Structures forming in neural networks leave identifiable traces that can be interpreted (e.g., using concepts from Singular Learning Theory); by catching and analyzing these developmental moments, researchers can automate interpretability, predict when dangerous capabilities emerge, and intervene to prevent deceptiveness or misaligned values as early as possible.",
         "see_also": [
-          "a:reverse_engineering",
-          "a:sparse_coding",
+          "a:Reverse_engineering",
+          "a:Sparse_Coding",
           "[ICL transience](https://proceedings.mlr.press/v267/singh25c.html)"
         ],
         "orthodox_problems": [
@@ -10287,7 +10293,7 @@
         "target_case_id": "worst_case",
         "target_case_text": "worst-case",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitive",
+        "broad_approach_text": "cognitivist science",
         "some_names": [
           "Timaeus",
           "Jesse Hoogland",
@@ -10539,10 +10545,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:representation_structure_and_geometry",
+      "id": "a:Representation_structure_and_geometry",
       "name": "Representation structure and geometry",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -10550,11 +10556,11 @@
         "one_sentence_summary": "What do the representations look like? Does any simple structure underlie the beliefs of all well-trained models? Can we get the semantics from this geometry?",
         "theory_of_change": "Get scalable unsupervised methods for finding structure in representations and interpreting them, then using this to e.g. guide training.",
         "see_also": [
-          "sec:concept_based_interpretability",
+          "sec:Concept_based_interpretability",
           "computational mechanics",
           "feature universality",
-          "a:natural_abstractions",
-          "a:causal_abstractions"
+          "a:Natural_abstractions",
+          "a:Causal_Abstractions"
         ],
         "orthodox_problems": [
           "goals_misgeneralize",
@@ -10811,15 +10817,15 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Target case is 'mixed' - leaving target_case_id as null and target_case_text as 'mixed' per instructions",
-        "Broad approach says 'cognitive' - mapped to 'cognitivist_science' / 'cognitivist science'"
+        "Target case field says 'mixed' - leaving target_case_id as null, setting target_case_text to 'mixed'",
+        "Broad approach field says 'cognitive' - mapped to 'cognitivist_science'"
       ]
     },
     {
-      "id": "a:human_inductive_biases",
+      "id": "a:Human_inductive_biases",
       "name": "Human inductive biases",
       "header_level": 3,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -10836,7 +10842,7 @@
         "target_case_id": "pessimistic_case",
         "target_case_text": "pessimistic",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitivist science",
+        "broad_approach_text": "cognitive",
         "some_names": [
           "Lukas Muttenthaler",
           "Quentin Delfosse"
@@ -10969,24 +10975,26 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "See also references 'active learning' and 'ACS research' do not match any known agenda IDs"
+        "Broad approach field uses 'General approach' label instead of standard 'Broad approach'",
+        "Broad approach text says 'cognitive' - mapped to 'cognitivist_science'",
+        "See also items 'active learning' and 'ACS research' don't match any known agenda IDs"
       ]
     },
     {
-      "id": "sec:concept_based_interpretability",
+      "id": "sec:Concept_based_interpretability",
       "name": "Concept-based interpretability",
       "header_level": 2,
-      "parent_id": "sec:white_box_safety_i_e_interpretability_",
+      "parent_id": "sec:White_box_safety_i_e_Interpretability_",
       "content": "",
       "item_type": "section",
       "agenda_attributes": null,
       "parsing_issues": []
     },
     {
-      "id": "a:monitoring_concepts",
+      "id": "a:Monitoring_concepts",
       "name": "Monitoring concepts",
       "header_level": 3,
-      "parent_id": "sec:concept_based_interpretability",
+      "parent_id": "sec:Concept_based_interpretability",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -10995,9 +11003,9 @@
         "theory_of_change": "By mapping internal activations to human-interpretable concepts, we can detect dangerous capabilities or deceptive alignment directly in the mind of the model even if its overt behavior is perfectly safe. Deploy computationally cheap monitors to flag some hidden misalignment in deployed systems.",
         "see_also": [
           "[Pragmatic interp](https://www.alignmentforum.org/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-interpretability)",
-          "a:reverse_engineering",
-          "a:sparse_coding",
-          "a:model_diffing"
+          "a:Reverse_engineering",
+          "a:Sparse_Coding",
+          "a:Model_diffing"
         ],
         "orthodox_problems": [
           "value_fragile",
@@ -11240,10 +11248,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:activation_engineering",
+      "id": "a:Activation_engineering",
       "name": "Activation engineering",
       "header_level": 3,
-      "parent_id": "sec:concept_based_interpretability",
+      "parent_id": "sec:Concept_based_interpretability",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -11251,7 +11259,7 @@
         "one_sentence_summary": "Programmatically modify internal model activations to steer outputs toward desired behaviors; a lightweight, interpretable supplement to fine-tuning.",
         "theory_of_change": "Test interpretability theories by intervening on activations; find new insights from interpretable causal interventions on representations. Or: build more stuff to stack on top of finetuning. Slightly encourage the model to be nice, add one more layer of defence to our bundle of partial alignment methods.",
         "see_also": [
-          "a:sparse_coding"
+          "a:Sparse_Coding"
         ],
         "orthodox_problems": [
           "value_fragile"
@@ -11259,7 +11267,7 @@
         "target_case_id": "average_case",
         "target_case_text": "average",
         "broad_approach_id": null,
-        "broad_approach_text": "engineering / cognitivist science",
+        "broad_approach_text": "engineering / cognitive",
         "some_names": [
           "Runjin Chen",
           "Andy Arditi",
@@ -11552,11 +11560,11 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach field contains multiple approaches ('engineering / cognitive'). Set broad_approach_id to null and broad_approach_text to 'engineering / cognitivist science'."
+        "Broad approach field contains 'engineering / cognitive' which maps to multiple approaches. Set broad_approach_id to null and kept text as is."
       ]
     },
     {
-      "id": "sec:safety_by_construction",
+      "id": "sec:Safety_by_construction",
       "name": "Safety by construction",
       "header_level": 1,
       "parent_id": null,
@@ -11566,10 +11574,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:guaranteed_safe_ai",
+      "id": "a:Guaranteed_Safe_AI",
       "name": "Guaranteed-Safe AI",
       "header_level": 3,
-      "parent_id": "sec:safety_by_construction",
+      "parent_id": "sec:Safety_by_construction",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -11579,9 +11587,9 @@
         "see_also": [
           "[Towards Guaranteed Safe AI](https://arxiv.org/abs/2405.06624)",
           "[Standalone World-Models](https://www.alignmentforum.org/posts/LngR93YwiEpJ3kiWh/research-agenda-synthesizing-standalone-world-models)",
-          "a:scientist_ai",
+          "a:Scientist_AI",
           "Safeguarded AI",
-          "a:asymptotic_guarantees",
+          "a:Asymptotic_guarantees",
           "Open Agency Architecture",
           "SLES",
           "program synthesis",
@@ -11716,14 +11724,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach field contains multiple approaches ('cognitive / engineering'), leaving broad_approach_id as null and preserving text"
+        "Broad approach field contains multiple approaches 'cognitive / engineering' - leaving broad_approach_id as null"
       ]
     },
     {
-      "id": "a:scientist_ai",
+      "id": "a:Scientist_AI",
       "name": "Scientist AI",
       "header_level": 3,
-      "parent_id": "sec:safety_by_construction",
+      "parent_id": "sec:Safety_by_construction",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -11802,10 +11810,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:brainlike_agi_safety",
+      "id": "a:Brainlike_AGI_Safety",
       "name": "Brainlike-AGI Safety",
       "header_level": 3,
-      "parent_id": "sec:safety_by_construction",
+      "parent_id": "sec:Safety_by_construction",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -11854,9 +11862,9 @@
             "kind": "lesswrong"
           },
           {
-            "link_url": "https://lesswrong.com/posts/cus5CGmLrjBRgcPSF/system-2-alignment-deliberation-review-and-thought",
+            "link_url": "https://www.lesswrong.com/posts/cus5CGmLrjBRgcPSF/system-2-alignment-deliberation-review-and-thought",
             "link_text": "System 2 Alignment: Deliberation, Review, and Thought Management",
-            "original_md": "[System 2 Alignment: Deliberation, Review, and Thought Management](https://lesswrong.com/posts/cus5CGmLrjBRgcPSF/system-2-alignment-deliberation-review-and-thought)",
+            "original_md": "[System 2 Alignment: Deliberation, Review, and Thought Management](https://www.lesswrong.com/posts/cus5CGmLrjBRgcPSF/system-2-alignment-deliberation-review-and-thought)",
             "title": "System 2 Alignment: Deliberation, Review, and Thought Management",
             "authors": [
               "Seth Herd"
@@ -11915,7 +11923,7 @@
       "parsing_issues": []
     },
     {
-      "id": "sec:make_ai_solve_it",
+      "id": "sec:Make_AI_solve_it",
       "name": "Make AI solve it",
       "header_level": 1,
       "parent_id": null,
@@ -11925,10 +11933,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:weak_to_strong_generalization",
+      "id": "a:Weak_to_strong_generalization",
       "name": "Weak-to-strong generalization",
       "header_level": 3,
-      "parent_id": "sec:make_ai_solve_it",
+      "parent_id": "sec:Make_AI_solve_it",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -11936,8 +11944,8 @@
         "one_sentence_summary": "Use weaker models to supervise and provide a feedback signal to stronger models.",
         "theory_of_change": "Find techniques that do better than RLHF at supervising superior models \u2192 track whether these techniques fail as capabilities increase further \u2192 keep the stronger systems aligned by amplifying weak oversight and quantifying where it breaks.",
         "see_also": [
-          "sec:white_box_safety_i_e_interpretability_",
-          "a:supervising_ais_improving_ais"
+          "sec:White_box_safety_i_e_Interpretability_",
+          "a:Supervising_AIs_improving_AIs"
         ],
         "orthodox_problems": [
           "superintelligence_hack_software"
@@ -12036,10 +12044,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:supervising_ais_improving_ais",
+      "id": "a:Supervising_AIs_improving_AIs",
       "name": "Supervising AIs improving AIs",
       "header_level": 3,
-      "parent_id": "sec:make_ai_solve_it",
+      "parent_id": "sec:Make_AI_solve_it",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -12054,7 +12062,7 @@
         "target_case_id": "pessimistic_case",
         "target_case_text": "pessimistic",
         "broad_approach_id": "behaviorist_science",
-        "broad_approach_text": "behaviorist science",
+        "broad_approach_text": "behavioral",
         "some_names": [
           "Roman Engeler",
           "Akbir Khan",
@@ -12211,15 +12219,13 @@
         ],
         "other_attributes": {}
       },
-      "parsing_issues": [
-        "Broad approach field says 'behavioural' - mapped to 'behaviorist science'"
-      ]
+      "parsing_issues": []
     },
     {
-      "id": "a:ai_explanations_of_ais",
+      "id": "a:AI_explanations_of_AIs",
       "name": "AI explanations of AIs",
       "header_level": 3,
-      "parent_id": "sec:make_ai_solve_it",
+      "parent_id": "sec:Make_AI_solve_it",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -12227,7 +12233,7 @@
         "one_sentence_summary": "Make open AI tools to explain AIs, including AI agents. e.g. automatic feature descriptions for neuron activation patterns; an interface for steering these features; a behaviour elicitation agent that \"searches\" for a specified behaviour in frontier models.",
         "theory_of_change": "Use AI to help improve interp and evals. Develop and release open tools to level up the whole field. Get invited to improve lab processes.",
         "see_also": [
-          "sec:white_box_safety_i_e_interpretability_"
+          "sec:White_box_safety_i_e_Interpretability_"
         ],
         "orthodox_problems": [
           "superintelligence_fool_supervisors",
@@ -12337,10 +12343,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:debate",
+      "id": "a:Debate",
       "name": "Debate",
       "header_level": 3,
-      "parent_id": "sec:make_ai_solve_it",
+      "parent_id": "sec:Make_AI_solve_it",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -12482,14 +12488,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach field contains 'engineering / cognitive' - indicates mixed approaches, set broad_approach_id to null"
+        "Broad approach field contains multiple approaches 'engineering / cognitive' - broad_approach_id set to null"
       ]
     },
     {
-      "id": "a:llm_introspection_training",
+      "id": "a:LLM_introspection_training",
       "name": "LLM introspection training",
       "header_level": 3,
-      "parent_id": "sec:make_ai_solve_it",
+      "parent_id": "sec:Make_AI_solve_it",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -12498,7 +12504,7 @@
         "theory_of_change": "Use the resulting LLMs as powerful dimensionality reduction, explaining internals in a distinct way than interpretability methods and CoT. Distilling self-explanation into the model should lead to the skill being scalable, since self-explanation skill advancement will feed off general-intelligence advancement.",
         "see_also": [
           "[Transluce](#a:transluce)",
-          "a:anthropic"
+          "a:Anthropic"
         ],
         "orthodox_problems": [
           "goals_misgeneralize",
@@ -12562,11 +12568,12 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Target case field says 'mixed' - target_case_id left as null, target_case_text set to 'mixed'"
+        "Target case field says 'mixed' - left target_case_id as null and target_case_text as 'mixed'",
+        "Broad approach field says 'cognitive' - mapped to 'cognitivist science'"
       ]
     },
     {
-      "id": "sec:theory",
+      "id": "sec:Theory",
       "name": "Theory",
       "header_level": 1,
       "parent_id": null,
@@ -12576,10 +12583,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:agent_foundations",
+      "id": "a:Agent_foundations",
       "name": "Agent foundations",
       "header_level": 3,
-      "parent_id": "sec:theory",
+      "parent_id": "sec:Theory",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -12587,8 +12594,8 @@
         "one_sentence_summary": "Develop philosophical clarity and mathematical formalizations of building blocks that might be useful for plans to align strong superintelligence, such as agency, optimization strength, decision theory, abstractions, concepts, etc.",
         "theory_of_change": "Rigorously understand optimization processed and agents, and what it means for them to be aligned in a substrate independent way \u2192 identify impossibility results and necessary conditions for aligned optimizer systems \u2192 use this theoretical understanding to eventually design safe architectures that remain stable and safe under self-reflection",
         "see_also": [
-          "a:aligning_what_",
-          "a:tiling_agents",
+          "a:Aligning_what_",
+          "a:Tiling_agents",
           "[Dovetail](#a:theory_dovetail)"
         ],
         "orthodox_problems": [
@@ -12599,13 +12606,12 @@
         "target_case_id": "worst_case",
         "target_case_text": "worst-case",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitivist science",
+        "broad_approach_text": "cognitive",
         "some_names": [
           "Abram Demski",
           "Alex Altair",
           "Sam Eisenstat",
           "Thane Ruthenis",
-          "Alex Altair",
           "Alfred Harwood",
           "Daniel C",
           "Dalcy K",
@@ -12770,13 +12776,15 @@
         ],
         "other_attributes": {}
       },
-      "parsing_issues": []
+      "parsing_issues": [
+        "See also references 'Dovetail' with link #a:theory_dovetail which is not in the available agendas list"
+      ]
     },
     {
-      "id": "a:tiling_agents",
+      "id": "a:Tiling_agents",
       "name": "Tiling agents",
       "header_level": 3,
-      "parent_id": "sec:theory",
+      "parent_id": "sec:Theory",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -12784,7 +12792,7 @@
         "one_sentence_summary": "An aligned agentic system modifying itself into an unaligned system would be bad and we can research ways that this could occur and infrastructure/approaches that prevent it from happening.",
         "theory_of_change": "Build enough theoretical basis through various approaches such that AI systems we create are capable of self-modification while preserving goals.",
         "see_also": [
-          "a:agent_foundations"
+          "a:Agent_foundations"
         ],
         "orthodox_problems": [
           "value_fragile",
@@ -12864,10 +12872,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:high_actuation_spaces",
+      "id": "a:High_Actuation_Spaces",
       "name": "High-Actuation Spaces",
       "header_level": 3,
-      "parent_id": "sec:theory",
+      "parent_id": "sec:Theory",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -12878,7 +12886,7 @@
           "[Live theory](https://www.lesswrong.com/s/aMz2JMvgXrLBkq4h3)",
           "[MoSSAIC](https://openreview.net/forum?id=n7WYSJ35FU)",
           "[Topos Institute](https://topos.institute/)",
-          "a:agent_foundations"
+          "a:Agent_foundations"
         ],
         "orthodox_problems": [],
         "target_case_id": "pessimistic_case",
@@ -13001,14 +13009,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach 'maths / philosophy' does not match standard categories (engineering, behaviorist_science, cognitivist_science)"
+        "Broad approach is 'maths / philosophy' which doesn't match standard categories (engineering, behaviorist_science, cognitivist_science). Kept as text, set ID to null."
       ]
     },
     {
-      "id": "a:asymptotic_guarantees",
+      "id": "a:Asymptotic_guarantees",
       "name": "Asymptotic guarantees",
       "header_level": 3,
-      "parent_id": "sec:theory",
+      "parent_id": "sec:Theory",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -13016,9 +13024,9 @@
         "one_sentence_summary": "Prove that if a safety process has enough resources (human data quality, training time, neural network capacity), then in the limit some system specification will be guaranteed. Use complexity theory, game theory, learning theory and other areas to both improve asymptotic guarantees and develop ways of showing convergence.",
         "theory_of_change": "Formal verification may be too hard. Make safety cases stronger by modelling their processes and proving that they would work in the limit.",
         "see_also": [
-          "a:debate",
-          "a:guaranteed_safe_ai",
-          "a:control"
+          "a:Debate",
+          "a:Guaranteed_Safe_AI",
+          "a:Control"
         ],
         "orthodox_problems": [
           "goals_misgeneralize",
@@ -13115,10 +13123,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:heuristic_explanations",
+      "id": "a:Heuristic_explanations",
       "name": "Heuristic explanations",
       "header_level": 3,
-      "parent_id": "sec:theory",
+      "parent_id": "sec:Theory",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -13126,11 +13134,11 @@
         "one_sentence_summary": "Formalize mechanistic explanations of neural network behavior, automate the discovery of these \"heuristic explanations\" and use them to predict when novel input will lead to extreme behavior (i.e. \"Low Probability Estimation\" and \"Mechanistic Anomaly Detection\").",
         "theory_of_change": "The current goalpost is methods whose *reasoned predictions* about properties of a neural network's outputs distribution (for a given inputs distribution) are certifiably at least as accurate as estimations via sampling. If successful for safety-relevant properties, this should allow for automated alignment methods that are both human-legible and worst-case certified, as well more efficient than sampling-based methods in most cases.",
         "see_also": [
-          "a:extracting_latent_knowledge",
-          "[Acorn](https://acausal.org/)",
-          "a:guaranteed_safe_ai",
           "ARC Theory",
-          "mechanistic anomaly detection"
+          "ELK",
+          "mechanistic anomaly detection",
+          "[Acorn](https://acausal.org/)",
+          "a:Guaranteed_Safe_AI"
         ],
         "orthodox_problems": [
           "goals_misgeneralize",
@@ -13138,7 +13146,7 @@
         ],
         "target_case_id": "worst_case",
         "target_case_text": "worst-case",
-        "broad_approach_id": "cognitivist_science",
+        "broad_approach_id": null,
         "broad_approach_text": "cognitive / maths/philosophy",
         "some_names": [
           "Jacob Hilton",
@@ -13232,24 +13240,24 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "See also mentions 'ARC Theory' and 'mechanistic anomaly detection' which don't match any known agenda IDs - kept as plain text"
+        "Broad approach field says 'cognitive / maths/philosophy' - does not match standard approach categories, left broad_approach_id as null"
       ]
     },
     {
-      "id": "sec:corrigibility",
+      "id": "sec:Corrigibility",
       "name": "Corrigibility",
       "header_level": 2,
-      "parent_id": "sec:theory",
+      "parent_id": "sec:Theory",
       "content": "",
       "item_type": "section",
       "agenda_attributes": null,
       "parsing_issues": []
     },
     {
-      "id": "a:behavior_alignment_theory",
+      "id": "a:Behavior_alignment_theory",
       "name": "Behavior alignment theory",
       "header_level": 3,
-      "parent_id": "sec:corrigibility",
+      "parent_id": "sec:Corrigibility",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -13257,8 +13265,8 @@
         "one_sentence_summary": "Predict properties of future AGI (e.g. power-seeking) with formal models; formally state and prove hypotheses about the properties powerful systems will have and how we might try to change them.",
         "theory_of_change": "Figure out hypotheses about properties powerful agents will have \u2192 attempt to rigorously prove under what conditions the hypotheses hold \u2192 test these hypotheses where feasible \u2192 design training environments that lead to more salutary properties.",
         "see_also": [
-          "a:agent_foundations",
-          "a:control"
+          "a:Agent_foundations",
+          "a:Control"
         ],
         "orthodox_problems": [
           "corrigibility_anti_natural",
@@ -13444,14 +13452,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach field says 'maths / philosophy' which doesn't match standard approaches (engineering, behaviorist_science, cognitivist_science). Left broad_approach_id as null."
+        "Broad approach field says 'maths / philosophy' which doesn't match standard approaches (engineering, behaviorist science, cognitivist science)"
       ]
     },
     {
-      "id": "a:other_corrigibility",
+      "id": "a:Other_corrigibility",
       "name": "Other corrigibility",
       "header_level": 3,
-      "parent_id": "sec:corrigibility",
+      "parent_id": "sec:Corrigibility",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -13459,7 +13467,7 @@
         "one_sentence_summary": "Diagnose and communicate obstacles to achieving robustly corrigible behavior; suggest mechanisms, tests, and escalation channels for surfacing and mitigating incorrigible behaviors",
         "theory_of_change": "Labs are likely to develop AGI using something analogous to current pipelines. Clarifying why naive instruction-following doesn't buy robust corrigibility + building strong tripwires/diagnostics for scheming and Goodharting thus reduces risks on the likely default path.",
         "see_also": [
-          "a:behavior_alignment_theory"
+          "a:Behavior_alignment_theory"
         ],
         "orthodox_problems": [
           "corrigibility_anti_natural",
@@ -13611,32 +13619,32 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach field says 'varies' - cannot map to a specific approach ID"
+        "Broad approach field says 'varies' - leaving broad_approach_id as null and setting broad_approach_text to 'varies'"
       ]
     },
     {
-      "id": "sec:ontology_identification",
+      "id": "sec:Ontology_Identification",
       "name": "Ontology Identification",
       "header_level": 2,
-      "parent_id": "sec:theory",
+      "parent_id": "sec:Theory",
       "content": "",
       "item_type": "section",
       "agenda_attributes": null,
       "parsing_issues": []
     },
     {
-      "id": "a:natural_abstractions",
+      "id": "a:Natural_abstractions",
       "name": "Natural abstractions",
       "header_level": 3,
-      "parent_id": "sec:ontology_identification",
+      "parent_id": "sec:Ontology_Identification",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
         "who_edits": null,
-        "one_sentence_summary": "*Develop a theory of concepts that explains how they are learned, how they structure a particular system's understanding, and how mutual translatability can be achieved between different collections of concepts.*",
+        "one_sentence_summary": "Develop a theory of concepts that explains how they are learned, how they structure a particular system's understanding, and how mutual translatability can be achieved between different collections of concepts.",
         "theory_of_change": "Understand the concepts a system's understanding is structured with and use them to inspect its \"alignment/safety properties\" and/or \"retarget its search\", i.e. identify utility-function-like components inside an AI and replacing calls to them with calls to \"user values\" (represented using existing abstractions inside the AI).",
         "see_also": [
-          "a:causal_abstractions",
+          "a:Causal_Abstractions",
           "representational alignment",
           "convergent abstractions",
           "feature universality",
@@ -13856,10 +13864,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:the_learning_theoretic_agenda",
+      "id": "a:The_Learning_Theoretic_Agenda",
       "name": "The Learning-Theoretic Agenda",
       "header_level": 3,
-      "parent_id": "sec:ontology_identification",
+      "parent_id": "sec:Ontology_Identification",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -13979,7 +13987,7 @@
       "parsing_issues": []
     },
     {
-      "id": "sec:multi_agent_first",
+      "id": "sec:Multi_agent_first",
       "name": "Multi-agent first",
       "header_level": 1,
       "parent_id": null,
@@ -13989,10 +13997,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:aligning_to_context",
+      "id": "a:Aligning_to_context",
       "name": "Aligning to context",
       "header_level": 3,
-      "parent_id": "sec:multi_agent_first",
+      "parent_id": "sec:Multi_agent_first",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -14000,8 +14008,8 @@
         "one_sentence_summary": "Align AI directly to the role of participant, collaborator, or advisor for our best real human practices and institutions, instead of aligning AI to separately representable goals, rules, or utility functions.",
         "theory_of_change": "\"Many classical problems in AGI alignment are downstream of a type error about human values.\" Operationalizing a correct view of human values - one that treats human values as impossible or impractical to abstract from concrete practices - will unblock value fragility, goal-misgeneralization, instrumental convergence, and pivotal-act specification.",
         "see_also": [
-          "a:aligning_what_",
-          "a:aligned_to_who_"
+          "a:Aligning_what_",
+          "a:Aligned_to_who_"
         ],
         "orthodox_problems": [
           "value_fragile",
@@ -14013,7 +14021,7 @@
         "target_case_id": null,
         "target_case_text": "mixed",
         "broad_approach_id": "behaviorist_science",
-        "broad_approach_text": "behaviorist science",
+        "broad_approach_text": "behavioural",
         "some_names": [
           "Full Stack Alignment",
           "Meaning Alignment Institute",
@@ -14177,14 +14185,15 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Target case field says 'mixed' - leaving target_case_id as null and setting target_case_text to 'mixed' as instructed"
+        "Target case field says 'mixed' - leaving target_case_id as null and setting target_case_text to 'mixed'",
+        "Broad approach uses non-standard label 'General approach' instead of 'Broad approach'"
       ]
     },
     {
-      "id": "a:aligning_to_the_social_contract",
+      "id": "a:Aligning_to_the_social_contract",
       "name": "Aligning to the social contract",
       "header_level": 3,
-      "parent_id": "sec:multi_agent_first",
+      "parent_id": "sec:Multi_agent_first",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -14192,8 +14201,8 @@
         "one_sentence_summary": "Generate AIs' operational values from 'social contract'-style ideal civic deliberation formalisms and their consequent rulesets for civic actors",
         "theory_of_change": "Formalize and apply the liberal tradition's project of defining civic principles separable from the substantive good, aligning our AIs to civic principles that bypass fragile utility-learning and intractable utility-calculation",
         "see_also": [
-          "a:aligning_to_context",
-          "a:aligning_what_"
+          "a:Aligning_to_context",
+          "a:Aligning_what_"
         ],
         "orthodox_problems": [
           "value_fragile",
@@ -14205,7 +14214,7 @@
         "target_case_id": null,
         "target_case_text": "mixed",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitivist science",
+        "broad_approach_text": "cognitive",
         "some_names": [
           "Gillian Hadfield",
           "Tan Zhi-Xuan",
@@ -14397,15 +14406,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Target case is 'mixed' - set target_case_id to null and target_case_text to 'mixed' as instructed",
-        "Broad approach listed as 'cognitive' - mapped to 'cognitivist_science' and expanded text to 'cognitivist science'"
+        "Target case field says 'mixed' - leaving target_case_id as null and setting target_case_text to 'mixed' as instructed"
       ]
     },
     {
-      "id": "a:theory_for_aligning_multiple_ais",
+      "id": "a:Theory_for_aligning_multiple_AIs",
       "name": "Theory for aligning multiple AIs",
       "header_level": 3,
-      "parent_id": "sec:multi_agent_first",
+      "parent_id": "sec:Multi_agent_first",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -14413,8 +14421,8 @@
         "one_sentence_summary": "Use realistic game-theory variants (e.g. evolutionary game theory, computational game theory) or develop alternative game theories to describe/predict the collective and individual behaviours of AI agents in multi-agent scenarios.",
         "theory_of_change": "While traditional AGI safety focuses on idealized decision-theory and individual agents, it's plausible that strategic AI agents will first emerge (or are emerging now) in a complex, multi-AI strategic landscape. We need granular, realistic formal models of AIs' strategic interactions and collective dynamics to understand this future.",
         "see_also": [
-          "a:tools_for_aligning_multiple_ais",
-          "a:aligning_what_"
+          "a:Tools_for_aligning_multiple_AIs",
+          "a:Aligning_what_"
         ],
         "orthodox_problems": [
           "goals_misgeneralize",
@@ -14424,7 +14432,7 @@
         "target_case_id": null,
         "target_case_text": "mixed",
         "broad_approach_id": "cognitivist_science",
-        "broad_approach_text": "cognitivist science",
+        "broad_approach_text": "cognitive",
         "some_names": [
           "Lewis Hammond",
           "Emery Cooper",
@@ -14687,14 +14695,15 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Target case field says 'mixed' - no single target case ID can be assigned, left target_case_id as null"
+        "Target case field says 'mixed' - no standard ID match, stored as text only",
+        "Broad approach field says 'cognitive' - mapped to 'cognitivist_science' (standard text: 'cognitivist science')"
       ]
     },
     {
-      "id": "a:tools_for_aligning_multiple_ais",
+      "id": "a:Tools_for_aligning_multiple_AIs",
       "name": "Tools for aligning multiple AIs",
       "header_level": 3,
-      "parent_id": "sec:multi_agent_first",
+      "parent_id": "sec:Multi_agent_first",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -14702,8 +14711,8 @@
         "one_sentence_summary": "Develop tools and techniques for designing and testing multi-agent AI scenarios, for auditing real-world multi-agent AI dynamics, and for aligning AIs in multi-AI settings.",
         "theory_of_change": "Addressing multi-agent AI dynamics is key for aligning near-future agents and their impact on the world. Feedback loops from multi-agent dynamics can radically change the future AI landscape, and require a different toolset from model psychology to audit and control.",
         "see_also": [
-          "a:theory_for_aligning_multiple_ais",
-          "a:aligning_what_"
+          "a:Theory_for_aligning_multiple_AIs",
+          "a:Aligning_what_"
         ],
         "orthodox_problems": [
           "goals_misgeneralize",
@@ -14952,15 +14961,15 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Target case is 'mixed' - target_case_id left null, target_case_text set to 'mixed'",
-        "Broad approach is 'engineering / behavioural' (multiple approaches) - broad_approach_id left null, broad_approach_text set to 'engineering / behavioral'"
+        "Target case is 'mixed' - leaving target_case_id as null",
+        "Broad approach is 'engineering / behavioural' (mixed) - leaving broad_approach_id as null"
       ]
     },
     {
-      "id": "a:aligned_to_who_",
+      "id": "a:Aligned_to_who_",
       "name": "Aligned to who?",
       "header_level": 3,
-      "parent_id": "sec:multi_agent_first",
+      "parent_id": "sec:Multi_agent_first",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -14968,8 +14977,8 @@
         "one_sentence_summary": "Technical protocols for taking seriously the plurality of human values, cultures, and communities when aligning AI to \"humanity\"",
         "theory_of_change": "use democratic/pluralist/context-sensitive principles to guide AI development, alignment, and deployment somehow. Doing it as an afterthought in post-training or the spec isn't good enough. Continuously shape AI's social and technical feedback loop on the road to AGI",
         "see_also": [
-          "a:aligning_what_",
-          "a:aligning_to_context"
+          "a:Aligning_what_",
+          "a:Aligning_to_context"
         ],
         "orthodox_problems": [
           "value_fragile",
@@ -14978,7 +14987,7 @@
         "target_case_id": "average_case",
         "target_case_text": "average",
         "broad_approach_id": "behaviorist_science",
-        "broad_approach_text": "behaviorist science",
+        "broad_approach_text": "behavioral",
         "some_names": [
           "Joel Z. Leibo",
           "Divya Siddarth",
@@ -15233,10 +15242,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:aligning_what_",
+      "id": "a:Aligning_what_",
       "name": "Aligning what?",
       "header_level": 3,
-      "parent_id": "sec:multi_agent_first",
+      "parent_id": "sec:Multi_agent_first",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -15244,9 +15253,9 @@
         "one_sentence_summary": "Develop alternatives to agent-level models of alignment, by treating human-AI interactions, AI-assisted institutions, AI economic or cultural systems, drives within one AI, and other causal/constitutive processes as subject to alignment",
         "theory_of_change": "Model multiple reality-shaping processes above and below the level of the individual AI, some of which are themselves quasi-agential (e.g. cultures) or intelligence-like (e.g. markets), will develop AI alignment into a mature science for managing the transition to an AGI civilization",
         "see_also": [
-          "a:theory_for_aligning_multiple_ais",
-          "a:aligning_to_context",
-          "a:aligned_to_who_"
+          "a:Theory_for_aligning_multiple_AIs",
+          "a:Aligning_to_context",
+          "a:Aligned_to_who_"
         ],
         "orthodox_problems": [
           "value_fragile",
@@ -15497,12 +15506,12 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach is 'behavioural / cognitive' which represents multiple approaches - set broad_approach_id to null and normalized text to 'behavioral / cognitive'",
-        "Target case is 'mixed' - set target_case_id to null and kept text as 'mixed'"
+        "Broad approach field contains 'behavioural / cognitive' which indicates multiple approaches - set broad_approach_id to null and normalized text to 'behavioral / cognitive'",
+        "Target case field is 'mixed' - set target_case_id to null"
       ]
     },
     {
-      "id": "sec:evals",
+      "id": "sec:Evals",
       "name": "Evals",
       "header_level": 1,
       "parent_id": null,
@@ -15512,10 +15521,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:agi_metrics",
+      "id": "a:AGI_metrics",
       "name": "AGI metrics",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -15523,13 +15532,13 @@
         "one_sentence_summary": "Evals with the explicit aim of measuring progress towards full human-level generality.",
         "theory_of_change": "Help predict timelines for risk awareness and strategy.",
         "see_also": [
-          "a:capability_evals"
+          "a:Capability_evals"
         ],
         "orthodox_problems": [],
         "target_case_id": null,
         "target_case_text": "mixed",
         "broad_approach_id": "behaviorist_science",
-        "broad_approach_text": "behavioral",
+        "broad_approach_text": "behavioural",
         "some_names": [
           "CAIS",
           "CFI Kinds of Intelligence",
@@ -15723,14 +15732,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Target case field says 'mixed' - no single target_case_id could be assigned, left as null"
+        "Target case field is 'mixed' - cannot map to a single target case ID, kept as text only"
       ]
     },
     {
-      "id": "a:capability_evals",
+      "id": "a:Capability_evals",
       "name": "Capability evals",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -16504,10 +16513,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:autonomy_evals",
+      "id": "a:Autonomy_evals",
       "name": "Autonomy evals",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -16515,7 +16524,7 @@
         "one_sentence_summary": "Measure an AI's ability to act autonomously to complete long-horizon, complex tasks.",
         "theory_of_change": "By measuring how long and complex a task an AI can complete (its \"time horizon\"), we can track capability growth and identify when models gain dangerous autonomous capabilities (like R&D acceleration or replication).",
         "see_also": [
-          "a:capability_evals",
+          "a:Capability_evals",
           "[OpenAI Preparedness](https://openai.com/index/updating-our-preparedness-framework/)",
           "[Anthropic RSP](https://www.anthropic.com/rsp-updates)"
         ],
@@ -16829,10 +16838,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:wmd_evals_weapons_of_mass_destruction_",
+      "id": "a:WMD_evals_Weapons_of_Mass_Destruction_",
       "name": "WMD evals (Weapons of Mass Destruction)",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -16840,9 +16849,9 @@
         "one_sentence_summary": "Evaluate whether AI models possess dangerous knowledge or capabilities related to biological and chemical weapons, such as biosecurity or chemical synthesis.",
         "theory_of_change": "By benchmarking and tracking AI's knowledge of biology and chemistry, we can identify when models become capable of accelerating WMD development or misuse, allowing for timely intervention.",
         "see_also": [
-          "a:capability_evals",
-          "a:autonomy_evals",
-          "a:various_redteams"
+          "a:Capability_evals",
+          "a:Autonomy_evals",
+          "a:Various_Redteams"
         ],
         "orthodox_problems": [],
         "target_case_id": "pessimistic_case",
@@ -17006,20 +17015,20 @@
       "parsing_issues": []
     },
     {
-      "id": "a:situational_awareness_and_self_awareness_evals",
+      "id": "a:Situational_awareness_and_self_awareness_evals",
       "name": "Situational awareness and self-awareness evals",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
         "who_edits": null,
         "one_sentence_summary": "Evaluate if models understand their own internal states and behaviors, their environment, and whether they are in a test or real-world deployment.",
-        "theory_of_change": "if an AI can distinguish between evaluation and deployment (\"evaluation awareness\"), it might hide dangerous capabilities (scheming/sandbagging). By measuring self- and situational-awareness, we can better assess this risk and build more robust evaluations.",
+        "theory_of_change": "If an AI can distinguish between evaluation and deployment (\"evaluation awareness\"), it might hide dangerous capabilities (scheming/sandbagging). By measuring self- and situational-awareness, we can better assess this risk and build more robust evaluations.",
         "see_also": [
-          "a:sandbagging_evals",
-          "a:various_redteams",
-          "sec:model_psychology"
+          "a:Sandbagging_evals",
+          "a:Various_Redteams",
+          "sec:Model_psychology"
         ],
         "orthodox_problems": [
           "superintelligence_fool_supervisors",
@@ -17254,19 +17263,19 @@
       "parsing_issues": []
     },
     {
-      "id": "a:steganography_evals",
+      "id": "a:Steganography_evals",
       "name": "Steganography evals",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
         "who_edits": null,
-        "one_sentence_summary": "Evaluate whether models can hide secret information or encoded reasoning in their outputs, such as in chain-of-thought scratchpads, to evade monitoring.",
-        "theory_of_change": "If models can use steganography, they could hide deceptive reasoning, bypassing safety monitoring and control measures. By evaluating this capability, we can assess the risk of a model fooling its supervisors.",
+        "one_sentence_summary": "evaluate whether models can hide secret information or encoded reasoning in their outputs, such as in chain-of-thought scratchpads, to evade monitoring.",
+        "theory_of_change": "if models can use steganography, they could hide deceptive reasoning, bypassing safety monitoring and control measures. By evaluating this capability, we can assess the risk of a model fooling its supervisors.",
         "see_also": [
-          "a:ai_deception_evals",
-          "a:chain_of_thought_monitoring"
+          "a:AI_deception_evals",
+          "a:Chain_of_thought_monitoring"
         ],
         "orthodox_problems": [
           "boxed_agi_exfiltrate",
@@ -17275,7 +17284,7 @@
         "target_case_id": "worst_case",
         "target_case_text": "worst-case",
         "broad_approach_id": "behaviorist_science",
-        "broad_approach_text": "behaviorist science",
+        "broad_approach_text": "behavioral",
         "some_names": [
           "Antonio Norelli",
           "Michael Bronstein"
@@ -17382,10 +17391,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:ai_deception_evals",
+      "id": "a:AI_deception_evals",
       "name": "AI deception evals",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -17393,10 +17402,10 @@
         "one_sentence_summary": "research demonstrating that AI models, particularly agentic ones, can learn and execute deceptive behaviors such as alignment faking, manipulation, and sandbagging.",
         "theory_of_change": "proactively discover, evaluate, and understand the mechanisms of AI deception (e.g., alignment faking, manipulation, agentic deception) to prevent models from fooling human supervisors and causing harm.",
         "see_also": [
-          "a:situational_awareness_and_self_awareness_evals",
-          "a:steganography_evals",
-          "a:sandbagging_evals",
-          "a:chain_of_thought_monitoring"
+          "a:Situational_awareness_and_self_awareness_evals",
+          "a:Steganography_evals",
+          "a:Sandbagging_evals",
+          "a:Chain_of_thought_monitoring"
         ],
         "orthodox_problems": [
           "superintelligence_fool_supervisors",
@@ -17405,7 +17414,7 @@
         "target_case_id": "worst_case",
         "target_case_text": "worst-case",
         "broad_approach_id": null,
-        "broad_approach_text": "behaviorist science / engineering",
+        "broad_approach_text": "behavioral / engineering",
         "some_names": [
           "Cadenza",
           "Fred Heiding",
@@ -17674,14 +17683,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach field contains multiple approaches ('behavioural / engineering') - set broad_approach_id to null and broad_approach_text to normalized form"
+        "Broad approach contains multiple approaches ('behavioural / engineering'), so broad_approach_id is left null"
       ]
     },
     {
-      "id": "a:ai_scheming_evals",
+      "id": "a:AI_scheming_evals",
       "name": "AI scheming evals",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -17689,8 +17698,8 @@
         "one_sentence_summary": "Evaluate frontier models for scheming, a sophisticated, strategic form of AI deception where a model covertly pursues a misaligned, long-term objective while deliberately faking alignment and compliance to evade detection by human supervisors and safety mechanisms.",
         "theory_of_change": "Robust evaluations must move beyond checking final outputs and probe the model's reasoning to verify that alignment is genuine, not faked, because capable models are capable of strategically concealing misaligned goals (scheming) to pass standard behavioural evaluations.",
         "see_also": [
-          "a:ai_deception_evals",
-          "a:situational_awareness_and_self_awareness_evals"
+          "a:AI_deception_evals",
+          "a:Situational_awareness_and_self_awareness_evals"
         ],
         "orthodox_problems": [
           "superintelligence_fool_supervisors"
@@ -17858,14 +17867,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach is 'behavioural / engineering' which appears to be mixed - set broad_approach_id to null"
+        "Broad approach is 'behavioural / engineering' (mixed approaches) - broad_approach_id left null, broad_approach_text set to plain text version"
       ]
     },
     {
-      "id": "a:sandbagging_evals",
+      "id": "a:Sandbagging_evals",
       "name": "Sandbagging evals",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -17873,9 +17882,9 @@
         "one_sentence_summary": "Evaluate whether AI models deliberately hide their true capabilities or underperform, especially when they detect they are in an evaluation context.",
         "theory_of_change": "If models can distinguish between evaluation and deployment contexts (\"evaluation awareness\"), they might learn to \"sandbag\" or deliberately underperform to hide dangerous capabilities, fooling safety evaluations. By developing evaluations for sandbagging, we can test whether our safety methods are being deceived and detect this behavior before a model is deployed.",
         "see_also": [
-          "a:ai_deception_evals",
-          "a:situational_awareness_and_self_awareness_evals",
-          "a:various_redteams"
+          "a:AI_deception_evals",
+          "a:Situational_awareness_and_self_awareness_evals",
+          "a:Various_Redteams"
         ],
         "orthodox_problems": [
           "superintelligence_fool_supervisors",
@@ -18082,10 +18091,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:self_replication_evals",
+      "id": "a:Self_replication_evals",
       "name": "Self-replication evals",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -18093,8 +18102,8 @@
         "one_sentence_summary": "evaluate whether AI agents can autonomously replicate themselves by obtaining their own weights, securing compute resources, and creating copies of themselves.",
         "theory_of_change": "if AI agents gain the ability to self-replicate, they could proliferate uncontrollably, making them impossible to shut down. By measuring this capability with benchmarks like RepliBench, we can identify when models cross this dangerous \"red line\" and implement controls before losing containment.",
         "see_also": [
-          "a:autonomy_evals",
-          "a:situational_awareness_and_self_awareness_evals"
+          "a:Autonomy_evals",
+          "a:Situational_awareness_and_self_awareness_evals"
         ],
         "orthodox_problems": [
           "instrumental_convergence",
@@ -18179,10 +18188,10 @@
       "parsing_issues": []
     },
     {
-      "id": "a:various_redteams",
+      "id": "a:Various_Redteams",
       "name": "Various Redteams",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -18190,7 +18199,7 @@
         "one_sentence_summary": "attack current models and see what they do / deliberately induce bad things on current frontier models to test out our theories / methods.",
         "theory_of_change": "to ensure models are safe, we must actively try to break them. By developing and applying a diverse suite of attacks (e.g., in novel domains, against agentic systems, or using automated tools), researchers can discover vulnerabilities, specification gaming, and deceptive behaviors before they are exploited, thereby informing the development of more robust defenses.",
         "see_also": [
-          "a:other_evals"
+          "a:Other_evals"
         ],
         "orthodox_problems": [
           "boxed_agi_exfiltrate",
@@ -18199,7 +18208,7 @@
         "target_case_id": "average_case",
         "target_case_text": "average",
         "broad_approach_id": "behaviorist_science",
-        "broad_approach_text": "behavioural",
+        "broad_approach_text": "behaviorist science",
         "some_names": [
           "Ryan Greenblatt",
           "Benjamin Wright",
@@ -19360,14 +19369,14 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "The see_also link references '#a:evals_other' but the matching agenda ID is 'a:other_evals'"
+        "Broad approach field says 'behavioural' - mapped to 'behaviorist_science'"
       ]
     },
     {
-      "id": "a:other_evals",
+      "id": "a:Other_evals",
       "name": "Other evals",
       "header_level": 3,
-      "parent_id": "sec:evals",
+      "parent_id": "sec:Evals",
       "content": null,
       "item_type": "agenda",
       "agenda_attributes": {
@@ -19375,7 +19384,7 @@
         "one_sentence_summary": "A collection of miscellaneous evaluations for specific alignment properties, such as honesty, shutdown resistance and sycophancy.",
         "theory_of_change": "By developing novel benchmarks for specific, hard-to-measure properties (like honesty), critiquing the reliability of existing methods (like cultural surveys), and improving the formal rigor of evaluation systems (like LLM-as-Judges), researchers can create a more robust and comprehensive suite of evaluations to catch failures missed by standard capability or safety testing.",
         "see_also": [
-          "sec:evals"
+          "other more specific sections on evals"
         ],
         "orthodox_problems": [],
         "target_case_id": "average_case",
@@ -19778,7 +19787,7 @@
         "other_attributes": {}
       },
       "parsing_issues": [
-        "Broad approach field says 'behavioural' - mapped to 'behaviorist science'"
+        "Broad approach field says 'behavioural' - mapped to 'behaviorist_science'"
       ]
     }
   ]

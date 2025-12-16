@@ -4,6 +4,7 @@
 Provides tools to extract links and parse structured content from draft markdown documents.
 """
 
+import csv
 import json
 import logging
 import re
@@ -45,8 +46,10 @@ logger = logging.getLogger(__name__)
 
 # Import shallow_review modules for database access
 try:
+    from shallow_review.common import ClassifyStatus, SCRAPED_PATH
     from shallow_review.data_db import data_db_locked
-    from shallow_review.utils import normalize_url
+    from shallow_review.scrape import get_scrape_path
+    from shallow_review.utils import normalize_url, url_hash
     _SHALLOW_REVIEW_AVAILABLE = True
 except ImportError:
     _SHALLOW_REVIEW_AVAILABLE = False
@@ -233,12 +236,14 @@ def clean_agenda_content(content: str) -> str:
 # ============================================================================
 
 
-def enrich_papers_from_db(doc: ProcessedDocument, verbose: bool = False) -> tuple[int, int]:
+def enrich_papers_from_db(doc: ProcessedDocument, verbose: bool = False, list_error_urls: int = 20, retry_errors: bool = False) -> tuple[int, int]:
     """Enrich Paper objects with data from classify database and add missing papers.
     
     Args:
         doc: ProcessedDocument with parsed papers
         verbose: If True, show detailed list of missing URLs
+        list_error_urls: Number of error URLs to list (0 to disable listing)
+        retry_errors: If True, reset error papers to 'new' status and remove their scrapes
         
     Returns:
         Tuple of (enriched_count, added_count) - papers enriched and papers added to DB
@@ -268,33 +273,43 @@ def enrich_papers_from_db(doc: ProcessedDocument, verbose: bool = False) -> tupl
     enriched_count = 0
     added_count = 0
     missing_urls: list[tuple[str, str]] = []  # (original_url, normalized_url)
+    error_urls: list[tuple[str, str, str]] = []  # (original_url, normalized_url, status)
     
     # Look up papers in database
     with data_db_locked() as db:
         for url in paper_urls:
             normalized = normalize_url(url)
             
-            # Try normalized URL first, then original
+            # Try normalized URL first, then original - get status and data
             row = db.execute(
-                "SELECT data FROM classify WHERE url = ? OR url = ?",
+                "SELECT status, data FROM classify WHERE url = ? OR url = ?",
                 (normalized, url)
             ).fetchone()
             
-            if row and row["data"]:
-                # Enrich all Paper objects with this URL
-                try:
-                    data = json.loads(row["data"])
-                    for paper in papers_by_url[url]:
-                        paper.title = data.get("title")
-                        paper.authors = data.get("authors", [])
-                        paper.author_organizations = data.get("author_organizations", [])
-                        paper.date = data.get("date")
-                        paper.published_year = data.get("published_year")
-                        paper.venue = data.get("venue")
-                        paper.kind = data.get("kind")
-                        enriched_count += 1
-                except (json.JSONDecodeError, KeyError) as e:
-                    logger.warning(f"Failed to parse classify data for {url}: {e}")
+            if row:
+                status = row["status"]
+                data_json = row["data"]
+                
+                # Check for error statuses or missing data
+                if status in ("scrape_error", "classify_error") or (status == "new" and not data_json):
+                    # Paper exists but has error or not yet processed
+                    error_urls.append((url, normalized, status))
+                elif data_json:
+                    # Enrich all Paper objects with this URL
+                    try:
+                        data = json.loads(data_json)
+                        for paper in papers_by_url[url]:
+                            paper.title = data.get("title")
+                            paper.authors = data.get("authors", [])
+                            paper.author_organizations = data.get("author_organizations", [])
+                            paper.date = data.get("date")
+                            paper.published_year = data.get("published_year")
+                            paper.venue = data.get("venue")
+                            paper.kind = data.get("kind")
+                            enriched_count += 1
+                    except (json.JSONDecodeError, KeyError) as e:
+                        logger.warning(f"Failed to parse classify data for {url}: {e}")
+                        error_urls.append((url, normalized, f"parse_error: {e}"))
             else:
                 # Paper not in database - add it
                 missing_urls.append((url, normalized))
@@ -335,6 +350,68 @@ def enrich_papers_from_db(doc: ProcessedDocument, verbose: bool = False) -> tupl
                 console.print(f"  [dim]- {display_url}[/dim]")
             if len(missing_urls) > 10:
                 console.print(f"  [dim]... and {len(missing_urls) - 10} more[/dim]")
+    
+    # Retry papers with errors if requested
+    retried_count = 0
+    scrapes_deleted = 0
+    files_deleted = 0
+    if retry_errors and error_urls:
+        console.print(f"\n[cyan]Retrying {len(error_urls)} papers with errors...[/cyan]")
+        
+        # Collect URLs to retry (use normalized URLs)
+        urls_to_retry = [normalized_url for _, normalized_url, _ in error_urls]
+        
+        # Update classify table: reset status to 'new' and clear data/error
+        with data_db_locked() as db:
+            url_placeholders = ",".join("?" * len(urls_to_retry))
+            update_query = f"""
+                UPDATE classify 
+                SET status = ?, data = NULL, error = NULL, processed_at = NULL
+                WHERE url IN ({url_placeholders})
+            """
+            cursor = db.execute(update_query, [ClassifyStatus.NEW.value] + urls_to_retry)
+            retried_count = cursor.rowcount
+            db.commit()
+        
+        console.print(f"[green]✓ Reset {retried_count} papers to 'new' status[/green]")
+        
+        # Delete scrapes from database
+        with data_db_locked() as db:
+            url_placeholders = ",".join("?" * len(urls_to_retry))
+            delete_query = f"DELETE FROM scrape WHERE url IN ({url_placeholders})"
+            cursor = db.execute(delete_query, urls_to_retry)
+            scrapes_deleted = cursor.rowcount
+            db.commit()
+        
+        if scrapes_deleted > 0:
+            console.print(f"[green]✓ Deleted {scrapes_deleted} scrape table rows[/green]")
+        
+        # Delete scrape files
+        for normalized_url in urls_to_retry:
+            scrape_path = get_scrape_path(normalized_url)
+            if scrape_path.exists():
+                scrape_path.unlink()
+                files_deleted += 1
+            
+            # Also check for stripped HTML file (if SAVE_STRIPPED_HTML was enabled)
+            hash_value = url_hash(normalized_url)
+            stripped_path = SCRAPED_PATH / f"{hash_value}-stripped.html"
+            if stripped_path.exists():
+                stripped_path.unlink()
+        
+        if files_deleted > 0:
+            console.print(f"[green]✓ Deleted {files_deleted} scrape files[/green]")
+    
+    # List papers with errors (if not retrying or if listing is enabled)
+    if error_urls and list_error_urls > 0 and not retry_errors:
+        console.print(f"\n[yellow]Found {len(error_urls)} papers with classification errors or pending status:[/yellow]")
+        for original_url, normalized_url, status in error_urls[:list_error_urls]:
+            display_url = normalized_url if original_url == normalized_url else f"{original_url} → {normalized_url}"
+            console.print(f"  [dim]- {display_url} [{status}][/dim]")
+        if len(error_urls) > list_error_urls:
+            console.print(f"  [dim]... and {len(error_urls) - list_error_urls} more[/dim]")
+    elif retry_errors and error_urls:
+        console.print(f"[green]✓ Ready to retry {len(error_urls)} papers (run classify to process them)[/green]")
     
     return (enriched_count, added_count)
 
@@ -528,6 +605,12 @@ def parse(
         None, "--limit", "-n", help="Limit LLM extraction to first N agendas (full document is always parsed)"
     ),
     workers: int = typer.Option(4, "--workers", "-w", help="Number of parallel workers for LLM extraction"),
+    list_error_urls: int = typer.Option(
+        20, "--list-error-urls", help="Number of error URLs to list (0 to disable, default: 20)"
+    ),
+    retry_errors: bool = typer.Option(
+        False, "--retry-errors", help="Reset papers with errors to 'new' status and remove their scrapes for re-classification"
+    ),
 ) -> None:
     """Parse a draft document into structured JSON and YAML.
 
@@ -639,7 +722,7 @@ def parse(
     # Step 3: Enrich papers from database
     # ========================================================================
     console.print("[cyan]Step 3: Enriching papers from database...[/cyan]")
-    enriched_count, added_count = enrich_papers_from_db(doc, verbose=verbose)
+    enriched_count, added_count = enrich_papers_from_db(doc, verbose=verbose, list_error_urls=list_error_urls, retry_errors=retry_errors)
     console.print(
         f"[green]Enriched {enriched_count} papers, added {added_count} new papers to classify table[/green]"
     )
@@ -1165,6 +1248,218 @@ def generate_doc(
     
     console.print(f"[green]Generated document written to {output_path}[/green]")
     console.print(f"[dim]Format: {format}, Size: {len(rendered)} chars[/dim]")
+
+
+# ============================================================================
+# export-csv subcommand
+# ============================================================================
+
+
+@app.command("export-csv")
+def export_csv(
+    input_file: str = typer.Argument(..., help="Path to parsed JSON file"),
+    output_dir: str | None = typer.Option(
+        None, "--output-dir", "-o", help="Output directory (default: same as input file)"
+    ),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable verbose logging"),
+) -> None:
+    """Export parsed JSON to CSV files: one for agendas, one for papers.
+    
+    Creates two CSV files:
+    - agendas.csv: One row per agenda with all attributes
+    - papers.csv: One row per paper/link with agenda context
+    """
+    setup_logging(verbose)
+    
+    input_path = Path(input_file)
+    if not input_path.exists():
+        console.print(f"[red]Error: File not found: {input_file}[/red]")
+        raise typer.Exit(1)
+    
+    # Determine output directory
+    if output_dir is None:
+        output_dir_path = input_path.parent
+    else:
+        output_dir_path = Path(output_dir)
+        output_dir_path.mkdir(parents=True, exist_ok=True)
+    
+    console.print(f"[cyan]Loading parsed data from {input_file}...[/cyan]")
+    
+    # Load parsed JSON
+    try:
+        data = json.loads(input_path.read_text())
+    except json.JSONDecodeError as e:
+        console.print(f"[red]Error: Invalid JSON in {input_file}: {e}[/red]")
+        raise typer.Exit(1)
+    
+    # Validate data structure
+    try:
+        doc = ProcessedDocument(**data)
+    except ValidationError as e:
+        console.print(f"[red]Error: Invalid document structure: {e}[/red]")
+        if verbose:
+            logger.exception("Validation error")
+        raise typer.Exit(1)
+    
+    console.print(f"[green]Loaded {len(doc.items)} items[/green]")
+    
+    # Build item lookup map
+    items_by_id: dict[str, DocumentItem] = {item.id: item for item in doc.items}
+    
+    # Build section hierarchy: for each item, find top-level section and sub-section
+    def get_section_hierarchy(item: DocumentItem) -> tuple[str | None, str | None]:
+        """Return (top_level_section_name, sub_section_name) for an item.
+        
+        Top-level section is header_level 1, sub-section is header_level 2.
+        Traverses up the parent chain to find both.
+        """
+        top_section = None
+        sub_section = None
+        
+        # Traverse up parent chain
+        current_id = item.parent_id
+        while current_id:
+            parent = items_by_id.get(current_id)
+            if not parent:
+                break
+            
+            if parent.item_type == ItemType.SECTION:
+                if parent.header_level == 1:
+                    top_section = parent.name
+                    break  # Found top-level, stop
+                elif parent.header_level == 2:
+                    sub_section = parent.name
+                    # Continue to find top-level section
+            
+            current_id = parent.parent_id
+        
+        return (top_section, sub_section)
+    
+    # Collect agendas
+    agendas = [item for item in doc.items if item.item_type == ItemType.AGENDA]
+    console.print(f"[dim]Found {len(agendas)} agendas[/dim]")
+    
+    # Prepare agendas CSV
+    agendas_rows = []
+    papers_rows = []
+    
+    for agenda in agendas:
+        if not agenda.agenda_attributes:
+            continue
+        
+        top_section, sub_section = get_section_hierarchy(agenda)
+        
+        # Convert orthodox_problems IDs to names
+        orthodox_problem_names = []
+        for problem_id in agenda.agenda_attributes.orthodox_problems:
+            if problem_id in ORTHODOX_PROBLEMS:
+                orthodox_problem_names.append(ORTHODOX_PROBLEMS[problem_id]["name"])
+            else:
+                orthodox_problem_names.append(problem_id)  # Fallback to ID if not found
+        
+        # Count outputs (papers and links, not OutputSectionHeaders)
+        from shallow_review.draft_types import Paper, OutputSectionHeader
+        outputs_count = sum(
+            1 for output in agenda.agenda_attributes.outputs
+            if isinstance(output, Paper)
+        )
+        
+        # Format see_also as comma-separated
+        see_also_str = ", ".join(agenda.agenda_attributes.see_also) if agenda.agenda_attributes.see_also else ""
+        
+        # Format some_names as comma-separated
+        some_names_str = ", ".join(agenda.agenda_attributes.some_names) if agenda.agenda_attributes.some_names else ""
+        
+        # Format orthodox_problems as comma-separated names
+        orthodox_problems_str = ", ".join(orthodox_problem_names) if orthodox_problem_names else ""
+        
+        # Build agenda full name (same format as for papers)
+        parts = []
+        if top_section:
+            parts.append(top_section)
+        if sub_section:
+            parts.append(sub_section)
+        parts.append(agenda.name)
+        agenda_full_name = " / ".join(parts)
+        
+        # Build agenda row
+        agenda_row = {
+            "name": agenda.name,
+            "section": top_section or "",
+            "sub_section": sub_section or "",
+            "full_name": agenda_full_name,
+            "one_sentence_summary": agenda.agenda_attributes.one_sentence_summary or "",
+            "theory_of_change": agenda.agenda_attributes.theory_of_change or "",
+            "see_also": see_also_str,
+            "orthodox_problems": orthodox_problems_str,
+            "target_case_text": agenda.agenda_attributes.target_case_text or "",
+            "broad_approach_text": agenda.agenda_attributes.broad_approach_text or "",
+            "some_names": some_names_str,
+            "estimated_ftes": agenda.agenda_attributes.estimated_ftes or "",
+            "critiques": agenda.agenda_attributes.critiques or "",
+            "funded_by": agenda.agenda_attributes.funded_by or "",
+            "outputs_count": outputs_count,
+        }
+        agendas_rows.append(agenda_row)
+        
+        # Extract papers from outputs
+        for output in agenda.agenda_attributes.outputs:
+            if isinstance(output, Paper):
+                # Format authors as comma-separated
+                authors_str = ", ".join(output.authors) if output.authors else ""
+                
+                # Format author_organizations as comma-separated
+                author_orgs_str = ", ".join(output.author_organizations) if output.author_organizations else ""
+                
+                paper_row = {
+                    "agenda_name": agenda.name,
+                    "agenda_section": top_section or "",
+                    "agenda_sub_section": sub_section or "",
+                    "agenda_full_name": agenda_full_name,
+                    "link_url": output.link_url or "",
+                    "link_text": output.link_text or "",
+                    "title": output.title or "",
+                    "authors": authors_str,
+                    "author_organizations": author_orgs_str,
+                    "published_year": str(output.published_year) if output.published_year else "",
+                    "date": output.date or "",
+                }
+                papers_rows.append(paper_row)
+    
+    # Write agendas CSV
+    agendas_csv_path = output_dir_path / "agendas.csv"
+    if agendas_rows:
+        with open(agendas_csv_path, "w", newline="", encoding="utf-8") as f:
+            fieldnames = [
+                "name", "section", "sub_section", "full_name", "one_sentence_summary",
+                "theory_of_change", "see_also", "orthodox_problems",
+                "target_case_text", "broad_approach_text", "some_names",
+                "estimated_ftes", "critiques", "funded_by", "outputs_count"
+            ]
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(agendas_rows)
+        console.print(f"[green]Agendas CSV written to {agendas_csv_path}[/green]")
+        console.print(f"[dim]  {len(agendas_rows)} agendas[/dim]")
+    else:
+        console.print(f"[yellow]No agendas found to export[/yellow]")
+    
+    # Write papers CSV
+    papers_csv_path = output_dir_path / "papers.csv"
+    if papers_rows:
+        with open(papers_csv_path, "w", newline="", encoding="utf-8") as f:
+            fieldnames = [
+                "agenda_name", "agenda_section", "agenda_sub_section",
+                "agenda_full_name", "link_url", "link_text", "title",
+                "authors", "author_organizations", "published_year", "date"
+            ]
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(papers_rows)
+        console.print(f"[green]Papers CSV written to {papers_csv_path}[/green]")
+        console.print(f"[dim]  {len(papers_rows)} papers/links[/dim]")
+    else:
+        console.print(f"[yellow]No papers found to export[/yellow]")
 
 
 # ============================================================================
