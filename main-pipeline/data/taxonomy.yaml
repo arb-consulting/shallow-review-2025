@@ -1,26 +1,36 @@
 taxonomy:
 - id: labs_giant_companies
   name: Labs (giant companies)
+  description: Frontier AI companies developing large-scale foundation models and their alignment research efforts.
   children:
   - id: openai
     name: OpenAI
+    description: Public benefit corporation with Alignment, Safety Systems, Preparedness, and Model Policy teams.
   - id: google_deepmind
     name: Google Deepmind
+    description: Google subsidiary with research focus on amplified oversight, interpretability, and automated alignment.
   - id: anthropic
     name: Anthropic
+    description: Public-benefit corporation focused on scalable alignment, interpretability, and control research.
   - id: xai
     name: xAI
+    description: For-profit company with Applied Safety and Model Evaluation teams, nominally focused on misuse.
   - id: meta
     name: Meta
+    description: For-profit company with safety research integrated into capabilities work and FAIR Alignment team.
   - id: china
     name: China
+    description: Chinese AI companies (Alibaba, DeepSeek, Moonshot, Baidu, Z, MiniMax, ByteDance) with mostly open-weights models and limited safety focus.
   - id: others
     name: Others
+    description: Other frontier AI companies including Amazon, Microsoft, and Mistral.
 - id: black_box_safety_understand_and_control_current_model_behaviour
   name: Black-box safety (understand and control current model behaviour)
+  description: Approaches that shape AI behavior through input-output optimization and behavioral controls without requiring deep understanding of internal mechanisms.
   children:
   - id: iterative_alignment
     name: Iterative alignment
+    description: Nudging base models by optimizing their output during or after training, the dominant industry approach with hundreds of researchers.
     children:
     - id: iterative_alignment_at_pretrain_time
       name: Iterative alignment at pretrain-time
@@ -60,6 +70,7 @@ taxonomy:
         rather than studying the actual internal states.
   - id: model_psychology
     name: Model psychology
+    description: Understanding and shaping emergent values, preferences, personae, and behavioral patterns in language models.
     children:
     - id: model_values_model_preferences
       name: Model values / model preferences
@@ -85,6 +96,7 @@ taxonomy:
         these are vital data for theory.
   - id: better_data
     name: Better data
+    description: Improving alignment by curating, filtering, or generating higher-quality training data rather than relying only on post-training interventions.
     children:
     - id: data_filtering
       name: Data filtering
@@ -109,6 +121,7 @@ taxonomy:
         data.
   - id: goal_robustness
     name: Goal robustness
+    description: Ensuring AI systems pursue intended goals reliably even under distribution shift, optimization pressure, and adversarial conditions.
     children:
     - id: mild_optimisation
       name: Mild optimisation
@@ -131,6 +144,7 @@ taxonomy:
         who could use engineers, and prototyping them.
 - id: white_box_safety_i_e_interpretability
   name: White-box safety (i.e. Interpretability)
+  description: Understanding and controlling AI systems by reverse-engineering their internal representations, mechanisms, and computations.
   children:
   - id: reverse_engineering
     name: Reverse engineering
@@ -184,6 +198,7 @@ taxonomy:
       an 'alignment moonshot' based on a coherent theory of learning which applies to both humans and AI systems.
   - id: concept_based_interpretability
     name: Concept-based interpretability
+    description: Identifying and manipulating high-level concepts (like refusal, deception, or planning) in a model's latent space for monitoring and steering.
     children:
     - id: monitoring_concepts
       name: Monitoring concepts
@@ -196,6 +211,7 @@ taxonomy:
         interpretable supplement to fine-tuning.
 - id: safety_by_construction
   name: Safety by construction
+  description: Building AI systems with inherent safety properties by design, through formal guarantees, architectural constraints, or biologically-inspired principles.
   children:
   - id: guaranteed_safe_ai
     name: Guaranteed-Safe AI
@@ -212,6 +228,7 @@ taxonomy:
       actor-critic model-based reinforcement learning"
 - id: make_ai_solve_it
   name: Make AI solve it
+  description: Using AI systems to help align and supervise other, potentially more capable AI systems through scalable oversight techniques.
   children:
   - id: weak_to_strong_generalization
     name: Weak-to-strong generalization
@@ -236,6 +253,7 @@ taxonomy:
       skills that use its own 'introspective' access
 - id: theory
   name: Theory
+  description: Mathematical formalizations and philosophical foundations for understanding agency, optimization, abstractions, and alignment guarantees.
   children:
   - id: agent_foundations
     name: Agent foundations
@@ -264,6 +282,7 @@ taxonomy:
       and "Mechanistic Anomaly Detection").
   - id: corrigibility
     name: Corrigibility
+    description: Ensuring AI systems remain open to correction, shutdown, and modification by human operators without resisting these interventions.
     children:
     - id: behavior_alignment_theory
       name: Behavior alignment theory
@@ -275,6 +294,7 @@ taxonomy:
         and escalation channels for surfacing and mitigating incorrigible behaviors
   - id: ontology_identification
     name: Ontology Identification
+    description: Understanding how AI systems form concepts and abstractions, and enabling translation between human and AI ontologies for reliable alignment.
     children:
     - id: natural_abstractions
       name: Natural abstractions
@@ -287,6 +307,7 @@ taxonomy:
         desiderata for a training setup that produces coherent AGIs similar to (our model of) an aligned agent
 - id: multi_agent_first
   name: Multi-agent first
+  description: Alignment approaches that treat AI systems as participants in multi-agent social contexts rather than as isolated optimizers aligned to fixed goals.
   children:
   - id: aligning_to_context
     name: Aligning to context
@@ -314,6 +335,7 @@ taxonomy:
       AI economic or cultural systems, drives within one AI, and other causal/constitutive processes as subject to alignment
 - id: evals
   name: Evals
+  description: Systematic measurement of AI capabilities and dangerous behaviors to inform deployment decisions and guide safety research priorities.
   children:
   - id: agi_metrics
     name: AGI metrics
