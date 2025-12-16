@@ -73,13 +73,13 @@ def setup_litellm(cache_dir: Path | None = None) -> None:
         litellm_logger.setLevel(logging.WARNING)
 
         # Configure Helicone as proxy
-        helicone_api_key = os.getenv("HELICONE_API_KEY")
-        if helicone_api_key:
-            litellm.api_base = "https://anthropic.helicone.ai/v1"
-            litellm.headers = {"Helicone-Auth": f"Bearer {helicone_api_key}"}
-            logger.info("Helicone proxy configured")
-        else:
-            logger.warning("HELICONE_API_KEY not set, Helicone proxy disabled")
+        # helicone_api_key = os.getenv("HELICONE_API_KEY")
+        # if helicone_api_key:
+        #     litellm.api_base = "https://anthropic.helicone.ai/v1"
+        #     litellm.headers = {"Helicone-Auth": f"Bearer {helicone_api_key}"}
+        #     logger.info("Helicone proxy configured")
+        # else:
+        #     logger.warning("HELICONE_API_KEY not set, Helicone proxy disabled")
 
         _setup_done = True
         logger.info(f"Litellm initialized with cache at {cache_dir}")
@@ -326,6 +326,8 @@ def get_completion(
 
     # Make API call with litellm
     try:
+        # logger.info(f"Making API call with completion_kwargs: {completion_kwargs}")
+        # litellm._turn_on_debug()
         response = litellm.completion(**completion_kwargs)
     except (KeyboardInterrupt, BudgetExceededError):
         # Set shutdown flag and re-raise critical exceptions
