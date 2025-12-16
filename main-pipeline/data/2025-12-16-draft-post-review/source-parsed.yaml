@@ -1,4 +1,4 @@
-source_file: data/2025-12-16-draft/source.md
+source_file: data/2025-12-16-draft-post-review/source.md
 items:
 - id: sec:labs_giant_companies_
   name: Labs (giant companies)
@@ -538,13 +538,18 @@ items:
     - link_url: https://turntrout.com/gemini-steering
       link_text: Steering Gemini Using BIDPO Vectors
       original_md: '[Steering Gemini Using BIDPO Vectors](https://turntrout.com/gemini-steering)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Steering Gemini Using BIDPO Vectors
+      authors:
+      - Alex Turner
+      - Mark Kurzeja
+      - Dave Orr
+      - David Elson
+      author_organizations:
+      - Google DeepMind
+      date: '2025-01-30'
+      published_year: 2025
+      venue: LessWrong
+      kind: lesswrong
     - link_url: https://arxiv.org/html/2511.22662v1
       link_text: Difficulties with Evaluating a Deception Detector for AIs
       original_md: '[Difficulties with Evaluating a Deception Detector for AIs](https://arxiv.org/html/2511.22662v1)'
@@ -593,13 +598,17 @@ items:
         of Shutdown Resistance
       original_md: '[Self-preservation or Instruction Ambiguity? Examining the Causes
         of Shutdown Resistance](https://www.alignmentforum.org/posts/wnzkjSmrgWZaBa2aC/self-preservation-or-instruction-ambiguity-examining-the)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Self-preservation or Instruction Ambiguity? Examining the Causes of Shutdown
+        Resistance
+      authors:
+      - Senthooran Rajamanoharan
+      - Neel Nanda
+      author_organizations:
+      - Google DeepMind
+      date: '2025-07-14'
+      published_year: 2025
+      venue: AI Alignment Forum
+      kind: lesswrong
     - link_url: https://arxiv.org/abs/2510.23966
       link_text: A Pragmatic Way to Measure Chain-of-Thought Monitorability
       original_md: '[A Pragmatic Way to Measure Chain-of-Thought Monitorability](https://arxiv.org/abs/2510.23966)'
@@ -1340,17 +1349,23 @@ items:
   agenda_attributes:
     who_edits: null
     one_sentence_summary: Guide weights during pretraining.
-    theory_of_change: null
+    theory_of_change: '"LLMs don''t seem very dangerous and might scale to AGI, things
+      are generally smooth, relevant capabilities are harder than alignment, assume
+      no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally
+      humanish ontology is learned, assume no simulated agents, assume that noise
+      in the data means that human preferences are not ruled out, assume that alignment
+      is a superficial feature, assume that tuning for what we want will also get
+      us to avoid what we don''t want. Maybe assume that thoughts are translucent."'
     see_also:
     - '[prosaic alignment](https://www.lesswrong.com/posts/5ciYedyQDDqAcrDLr/a-positive-case-for-how-we-might-succeed-at-prosaic-ai)'
     - '[incrementalism](https://www.lesswrong.com/posts/TALmStNf6479uTwzT/ai-alignment-metastrategy#Incrementalist_Metastrategy)'
     - '[alignment-by-default](https://www.lesswrong.com/posts/Nwgdq6kHke5LY692J/alignment-by-default)'
     - '[Korbak 2023](https://arxiv.org/abs/2302.08582)'
     orthodox_problems: []
-    target_case_id: null
-    target_case_text: null
-    broad_approach_id: null
-    broad_approach_text: null
+    target_case_id: average_case
+    target_case_text: average
+    broad_approach_id: engineering
+    broad_approach_text: engineering
     some_names:
     - Jan Leike
     - Stuart Armstrong
@@ -1419,13 +1434,19 @@ items:
   agenda_attributes:
     who_edits: null
     one_sentence_summary: Modify weights after pre-training.
-    theory_of_change: null
+    theory_of_change: '"LLMs don''t seem very dangerous and might scale to AGI, things
+      are generally smooth, relevant capabilities are harder than alignment, assume
+      no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally
+      humanish ontology is learned, assume no simulated agents, assume that noise
+      in the data means that human preferences are not ruled out, assume that alignment
+      is a superficial feature, assume that tuning for what we want will also get
+      us to avoid what we don''t want. Maybe assume that thoughts are translucent."'
     see_also: []
     orthodox_problems: []
-    target_case_id: null
-    target_case_text: null
-    broad_approach_id: null
-    broad_approach_text: null
+    target_case_id: average_case
+    target_case_text: average
+    broad_approach_id: engineering
+    broad_approach_text: engineering
     some_names:
     - Adam Gleave
     - Anca Dragan
@@ -1701,13 +1722,22 @@ items:
     - link_url: https://arxiv.org/pdf/2512.08093
       link_text: Training LLMs for Honesty via Confessions
       original_md: '[Training LLMs for Honesty via Confessions](https://arxiv.org/pdf/2512.08093)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Training LLMs for Honesty via Confessions
+      authors:
+      - Manas Joglekar
+      - Jeremy Chen
+      - Gabriel Wu
+      - Jason Yosinski
+      - Jasmine Wang
+      - Boaz Barak
+      - Amelia Glaese
+      author_organizations:
+      - OpenAI
+      - Google DeepMind
+      date: '2025-12-08'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     other_attributes: {}
   parsing_issues: []
 - id: a:black_box_make_ai_solve_it
@@ -1720,15 +1750,21 @@ items:
     who_edits: null
     one_sentence_summary: Focus on using existing models to improve and align further
       models.
-    theory_of_change: null
+    theory_of_change: '"LLMs don''t seem very dangerous and might scale to AGI, things
+      are generally smooth, relevant capabilities are harder than alignment, assume
+      no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally
+      humanish ontology is learned, assume no simulated agents, assume that noise
+      in the data means that human preferences are not ruled out, assume that alignment
+      is a superficial feature, assume that tuning for what we want will also get
+      us to avoid what we don''t want. Maybe assume that thoughts are translucent."'
     see_also:
     - sec:make_ai_solve_it
     - a:debate
     orthodox_problems: []
-    target_case_id: null
-    target_case_text: null
-    broad_approach_id: null
-    broad_approach_text: null
+    target_case_id: average_case
+    target_case_text: average
+    broad_approach_id: engineering
+    broad_approach_text: engineering
     some_names:
     - Jacques Thibodeau
     - Matthew Shingle
@@ -1939,13 +1975,19 @@ items:
     one_sentence_summary: Prompt mild misbehaviour in training, to prevent the failure
       mode where once AI misbehaves in a mild way, it will be more inclined towards
       all bad behaviour.
-    theory_of_change: null
+    theory_of_change: '"LLMs don''t seem very dangerous and might scale to AGI, things
+      are generally smooth, relevant capabilities are harder than alignment, assume
+      no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally
+      humanish ontology is learned, assume no simulated agents, assume that noise
+      in the data means that human preferences are not ruled out, assume that alignment
+      is a superficial feature, assume that tuning for what we want will also get
+      us to avoid what we don''t want. Maybe assume that thoughts are translucent."'
     see_also: []
     orthodox_problems: []
-    target_case_id: null
-    target_case_text: null
-    broad_approach_id: null
-    broad_approach_text: null
+    target_case_id: average_case
+    target_case_text: average
+    broad_approach_id: engineering
+    broad_approach_text: engineering
     some_names:
     - Ariana Azarbal
     - Daniel Tan
@@ -2045,15 +2087,21 @@ items:
     who_edits: null
     one_sentence_summary: Investigate what runtime guidelines, rules, or examples
       provided to an LLM yield better behavior.
-    theory_of_change: null
+    theory_of_change: '"LLMs don''t seem very dangerous and might scale to AGI, things
+      are generally smooth, relevant capabilities are harder than alignment, assume
+      no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally
+      humanish ontology is learned, assume no simulated agents, assume that noise
+      in the data means that human preferences are not ruled out, assume that alignment
+      is a superficial feature, assume that tuning for what we want will also get
+      us to avoid what we don''t want. Maybe assume that thoughts are translucent."'
     see_also:
     - model spec as prompt
     - a:model_specs_and_constitutions
     orthodox_problems: []
-    target_case_id: null
-    target_case_text: null
-    broad_approach_id: null
-    broad_approach_text: null
+    target_case_id: average_case
+    target_case_text: average
+    broad_approach_id: engineering
+    broad_approach_text: engineering
     some_names:
     - Jacob Steinhardt
     - Kayo Yin
@@ -2152,16 +2200,22 @@ items:
     who_edits: null
     one_sentence_summary: Manipulate an LLM's internal representations/token probabilities
       without touching weights.
-    theory_of_change: null
+    theory_of_change: LLMs don't seem very dangerous and might scale to AGI, things
+      are generally smooth, relevant capabilities are harder than alignment, assume
+      no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally
+      humanish ontology is learned, assume no simulated agents, assume that noise
+      in the data means that human preferences are not ruled out, assume that alignment
+      is a superficial feature, assume that tuning for what we want will also get
+      us to avoid what we don't want. Maybe assume that thoughts are translucent.
     see_also:
     - a:activation_engineering
     - a:character_training_and_persona_steering
     - a:safeguards_inference_time_auxiliaries_
     orthodox_problems: []
-    target_case_id: null
-    target_case_text: null
-    broad_approach_id: null
-    broad_approach_text: null
+    target_case_id: average_case
+    target_case_text: average
+    broad_approach_id: engineering
+    broad_approach_text: engineering
     some_names:
     - Taylor Sorensen
     - Constanza Fierro
@@ -2228,7 +2282,7 @@ items:
       kind: paper_preprint
     - link_url: https://arxiv.org/abs/2510.13285
       link_text: 'In-Distribution Steering: Balancing Control and Coherence in Language
-        Model Generation'
+        Model Generation.'
       original_md: '[In-Distribution Steering: Balancing Control and Coherence in
         Language Model Generation.](https://arxiv.org/abs/2510.13285)'
       title: 'In-Distribution Steering: Balancing Control and Coherence in Language
@@ -2306,13 +2360,23 @@ items:
     - link_url: https://github.com/locuslab/open-unlearning
       link_text: OpenUnlearning
       original_md: '[OpenUnlearning](https://github.com/locuslab/open-unlearning)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'OpenUnlearning: Accelerating LLM Unlearning via Unified Benchmarking
+        of Methods and Metrics'
+      authors:
+      - Vineeth Dorna
+      - Anmol Mekala
+      - Wenlong Zhao
+      - Andrew McCallum
+      - Zachary C Lipton
+      - J Zico Kolter
+      - Pratyush Maini
+      author_organizations:
+      - Carnegie Mellon University
+      - University of Massachusetts Amherst
+      date: '2025-06-20'
+      published_year: 2025
+      venue: arXiv
+      kind: code_tool
     - section_name: Mostly black-box
       header_level: 4
       original_md: '*Mostly black-box*'
@@ -2609,23 +2673,32 @@ items:
         Networks'
       original_md: '[Gradient Routing: Masking Gradients to Localize Computation in
         Neural Networks](https://arxiv.org/abs/2410.04332)'
-      title: null
-      authors: []
+      title: 'Gradient Routing: Masking Gradients to Localize Computation in Neural
+        Networks'
+      authors:
+      - Alex Cloud
+      - Jacob Goldman-Wetzler
+      - Evžen Wybitul
+      - Joseph Miller
+      - Alexander Matt Turner
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2024-10-06'
+      published_year: 2024
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://www.lesswrong.com/posts/tAnHM3L25LwuASdpF/selective-modularity-a-research-agenda
       link_text: 'Selective modularity: a research agenda'
       original_md: '[Selective modularity: a research agenda](https://www.lesswrong.com/posts/tAnHM3L25LwuASdpF/selective-modularity-a-research-agenda)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'Selective modularity: a research agenda'
+      authors:
+      - cloud
+      - Jacob G-W
+      author_organizations:
+      - MATS
+      date: '2025-03-24'
+      published_year: 2025
+      venue: LessWrong/AI Alignment Forum
+      kind: lesswrong
     - link_url: https://arxiv.org/abs/2506.06278
       link_text: Distillation Robustifies Unlearning
       original_md: '[Distillation Robustifies Unlearning](https://arxiv.org/abs/2506.06278)'
@@ -2650,13 +2723,23 @@ items:
         in LLMs'
       original_md: '[Beyond Data Filtering: Knowledge Localization for Capability
         Removal in LLMs](https://www.arxiv.org/abs/2512.05648)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'Beyond Data Filtering: Knowledge Localization for Capability Removal
+        in LLMs'
+      authors:
+      - Igor Shilov
+      - Alex Cloud
+      - Aryo Pradipta Gema
+      - Jacob Goldman-Wetzler
+      - Nina Panickssery
+      - Henry Sleight
+      - Erik Jones
+      - Cem Anil
+      author_organizations:
+      - Anthropic
+      date: '2024-12-05'
+      published_year: 2024
+      venue: arXiv
+      kind: paper_preprint
     other_attributes: {}
   parsing_issues:
   - Broad approach field contains 'cognitive / engineering' which represents multiple
@@ -3669,13 +3752,20 @@ items:
     - link_url: https://metr.org/blog/2025-08-08-cot-may-be-highly-informative-despite-unfaithfulness/
       link_text: CoT May Be Highly Informative Despite "Unfaithfulness"
       original_md: '[CoT May Be Highly Informative Despite "Unfaithfulness"](https://metr.org/blog/2025-08-08-cot-may-be-highly-informative-despite-unfaithfulness/)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: CoT May Be Highly Informative Despite "Unfaithfulness"
+      authors:
+      - Amy Deng
+      - Sydney Von Arx
+      - Ben Snodin
+      - Sudarsh Kunnavakkam
+      - Tamera Lanham
+      author_organizations:
+      - METR
+      - Gray Swan
+      date: '2025-08-08'
+      published_year: 2025
+      venue: METR Blog
+      kind: blog_post
     - link_url: https://www.lesswrong.com/posts/B8Cmtf5gdHwxb8qtT/aether-july-2025-update
       link_text: Aether July 2025 Update
       original_md: '[Aether July 2025 Update](https://www.lesswrong.com/posts/B8Cmtf5gdHwxb8qtT/aether-july-2025-update)'
@@ -3977,13 +4067,16 @@ items:
     - link_url: https://arxiv.org/abs/2510.05465
       link_text: 'VAL-Bench: Measuring Value Alignment in Language Models'
       original_md: '[VAL-Bench: Measuring Value Alignment in Language Models](https://arxiv.org/abs/2510.05465)'
-      title: null
-      authors: []
+      title: 'VAL-Bench: Measuring Value Alignment in Language Models'
+      authors:
+      - Aman Gupta
+      - Denny O'Shea
+      - Fazl Barez
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-10-06'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     other_attributes: {}
   parsing_issues: []
 - id: a:character_training_and_persona_steering
@@ -4199,13 +4292,14 @@ items:
     - link_url: https://www.lesswrong.com/posts/LdBhgAhpvbdEep79F/selection-pressures-on-lm-personas
       link_text: Selection Pressures on LM Personas
       original_md: '[Selection Pressures on LM Personas](https://www.lesswrong.com/posts/LdBhgAhpvbdEep79F/selection-pressures-on-lm-personas)'
-      title: null
-      authors: []
+      title: Selection Pressures on LM Personas
+      authors:
+      - Raymond Douglas
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-03-28'
+      published_year: 2025
+      venue: LessWrong
+      kind: lesswrong
     - link_url: https://nostalgebraist.tumblr.com/post/785766737747574784/the-void
       link_text: the void
       original_md: '[the void](https://nostalgebraist.tumblr.com/post/785766737747574784/the-void)'
@@ -5693,13 +5787,15 @@ items:
         aligned multi-objective multi-agent gridworld-based AI safety benchmarks'
       original_md: '[From homeostasis to resource sharing: Biologically and economically
         aligned multi-objective multi-agent gridworld-based AI safety benchmarks](https://arxiv.org/abs/2410.00081)'
-      title: null
-      authors: []
+      title: 'From homeostasis to resource sharing: Biologically and economically
+        aligned multi-objective multi-agent gridworld-based AI safety benchmarks'
+      authors:
+      - Roland Pihlakas
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2024-09-30'
+      published_year: 2024
+      venue: arXiv
+      kind: paper_preprint
     other_attributes: {}
   parsing_issues:
   - Target case is 'mixed' which doesn't map to a single standard case (average_case,
@@ -5912,13 +6008,14 @@ items:
     - link_url: https://www.lesswrong.com/posts/oxvnREntu82tffkYW/we-need-a-field-of-reward-function-design
       link_text: We need a field of Reward Function Design
       original_md: '[We need a field of Reward Function Design](https://www.lesswrong.com/posts/oxvnREntu82tffkYW/we-need-a-field-of-reward-function-design)'
-      title: null
-      authors: []
+      title: We need a field of Reward Function Design
+      authors:
+      - Steven Byrnes
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-12-08'
+      published_year: 2025
+      venue: LessWrong
+      kind: lesswrong
     other_attributes: {}
   parsing_issues: []
 - id: a:assistance_games_assistive_agents
@@ -6188,24 +6285,51 @@ items:
         on AI Openness and Safety
       original_md: '[A Different Approach to AI Safety Proceedings from the Columbia
         Convening on AI Openness and Safety](https://arxiv.org/pdf/2506.22183)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'A Different Approach to AI Safety: Proceedings from the Columbia Convening
+        on Openness in Artificial Intelligence and AI Safety'
+      authors:
+      - Camille François
+      - Ludovic Péran
+      - Ayah Bdeir
+      - Nouha Dziri
+      - Will Hawkins
+      - Yacine Jernite
+      - Sayash Kapoor
+      - Juliet Shen
+      - Heidy Khlaaf
+      - Kevin Klyman
+      - Nik Marda
+      - Marie Pellat
+      - Deb Raji
+      - Divya Siddarth
+      - Aviya Skowron
+      - Joseph Spisak
+      - Madhulika Srikumar
+      - Victor Storchan
+      - Audrey Tang
+      - Jen Weedon
+      author_organizations:
+      - Columbia University
+      - Academia
+      - Industry
+      - Civil Society
+      - Government
+      date: '2025-06-27'
+      published_year: 2025
+      venue: arXiv
+      kind: agenda_manifesto
     - link_url: https://partnershiponai.org/wp-content/uploads/dlm_uploads/2024/07/open-foundation-model-risk-mitigation_rev3-1.pdf
       link_text: Risk Mitigation Strategies for the Open Foundation Model Value Chain
       original_md: '[Risk Mitigation Strategies for the Open Foundation Model Value
         Chain](https://partnershiponai.org/wp-content/uploads/dlm_uploads/2024/07/open-foundation-model-risk-mitigation_rev3-1.pdf)'
-      title: null
+      title: Open Foundation Model Risk Mitigation
       authors: []
-      author_organizations: []
+      author_organizations:
+      - Partnership on AI
       date: null
-      published_year: null
-      venue: null
-      kind: null
+      published_year: 2024
+      venue: Partnership on AI
+      kind: error_detected
     other_attributes: {}
   parsing_issues: []
 - id: a:the_neglected_approaches_approach
@@ -6401,13 +6525,13 @@ items:
     - link_url: https://www.google.com/url?q=https://www.lesswrong.com/posts/FWkZYQceEzL84tNej/circuits-in-superposition-2-now-with-less-wrong-math&sa=D&source=docs&ust=1765550772146255&usg=AOvVaw334Tyidx2keGCA9vGwQ9a-
       link_text: '2'
       original_md: '[2](https://www.google.com/url?q=https://www.lesswrong.com/posts/FWkZYQceEzL84tNej/circuits-in-superposition-2-now-with-less-wrong-math&sa=D&source=docs&ust=1765550772146255&usg=AOvVaw334Tyidx2keGCA9vGwQ9a-)'
-      title: null
+      title: 'Circuits in Superposition 2: Now With Less Wrong Math'
       authors: []
       author_organizations: []
       date: null
       published_year: null
-      venue: null
-      kind: null
+      venue: LessWrong
+      kind: error_detected
     - link_url: https://www.lesswrong.com/posts/ZxFchCFJFcgysYsT9/compressed-computation-is-probably-not-computation-in
       link_text: Compressed Computation is (probably) not Computation in Superposition
       original_md: '[Compressed Computation is (probably) not Computation in Superposition](https://www.lesswrong.com/posts/ZxFchCFJFcgysYsT9/compressed-computation-is-probably-not-computation-in)'
@@ -7002,25 +7126,49 @@ items:
     - link_url: https://joss.theoj.org/papers/10.21105/joss.06511
       link_text: 'CCS-Lib: A Python package to elicit latent knowledge from LLMs'
       original_md: '[CCS-Lib: A Python package to elicit latent knowledge from LLMs](https://joss.theoj.org/papers/10.21105/joss.06511)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'CCS-Lib: A Python package to elicit latent knowledge from LLMs'
+      authors:
+      - Walter Laurito
+      - Nora Belrose
+      - Alex Mallen
+      - Kay Kozaronek
+      - Fabien Roger
+      - Christy Koh
+      - James Chua
+      - Jonathan Ng
+      - Alexander Wan
+      - Reagan Lee
+      - Ben W.
+      - Kyle O'Brien
+      - Augustas Macijauskas
+      - Eric Mungai Kinuthia
+      - Marius Pl
+      - Waree Sethapun
+      - Kaarel Hänni
+      author_organizations:
+      - Cadenza Labs
+      date: '2025-10-21'
+      published_year: 2025
+      venue: Journal of Open Source Software
+      kind: paper_published
     - link_url: https://arxiv.org/abs/2509.10625
       link_text: 'No Answer Needed: Predicting LLM Answer Accuracy from Question-Only
         Linear Probes'
       original_md: '[No Answer Needed: Predicting LLM Answer Accuracy from Question-Only
         Linear Probes](https://arxiv.org/abs/2509.10625)'
-      title: null
-      authors: []
+      title: 'No Answer Needed: Predicting LLM Answer Accuracy from Question-Only
+        Linear Probes'
+      authors:
+      - Iván Vicente Moreno Cencerrado
+      - Arnau Padrés Masdemont
+      - Anton Gonzalvez Hawthorne
+      - David Demitri Africa
+      - Lorenzo Pacchiardi
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-09-12'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://arxiv.org/abs/2506.04909
       link_text: 'When Thinking LLMs Lie: Unveiling the Strategic Deception in Representations
         of Reasoning Models'
@@ -7054,13 +7202,20 @@ items:
     - link_url: https://arxiv.org/abs/2507.22149
       link_text: When Truthful Representations Flip Under Deceptive Instructions?
       original_md: '[When Truthful Representations Flip Under Deceptive Instructions?](https://arxiv.org/abs/2507.22149)'
-      title: null
-      authors: []
+      title: When Truthful Representations Flip Under Deceptive Instructions?
+      authors:
+      - Xianxuan Long
+      - Yao Fu
+      - Runchao Li
+      - Mu Sheng
+      - Haotian Yu
+      - Xiaotian Han
+      - Pan Li
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-07-29'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     other_attributes: {}
   parsing_issues: []
 - id: a:lie_and_deception_detectors
@@ -8696,13 +8851,22 @@ items:
     - link_url: https://www.lesswrong.com/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-inter
       link_text: A Pragmatic Vision for Interpretability
       original_md: '[A Pragmatic Vision for Interpretability](https://www.lesswrong.com/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-inter)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: A Pragmatic Vision for Interpretability
+      authors:
+      - Neel Nanda
+      - Josh Engels
+      - Arthur Conmy
+      - Senthooran Rajamanoharan
+      - bilalchughtai
+      - CallumMcDougall
+      - János Kramár
+      - lewis smith
+      author_organizations:
+      - Google DeepMind
+      date: '2025-12-01'
+      published_year: 2025
+      venue: LessWrong
+      kind: lesswrong
     - link_url: https://www.alignmentforum.org/posts/s9z4mgjtWTPpDLxFy/agentic-interpretability-a-strategy-against-gradual
       link_text: 'Agentic Interpretability: A Strategy Against Gradual Disempowerment'
       original_md: '[Agentic Interpretability: A Strategy Against Gradual Disempowerment](https://www.alignmentforum.org/posts/s9z4mgjtWTPpDLxFy/agentic-interpretability-a-strategy-against-gradual)'
@@ -9973,13 +10137,18 @@ items:
       link_text: 'Beyond Linear Probes: Dynamic Safety Monitoring for Language Models'
       original_md: '[Beyond Linear Probes: Dynamic Safety Monitoring for Language
         Models](https://arxiv.org/abs/2509.26238)'
-      title: null
-      authors: []
+      title: 'Beyond Linear Probes: Dynamic Safety Monitoring for Language Models'
+      authors:
+      - James Oldfield
+      - Philip Torr
+      - Ioannis Patras
+      - Adel Bibi
+      - Fazl Barez
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-09-30'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     other_attributes: {}
   parsing_issues: []
 - id: a:activation_engineering
@@ -10782,13 +10951,15 @@ items:
     - link_url: https://www.alignmentforum.org/posts/EgRJtwQurNzz8CEfJ/dodging-systematic-human-errors-in-scalable-oversight
       link_text: Dodging systematic human errors in scalable oversight
       original_md: '[Dodging systematic human errors in scalable oversight](https://www.alignmentforum.org/posts/EgRJtwQurNzz8CEfJ/dodging-systematic-human-errors-in-scalable-oversight)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Dodging systematic human errors in scalable oversight
+      authors:
+      - Geoffrey Irving
+      author_organizations:
+      - UK AISI
+      date: '2025-05-14'
+      published_year: 2025
+      venue: AI Alignment Forum
+      kind: lesswrong
     - link_url: https://arxiv.org/abs/2504.18530
       link_text: Scaling Laws for Scalable Oversight
       original_md: '[Scaling Laws for Scalable Oversight](https://arxiv.org/abs/2504.18530)'
@@ -11090,13 +11261,14 @@ items:
     - link_url: https://www.andrew.cmu.edu/user/coesterh/LMCA_dataset.pdf
       link_text: A dataset of rated conceptual arguments
       original_md: '[A dataset of rated conceptual arguments](https://www.andrew.cmu.edu/user/coesterh/LMCA_dataset.pdf)'
-      title: null
+      title: LMCA Dataset
       authors: []
-      author_organizations: []
+      author_organizations:
+      - Carnegie Mellon University
       date: null
       published_year: null
       venue: null
-      kind: null
+      kind: error_detected
     other_attributes: {}
   parsing_issues:
   - Broad approach field contains 'engineering / cognitive' - indicates mixed approaches,
@@ -11142,13 +11314,20 @@ items:
     - link_url: https://arxiv.org/abs/2511.08579
       link_text: Training Language Models to Explain Their Own Computations
       original_md: '[Training Language Models to Explain Their Own Computations](https://arxiv.org/abs/2511.08579)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Training Language Models to Explain Their Own Computations
+      authors:
+      - Belinda Z. Li
+      - Zifan Carl Guo
+      - Vincent Huang
+      - Jacob Steinhardt
+      - Jacob Andreas
+      author_organizations:
+      - UC Berkeley
+      - MIT
+      date: '2025-11-11'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://transformer-circuits.pub/2025/introspection/index.html
       link_text: Emergent Introspective Awareness
       original_md: '[Emergent Introspective Awareness](https://transformer-circuits.pub/2025/introspection/index.html)'
@@ -11464,13 +11643,14 @@ items:
     - link_url: https://groundless.ai/
       link_text: groundless.ai
       original_md: '[groundless.ai](https://groundless.ai/)'
-      title: null
+      title: Groundless Alignment
       authors: []
-      author_organizations: []
+      author_organizations:
+      - Groundless
       date: null
-      published_year: null
-      venue: null
-      kind: null
+      published_year: 2025
+      venue: Groundless Website
+      kind: personal_page
     - link_url: https://www.lesswrong.com/s/aMz2JMvgXrLBkq4h3
       link_text: Live Theory
       original_md: '[Live Theory](https://www.lesswrong.com/s/aMz2JMvgXrLBkq4h3)'
@@ -11628,13 +11808,13 @@ items:
     - link_url: https://openreview.net/pdf?id=XOIKLlSiDq
       link_text: Can DPO Learn Diverse Human Values? A Theoretical Scaling Law
       original_md: '[Can DPO Learn Diverse Human Values? A Theoretical Scaling Law](https://openreview.net/pdf?id=XOIKLlSiDq)'
-      title: null
+      title: Unable to extract - PDF content not accessible
       authors: []
       author_organizations: []
       date: null
       published_year: null
-      venue: null
-      kind: null
+      venue: OpenReview
+      kind: error_detected
     other_attributes: {}
   parsing_issues: []
 - id: a:heuristic_explanations
@@ -11717,13 +11897,13 @@ items:
     - link_url: https://gabrieldwu.com/assets/thesis.pdf
       link_text: Deduction-Projection Estimators for Understanding Neural Networks
       original_md: '[Deduction-Projection Estimators for Understanding Neural Networks](https://gabrieldwu.com/assets/thesis.pdf)'
-      title: null
+      title: Unknown - PDF content not accessible
       authors: []
       author_organizations: []
       date: null
       published_year: null
       venue: null
-      kind: null
+      kind: error_detected
     - link_url: https://openreview.net/forum?id=m4OpQAK3eY
       link_text: Wide Neural Networks as a Baseline for the Computational No-Coincidence
         Conjecture
@@ -12014,35 +12194,47 @@ items:
     - link_url: https://dl.acm.org/doi/10.1145/3717823.3718245
       link_text: 'Oblivious Defense in ML Models: Backdoor Removal without Detection'
       original_md: '[Oblivious Defense in ML Models: Backdoor Removal without Detection](https://dl.acm.org/doi/10.1145/3717823.3718245)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'Oblivious Defense in ML Models: Backdoor Removal without Detection'
+      authors:
+      - Shafi Goldwasser
+      - Jonathan Shafer
+      - Neekon Vafa
+      - Vinod Vaikuntanathan
+      author_organizations:
+      - University of California, Berkeley
+      - Massachusetts Institute of Technology
+      date: '2025-06-15'
+      published_year: 2025
+      venue: 'STOC ''25: Proceedings of the 57th Annual ACM Symposium on Theory of
+        Computing'
+      kind: paper_published
     - link_url: https://arxiv.org/abs/2509.20714
       link_text: 'Cryptographic Backdoor for Neural Networks: Boon and Bane'
       original_md: '[Cryptographic Backdoor for Neural Networks: Boon and Bane](https://arxiv.org/abs/2509.20714)'
-      title: null
-      authors: []
+      title: 'Cryptographic Backdoor for Neural Networks: Boon and Bane'
+      authors:
+      - Anh Tu Ngo
+      - Anupam Chattopadhyay
+      - Subhamoy Maitra
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-09-25'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://arxiv.org/abs/2504.20310
       link_text: A Cryptographic Perspective on Mitigation vs. Detection in Machine
         Learning
       original_md: '[A Cryptographic Perspective on Mitigation vs. Detection in Machine
         Learning](https://arxiv.org/abs/2504.20310)'
-      title: null
-      authors: []
+      title: A Cryptographic Perspective on Mitigation vs. Detection in Machine Learning
+      authors:
+      - Greg Gluch
+      - Shafi Goldwasser
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-04-28'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://lesswrong.com/posts/CSFa9rvGNGAfCzBk6/problems-with-instruction-following-as-an-alignment-target
       link_text: Problems with instruction-following as an alignment target
       original_md: '[Problems with instruction-following as an alignment target](https://lesswrong.com/posts/CSFa9rvGNGAfCzBk6/problems-with-instruction-following-as-an-alignment-target)'
@@ -12258,13 +12450,14 @@ items:
     - link_url: https://arxiv.org/pdf/2512.00984%20
       link_text: Symmetries at the origin of hierarchical emergence
       original_md: '[Symmetries at the origin of hierarchical emergence](https://arxiv.org/pdf/2512.00984%20)'
-      title: null
-      authors: []
+      title: Symmetries at the origin of hierarchical emergence
+      authors:
+      - Fernando E. Rosas
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2024-11-30'
+      published_year: 2024
+      venue: arXiv
+      kind: paper_preprint
     other_attributes: {}
   parsing_issues: []
 - id: a:the_learning_theoretic_agenda
@@ -12336,25 +12529,29 @@ items:
     - link_url: https://proceedings.mlr.press/v291/appel25a.html
       link_text: Regret Bounds for Robust Online Decision Making
       original_md: '[Regret Bounds for Robust Online Decision Making](https://proceedings.mlr.press/v291/appel25a.html)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Regret Bounds for Robust Online Decision Making
+      authors:
+      - Alexander Appel
+      - Vanessa Kosoy
+      author_organizations:
+      - FutureSearch
+      date: '2025-07-02'
+      published_year: 2025
+      venue: COLT 2025 (Conference on Learning Theory)
+      kind: paper_published
     - link_url: https://www.lesswrong.com/s/n7qFxakSnxGuvmYAX
       link_text: 'What is Inadequate about Bayesianism for AI Alignment: Motivating
         Infra-Bayesianism'
       original_md: '[What is Inadequate about Bayesianism for AI Alignment: Motivating
         Infra-Bayesianism](https://www.lesswrong.com/s/n7qFxakSnxGuvmYAX)'
-      title: null
-      authors: []
+      title: FUNDAMENTALS OF INFRA-BAYESIANISM
+      authors:
+      - Brittany Gelb
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-08-30'
+      published_year: 2025
+      venue: LessWrong
+      kind: lesswrong
     - link_url: https://www.alignmentforum.org/posts/DobZ62XMdiPigii9H/non-monotonic-infra-bayesian-physicalism%20
       link_text: Non-Monotonic Infra-Bayesian Physicalism
       original_md: '[Non-Monotonic Infra-Bayesian Physicalism](https://www.alignmentforum.org/posts/DobZ62XMdiPigii9H/non-monotonic-infra-bayesian-physicalism%20)'
@@ -12456,13 +12653,29 @@ items:
     - link_url: https://arxiv.org/abs/2412.19010
       link_text: A theory of appropriateness
       original_md: '[A theory of appropriateness](https://arxiv.org/abs/2412.19010)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: A theory of appropriateness with applications to generative artificial
+        intelligence
+      authors:
+      - Joel Z. Leibo
+      - Alexander Sasha Vezhnevets
+      - Manfred Diaz
+      - John P. Agapiou
+      - William A. Cunningham
+      - Peter Sunehag
+      - Julia Haas
+      - Raphael Koster
+      - Edgar A. Duéñez-Guzmán
+      - William S. Isaac
+      - Georgios Piliouras
+      - Stanley M. Bileschi
+      - Iyad Rahwan
+      - Simon Osindero
+      author_organizations:
+      - Google DeepMind
+      date: '2024-12-26'
+      published_year: 2024
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://arxiv.org/abs/2404.10636
       link_text: 2404.10636 - What are human values, and how do we align AI to them?
       original_md: '[2404.10636 \- What are human values, and how do we align AI to
@@ -12570,23 +12783,33 @@ items:
     - link_url: https://law-ai.org/law-following-ai/%20
       link_text: 'Law-Following AI: designing AI agents to obey human laws'
       original_md: '[Law-Following AI: designing AI agents to obey human laws](https://law-ai.org/law-following-ai/%20)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'Law-Following AI: designing AI agents to obey human laws'
+      authors:
+      - Cullen O'Keefe
+      - Ketan Ramakrishnan
+      - Janna Tay
+      - Christoph Winter
+      author_organizations:
+      - Institute for Law & AI
+      date: '2025-05-01'
+      published_year: 2025
+      venue: Fordham Law Review
+      kind: paper_published
     - link_url: https://arxiv.org/abs/2510.26396
       link_text: A Pragmatic View of AI Personhood
       original_md: '[A Pragmatic View of AI Personhood](https://arxiv.org/abs/2510.26396)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: A Pragmatic View of AI Personhood
+      authors:
+      - Joel Z. Leibo
+      - Alexander Sasha Vezhnevets
+      - William A. Cunningham
+      - Stanley M. Bileschi
+      author_organizations:
+      - Google DeepMind
+      date: '2025-10-30'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://arxiv.org/abs/2503.00069
       link_text: Societal alignment frameworks can improve llm alignment
       original_md: '[Societal alignment frameworks can improve llm alignment](https://arxiv.org/abs/2503.00069)'
@@ -12802,13 +13025,15 @@ items:
     - link_url: https://arxiv.org/abs/2509.01063
       link_text: An Economy of AI Agents
       original_md: '[An Economy of AI Agents](https://arxiv.org/abs/2509.01063)'
-      title: null
-      authors: []
+      title: An Economy of AI Agents
+      authors:
+      - Gillian K. Hadfield
+      - Andrew Koh
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-09-01'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://arxiv.org/abs/2510.06105
       link_text: 'Moloch''s Bargain: Emergent Misalignment When LLMs Compete for Audiences'
       original_md: '[Moloch''s Bargain: Emergent Misalignment When LLMs Compete for
@@ -12914,13 +13139,13 @@ items:
     - link_url: https://cgi.cse.unsw.edu.au/~eptcs/paper.cgi?TARK2025:36
       link_text: Safe (Pareto) Improvements in Binary Constraint Structures
       original_md: '[Safe (Pareto) Improvements in Binary Constraint Structures](https://cgi.cse.unsw.edu.au/~eptcs/paper.cgi?TARK2025:36)'
-      title: null
+      title: 'Error: No content available'
       authors: []
       author_organizations: []
       date: null
       published_year: null
-      venue: null
-      kind: null
+      venue: EPTCS (Electronic Proceedings in Theoretical Computer Science)
+      kind: error_detected
     - link_url: https://arxiv.org/abs/2505.00783
       link_text: 'Promises Made, Promises Kept: Safe Pareto Improvements via Ex Post
         Verifiable Commitments'
@@ -12939,13 +13164,14 @@ items:
     - link_url: https://www.lesswrong.com/posts/wQKskToGofs4osdJ3/the-pando-problem-rethinking-ai-individuality
       link_text: 'The Pando Problem: Rethinking AI Individuality'
       original_md: '[The Pando Problem: Rethinking AI Individuality](https://www.lesswrong.com/posts/wQKskToGofs4osdJ3/the-pando-problem-rethinking-ai-individuality)'
-      title: null
-      authors: []
+      title: 'The Pando Problem: Rethinking AI Individuality'
+      authors:
+      - Jan_Kulveit
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-03-28'
+      published_year: 2025
+      venue: LessWrong
+      kind: lesswrong
     other_attributes: {}
   parsing_issues:
   - Target case field says 'mixed' - no single target case ID can be assigned, left
@@ -12993,25 +13219,32 @@ items:
     - link_url: https://softmax.com/blog/reimagining-alignment
       link_text: Reimagining Alignment
       original_md: '[Reimagining Alignment](https://softmax.com/blog/reimagining-alignment)'
-      title: null
+      title: Reimagining Alignment
       authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      author_organizations:
+      - Softmax
+      date: '2025-03-28'
+      published_year: 2025
+      venue: Softmax Blog
+      kind: blog_post
     - link_url: https://arxiv.org/abs/2509.14485
       link_text: 'Beyond the high score: Prosocial ability profiles of multi-agent
         populations'
       original_md: '[Beyond the high score: Prosocial ability profiles of multi-agent
         populations](https://arxiv.org/abs/2509.14485)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'Beyond the high score: Prosocial ability profiles of multi-agent populations'
+      authors:
+      - Marko Tesic
+      - Yue Zhao
+      - Joel Z. Leibo
+      - Rakshit S. Trivedi
+      - Jose Hernandez-Orallo
+      author_organizations:
+      - Google DeepMind
+      date: '2025-09-17'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://arxiv.org/abs/2509.23102
       link_text: Multiplayer Nash Preference Optimization
       original_md: '[Multiplayer Nash Preference Optimization](https://arxiv.org/abs/2509.23102)'
@@ -13168,13 +13401,18 @@ items:
     - link_url: https://openreview.net/forum?id=9ply9CAnSC&noteId=rcn5RTlfD1
       link_text: Comparing Collective Behavior of LLM and Human Groups
       original_md: '[Comparing Collective Behavior of LLM and Human Groups](https://openreview.net/forum?id=9ply9CAnSC&noteId=rcn5RTlfD1)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Comparing Collective Behavior of LLM and Human Groups
+      authors:
+      - Anna B. Stephenson
+      - Andrew Zhu
+      - Chris Callison-Burch
+      - Jan Kulveit
+      author_organizations:
+      - University of Pennsylvania
+      date: '2025-09-23'
+      published_year: 2025
+      venue: NeurIPS 2025 Workshop ACA
+      kind: paper_published
     other_attributes: {}
   parsing_issues:
   - Target case is 'mixed' - target_case_id left null, target_case_text set to 'mixed'
@@ -13223,23 +13461,59 @@ items:
         Power to Shape the AI Ecosystem'
       original_md: '[The AI Power Disparity Index: Toward a Compound Measure of AI
         Actors'' Power to Shape the AI Ecosystem](https://ojs.aaai.org/index.php/AIES/article/view/36645)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'The AI Power Disparity Index: Toward a Compound Measure of AI Actors''
+        Power to Shape the AI Ecosystem'
+      authors:
+      - Rachel M. Kim
+      - Blaine Kuehnert
+      - Seth Lazar
+      - Ranjit Singh
+      - Hoda Heidari
+      author_organizations:
+      - Carnegie Mellon University
+      - Australian National University
+      - Data and Society
+      date: '2025-10-15'
+      published_year: 2025
+      venue: AAAI/ACM Conference on AI, Ethics, and Society (AIES)
+      kind: paper_published
     - link_url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5097286
       link_text: Research Agenda for Sociotechnical Approaches to AI Safety
       original_md: '[Research Agenda for Sociotechnical Approaches to AI Safety](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5097286)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Research Agenda for Sociotechnical Approaches to AI Safety
+      authors:
+      - Samuel Curtis
+      - Ravi Iyer
+      - Cameron Domenico Kirk-Giannini
+      - Victoria Krakovna
+      - David Krueger
+      - Nathan Lambert
+      - Bruno Marnette
+      - Colleen McKenzie
+      - Julian Michael
+      - Evan Miyazono
+      - Noyuri Mima
+      - Aviv Ovadya
+      - Luke Thorburn
+      - Vehbi Deger Turan
+      author_organizations:
+      - The Future Society
+      - University of Southern California
+      - Rutgers University
+      - Future of Life Institute
+      - University of Cambridge
+      - Allen Institute for AI
+      - AI Objectives Institute
+      - New York University
+      - Atlas Computing
+      - Future University Hakodate
+      - Thoughtful Technology Project
+      - King's College London
+      - AI & Democracy Foundation
+      date: '2025-01-14'
+      published_year: 2025
+      venue: SSRN
+      kind: agenda_manifesto
     - link_url: https://arxiv.org/abs/2507.09650
       link_text: '2507.09650 - Cultivating Pluralism In Algorithmic Monoculture: The
         Community Alignment Dataset'
@@ -13459,13 +13733,15 @@ items:
     - link_url: https://chrislakin.blog/p/alignment-first-intelligence-later
       link_text: Alignment first, intelligence later
       original_md: '[Alignment first, intelligence later](https://chrislakin.blog/p/alignment-first-intelligence-later)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Alignment first, intelligence later
+      authors:
+      - Chris Lakin
+      author_organizations:
+      - Softmax
+      date: '2025-03-30'
+      published_year: 2025
+      venue: Substack (Locally Optimal)
+      kind: blog_post
     - link_url: https://www.anthropic.com/research/end-subset-conversations
       link_text: End A Subset Of Conversations
       original_md: '[End A Subset Of Conversations](https://www.anthropic.com/research/end-subset-conversations)'
@@ -13511,23 +13787,50 @@ items:
     - link_url: https://www.pnas.org/doi/abs/10.1073/pnas.2319948121
       link_text: Collective cooperative intelligence
       original_md: '[Collective cooperative intelligence](https://www.pnas.org/doi/abs/10.1073/pnas.2319948121)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Collective cooperative intelligence
+      authors:
+      - Wolfram Barfuss
+      - Jessica Flack
+      - Chaitanya S. Gokhale
+      - Lewis Hammond
+      - Christian Hilbe
+      - Edward Hughes
+      - Joel Z. Leibo
+      - Tom Lenaerts
+      - Naomi Leonard
+      - Simon Levin
+      - Udari Madhushani Sehwag
+      - Alex McAvoy
+      - Janusz M. Meylahn
+      - Fernando P. Santos
+      author_organizations:
+      - University of Bonn
+      - Santa Fe Institute
+      - Max Planck Institute for Evolutionary Biology
+      - University of Oxford
+      - Google DeepMind
+      - Université Libre de Bruxelles
+      - Princeton University
+      - Stanford University
+      - UNC Chapel Hill
+      - University of Twente
+      - University of Amsterdam
+      date: '2025-06-16'
+      published_year: 2025
+      venue: Proceedings of the National Academy of Sciences
+      kind: paper_published
     - link_url: https://www.lesswrong.com/posts/JjYu75q3hEMBgtvr8/multipolar-ai-is-underrated
       link_text: Multipolar AI is Underrated
       original_md: '[Multipolar AI is Underrated](https://www.lesswrong.com/posts/JjYu75q3hEMBgtvr8/multipolar-ai-is-underrated)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Multipolar AI is Underrated
+      authors:
+      - Allison Duettmann
+      author_organizations:
+      - Foresight Institute
+      date: '2025-05-17'
+      published_year: 2025
+      venue: LessWrong
+      kind: lesswrong
     - link_url: https://www.lesswrong.com/posts/tQ9vWm4b57HFqbaRj/what-if-not-agency
       link_text: What, if not agency?
       original_md: '[What, if not agency?](https://www.lesswrong.com/posts/tQ9vWm4b57HFqbaRj/what-if-not-agency)'
@@ -13541,33 +13844,39 @@ items:
     - link_url: https://equilibria1.substack.com/p/the-evolution-of-agency-a-research
       link_text: A Phylogeny of Agents
       original_md: '[A Phylogeny of Agents](https://equilibria1.substack.com/p/the-evolution-of-agency-a-research)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: A Phylogeny of Agents
+      authors:
+      - Equilibria
+      author_organizations:
+      - Equilibria Network
+      date: '2025-08-15'
+      published_year: 2025
+      venue: Substack
+      kind: blog_post
     - link_url: https://themultiplicity.ai/blog/thesis
       link_text: The Multiplicity Thesis, Collective Intelligence, and Morality
       original_md: '[The Multiplicity Thesis, Collective Intelligence, and Morality](https://themultiplicity.ai/blog/thesis)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: The Multiplicity Thesis, Collective Intelligence, and Morality
+      authors:
+      - Andrew Critch
+      author_organizations:
+      - theMultiplicity.ai
+      date: '2025-11-07'
+      published_year: 2025
+      venue: theMultiplicity.ai blog
+      kind: blog_post
     - link_url: https://www.alignmentforum.org/posts/xud7Mti9jS4tbWqQE/hierarchical-agency-a-missing-piece-in-ai-alignment
       link_text: Hierarchical Alignment
       original_md: '[Hierarchical Alignment](https://www.alignmentforum.org/posts/xud7Mti9jS4tbWqQE/hierarchical-agency-a-missing-piece-in-ai-alignment)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'Hierarchical Agency: A Missing Piece in AI Alignment'
+      authors:
+      - Jan_Kulveit
+      author_organizations:
+      - Alignment of Complex Systems Research Group
+      date: '2024-11-27'
+      published_year: 2024
+      venue: AI Alignment Forum
+      kind: lesswrong
     - link_url: https://a16z.simplecast.com/episodes/emmett-shear-on-building-ai-that-actually-cares-beyond-control-and-steering-TRwfxH0r
       link_text: 'Emmett Shear on Building AI That Actually Cares: Beyond Control
         and Steering'
@@ -14525,13 +14834,14 @@ items:
     - link_url: https://fulcrumresearch.ai/2025/10/22/introducing-orchestra-quibbler.html
       link_text: Fulcrum
       original_md: '[Fulcrum](https://fulcrumresearch.ai/2025/10/22/introducing-orchestra-quibbler.html)'
-      title: null
+      title: Introducing Quibbler and Orchestra
       authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      author_organizations:
+      - Fulcrum Research
+      date: '2025-10-22'
+      published_year: 2025
+      venue: Fulcrum Research Blog
+      kind: code_tool
     - link_url: https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/
       link_text: Measuring AI Ability to Complete Long Tasks
       original_md: '[Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)'
@@ -15306,13 +15616,21 @@ items:
     - link_url: https://arxiv.org/abs/2511.16035
       link_text: 'Liars'' Bench: Evaluating Lie Detectors for Language Models'
       original_md: '[Liars'' Bench: Evaluating Lie Detectors for Language Models](https://arxiv.org/abs/2511.16035)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'Liars'' Bench: Evaluating Lie Detectors for Language Models'
+      authors:
+      - Kieron Kretschmar
+      - Walter Laurito
+      - Sharan Maiya
+      - Samuel Marks
+      author_organizations:
+      - Cadenza Labs
+      - FZI
+      - University of Cambridge
+      - Anthropic
+      date: '2025-11-20'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://arxiv.org/pdf/2510.15501
       link_text: 'DECEPTIONBENCH: A Comprehensive Benchmark for AI Deception Behaviors
         in Real-world Scenario'
@@ -15576,13 +15894,13 @@ items:
     - link_url: https://static1.squarespace.com/static/660eea75305d9a0e1148118a/t/691f711c4ac57d3831260538/1763668252592/scheming-propensity.pdf
       link_text: Evaluating and Understanding Scheming Propensity in LLM Agents
       original_md: '[Evaluating and Understanding Scheming Propensity in LLM Agents](https://static1.squarespace.com/static/660eea75305d9a0e1148118a/t/691f711c4ac57d3831260538/1763668252592/scheming-propensity.pdf)'
-      title: null
+      title: scheming-propensity.pdf
       authors: []
       author_organizations: []
       date: null
       published_year: null
       venue: null
-      kind: null
+      kind: error_detected
     - link_url: https://www.arxiv.org/pdf/2509.15541
       link_text: Stress Testing Deliberative Alignment for Anti-Scheming Training
       original_md: '[Stress Testing Deliberative Alignment for Anti-Scheming Training](https://www.arxiv.org/pdf/2509.15541)'
@@ -15617,13 +15935,16 @@ items:
     - link_url: https://arxiv.org/html/2510.12826v1
       link_text: Scheming Ability in LLM-to-LLM Strategic Interactions
       original_md: '[Scheming Ability in LLM-to-LLM Strategic Interactions](https://arxiv.org/html/2510.12826v1)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Scheming Ability in LLM-to-LLM Strategic Interactions
+      authors:
+      - Thao Pham
+      author_organizations:
+      - Berea College
+      - Cooperative AI Foundation
+      date: '2025-10-11'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://arxiv.org/abs/2412.04984
       link_text: Frontier Models are Capable of In-context Scheming
       original_md: '[Frontier Models are Capable of In-context Scheming](https://arxiv.org/abs/2412.04984)'
@@ -16040,13 +16361,17 @@ items:
     - link_url: https://arxiv.org/abs/2512.03771
       link_text: In-Context Representation Hijacking
       original_md: '[In-Context Representation Hijacking](https://arxiv.org/abs/2512.03771)'
-      title: null
-      authors: []
+      title: In-Context Representation Hijacking
+      authors:
+      - Itay Yona
+      - Amir Sarid
+      - Michael Karasik
+      - Yossi Gandelsman
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-12-03'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://alignment.anthropic.com/2025/automated-auditing/
       link_text: Building and evaluating alignment auditing agents
       original_md: '[Building and evaluating alignment auditing agents](https://alignment.anthropic.com/2025/automated-auditing/)'
@@ -17320,43 +17645,72 @@ items:
     - link_url: https://inspect.aisi.org.uk/evals/
       link_text: Inspect Evals
       original_md: '[Inspect Evals](https://inspect.aisi.org.uk/evals/)'
-      title: null
+      title: Inspect Evals – Inspect
       authors: []
-      author_organizations: []
+      author_organizations:
+      - UK AI Security Institute
       date: null
       published_year: null
-      venue: null
-      kind: null
+      venue: inspect.aisi.org.uk
+      kind: code_tool
     - link_url: https://www.aisi.gov.uk/blog/inspect-cyber
       link_text: Inspect Cyber
       original_md: '[Inspect Cyber](https://www.aisi.gov.uk/blog/inspect-cyber)'
-      title: null
+      title: 'Inspect Cyber: A New Standard for Agentic Cyber Evaluations'
       authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      author_organizations:
+      - AI Security Institute (AISI)
+      - UK Government BEIS
+      date: '2025-06-26'
+      published_year: 2025
+      venue: AISI Blog
+      kind: code_tool
     - link_url: https://arxiv.org/abs/2509.20166
       link_text: CyberSOCEval
       original_md: '[CyberSOCEval](https://arxiv.org/abs/2509.20166)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'CyberSOCEval: Benchmarking LLMs Capabilities for Malware Analysis and
+        Threat Intelligence Reasoning'
+      authors:
+      - Lauren Deason
+      - Adam Bali
+      - Ciprian Bejean
+      - Diana Bolocan
+      - James Crnkovich
+      - Ioana Croitoru
+      - Krishna Durai
+      - Chase Midler
+      - Calin Miron
+      - David Molnar
+      - Brad Moon
+      - Bruno Ostarcevic
+      - Alberto Peltea
+      - Matt Rosenberg
+      - Catalin Sandu
+      - Arthur Saputkin
+      - Sagar Shah
+      - Daniel Stan
+      - Ernest Szocs
+      - Shengye Wan
+      - Spencer Whitman
+      - Sven Krasser
+      - Joshua Saxe
+      author_organizations:
+      - CrowdStrike
+      date: '2025-09-24'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://meta-llama.github.io/PurpleLlama/CyberSecEval/
       link_text: CyberSecEval 4
       original_md: '[CyberSecEval 4](https://meta-llama.github.io/PurpleLlama/CyberSecEval/)'
-      title: null
+      title: CyberSecEval 4
       authors: []
-      author_organizations: []
+      author_organizations:
+      - Meta
       date: null
-      published_year: null
-      venue: null
-      kind: null
+      published_year: 2025
+      venue: Meta Purple Llama Website
+      kind: news_announcement
     other_attributes: {}
   parsing_issues:
   - Broad approach field says 'behavioural' - mapped to 'behaviorist science'
