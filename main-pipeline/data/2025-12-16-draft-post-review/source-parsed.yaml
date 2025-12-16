@@ -1215,13 +1215,13 @@ items:
     - link_url: https://scontent-lhr8-1.xx.fbcdn.net/v/t39.2365-6/557601942_1468972530985309_838842257265552803_n.pdf?_nc_cat=108&ccb=1-7&_nc_sid=3c67a6&_nc_ohc=_H33_VKF3ZUQ7kNvwFog8dd&_nc_oc=AdlNtqCDY4HafZ3-d5rb26AF5f2m0X46SGdKhVq3jLqwpNf_wEXhdQnH7_30ychiZWk&_nc_zt=14&_nc_ht=scontent-lhr8-1.xx&_nc_gid=QvW_ePiaF4E-PxOf30MWyg&oh=00_AfiZC5G4ODvWhiy0MuVH8PSlUFrW8RDQQ8tdr6Zec5k9aA&oe=691A6D09
       link_text: Code World Model Preparedness Report
       original_md: '[Code World Model Preparedness Report](https://scontent-lhr8-1.xx.fbcdn.net/v/t39.2365-6/557601942_1468972530985309_838842257265552803_n.pdf?_nc_cat=108&ccb=1-7&_nc_sid=3c67a6&_nc_ohc=_H33_VKF3ZUQ7kNvwFog8dd&_nc_oc=AdlNtqCDY4HafZ3-d5rb26AF5f2m0X46SGdKhVq3jLqwpNf_wEXhdQnH7_30ychiZWk&_nc_zt=14&_nc_ht=scontent-lhr8-1.xx&_nc_gid=QvW_ePiaF4E-PxOf30MWyg&oh=00_AfiZC5G4ODvWhiy0MuVH8PSlUFrW8RDQQ8tdr6Zec5k9aA&oe=691A6D09)'
-      title: null
+      title: Unable to access - URL signature expired
       authors: []
       author_organizations: []
       date: null
       published_year: null
       venue: null
-      kind: null
+      kind: error_detected
     - link_url: https://ai.meta.com/blog/practical-ai-agent-security/
       link_text: 'Agents Rule of Two: A Practical Approach to AI Agent Security'
       original_md: '[Agents Rule of Two: A Practical Approach to AI Agent Security](https://ai.meta.com/blog/practical-ai-agent-security/%20)'
@@ -2783,13 +2783,14 @@ items:
     - link_url: https://luthienresearch.org/updates/2025-03-redteam-as-upsampling/
       link_text: Luthien's Approach to Prosaic AI Control in 21 Points
       original_md: '[Luthien''s Approach to Prosaic AI Control in 21 Points](https://luthienresearch.org/updates/2025-03-redteam-as-upsampling/)'
-      title: null
+      title: Luthien's Approach to Prosaic AI Control in 21 Points
       authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      author_organizations:
+      - Luthien Research
+      date: '2025-03-17'
+      published_year: 2025
+      venue: Luthien Research Blog
+      kind: blog_post
     - link_url: https://alignmentforum.org/posts/LPHMMMZFAWog6ty5x/ctrl-z-controlling-ai-agents-via-resampling
       link_text: 'Ctrl-Z: Controlling AI Agents via Resampling'
       original_md: '[Ctrl-Z: Controlling AI Agents via Resampling](https://alignmentforum.org/posts/LPHMMMZFAWog6ty5x/ctrl-z-controlling-ai-agents-via-resampling)'
@@ -5357,13 +5358,13 @@ items:
     - link_url: https://example-blog.com/a-small-number-of-samples-can-poison-llms
       link_text: A small number of samples can poison LLMs of any size
       original_md: '[A small number of samples can poison LLMs of any size](https://example-blog.com/a-small-number-of-samples-can-poison-llms)'
-      title: null
+      title: A small number of samples can poison LLMs
       authors: []
       author_organizations: []
       date: null
       published_year: null
       venue: null
-      kind: null
+      kind: error_detected
     - link_url: https://arxiv.org/abs/2509.03405
       link_text: Reasoning Introduces New Poisoning Attacks Yet Makes Them More Complicated
       original_md: '[Reasoning Introduces New Poisoning Attacks Yet Makes Them More
@@ -9824,13 +9825,32 @@ items:
         levels
       original_md: '[Aligning machine and human visual representations across abstraction
         levels](https://www.nature.com/articles/s41586-025-09631-6)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Aligning machine and human visual representations across abstraction
+        levels
+      authors:
+      - Lukas Muttenthaler
+      - Klaus Greff
+      - Frieda Born
+      - Bernhard Spitzer
+      - Simon Kornblith
+      - Michael C. Mozer
+      - Klaus-Robert Müller
+      - Thomas Unterthiner
+      - Andrew K. Lampinen
+      author_organizations:
+      - Google DeepMind
+      - Technische Universität Berlin
+      - BIFOLD
+      - Max Planck Institute for Human Cognitive and Brain Sciences
+      - Max Planck Institute for Human Development
+      - TUD Dresden University of Technology
+      - Anthropic
+      - Korea University
+      - Max Planck Institute for Informatics
+      date: '2025-11-12'
+      published_year: 2025
+      venue: Nature
+      kind: paper_published
     - link_url: https://arxiv.org/html/2505.21731v1
       link_text: Deep Reinforcement Learning Agents are not even close to Human Intelligence
       original_md: '[Deep Reinforcement Learning Agents are not even close to Human
@@ -12813,13 +12833,31 @@ items:
     - link_url: https://arxiv.org/abs/2503.00069
       link_text: Societal alignment frameworks can improve llm alignment
       original_md: '[Societal alignment frameworks can improve llm alignment](https://arxiv.org/abs/2503.00069)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: Societal Alignment Frameworks Can Improve LLM Alignment
+      authors:
+      - Karolina Stańczak
+      - Nicholas Meade
+      - Mehar Bhatia
+      - Hattie Zhou
+      - Konstantin Böttinger
+      - Jeremy Barnes
+      - Jason Stanley
+      - Jessica Montgomery
+      - Richard Zemel
+      - Nicolas Papernot
+      - Nicolas Chapados
+      - Denis Therien
+      - Timothy P. Lillicrap
+      - Ana Marasović
+      - Sylvie Delacroix
+      - Gillian K. Hadfield
+      - Siva Reddy
+      author_organizations:
+      - Multiple institutions (17 authors)
+      date: '2025-02-27'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://arxiv.org/abs/2509.07955
       link_text: 2509.07955 - ACE and Diverse Generalization via Selective Disagreement
       original_md: '[2509.07955 \- ACE and Diverse Generalization via Selective Disagreement](https://arxiv.org/abs/2509.07955)'
@@ -13745,13 +13783,14 @@ items:
     - link_url: https://www.anthropic.com/research/end-subset-conversations
       link_text: End A Subset Of Conversations
       original_md: '[End A Subset Of Conversations](https://www.anthropic.com/research/end-subset-conversations)'
-      title: null
+      title: Claude Opus 4 and 4.1 can now end a rare subset of conversations
       authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      author_organizations:
+      - Anthropic
+      date: '2025-08-15'
+      published_year: 2025
+      venue: Anthropic Blog
+      kind: news_announcement
     - link_url: https://www.full-stack-alignment.ai
       link_text: Full-Stack Alignment
       original_md: '[Full-Stack Alignment](https://www.full-stack-alignment.ai)'
@@ -13943,13 +13982,35 @@ items:
     - link_url: https://arxiv.org/abs/2503.17354
       link_text: 'HCAST: Human-Calibrated Autonomy Software Tasks'
       original_md: '[HCAST: Human-Calibrated Autonomy Software Tasks](https://arxiv.org/abs/2503.17354)'
-      title: null
-      authors: []
+      title: 'HCAST: Human-Calibrated Autonomy Software Tasks'
+      authors:
+      - David Rein
+      - Joel Becker
+      - Amy Deng
+      - Seraphina Nix
+      - Chris Canal
+      - Daniel O'Connel
+      - Pip Arnott
+      - Ryan Bloom
+      - Thomas Broadley
+      - Katharyn Garcia
+      - Brian Goodrich
+      - Max Hasin
+      - Sami Jawhar
+      - Megan Kinniment
+      - Thomas Kwa
+      - Aron Lajko
+      - Nate Rush
+      - Lucas Jun Koba Sato
+      - Sydney Von Arx
+      - Ben West
+      - Lawrence Chan
+      - Elizabeth Barnes
       author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      date: '2025-03-21'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://arxiv.org/pdf/2510.18212
       link_text: A Definition of AGI
       original_md: '[A Definition of AGI](https://arxiv.org/pdf/2510.18212)'
@@ -13999,13 +14060,14 @@ items:
     - link_url: https://scale.com/leaderboard/rli
       link_text: Remote Labor Index
       original_md: '[Remote Labor Index](https://scale.com/leaderboard/rli)'
-      title: null
+      title: Remote Labor Index (RLI)
       authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      author_organizations:
+      - Scale AI
+      date: '2025-10-30'
+      published_year: 2025
+      venue: Scale AI Leaderboard
+      kind: dataset_benchmark
     - link_url: https://kinds-of-intelligence-cfi.github.io/ADELE/
       link_text: 'ADeLe v1.0: A battery for AI Evaluation with explanatory and predictive
         power'
@@ -15118,13 +15180,23 @@ items:
       link_text: 'Virology Capabilities Test (VCT): A Multimodal Virology Q&A Benchmark'
       original_md: '[Virology Capabilities Test (VCT): A Multimodal Virology Q\&A
         Benchmark](https://arxiv.org/abs/2504.16137)'
-      title: null
-      authors: []
-      author_organizations: []
-      date: null
-      published_year: null
-      venue: null
-      kind: null
+      title: 'Virology Capabilities Test (VCT): A Multimodal Virology Q&A Benchmark'
+      authors:
+      - Jasper Götting
+      - Pedro Medeiros
+      - Jon G Sanders
+      - Nathaniel Li
+      - Long Phan
+      - Karam Elabd
+      - Lennart Justen
+      - Dan Hendrycks
+      - Seth Donoughe
+      author_organizations:
+      - Multiple Research Institutions
+      date: '2025-04-29'
+      published_year: 2025
+      venue: arXiv
+      kind: paper_preprint
     - link_url: https://arxiv.org/abs/2505.06108
       link_text: LLMs Outperform Experts on Challenging Biology Benchmarks
       original_md: '[LLMs Outperform Experts on Challenging Biology Benchmarks](https://arxiv.org/abs/2505.06108)'
