@@ -138,6 +138,10 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 *Guide weights during pretraining.*
 
+* *Theory of change:* "LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent."
+
+* *Broad [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* engineering  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* average
+
 * *See also:* [prosaic alignment](https://www.lesswrong.com/posts/5ciYedyQDDqAcrDLr/a-positive-case-for-how-we-might-succeed-at-prosaic-ai)  ·  [incrementalism](https://www.lesswrong.com/posts/TALmStNf6479uTwzT/ai-alignment-metastrategy#Incrementalist_Metastrategy)  ·  [alignment-by-default](https://www.lesswrong.com/posts/Nwgdq6kHke5LY692J/alignment-by-default). [Korbak 2023](https://arxiv.org/abs/2302.08582).
 
 * *Some names:* Jan Leike, Stuart Armstrong, Cyrus Cousins, Oliver Daniels
@@ -152,6 +156,10 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 *Modify weights after pre-training.*
 
+* *Theory of change:* "LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent."
+
+* *Broad [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* engineering  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* average
+
 * *Some names:* Adam Gleave, Anca Dragan, Jacob Steinhardt, Rohin Shah
 
 * *Critiques:* [Bellot](https://arxiv.org/abs/2506.02923), [STACK](https://arxiv.org/abs/2506.24068), [Dung](https://arxiv.org/abs/2510.11235), [Gölz](https://arxiv.org/abs/2505.23749), [Gaikwad](https://arxiv.org/abs/2509.05381), [Hubinger](https://www.alignmentforum.org/posts/epjuxGnSPof3GnMSL)
@@ -163,6 +171,10 @@ Nudging base models by optimising their output. Worked on by the post-training t
 ### Black-box make-AI-solve-it \[a:black_box_make_ai_solve_it\]
 
 *Focus on using existing models to improve and align further models.*
+
+* *Theory of change:* "LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent."
+
+* *Broad [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* engineering  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* average
 
 * *See also:* [Make AI solve it](#sec:ai_solve_alignment)  ·  [Debate](#a:debate)
 
@@ -178,6 +190,10 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 *Prompt mild misbehaviour in training, to prevent the failure mode where once AI misbehaves in a mild way, it will be more inclined towards all bad behaviour.*
 
+* *Theory of change:* "LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent."
+
+* *Broad [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* engineering  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* average
+
 * *Some names:* Ariana Azarbal, Daniel Tan, Victor Gillioz, Alex Turner, Alex Cloud, Monte MacDiarmid, Daniel Ziegler
 
 * *Critiques:* [Bellot](https://arxiv.org/abs/2506.02923), [Alfour](https://cognition.cafe/p/ai-alignment-based-on-intentions), [Gölz](https://arxiv.org/abs/2505.23749), [Gaikwad](https://arxiv.org/abs/2509.05381), [Hubinger](https://www.alignmentforum.org/posts/epjuxGnSPof3GnMSL)
@@ -190,6 +206,10 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 *Investigate what runtime guidelines, rules, or examples provided to an LLM yield better behavior.*
 
+* *Theory of change:* "LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent."
+
+* *Broad [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* engineering  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* average
+
 * *See also:* model spec as prompt  ·  [Model specs and constitutions](#a:specs_and_constitutions)
 
 * *Some names:* Jacob Steinhardt, Kayo Yin, Atticus Geiger
@@ -201,6 +221,10 @@ Nudging base models by optimising their output. Worked on by the post-training t
 ### Inference-time: Steering \[a:inference_time_steering\]
 
 *Manipulate an LLM's internal representations/token probabilities without touching weights.*
+
+* *Theory of change:* "LLMs don't seem very dangerous and might scale to AGI, things are generally smooth, relevant capabilities are harder than alignment, assume no mesaoptimisers, assume that zero-shot deception is hard, assume a fundamentally humanish ontology is learned, assume no simulated agents, assume that noise in the data means that human preferences are not ruled out, assume that alignment is a superficial feature, assume that tuning for what we want will also get us to avoid what we don't want. Maybe assume that thoughts are translucent."
+
+* *Broad [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* engineering  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* average
 
 * *See also:* Activation engineering  ·  [Character training and persona steering](#a:psych_personas)  ·  [Safeguards (inference-time auxiliaries)](#a:anthropic_safeguards)
 
