@@ -1,4 +1,4 @@
-# Labs (giant companies) 
+# Labs (giant companies)
 
 ### OpenAI 
 
@@ -632,7 +632,7 @@ Uses AI-generated data (e.g., critiques, preferences, or self-labeled examples) 
 
 This section isn't very conceptually clean. See the [Open Problems](https://arxiv.org/abs/2501.16496) paper or [Deepmind](https://arxiv.org/pdf/2504.01849#page=92.33) for strong frames which are not useful for descriptive purposes.
 
-## Reverse engineering
+### Reverse engineering
 
 *Decompose a model into its functional, interacting components (circuits), formally describe what computation those components perform, and validate their causal effects to reverse-engineer the model's internal algorithm.*
 
@@ -651,6 +651,234 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 * *Estimated FTEs:* 100-200
 
 * *Some outputs:* *In weights-space*  ·  [The Circuits Research Landscape](https://www.neuronpedia.org/graph/info)  ·  [Circuits in Superposition](https://www.lesswrong.com/posts/roE7SHjFWEoMcGZKd/circuits-in-superposition-compressing-many-small-neural), [2](https://www.google.com/url?q=https://www.lesswrong.com/posts/FWkZYQceEzL84tNej/circuits-in-superposition-2-now-with-less-wrong-math&sa=D&source=docs&ust=1765550772146255&usg=AOvVaw334Tyidx2keGCA9vGwQ9a-)  ·  [Compressed Computation is (probably) not Computation in Superposition](https://www.lesswrong.com/posts/ZxFchCFJFcgysYsT9/compressed-computation-is-probably-not-computation-in)  ·  [MIB: A Mechanistic Interpretability Benchmark](https://arxiv.org/abs/2504.13151)  ·  [RelP: Faithful and Efficient Circuit Discovery in Language Models via Relevance Patching](https://arxiv.org/abs/2508.21258)  ·  [The Dual-Route Model of Induction](https://arxiv.org/abs/2504.03022)  ·  [Structural Inference: Interpreting Small Language Models with Susceptibilities](https://arxiv.org/abs/2504.18274)  ·  [Stochastic Parameter Decomposition](https://openreview.net/forum?id=dEdS9ao8gN)  ·  [The Geometry of Self-Verification in a Task-Specific Reasoning Model](https://arxiv.org/abs/2504.14379)  ·  [Converting MLPs into Polynomials in Closed Form](https://arxiv.org/abs/2502.01032)  ·  [Extractive Structures Learned in Pretraining Enable Generalization on Finetuned Facts](https://arxiv.org/abs/2412.04614)  ·  [Interpretability in Parameter Space: Minimizing Mechanistic Description Length with Attribution-based Parameter Decomposition](https://arxiv.org/abs/2501.14926)  ·  [Identifying Sparsely Active Circuits Through Local Loss Landscape Decomposition](https://arxiv.org/abs/2504.00194)  ·  [From Memorization to Reasoning in the Spectrum of Loss Curvature](https://arxiv.org/abs/2510.24256)  ·  [Generalization or Hallucination? Understanding Out-of-Context Reasoning in Transformers](https://arxiv.org/abs/2506.10887)  ·  [How Do LLMs Perform Two-Hop Reasoning in Context?](https://arxiv.org/abs/2502.13913)  ·  [Blink of an eye: a simple theory for feature localization in generative models](https://arxiv.org/abs/2502.00921)  ·  [On the creation of narrow AI: hierarchy and nonlocality of neural network skills](https://arxiv.org/abs/2505.15811)  ·  *In activations-space*  ·  [Interpreting Emergent Planning in Model-Free Reinforcement Learning](https://arxiv.org/pdf/2504.01871)  ·  [Bridging the human–AI knowledge gap through concept discovery and transfer in AlphaZero](https://www.pnas.org/doi/10.1073/pnas.2406675122)  ·  [Building and evaluating alignment auditing agents](https://lesswrong.com/posts/DJAZHYjWxMrcd2na3/building-and-evaluating-alignment-auditing-agents)  ·  [How Do Transformers Learn Variable Binding in Symbolic Programs?](https://arxiv.org/abs/2505.20896)  ·  [Fresh in memory: Training-order recency is linearly encoded in language model activations](https://arxiv.org/abs/2509.14223)  ·  [Language Models use Lookbacks to Track Beliefs](https://arxiv.org/abs/2505.14685)  ·  [Constrained belief updates explain geometric structures in transformer representations](https://arxiv.org/abs/2502.01954)  ·  [LLMs Process Lists With General Filter Heads](https://arxiv.org/abs/2510.26784)  ·  [Language Models Use Trigonometry to Do Addition](https://arxiv.org/abs/2502.00873)  ·  [Interpreting learned search: finding a transition model and value function in an RNN that plays Sokoban](https://arxiv.org/abs/2506.10138)  ·  [Transformers Struggle to Learn to Search](https://arxiv.org/abs/2412.04703)  ·  [Adversarial Examples Are Not Bugs, They Are Superposition](https://arxiv.org/abs/2508.17456)  ·  [Do Language Models Use Their Depth Efficiently?](https://arxiv.org/abs/2505.13898)  ·  [ICLR: In-Context Learning of Representations](https://openreview.net/forum?id=pXlmOmlHJZ)
+
+### Extracting latent knowledge
+
+*Identify and decoding the "true" beliefs or knowledge represented inside a model's activations, even when the model's output is deceptive or false.*
+
+* *Theory of change:* Powerful models may know things they do not say (e.g. that they are currently being tested). If we can translate this latent knowledge directly from the model's internals, we can supervise them reliably even when they attempt to deceive human evaluators or when the task is too difficult for humans to verify directly. 
+
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* worst case
+
+* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Superintelligence can fool human supervisors
+
+* *See also:* [AI explanations of AIs](#a:ai_explanations_of_AIs)  ·  [Heuristic explanations](#a:heuristic_explanations)  ·  Lie and deception detectors
+
+* *Some names:* Bartosz Cywiński, Emil Ryd, Senthooran Rajamanoharan, Alexander Pan, Lijie Chen, Jacob Steinhardt, Javier Ferrando, Oscar Obeso, Collin Burns, Paul Christiano.
+
+* *Critiques:* [A Problem to Solve Before Building a Deception Detector](https://www.lesswrong.com/posts/YXNeA3RyRrrRWS37A/a-problem-to-solve-before-building-a-deception-detector)
+
+* *Funded by:* Open Philanthropy, Anthropic, NSF, various academic grants
+
+* *Estimated FTEs:* 20-40
+
+* *Some outputs:* [Auditing language models for hidden objectives](https://www.anthropic.com/research/auditing-hidden-objectives)  ·  [Eliciting Secret Knowledge from Language Models](https://arxiv.org/abs/2510.01070) · [Here’s 18 Applications of Deception Probes](https://www.lesswrong.com/posts/7zhAwcBri7yupStKy/here-s-18-applications-of-deception-probes) · [Towards eliciting latent knowledge from LLMs with mechanistic interpretability](https://arxiv.org/pdf/2505.14352)  · [CCS-Lib: A Python package to elicit latent knowledge from LLMs](https://joss.theoj.org/papers/10.21105/joss.06511) · [No Answer Needed: Predicting LLM Answer Accuracy from Question-Only Linear Probes](https://arxiv.org/abs/2509.10625) · [When Thinking LLMs Lie: Unveiling the Strategic Deception in Representations of Reasoning Models](https://arxiv.org/abs/2506.04909)  · [Caught in the Act: a mechanistic approach to detecting deception](https://arxiv.org/abs/2508.19505) · [When Truthful Representations Flip Under Deceptive Instructions?](https://arxiv.org/abs/2507.22149)
+
+### Lie and deception detectors
+
+*Detect when a model is being deceptive or lying by building white- or black-box detectors. Some work below requires intent in their definition, while other work focuses only on whether the model states something it believes to be false, regardless of intent.*
+
+* *Theory of change:* Such detectors could flag suspicious behavior during evaluations or deployment, augment training to reduce deception, or audit models pre-deployment. Specific applications include alignment evaluations (e.g. by validating answers to introspective questions), safeguarding evaluations (catching models that "sandbag", that is, strategically underperform to pass capability tests), and large-scale deployment monitoring. An honest version of a model could also provide oversight during training or detect cases where a model behaves in ways it understands are unsafe.
+
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* pessimistic
+
+* *See also:* [Reverse engineering](#a:interp_fundamental)  ·  [AI deception evals](#a:ai_deception)  ·  [Sandbagging evals](#a:evals_sandbagging)
+
+* *Some names:* [Cadenza](https://cadenzalabs.org), Sam Marks, Rowan Wang, Kieron Kretschmar, Sharan Maiya, Walter Laurito, Chris Cundy, Adam Gleave, Aviel Parrack, Stefan Heimersheim, Carlo Attubato, Joseph Bloom, Jordan Taylor, Alex McKenzie, Urja Pawar, Lewis Smith, Bilal Chughtai, Neel Nanda
+
+* *Critiques:* difficult to determine if behavior is strategic deception or only low level "reflexive" actions; Unclear if a model roleplaying a liar has deceptive intent. [How are intentional descriptions (like deception) related to algorithmic ones (like understanding the mechanisms models use)?](https://www.lesswrong.com/posts/YXNeA3RyRrrRWS37A/a-problem-to-solve-before-building-a-deception-detector), [Is This Lie Detector Really Just a Lie Detector? An Investigation of LLM Probe Specificity](https://www.lesswrong.com/posts/5dkhdRMypeuyoXfmb/is-this-lie-detector-really-just-a-lie-detector-an), [Herrmann](https://www.lesswrong.com/posts/bCQbSFrnnAk7CJNpM/still-no-lie-detector-for-llms), [Smith and Chughtai](https://arxiv.org/abs/2511.22662)
+
+* *Funded by:* Anthropic, Deepmind, UK AISI, Coefficient Giving
+
+* *Estimated FTEs:* 10-50
+
+* *Some outputs:* [Detecting Strategic Deception Using Linear Probes](https://www.lesswrong.com/posts/9pGbTz6c78PGwJein/detecting-strategic-deception-using-linear-probes)  ·  [Whitebox detection of sandbagging model organisms](https://www.lesswrong.com/posts/pPEeMdgjpjHZWCDFw/white-box-control-at-uk-aisi-update-on-sandbagging)  ·  [Benchmarking deception probes for trusted monitoring](https://www.lesswrong.com/posts/eaEqAzGN3uJfpfGoc/trusted-monitoring-but-with-deception-probes)  ·  [18 Applications of Deception Probes](https://www.lesswrong.com/posts/7zhAwcBri7yupStKy/18-applications-of-deception-probes)  ·  [Evaluating honesty and lie detection techniques on a diverse suite of dishonest models](https://alignment.anthropic.com/2025/honesty-elicitation/)  ·  [Caught in the Act: a mechanistic approach to detecting deception](https://arxiv.org/abs/2508.19505)  ·  [Preference Learning with Lie Detectors can Induce Honesty or Evasion](https://arxiv.org/abs/2505.13787)  ·  [Detecting High-Stakes Interactions with Activation Probes](https://arxiv.org/abs/2506.10805)  ·  [White Box Control at UK AISI \- Update on Sandbagging Investigations](https://www.alignmentforum.org/posts/pPEeMdgjpjHZWCDFw/white-box-control-at-uk-aisi-update-on-sandbagging)  ·  [Liars' Bench: Evaluating Lie Detectors for Language Models](https://arxiv.org/html/2511.16035v1)  ·  [Probes and SAEs do well on Among Us benchmark](https://www.lesswrong.com/posts/gRc8KL2HLtKkFmNPr/among-us-a-sandbox-for-agentic-deception)
+
+### Model diffing
+
+*Understand what happens when a model is finetuned, what the "diff" between the finetuned and the original model consists in.*
+
+* *Theory of change:* By identifying the mechanistic differences between a base model and its fine-tune (e.g., after RLHF), maybe we can verify that safety behaviors are robustly "internalized" rather than superficially patched, and detect if dangerous capabilities or deceptive alignment have been introduced without needing to re-analyze the entire model. The diff is also much smaller, since most parameters don't change, which means you can use heavier methods on them.
+
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* pessimistic
+
+* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Value is fragile and hard to specify
+
+* *See also:* [Sparse Coding](#a:interp_sparse_coding)  ·  [Reverse engineering](#a:interp_fundamental)
+
+* *Some names:* Julian Minder, Clément Dumas, Neel Nanda, Trenton Bricken, Jack Lindsey
+
+* *Funded by:* various academic groups, Anthropic, Google DeepMind
+
+* *Estimated FTEs:* 10-30
+
+* *Some outputs:* [What We Learned Trying to Diff Base and Chat Models (And Why It Matters)](https://www.lesswrong.com/posts/xmpauEXEerzYcJKNm/what-we-learned-trying-to-diff-base-and-chat-models-and-why) ·  [Open Source Replication of Anthropic's Crosscoder paper for model-diffing](https://www.lesswrong.com/posts/srt6JXsRMtmqAJavD/open-source-replication-of-anthropic-s-crosscoder-paper-for)  ·  [Cross-Architecture Model Diffing with Crosscoders: Unsupervised Discovery of Differences Between LLMs](https://openreview.net/forum?id=ZB84SvrZB8%20)  ·  [Discovering Undesired Rare Behaviors via Model Diff Amplification](https://www.goodfire.ai/research/model-diff-amplification#)  ·  [Overcoming Sparsity Artifacts in Crosscoders to Interpret Chat-Tuning](https://arxiv.org/abs/2504.02922)  ·  [Persona Features Control Emergent Misalignment](https://arxiv.org/abs/2506.19823)  ·  [Narrow Finetuning Leaves Clearly Readable Traces in Activation Differences](https://arxiv.org/abs/2510.13900)  ·  [Insights on Crosscoder Model Diffing](https://transformer-circuits.pub/2025/crosscoder-diffing-update/index.html)  ·  [Diffing Toolkit: Model Comparison and Analysis Framework](https://github.com/science-of-finetuning/diffing-toolkit%20)
+
+### Sparse Coding
+
+*Decompose the polysemantic activations of the residual stream into a sparse linear combination of monosemantic "features" which correspond to interpretable concepts.*
+
+* *Theory of change:* Get a principled decomposition of an LLM's activation into atomic components → identify deception and other misbehaviors.
+
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* engineering / cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* average
+
+* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Value is fragile and hard to specify, Goals misgeneralize out of distribution, Superintelligence can fool human supervisors
+
+* *See also:* [Concept-based interpretability](#a:interp_concept_based)  ·  [Reverse engineering](#a:interp_fundamental)
+
+* *Some names:* Leo Gao, Dan Mossing, Emmanuel Ameisen, Jack Lindsey, Adam Pearce, Thomas Heap, Abhinav Menon, Kenny Peng, Tim Lawson
+
+* *Critiques:* [Sparse Autoencoders Can Interpret Randomly Initialized Transformers](https://arxiv.org/abs/2501.17727), [The Sparse Autoencoders bubble has popped, but they are still promising](https://agarriga.substack.com/p/the-sparse-autoencoders-bubble-has), [Negative Results for SAEs On Downstream Tasks and Deprioritising SAE Research](https://www.alignmentforum.org/posts/4uXCAJNuPKtKBsi28/), [Sparse Autoencoders Trained on the Same Data Learn Different Features](https://arxiv.org/pdf/2501.16615), [Why Not Just Train For Interpretability?](https://www.lesswrong.com/posts/2HbgHwdygH6yeHKKq/why-not-just-train-for-interpretability)
+
+* *Funded by:* everyone, roughly. Frontier labs, LTFF, Coefficient Giving, etc.
+
+* *Estimated FTEs:* 50-100
+
+* *Some outputs:* [Overcoming Sparsity Artifacts in Crosscoders to Interpret Chat-Tuning](https://arxiv.org/abs/2504.02922)  ·  [Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models](https://arxiv.org/abs/2411.14257)  ·  [Circuit Tracing: Revealing Computational Graphs in Language Models](https://transformer-circuits.pub/2025/attribution-graphs/methods.html)  ·  [Sparse Autoencoders Learn Monosemantic Features in Vision-Language Models](https://arxiv.org/abs/2504.02821)  ·  [I Have Covered All the Bases Here: Interpreting Reasoning Features in Large Language Models via Sparse Autoencoders](https://arxiv.org/abs/2503.18878)  ·  [Sparse Autoencoders Do Not Find Canonical Units of Analysis](https://arxiv.org/abs/2502.04878)  ·  [Transcoders Beat Sparse Autoencoders for Interpretability](https://arxiv.org/abs/2501.18823)  ·  [Decomposing MLP Activations into Interpretable Features via Semi-Nonnegative Matrix Factorization](https://arxiv.org/abs/2506.10920)  ·  [CRISP: Persistent Concept Unlearning via Sparse Autoencoders](https://arxiv.org/abs/2508.13650)  ·  [The Unintended Trade-off of AI Alignment:Balancing Hallucination Mitigation and Safety in LLMs](https://arxiv.org/abs/2510.07775)  ·  [Scaling sparse feature circuit finding for in-context learning](https://arxiv.org/abs/2504.13756)  ·  [Learning Multi-Level Features with Matryoshka Sparse Autoencoders](https://arxiv.org/abs/2503.17547)  ·  [Are Sparse Autoencoders Useful? A Case Study in Sparse Probing](https://arxiv.org/abs/2502.16681)  ·  [Sparse Autoencoders Trained on the Same Data Learn Different Features](https://arxiv.org/abs/2501.16615)  ·  [What's In My Human Feedback? Learning Interpretable Descriptions of Preference Data](https://arxiv.org/abs/2510.26202)  ·  [Priors in Time: Missing Inductive Biases for Language Model Interpretability](https://arxiv.org/abs/2511.01836)  ·  [Inference-Time Decomposition of Activations (ITDA): A Scalable Approach to Interpreting Large Language Models](https://arxiv.org/abs/2505.17769)  ·  [Binary Sparse Coding for Interpretability](https://arxiv.org/abs/2509.25596)  ·  [Scaling Sparse Feature Circuit Finding to Gemma 9B](https://lesswrong.com/posts/PkeB4TLxgaNnSmddg/scaling-sparse-feature-circuit-finding-to-gemma-9b)  ·  [Partially Rewriting a Transformer in Natural Language](https://arxiv.org/abs/2501.18838)  ·  [Dense SAE Latents Are Features, Not Bugs](https://arxiv.org/abs/2506.15679)  ·  [Evaluating Sparse Autoencoders on Targeted Concept Erasure Tasks](https://arxiv.org/abs/2411.18895)  ·  [Evaluating SAE interpretability without explanations](https://arxiv.org/abs/2507.08473)  ·  [SAEs Can Improve Unlearning: Dynamic Sparse Autoencoder Guardrails for Precision Unlearning in LLMs](https://arxiv.org/abs/2504.08192)  ·  [SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability](https://arxiv.org/abs/2503.09532)  ·  [SAEs Are Good for Steering \-- If You Select the Right Features](https://arxiv.org/abs/2505.20063)  ·  [Line of Sight: On Linear Representations in VLLMs](https://arxiv.org/abs/2506.04706)  ·  [Low-Rank Adapting Models for Sparse Autoencoders](https://arxiv.org/abs/2501.19406)  ·  [Enhancing Automated Interpretability with Output-Centric Feature Descriptions](https://arxiv.org/abs/2501.08319)  ·  [Decoding Dark Matter: Specialized Sparse Autoencoders for Interpreting Rare Concepts in Foundation Models](https://arxiv.org/abs/2411.00743)  ·  [Enhancing Neural Network Interpretability with Feature-Aligned Sparse Autoencoders](https://arxiv.org/abs/2411.01220)  ·  [BatchTopK Sparse Autoencoders](https://arxiv.org/abs/2412.06410)  ·  [Towards Understanding Distilled Reasoning Models: A Representational Approach](https://arxiv.org/abs/2503.03730)  ·  [Understanding sparse autoencoder scaling in the presence of feature manifolds](https://arxiv.org/abs/2509.02565)  ·  [Internal states before wait modulate reasoning patterns](https://arxiv.org/abs/2510.04128)  ·  [Do Sparse Autoencoders Generalize? A Case Study of Answerability](https://arxiv.org/abs/2502.19964)  ·  [Position: Mechanistic Interpretability Should Prioritize Feature Consistency in SAEs](https://arxiv.org/abs/2505.20254)  ·  [How Visual Representations Map to Language Feature Space in Multimodal LLMs](https://arxiv.org/abs/2506.11976)  ·  [Prisma: An Open Source Toolkit for Mechanistic Interpretability in Vision and Video](https://arxiv.org/abs/2504.19475)  ·  [Topological Data Analysis and Mechanistic Interpretability](https://lesswrong.com/posts/6oF6pRr2FgjTmiHus/topological-data-analysis-and-mechanistic-interpretability)  ·  [Large Language Models Share Representations of Latent Grammatical Concepts Across Typologically Diverse Languages](https://arxiv.org/abs/2501.06346)  ·  [Interpreting the linear structure of vision-language model embedding spaces](https://arxiv.org/abs/2504.11695)  ·  [Interpreting Large Text-to-Image Diffusion Models with Dictionary Learning](https://arxiv.org/abs/2505.24360)  ·  [Weight-sparse transformers have interpretable circuits](https://cdn.openai.com/pdf/41df8f28-d4ef-43e9-aed2-823f9393e470/circuit-sparsity-paper.pdf)
+
+### Causal Abstractions
+
+*Verify that a neural network implements a specific high-level causal model (like a logical algorithm) by finding a mapping between high-level variables and low-level neural representations.*
+
+* *Theory of change:* By establishing a causal mapping between a black-box neural network and a human-interpretable algorithm, we can check whether the model is using safe reasoning processes and predict its behavior on unseen inputs, rather than relying on behavioural testing alone.
+
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* worst-case
+
+* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Goals misgeneralize out of distribution
+
+* *See also:* [Concept-based interpretability](#a:interp_concept_based)  ·  [Reverse engineering](#a:interp_fundamental)
+
+* *Some names:* Atticus Geiger, Christopher Potts, Thomas Icard, Theodora-Mara Pîslar, Sara Magliacane, Jiuding Sun, Jing Huang
+
+* *Critiques:* [The Misguided Quest for Mechanistic AI Interpretability](https://www.google.com/search?q=https://open.substack.com/pub/aifrontiersmedia/p/the-misguided-quest-for-mechanistic), [Interpretability Will Not Reliably Find Deceptive AI](https://www.lesswrong.com/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai).
+
+* *Funded by:* Various academic groups, Google DeepMind, Goodfire
+
+* *Estimated FTEs:* 10-30
+
+* *Some outputs:* [HyperDAS: Towards Automating Mechanistic Interpretability with Hypernetworks](https://arxiv.org/abs/2503.10894)  ·  [Combining Causal Models for More Accurate Abstractions of Neural Networks](https://arxiv.org/abs/2503.11429)  ·  [How Causal Abstraction Underpins Computational Explanation](https://arxiv.org/abs/2508.11214)
+
+### Data attribution
+
+*Quantifies the influence of individual training data points on a model's specific behavior or output, allowing researchers to trace model properties (like misalignment, bias, or factual errors) back to their source in the training set.*
+
+* *Theory of change:* By attributing harmful, biased, or unaligned behaviors to specific training examples, researchers can audit proprietary models, debug training data, enable effective data deletion/unlearning
+
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* behavioural  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* average
+
+* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Goals misgeneralize out of distribution, Value is fragile and hard to specify
+
+* *See also:* [Data quality for alignment](#a:alignment_data_quality)
+
+* *Some names:* Roger Grosse, Philipp Alexander Kreer, Jin Hwa Lee, Matthew Smith, Abhilasha Ravichander, Andrew Wang, Jiacheng Liu, Jiaqi Ma, Junwei Deng, Yijun Pan, Daniel Murfet, Jesse Hoogland
+
+* *Funded by:* Various academic groups
+
+* *Estimated FTEs:* 30-60
+
+* *Some outputs:* [Influence Dynamics and Stagewise Data Attribution](https://arxiv.org/abs/2510.12071)  ·  [What is Your Data Worth to GPT?](https://arxiv.org/abs/2405.13954)  ·  [Detecting and Filtering Unsafe Training Data via Data Attribution with Denoised Representation](https://arxiv.org/abs/2502.11411)  ·  [Better Training Data Attribution via Better Inverse Hessian-Vector Products](https://arxiv.org/abs/2507.14740)  ·  [DATE-LM: Benchmarking Data Attribution Evaluation for Large Language Models](https://arxiv.org/abs/2507.09424)  ·  [Bayesian Influence Functions for Hessian-Free Data Attribution](https://arxiv.org/abs/2509.26544)  ·  [OLMoTrace: Tracing Language Model Outputs Back to Trillions of Training Tokens](https://arxiv.org/abs/2504.07096)  ·  [You Are What You Eat \-- AI Alignment Requires Understanding How Data Shapes Structure and Generalisation](https://arxiv.org/abs/2502.05475)  ·  [Information-Guided Identification of Training Data Imprint in (Proprietary) Large Language Models](https://arxiv.org/abs/2503.12072)  ·  [Distributional Training Data Attribution: What do Influence Functions Sample?](https://arxiv.org/abs/2506.12965)  ·  [A Snapshot of Influence: A Local Data Attribution Framework for Online Reinforcement Learning](https://openreview.net/forum?id=sYK4yPDuT1)  ·  [Revisiting Data Attribution for Influence Functions](https://arxiv.org/abs/2508.07297)
+
+### Pragmatic interpretability
+
+*Directly tackling concrete, safety-critical problems on the path to AGI by using lightweight interpretability tools (like steering and probing) and empirical feedback from proxy tasks, rather than pursuing complete mechanistic reverse-engineering.*
+
+* *Theory of change:* By applying interpretability skills to concrete problems, researchers can rapidly develop monitoring and control tools (e.g., steering vectors or probes) that have immediate, measurable impact on real-world safety issues like detecting hidden goals or emergent misalignment.
+
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* mixed
+
+* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Superintelligence can fool human supervisors, goals misgeneralize out of distribution.
+
+* *See also:*  [Reverse engineering](#a:interp_fundamental)  ·  [Concept-based interpretability](#a:interp_concept_based)
+
+* *Some names:* Lee Sharkey, Dario Amodei, David Chalmers, Been Kim, Neel Nanda, David D. Baek, Lauren Greenspan, Dmitry Vaintrob, Sam Marks, Jacob Pfau
+
+* *Funded by:* Google DeepMind, Anthropic, various academic groups
+
+* *Estimated FTEs:* 30-60
+
+* *Some outputs:* [A Pragmatic Vision for Interpretability](https://www.lesswrong.com/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-inter)  ·  [Agentic Interpretability: A Strategy Against Gradual Disempowerment](https://www.alignmentforum.org/posts/s9z4mgjtWTPpDLxFy/agentic-interpretability-a-strategy-against-gradual)  ·  [Auditing language models for hidden objectives](https://arxiv.org/abs/2503.10965)
+
+### Other interpretability
+
+*Interpretability that does not fall well into other categories.*
+
+* *Theory of change:* Explore alternative conceptual frameworks (e.g., agentic, propositional) and physics-inspired methods (e.g., renormalization). Or be "pragmatic".
+
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* engineering / cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* mixed
+
+* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Superintelligence can fool human supervisors, Goals misgeneralize out of distribution
+
+* *See also:* [Reverse engineering](#a:interp_fundamental)  ·  [Concept-based interpretability](#a:interp_concept_based)
+
+* *Some names:* Lee Sharkey, Dario Amodei, David Chalmers, Been Kim, Neel Nanda, David D. Baek, Lauren Greenspan, Dmitry Vaintrob, Sam Marks, Jacob Pfau
+
+* *Critiques:* [The Misguided Quest for Mechanistic AI Interpretability](https://aifrontiersmedia.substack.com/p/the-misguided-quest-for-mechanistic), [Interpretability Will Not Reliably Find Deceptive AI](https://www.lesswrong.com/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai).
+
+* *Estimated FTEs:* 30-60
+
+* *Some outputs:*  ·  [Transformers Don't Need LayerNorm at Inference Time: Implications for Interpretability](https://lesswrong.com/posts/KbFuuaBKRP7FcAADL/transformers-don-t-need-layernorm-at-inference-time)  ·  [Where Did It Go Wrong? Attributing Undesirable LLM Behaviors via Representation Gradient Tracing](https://arxiv.org/abs/2510.02334)  ·  [Open Problems in Mechanistic Interpretability](https://arxiv.org/abs/2501.16496)  ·  [Against blanket arguments against interpretability](https://lesswrong.com/posts/u3ZysuXEjkyHhefrk/against-blanket-arguments-against-interpretability)  ·  [Opportunity Space: Renormalization for AI Safety](https://lesswrong.com/posts/wkGmouy7JnTNtWAbc/opportunity-space-renormalization-for-ai-safety)  ·  [Prospects for Alignment Automation: Interpretability Case Study](https://lesswrong.com/posts/y5cYisQ2QHiSbQbhk/prospects-for-alignment-automation-interpretability-case)  ·  [The Urgency of Interpretability](https://www.darioamodei.com/post/the-urgency-of-interpretability)  ·  [Language Models May Verbatim Complete Text They Were Not Explicitly Trained On](https://arxiv.org/abs/2503.17514)  ·  [Downstream applications as validation of interpretability progress](https://lesswrong.com/posts/wGRnzCFcowRCrpX4Y/downstream-applications-as-validation-of-interpretability)  ·  [Principles for Picking Practical Interpretability Projects](https://lesswrong.com/posts/DqaoPNqhQhwBFqWue/principles-for-picking-practical-interpretability-projects)  ·  [Propositional Interpretability in Artificial Intelligence](https://arxiv.org/abs/2501.15740)  ·  [Explainable and Interpretable Multimodal Large Language Models: A Comprehensive Survey](https://arxiv.org/abs/2412.02104)  ·  [Renormalization Redux: QFT Techniques for AI Interpretability](https://lesswrong.com/posts/sjr66DBEgyogAbfdf/renormalization-redux-qft-techniques-for-ai-interpretability)  ·  [The Strange Science of Interpretability: Recent Papers and a Reading List for the Philosophy of Interpretability](https://lesswrong.com/posts/qRnupMmFG7dxQTTYh/the-strange-science-of-interpretability-recent-papers-and-a)  ·  [Through a Steerable Lens: Magnifying Neural Network Interpretability via Phase-Based Extrapolation](https://arxiv.org/abs/2506.02300)  ·  [Call for Collaboration: Renormalization for AI safety](https://lesswrong.com/posts/MDWGcNHkZ3NPEzcnp/call-for-collaboration-renormalization-for-ai-safety)  ·  [On the creation of narrow AI: hierarchy and nonlocality of neural network skills](https://arxiv.org/abs/2505.15811)  ·  [Harmonic Loss Trains Interpretable AI Models](https://arxiv.org/abs/2502.01628)  ·  [Extracting memorized pieces of (copyrighted) books from open-weight language models](https://arxiv.org/abs/2505.12546)
+
+### Learning dynamics and developmental interpretability
+
+*Builds tools for detecting, locating, and interpreting key structural shifts, phase transitions, and emergent phenomena (like grokking or deception) that occur during a model's training and in-context learning phases.*
+
+* *Theory of change:* Structures forming in neural networks leave identifiable traces that can be interpreted (e.g., using concepts from Singular Learning Theory); by catching and analyzing these developmental moments, researchers can automate interpretability, predict when dangerous capabilities emerge, and intervene to prevent deceptiveness or misaligned values as early as possible.
+
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* worst-case
+
+* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Goals misgeneralize out of distribution
+
+* *See also:* [Reverse engineering](#a:interp_fundamental)  ·  [Sparse Coding](#a:interp_sparse_coding)  ·  [ICL transience](https://proceedings.mlr.press/v267/singh25c.html)
+
+* *Some names:* Timaeus, Jesse Hoogland, George Wang, Daniel Murfet, Stan van Wingerden, Alexander Gietelink Oldenziel
+
+* *Critiques:* [Vaintrob](https://www.lesswrong.com/posts/M2bs6xCbmc79nwr8j/dmitry-vaintrob-s-shortform#A8Ziwhts35dgqbz52), [Joar Skalse (2023)](https://www.alignmentforum.org/posts/ALJYj4PpkqyseL7kZ/my-criticism-of-singular-learning-theory)
+
+* *Funded by:* Manifund, Survival and Flourishing Fund, EA Funds
+
+* *Estimated FTEs:* 10-50
+
+* *Some outputs:* [From SLT to AIT: NN Generalisation Out of Distribution](https://www.lesswrong.com/posts/2MX2bXreTtntB85Zy/from-slt-to-ait-nn-generalisation-out-of-distribution)  ·  [Understanding and Controlling LLM Generalization](https://www.lesswrong.com/posts/ZSQaT2yxNNZ3eLxRd/understanding-and-controlling-llm-generalization)  ·  [SLT for AI Safety](https://lesswrong.com/posts/J7CyENFYXPxXQpsnD/slt-for-ai-safety)  ·  [Crosscoding Through Time: Tracking Emergence & Consolidation Of Linguistic Representations Throughout LLM Pretraining](https://arxiv.org/abs/2509.05291)  ·  [A Review of Developmental Interpretability in Large Language Models](https://arxiv.org/abs/2508.15841)  ·  [Dynamics of Transient Structure in In-Context Linear Regression Transformers](https://arxiv.org/abs/2501.17745)  ·  [Learning Coefficients, Fractals, and Trees in Parameter Space](https://openreview.net/forum?id=KUFH0n1BIM)  ·  [Emergence of Superposition: Unveiling the Training Dynamics of Chain of Continuous Thought](https://arxiv.org/abs/2509.23365)  ·  [Compressibility Measures Complexity: Minimum Description Length Meets Singular Learning Theory](https://arxiv.org/abs/2510.12077)  ·  [Programs as Singularities](https://openreview.net/forum?id=Td37oOfmmz)  ·  [What Do Learning Dynamics Reveal About Generalization in LLM Reasoning?](https://arxiv.org/abs/2411.07681)  ·  [Selective regularization for alignment-focused representation engineering](https://lesswrong.com/posts/HFcriD29cw3E5QLCR/selective-regularization-for-alignment-focused)  ·  [Modes of Sequence Models and Learning Coefficients](https://arxiv.org/abs/2504.18048)  ·  [Programming by Backprop: LLMs Acquire Reusable Algorithmic Abstractions During Code Training](https://arxiv.org/abs/2506.18777)
+
+### Representation structure and geometry
+
+*What do the representations look like? Does any simple structure underlie the beliefs of all well-trained models? Can we get the semantics from this geometry?*
+
+* *Theory of change:* Get scalable unsupervised methods for finding structure in representations and interpreting them, then using this to e.g. guide training.
+
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* mixed
+
+* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Goals misgeneralize out of distribution, Superintelligence can fool human supervisors
+
+* *See also:* [Concept-based interpretability](#a:interp_concept_based)  ·  computational mechanics  ·  feature universality  ·  [Natural abstractions](#a:natural_abstractions)  ·  [Causal Abstractions](#a:interp_causal_abstractions)
+
+* *Some names:* Simplex, Insight \+ Interaction Lab, Paul Riechers, Adam Shai, Martin Wattenberg, Blake Richards, Mateusz Piotrowski
+
+* *Funded by:* Various academic groups, Astera Institute, Coefficient Giving
+
+* *Estimated FTEs:* 10-50
+
+* *Some outputs:* [The Geometry of Self-Verification in a Task-Specific Reasoning Model](https://arxiv.org/pdf/2504.14379)  ·  [Rank-1 LoRAs Encode Interpretable Reasoning Signals](http://arxiv.org/abs/2511.06739)  ·  [The Geometry of Refusal in Large Language Models: Concept Cones and Representational Independence](https://arxiv.org/abs/2502.17420)  ·  [Embryology of a Language Model](https://arxiv.org/abs/2508.00331)  ·  [Constrained belief updates explain geometric structures in transformer representations](https://arxiv.org/abs/2502.01954)  ·  [Shared Global and Local Geometry of Language Model Embeddings](https://arxiv.org/abs/2503.21073)  ·  [Neural networks leverage nominally quantum and post-quantum representations](https://arxiv.org/abs/2507.07432)  ·  [Tracing the Representation Geometry of Language Models from Pretraining to Post-training](https://arxiv.org/abs/2509.23024)  ·  [Deep sequence models tend to memorize geometrically; it is unclear why](https://arxiv.org/abs/2510.26745)  ·  [Navigating the Latent Space Dynamics of Neural Models](https://arxiv.org/abs/2505.22785)  ·  [The Geometry of ReLU Networks through the ReLU Transition Graph](https://arxiv.org/abs/2505.11692)  ·  [Connecting Neural Models Latent Geometries with Relative Geodesic Representations](https://arxiv.org/abs/2506.01599)  ·  [Next-token pretraining implies in-context learning](https://arxiv.org/abs/2505.18373)
+
+### Human inductive biases
+
+*Discover connections deep learning AI systems have with human brains and human learning processes. Develop an 'alignment moonshot' based on a coherent theory of learning which applies to both humans and AI systems.*
+
+* *Theory of change:* Humans learn trust, honesty, self-maintenance, and corrigibility; if we understand how they do maybe we can get future AI systems to learn them.
+
+* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* pessimistic
+
+* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Goals misgeneralize out of distribution
+
+* *See also:* active learning  ·  ACS research
+
+* *Some names:* Lukas Muttenthaler, Quentin Delfosse
+
+* *Funded by:* Google DeepMind, various academic groups
+
+* *Estimated FTEs:* 4
+
+* *Some outputs:* [Aligning machine and human visual representations across abstraction levels](https://www.nature.com/articles/s41586-025-09631-6)  ·  [Deep Reinforcement Learning Agents are not even close to Human Intelligence](https://arxiv.org/html/2505.21731v1)  ·  [Teaching AI to Handle Exceptions: Supervised Fine-tuning with Human-aligned Judgment](https://arxiv.org/html/2503.02976v2#S3)  ·  [HIBP Human Inductive Bias Project Plan](https://docs.google.com/document/d/1fl7LE8AN7mLJ6uFcPuFCzatp0zCIYvjRIjQRgHPAkSE/edit?tab=t.0)  ·  [Beginning with You: Perceptual-Initialization Improves Vision-Language Representation and Alignment](https://arxiv.org/abs/2505.14204) · [Towards Cognitively-Faithful Decision-Making Models to Improve AI Alignment](https://arxiv.org/abs/2509.04445)
 
 ## Concept-based interpretability
 
@@ -697,234 +925,6 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 * *Estimated FTEs:* 20-100
 
 * *Some outputs:* [Do safety-relevant LLM steering vectors optimized on a single example generalize?](https://lesswrong.com/posts/6aXe9nipTgwK5LxaP/do-safety-relevant-llm-steering-vectors-optimized-on-a)  ·  [Keep Calm and Avoid Harmful Content: Concept Alignment and Latent Manipulation Towards Safer Answers](https://arxiv.org/abs/2510.12672)  ·  [Activation Space Interventions Can Be Transferred Between Large Language Models](https://arxiv.org/abs/2503.04429)  ·  [HyperSteer: Activation Steering at Scale with Hypernetworks](https://arxiv.org/abs/2506.03292)  ·  [Steering Evaluation-Aware Language Models to Act Like They Are Deployed](https://arxiv.org/abs/2510.20487)  ·  [Steering Out-of-Distribution Generalization with Concept Ablation Fine-Tuning](https://arxiv.org/abs/2507.16795)  ·  [Persona Vectors: Monitoring and Controlling Character Traits in Language Models](https://arxiv.org/abs/2507.21509)  ·  [Steering Large Language Model Activations in Sparse Spaces](https://arxiv.org/abs/2503.00177)  ·  [Improving Steering Vectors by Targeting Sparse Autoencoder Features](https://arxiv.org/abs/2411.02193)  ·  [Understanding Reasoning in Thinking Language Models via Steering Vectors](https://arxiv.org/abs/2506.18167)  ·  [One-shot steering vectors cause emergent misalignment, too](https://lesswrong.com/posts/kcKnKHTHycHeRhcHF/one-shot-steering-vectors-cause-emergent-misalignment-too)  ·  [Enhancing Multiple Dimensions of Trustworthiness in LLMs via Sparse Activation Control](https://arxiv.org/abs/2411.02461)  ·  [Comparing Bottom-Up and Top-Down Steering Approaches on In-Context Learning Tasks](https://arxiv.org/abs/2411.07213)  ·  [Taxonomy, Opportunities, and Challenges of Representation Engineering for Large Language Models](https://arxiv.org/abs/2502.19649)  ·  [Taxonomy, Opportunities, and Challenges of Representation Engineering for Large Language Models](https://arxiv.org/abs/2502.19649v1)  ·  [Robustly Improving LLM Fairness in Realistic Settings via Interpretability](https://arxiv.org/abs/2506.10922)
-
-## Extracting latent knowledge
-
-*Identify and decoding the "true" beliefs or knowledge represented inside a model's activations, even when the model's output is deceptive or false.*
-
-* *Theory of change:* Powerful models may know things they do not say (e.g. that they are currently being tested). If we can translate this latent knowledge directly from the model's internals, we can supervise them reliably even when they attempt to deceive human evaluators or when the task is too difficult for humans to verify directly. 
-
-* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* worst case
-
-* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Superintelligence can fool human supervisors
-
-* *See also:* [AI explanations of AIs](#a:ai_explanations_of_AIs)  ·  [Heuristic explanations](#a:heuristic_explanations)  ·  Lie and deception detectors
-
-* *Some names:* Bartosz Cywiński, Emil Ryd, Senthooran Rajamanoharan, Alexander Pan, Lijie Chen, Jacob Steinhardt, Javier Ferrando, Oscar Obeso, Collin Burns, Paul Christiano.
-
-* *Critiques:* [A Problem to Solve Before Building a Deception Detector](https://www.lesswrong.com/posts/YXNeA3RyRrrRWS37A/a-problem-to-solve-before-building-a-deception-detector)
-
-* *Funded by:* Open Philanthropy, Anthropic, NSF, various academic grants
-
-* *Estimated FTEs:* 20-40
-
-* *Some outputs:* [Auditing language models for hidden objectives](https://www.anthropic.com/research/auditing-hidden-objectives)  ·  [Eliciting Secret Knowledge from Language Models](https://arxiv.org/abs/2510.01070) · [Here’s 18 Applications of Deception Probes](https://www.lesswrong.com/posts/7zhAwcBri7yupStKy/here-s-18-applications-of-deception-probes) · [Towards eliciting latent knowledge from LLMs with mechanistic interpretability](https://arxiv.org/pdf/2505.14352)  · [CCS-Lib: A Python package to elicit latent knowledge from LLMs](https://joss.theoj.org/papers/10.21105/joss.06511) · [No Answer Needed: Predicting LLM Answer Accuracy from Question-Only Linear Probes](https://arxiv.org/abs/2509.10625) · [When Thinking LLMs Lie: Unveiling the Strategic Deception in Representations of Reasoning Models](https://arxiv.org/abs/2506.04909)  · [Caught in the Act: a mechanistic approach to detecting deception](https://arxiv.org/abs/2508.19505) · [When Truthful Representations Flip Under Deceptive Instructions?](https://arxiv.org/abs/2507.22149)
-
-## Lie and deception detectors
-
-*Detect when a model is being deceptive or lying by building white- or black-box detectors. Some work below requires intent in their definition, while other work focuses only on whether the model states something it believes to be false, regardless of intent.*
-
-* *Theory of change:* Such detectors could flag suspicious behavior during evaluations or deployment, augment training to reduce deception, or audit models pre-deployment. Specific applications include alignment evaluations (e.g. by validating answers to introspective questions), safeguarding evaluations (catching models that "sandbag", that is, strategically underperform to pass capability tests), and large-scale deployment monitoring. An honest version of a model could also provide oversight during training or detect cases where a model behaves in ways it understands are unsafe.
-
-* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* pessimistic
-
-* *See also:* [Reverse engineering](#a:interp_fundamental)  ·  [AI deception evals](#a:ai_deception)  ·  [Sandbagging evals](#a:evals_sandbagging)
-
-* *Some names:* [Cadenza](https://cadenzalabs.org), Sam Marks, Rowan Wang, Kieron Kretschmar, Sharan Maiya, Walter Laurito, Chris Cundy, Adam Gleave, Aviel Parrack, Stefan Heimersheim, Carlo Attubato, Joseph Bloom, Jordan Taylor, Alex McKenzie, Urja Pawar, Lewis Smith, Bilal Chughtai, Neel Nanda
-
-* *Critiques:* difficult to determine if behavior is strategic deception or only low level "reflexive" actions; Unclear if a model roleplaying a liar has deceptive intent. [How are intentional descriptions (like deception) related to algorithmic ones (like understanding the mechanisms models use)?](https://www.lesswrong.com/posts/YXNeA3RyRrrRWS37A/a-problem-to-solve-before-building-a-deception-detector), [Is This Lie Detector Really Just a Lie Detector? An Investigation of LLM Probe Specificity](https://www.lesswrong.com/posts/5dkhdRMypeuyoXfmb/is-this-lie-detector-really-just-a-lie-detector-an), [Herrmann](https://www.lesswrong.com/posts/bCQbSFrnnAk7CJNpM/still-no-lie-detector-for-llms), [Smith and Chughtai](https://arxiv.org/abs/2511.22662)
-
-* *Funded by:* Anthropic, Deepmind, UK AISI, Coefficient Giving
-
-* *Estimated FTEs:* 10-50
-
-* *Some outputs:* [Detecting Strategic Deception Using Linear Probes](https://www.lesswrong.com/posts/9pGbTz6c78PGwJein/detecting-strategic-deception-using-linear-probes)  ·  [Whitebox detection of sandbagging model organisms](https://www.lesswrong.com/posts/pPEeMdgjpjHZWCDFw/white-box-control-at-uk-aisi-update-on-sandbagging)  ·  [Benchmarking deception probes for trusted monitoring](https://www.lesswrong.com/posts/eaEqAzGN3uJfpfGoc/trusted-monitoring-but-with-deception-probes)  ·  [18 Applications of Deception Probes](https://www.lesswrong.com/posts/7zhAwcBri7yupStKy/18-applications-of-deception-probes)  ·  [Evaluating honesty and lie detection techniques on a diverse suite of dishonest models](https://alignment.anthropic.com/2025/honesty-elicitation/)  ·  [Caught in the Act: a mechanistic approach to detecting deception](https://arxiv.org/abs/2508.19505)  ·  [Preference Learning with Lie Detectors can Induce Honesty or Evasion](https://arxiv.org/abs/2505.13787)  ·  [Detecting High-Stakes Interactions with Activation Probes](https://arxiv.org/abs/2506.10805)  ·  [White Box Control at UK AISI \- Update on Sandbagging Investigations](https://www.alignmentforum.org/posts/pPEeMdgjpjHZWCDFw/white-box-control-at-uk-aisi-update-on-sandbagging)  ·  [Liars' Bench: Evaluating Lie Detectors for Language Models](https://arxiv.org/html/2511.16035v1)  ·  [Probes and SAEs do well on Among Us benchmark](https://www.lesswrong.com/posts/gRc8KL2HLtKkFmNPr/among-us-a-sandbox-for-agentic-deception)
-
-## Model diffing
-
-*Understand what happens when a model is finetuned, what the "diff" between the finetuned and the original model consists in.*
-
-* *Theory of change:* By identifying the mechanistic differences between a base model and its fine-tune (e.g., after RLHF), maybe we can verify that safety behaviors are robustly "internalized" rather than superficially patched, and detect if dangerous capabilities or deceptive alignment have been introduced without needing to re-analyze the entire model. The diff is also much smaller, since most parameters don't change, which means you can use heavier methods on them.
-
-* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* pessimistic
-
-* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Value is fragile and hard to specify
-
-* *See also:* [Sparse Coding](#a:interp_sparse_coding)  ·  [Reverse engineering](#a:interp_fundamental)
-
-* *Some names:* Julian Minder, Clément Dumas, Neel Nanda, Trenton Bricken, Jack Lindsey
-
-* *Funded by:* various academic groups, Anthropic, Google DeepMind
-
-* *Estimated FTEs:* 10-30
-
-* *Some outputs:* [What We Learned Trying to Diff Base and Chat Models (And Why It Matters)](https://www.lesswrong.com/posts/xmpauEXEerzYcJKNm/what-we-learned-trying-to-diff-base-and-chat-models-and-why) ·  [Open Source Replication of Anthropic's Crosscoder paper for model-diffing](https://www.lesswrong.com/posts/srt6JXsRMtmqAJavD/open-source-replication-of-anthropic-s-crosscoder-paper-for)  ·  [Cross-Architecture Model Diffing with Crosscoders: Unsupervised Discovery of Differences Between LLMs](https://openreview.net/forum?id=ZB84SvrZB8%20)  ·  [Discovering Undesired Rare Behaviors via Model Diff Amplification](https://www.goodfire.ai/research/model-diff-amplification#)  ·  [Overcoming Sparsity Artifacts in Crosscoders to Interpret Chat-Tuning](https://arxiv.org/abs/2504.02922)  ·  [Persona Features Control Emergent Misalignment](https://arxiv.org/abs/2506.19823)  ·  [Narrow Finetuning Leaves Clearly Readable Traces in Activation Differences](https://arxiv.org/abs/2510.13900)  ·  [Insights on Crosscoder Model Diffing](https://transformer-circuits.pub/2025/crosscoder-diffing-update/index.html)  ·  [Diffing Toolkit: Model Comparison and Analysis Framework](https://github.com/science-of-finetuning/diffing-toolkit%20)
-
-## Sparse Coding
-
-*Decompose the polysemantic activations of the residual stream into a sparse linear combination of monosemantic "features" which correspond to interpretable concepts.*
-
-* *Theory of change:* Get a principled decomposition of an LLM's activation into atomic components → identify deception and other misbehaviors.
-
-* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* engineering / cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* average
-
-* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Value is fragile and hard to specify, Goals misgeneralize out of distribution, Superintelligence can fool human supervisors
-
-* *See also:* [Concept-based interpretability](#a:interp_concept_based)  ·  [Reverse engineering](#a:interp_fundamental)
-
-* *Some names:* Leo Gao, Dan Mossing, Emmanuel Ameisen, Jack Lindsey, Adam Pearce, Thomas Heap, Abhinav Menon, Kenny Peng, Tim Lawson
-
-* *Critiques:* [Sparse Autoencoders Can Interpret Randomly Initialized Transformers](https://arxiv.org/abs/2501.17727), [The Sparse Autoencoders bubble has popped, but they are still promising](https://agarriga.substack.com/p/the-sparse-autoencoders-bubble-has), [Negative Results for SAEs On Downstream Tasks and Deprioritising SAE Research](https://www.alignmentforum.org/posts/4uXCAJNuPKtKBsi28/), [Sparse Autoencoders Trained on the Same Data Learn Different Features](https://arxiv.org/pdf/2501.16615), [Why Not Just Train For Interpretability?](https://www.lesswrong.com/posts/2HbgHwdygH6yeHKKq/why-not-just-train-for-interpretability)
-
-* *Funded by:* everyone, roughly. Frontier labs, LTFF, Coefficient Giving, etc.
-
-* *Estimated FTEs:* 50-100
-
-* *Some outputs:* [Overcoming Sparsity Artifacts in Crosscoders to Interpret Chat-Tuning](https://arxiv.org/abs/2504.02922)  ·  [Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models](https://arxiv.org/abs/2411.14257)  ·  [Circuit Tracing: Revealing Computational Graphs in Language Models](https://transformer-circuits.pub/2025/attribution-graphs/methods.html)  ·  [Sparse Autoencoders Learn Monosemantic Features in Vision-Language Models](https://arxiv.org/abs/2504.02821)  ·  [I Have Covered All the Bases Here: Interpreting Reasoning Features in Large Language Models via Sparse Autoencoders](https://arxiv.org/abs/2503.18878)  ·  [Sparse Autoencoders Do Not Find Canonical Units of Analysis](https://arxiv.org/abs/2502.04878)  ·  [Transcoders Beat Sparse Autoencoders for Interpretability](https://arxiv.org/abs/2501.18823)  ·  [Decomposing MLP Activations into Interpretable Features via Semi-Nonnegative Matrix Factorization](https://arxiv.org/abs/2506.10920)  ·  [CRISP: Persistent Concept Unlearning via Sparse Autoencoders](https://arxiv.org/abs/2508.13650)  ·  [The Unintended Trade-off of AI Alignment:Balancing Hallucination Mitigation and Safety in LLMs](https://arxiv.org/abs/2510.07775)  ·  [Scaling sparse feature circuit finding for in-context learning](https://arxiv.org/abs/2504.13756)  ·  [Learning Multi-Level Features with Matryoshka Sparse Autoencoders](https://arxiv.org/abs/2503.17547)  ·  [Are Sparse Autoencoders Useful? A Case Study in Sparse Probing](https://arxiv.org/abs/2502.16681)  ·  [Sparse Autoencoders Trained on the Same Data Learn Different Features](https://arxiv.org/abs/2501.16615)  ·  [What's In My Human Feedback? Learning Interpretable Descriptions of Preference Data](https://arxiv.org/abs/2510.26202)  ·  [Priors in Time: Missing Inductive Biases for Language Model Interpretability](https://arxiv.org/abs/2511.01836)  ·  [Inference-Time Decomposition of Activations (ITDA): A Scalable Approach to Interpreting Large Language Models](https://arxiv.org/abs/2505.17769)  ·  [Binary Sparse Coding for Interpretability](https://arxiv.org/abs/2509.25596)  ·  [Scaling Sparse Feature Circuit Finding to Gemma 9B](https://lesswrong.com/posts/PkeB4TLxgaNnSmddg/scaling-sparse-feature-circuit-finding-to-gemma-9b)  ·  [Partially Rewriting a Transformer in Natural Language](https://arxiv.org/abs/2501.18838)  ·  [Dense SAE Latents Are Features, Not Bugs](https://arxiv.org/abs/2506.15679)  ·  [Evaluating Sparse Autoencoders on Targeted Concept Erasure Tasks](https://arxiv.org/abs/2411.18895)  ·  [Evaluating SAE interpretability without explanations](https://arxiv.org/abs/2507.08473)  ·  [SAEs Can Improve Unlearning: Dynamic Sparse Autoencoder Guardrails for Precision Unlearning in LLMs](https://arxiv.org/abs/2504.08192)  ·  [SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability](https://arxiv.org/abs/2503.09532)  ·  [SAEs Are Good for Steering \-- If You Select the Right Features](https://arxiv.org/abs/2505.20063)  ·  [Line of Sight: On Linear Representations in VLLMs](https://arxiv.org/abs/2506.04706)  ·  [Low-Rank Adapting Models for Sparse Autoencoders](https://arxiv.org/abs/2501.19406)  ·  [Enhancing Automated Interpretability with Output-Centric Feature Descriptions](https://arxiv.org/abs/2501.08319)  ·  [Decoding Dark Matter: Specialized Sparse Autoencoders for Interpreting Rare Concepts in Foundation Models](https://arxiv.org/abs/2411.00743)  ·  [Enhancing Neural Network Interpretability with Feature-Aligned Sparse Autoencoders](https://arxiv.org/abs/2411.01220)  ·  [BatchTopK Sparse Autoencoders](https://arxiv.org/abs/2412.06410)  ·  [Towards Understanding Distilled Reasoning Models: A Representational Approach](https://arxiv.org/abs/2503.03730)  ·  [Understanding sparse autoencoder scaling in the presence of feature manifolds](https://arxiv.org/abs/2509.02565)  ·  [Internal states before wait modulate reasoning patterns](https://arxiv.org/abs/2510.04128)  ·  [Do Sparse Autoencoders Generalize? A Case Study of Answerability](https://arxiv.org/abs/2502.19964)  ·  [Position: Mechanistic Interpretability Should Prioritize Feature Consistency in SAEs](https://arxiv.org/abs/2505.20254)  ·  [How Visual Representations Map to Language Feature Space in Multimodal LLMs](https://arxiv.org/abs/2506.11976)  ·  [Prisma: An Open Source Toolkit for Mechanistic Interpretability in Vision and Video](https://arxiv.org/abs/2504.19475)  ·  [Topological Data Analysis and Mechanistic Interpretability](https://lesswrong.com/posts/6oF6pRr2FgjTmiHus/topological-data-analysis-and-mechanistic-interpretability)  ·  [Large Language Models Share Representations of Latent Grammatical Concepts Across Typologically Diverse Languages](https://arxiv.org/abs/2501.06346)  ·  [Interpreting the linear structure of vision-language model embedding spaces](https://arxiv.org/abs/2504.11695)  ·  [Interpreting Large Text-to-Image Diffusion Models with Dictionary Learning](https://arxiv.org/abs/2505.24360)  ·  [Weight-sparse transformers have interpretable circuits](https://cdn.openai.com/pdf/41df8f28-d4ef-43e9-aed2-823f9393e470/circuit-sparsity-paper.pdf)
-
-## Causal Abstractions
-
-*Verify that a neural network implements a specific high-level causal model (like a logical algorithm) by finding a mapping between high-level variables and low-level neural representations.*
-
-* *Theory of change:* By establishing a causal mapping between a black-box neural network and a human-interpretable algorithm, we can check whether the model is using safe reasoning processes and predict its behavior on unseen inputs, rather than relying on behavioural testing alone.
-
-* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* worst-case
-
-* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Goals misgeneralize out of distribution
-
-* *See also:* [Concept-based interpretability](#a:interp_concept_based)  ·  [Reverse engineering](#a:interp_fundamental)
-
-* *Some names:* Atticus Geiger, Christopher Potts, Thomas Icard, Theodora-Mara Pîslar, Sara Magliacane, Jiuding Sun, Jing Huang
-
-* *Critiques:* [The Misguided Quest for Mechanistic AI Interpretability](https://www.google.com/search?q=https://open.substack.com/pub/aifrontiersmedia/p/the-misguided-quest-for-mechanistic), [Interpretability Will Not Reliably Find Deceptive AI](https://www.lesswrong.com/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai).
-
-* *Funded by:* Various academic groups, Google DeepMind, Goodfire
-
-* *Estimated FTEs:* 10-30
-
-* *Some outputs:* [HyperDAS: Towards Automating Mechanistic Interpretability with Hypernetworks](https://arxiv.org/abs/2503.10894)  ·  [Combining Causal Models for More Accurate Abstractions of Neural Networks](https://arxiv.org/abs/2503.11429)  ·  [How Causal Abstraction Underpins Computational Explanation](https://arxiv.org/abs/2508.11214)
-
-## Data attribution
-
-*Quantifies the influence of individual training data points on a model's specific behavior or output, allowing researchers to trace model properties (like misalignment, bias, or factual errors) back to their source in the training set.*
-
-* *Theory of change:* By attributing harmful, biased, or unaligned behaviors to specific training examples, researchers can audit proprietary models, debug training data, enable effective data deletion/unlearning
-
-* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* behavioural  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* average
-
-* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Goals misgeneralize out of distribution, Value is fragile and hard to specify
-
-* *See also:* [Data quality for alignment](#a:alignment_data_quality)
-
-* *Some names:* Roger Grosse, Philipp Alexander Kreer, Jin Hwa Lee, Matthew Smith, Abhilasha Ravichander, Andrew Wang, Jiacheng Liu, Jiaqi Ma, Junwei Deng, Yijun Pan, Daniel Murfet, Jesse Hoogland
-
-* *Funded by:* Various academic groups
-
-* *Estimated FTEs:* 30-60
-
-* *Some outputs:* [Influence Dynamics and Stagewise Data Attribution](https://arxiv.org/abs/2510.12071)  ·  [What is Your Data Worth to GPT?](https://arxiv.org/abs/2405.13954)  ·  [Detecting and Filtering Unsafe Training Data via Data Attribution with Denoised Representation](https://arxiv.org/abs/2502.11411)  ·  [Better Training Data Attribution via Better Inverse Hessian-Vector Products](https://arxiv.org/abs/2507.14740)  ·  [DATE-LM: Benchmarking Data Attribution Evaluation for Large Language Models](https://arxiv.org/abs/2507.09424)  ·  [Bayesian Influence Functions for Hessian-Free Data Attribution](https://arxiv.org/abs/2509.26544)  ·  [OLMoTrace: Tracing Language Model Outputs Back to Trillions of Training Tokens](https://arxiv.org/abs/2504.07096)  ·  [You Are What You Eat \-- AI Alignment Requires Understanding How Data Shapes Structure and Generalisation](https://arxiv.org/abs/2502.05475)  ·  [Information-Guided Identification of Training Data Imprint in (Proprietary) Large Language Models](https://arxiv.org/abs/2503.12072)  ·  [Distributional Training Data Attribution: What do Influence Functions Sample?](https://arxiv.org/abs/2506.12965)  ·  [A Snapshot of Influence: A Local Data Attribution Framework for Online Reinforcement Learning](https://openreview.net/forum?id=sYK4yPDuT1)  ·  [Revisiting Data Attribution for Influence Functions](https://arxiv.org/abs/2508.07297)
-
-## Pragmatic interpretability
-
-*Directly tackling concrete, safety-critical problems on the path to AGI by using lightweight interpretability tools (like steering and probing) and empirical feedback from proxy tasks, rather than pursuing complete mechanistic reverse-engineering.*
-
-* *Theory of change:* By applying interpretability skills to concrete problems, researchers can rapidly develop monitoring and control tools (e.g., steering vectors or probes) that have immediate, measurable impact on real-world safety issues like detecting hidden goals or emergent misalignment.
-
-* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* mixed
-
-* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Superintelligence can fool human supervisors, goals misgeneralize out of distribution.
-
-* *See also:*  [Reverse engineering](#a:interp_fundamental)  ·  [Concept-based interpretability](#a:interp_concept_based)
-
-* *Some names:* Lee Sharkey, Dario Amodei, David Chalmers, Been Kim, Neel Nanda, David D. Baek, Lauren Greenspan, Dmitry Vaintrob, Sam Marks, Jacob Pfau
-
-* *Funded by:* Google DeepMind, Anthropic, various academic groups
-
-* *Estimated FTEs:* 30-60
-
-* *Some outputs:* [A Pragmatic Vision for Interpretability](https://www.lesswrong.com/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-inter)  ·  [Agentic Interpretability: A Strategy Against Gradual Disempowerment](https://www.alignmentforum.org/posts/s9z4mgjtWTPpDLxFy/agentic-interpretability-a-strategy-against-gradual)  ·  [Auditing language models for hidden objectives](https://arxiv.org/abs/2503.10965)
-
-## Other interpretability
-
-*Interpretability that does not fall well into other categories.*
-
-* *Theory of change:* Explore alternative conceptual frameworks (e.g., agentic, propositional) and physics-inspired methods (e.g., renormalization). Or be "pragmatic".
-
-* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* engineering / cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* mixed
-
-* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Superintelligence can fool human supervisors, Goals misgeneralize out of distribution
-
-* *See also:* [Reverse engineering](#a:interp_fundamental)  ·  [Concept-based interpretability](#a:interp_concept_based)
-
-* *Some names:* Lee Sharkey, Dario Amodei, David Chalmers, Been Kim, Neel Nanda, David D. Baek, Lauren Greenspan, Dmitry Vaintrob, Sam Marks, Jacob Pfau
-
-* *Critiques:* [The Misguided Quest for Mechanistic AI Interpretability](https://aifrontiersmedia.substack.com/p/the-misguided-quest-for-mechanistic), [Interpretability Will Not Reliably Find Deceptive AI](https://www.lesswrong.com/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai).
-
-* *Estimated FTEs:* 30-60
-
-* *Some outputs:*  ·  [Transformers Don't Need LayerNorm at Inference Time: Implications for Interpretability](https://lesswrong.com/posts/KbFuuaBKRP7FcAADL/transformers-don-t-need-layernorm-at-inference-time)  ·  [Where Did It Go Wrong? Attributing Undesirable LLM Behaviors via Representation Gradient Tracing](https://arxiv.org/abs/2510.02334)  ·  [Open Problems in Mechanistic Interpretability](https://arxiv.org/abs/2501.16496)  ·  [Against blanket arguments against interpretability](https://lesswrong.com/posts/u3ZysuXEjkyHhefrk/against-blanket-arguments-against-interpretability)  ·  [Opportunity Space: Renormalization for AI Safety](https://lesswrong.com/posts/wkGmouy7JnTNtWAbc/opportunity-space-renormalization-for-ai-safety)  ·  [Prospects for Alignment Automation: Interpretability Case Study](https://lesswrong.com/posts/y5cYisQ2QHiSbQbhk/prospects-for-alignment-automation-interpretability-case)  ·  [The Urgency of Interpretability](https://www.darioamodei.com/post/the-urgency-of-interpretability)  ·  [Language Models May Verbatim Complete Text They Were Not Explicitly Trained On](https://arxiv.org/abs/2503.17514)  ·  [Downstream applications as validation of interpretability progress](https://lesswrong.com/posts/wGRnzCFcowRCrpX4Y/downstream-applications-as-validation-of-interpretability)  ·  [Principles for Picking Practical Interpretability Projects](https://lesswrong.com/posts/DqaoPNqhQhwBFqWue/principles-for-picking-practical-interpretability-projects)  ·  [Propositional Interpretability in Artificial Intelligence](https://arxiv.org/abs/2501.15740)  ·  [Explainable and Interpretable Multimodal Large Language Models: A Comprehensive Survey](https://arxiv.org/abs/2412.02104)  ·  [Renormalization Redux: QFT Techniques for AI Interpretability](https://lesswrong.com/posts/sjr66DBEgyogAbfdf/renormalization-redux-qft-techniques-for-ai-interpretability)  ·  [The Strange Science of Interpretability: Recent Papers and a Reading List for the Philosophy of Interpretability](https://lesswrong.com/posts/qRnupMmFG7dxQTTYh/the-strange-science-of-interpretability-recent-papers-and-a)  ·  [Through a Steerable Lens: Magnifying Neural Network Interpretability via Phase-Based Extrapolation](https://arxiv.org/abs/2506.02300)  ·  [Call for Collaboration: Renormalization for AI safety](https://lesswrong.com/posts/MDWGcNHkZ3NPEzcnp/call-for-collaboration-renormalization-for-ai-safety)  ·  [On the creation of narrow AI: hierarchy and nonlocality of neural network skills](https://arxiv.org/abs/2505.15811)  ·  [Harmonic Loss Trains Interpretable AI Models](https://arxiv.org/abs/2502.01628)  ·  [Extracting memorized pieces of (copyrighted) books from open-weight language models](https://arxiv.org/abs/2505.12546)
-
-## Learning dynamics and developmental interpretability
-
-*Builds tools for detecting, locating, and interpreting key structural shifts, phase transitions, and emergent phenomena (like grokking or deception) that occur during a model's training and in-context learning phases.*
-
-* *Theory of change:* Structures forming in neural networks leave identifiable traces that can be interpreted (e.g., using concepts from Singular Learning Theory); by catching and analyzing these developmental moments, researchers can automate interpretability, predict when dangerous capabilities emerge, and intervene to prevent deceptiveness or misaligned values as early as possible.
-
-* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* worst-case
-
-* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Goals misgeneralize out of distribution
-
-* *See also:* [Reverse engineering](#a:interp_fundamental)  ·  [Sparse Coding](#a:interp_sparse_coding)  ·  [ICL transience](https://proceedings.mlr.press/v267/singh25c.html)
-
-* *Some names:* Timaeus, Jesse Hoogland, George Wang, Daniel Murfet, Stan van Wingerden, Alexander Gietelink Oldenziel
-
-* *Critiques:* [Vaintrob](https://www.lesswrong.com/posts/M2bs6xCbmc79nwr8j/dmitry-vaintrob-s-shortform#A8Ziwhts35dgqbz52), [Joar Skalse (2023)](https://www.alignmentforum.org/posts/ALJYj4PpkqyseL7kZ/my-criticism-of-singular-learning-theory)
-
-* *Funded by:* Manifund, Survival and Flourishing Fund, EA Funds
-
-* *Estimated FTEs:* 10-50
-
-* *Some outputs:* [From SLT to AIT: NN Generalisation Out of Distribution](https://www.lesswrong.com/posts/2MX2bXreTtntB85Zy/from-slt-to-ait-nn-generalisation-out-of-distribution)  ·  [Understanding and Controlling LLM Generalization](https://www.lesswrong.com/posts/ZSQaT2yxNNZ3eLxRd/understanding-and-controlling-llm-generalization)  ·  [SLT for AI Safety](https://lesswrong.com/posts/J7CyENFYXPxXQpsnD/slt-for-ai-safety)  ·  [Crosscoding Through Time: Tracking Emergence & Consolidation Of Linguistic Representations Throughout LLM Pretraining](https://arxiv.org/abs/2509.05291)  ·  [A Review of Developmental Interpretability in Large Language Models](https://arxiv.org/abs/2508.15841)  ·  [Dynamics of Transient Structure in In-Context Linear Regression Transformers](https://arxiv.org/abs/2501.17745)  ·  [Learning Coefficients, Fractals, and Trees in Parameter Space](https://openreview.net/forum?id=KUFH0n1BIM)  ·  [Emergence of Superposition: Unveiling the Training Dynamics of Chain of Continuous Thought](https://arxiv.org/abs/2509.23365)  ·  [Compressibility Measures Complexity: Minimum Description Length Meets Singular Learning Theory](https://arxiv.org/abs/2510.12077)  ·  [Programs as Singularities](https://openreview.net/forum?id=Td37oOfmmz)  ·  [What Do Learning Dynamics Reveal About Generalization in LLM Reasoning?](https://arxiv.org/abs/2411.07681)  ·  [Selective regularization for alignment-focused representation engineering](https://lesswrong.com/posts/HFcriD29cw3E5QLCR/selective-regularization-for-alignment-focused)  ·  [Modes of Sequence Models and Learning Coefficients](https://arxiv.org/abs/2504.18048)  ·  [Programming by Backprop: LLMs Acquire Reusable Algorithmic Abstractions During Code Training](https://arxiv.org/abs/2506.18777)
-
-## Representation structure and geometry
-
-*What do the representations look like? Does any simple structure underlie the beliefs of all well-trained models? Can we get the semantics from this geometry?*
-
-* *Theory of change:* Get scalable unsupervised methods for finding structure in representations and interpreting them, then using this to e.g. guide training.
-
-* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* mixed
-
-* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Goals misgeneralize out of distribution, Superintelligence can fool human supervisors
-
-* *See also:* [Concept-based interpretability](#a:interp_concept_based)  ·  computational mechanics  ·  feature universality  ·  [Natural abstractions](#a:natural_abstractions)  ·  [Causal Abstractions](#a:interp_causal_abstractions)
-
-* *Some names:* Simplex, Insight \+ Interaction Lab, Paul Riechers, Adam Shai, Martin Wattenberg, Blake Richards, Mateusz Piotrowski
-
-* *Funded by:* Various academic groups, Astera Institute, Coefficient Giving
-
-* *Estimated FTEs:* 10-50
-
-* *Some outputs:* [The Geometry of Self-Verification in a Task-Specific Reasoning Model](https://arxiv.org/pdf/2504.14379)  ·  [Rank-1 LoRAs Encode Interpretable Reasoning Signals](http://arxiv.org/abs/2511.06739)  ·  [The Geometry of Refusal in Large Language Models: Concept Cones and Representational Independence](https://arxiv.org/abs/2502.17420)  ·  [Embryology of a Language Model](https://arxiv.org/abs/2508.00331)  ·  [Constrained belief updates explain geometric structures in transformer representations](https://arxiv.org/abs/2502.01954)  ·  [Shared Global and Local Geometry of Language Model Embeddings](https://arxiv.org/abs/2503.21073)  ·  [Neural networks leverage nominally quantum and post-quantum representations](https://arxiv.org/abs/2507.07432)  ·  [Tracing the Representation Geometry of Language Models from Pretraining to Post-training](https://arxiv.org/abs/2509.23024)  ·  [Deep sequence models tend to memorize geometrically; it is unclear why](https://arxiv.org/abs/2510.26745)  ·  [Navigating the Latent Space Dynamics of Neural Models](https://arxiv.org/abs/2505.22785)  ·  [The Geometry of ReLU Networks through the ReLU Transition Graph](https://arxiv.org/abs/2505.11692)  ·  [Connecting Neural Models Latent Geometries with Relative Geodesic Representations](https://arxiv.org/abs/2506.01599)  ·  [Next-token pretraining implies in-context learning](https://arxiv.org/abs/2505.18373)
-
-## Human inductive biases
-
-*Discover connections deep learning AI systems have with human brains and human learning processes. Develop an 'alignment moonshot' based on a coherent theory of learning which applies to both humans and AI systems.*
-
-* *Theory of change:* Humans learn trust, honesty, self-maintenance, and corrigibility; if we understand how they do maybe we can get future AI systems to learn them.
-
-* *General [approach](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* cognitive  ·  *Target [case](https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research):* pessimistic
-
-* *Orthodox alignment [problems](https://docs.google.com/document/d/1xRtmO_TLgPeHxWNQFN0kkNnd6jfiUettPfEcdl6FIc0/view)*: Goals misgeneralize out of distribution
-
-* *See also:* active learning  ·  ACS research
-
-* *Some names:* Lukas Muttenthaler, Quentin Delfosse
-
-* *Funded by:* Google DeepMind, various academic groups
-
-* *Estimated FTEs:* 4
-
-* *Some outputs:* [Aligning machine and human visual representations across abstraction levels](https://www.nature.com/articles/s41586-025-09631-6)  ·  [Deep Reinforcement Learning Agents are not even close to Human Intelligence](https://arxiv.org/html/2505.21731v1)  ·  [Teaching AI to Handle Exceptions: Supervised Fine-tuning with Human-aligned Judgment](https://arxiv.org/html/2503.02976v2#S3)  ·  [HIBP Human Inductive Bias Project Plan](https://docs.google.com/document/d/1fl7LE8AN7mLJ6uFcPuFCzatp0zCIYvjRIjQRgHPAkSE/edit?tab=t.0)  ·  [Beginning with You: Perceptual-Initialization Improves Vision-Language Representation and Alignment](https://arxiv.org/abs/2505.14204) · [Towards Cognitively-Faithful Decision-Making Models to Improve AI Alignment](https://arxiv.org/abs/2509.04445)
 
 # Safety by construction
 
