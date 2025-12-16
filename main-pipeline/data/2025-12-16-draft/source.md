@@ -1,6 +1,6 @@
-# Labs (giant companies)
+# Labs (giant companies) \[sec:labs_giant_companies_\]
 
-### OpenAI 
+### OpenAI \[a:openai\]
 
 * *Structure:* public benefit corp
 
@@ -20,7 +20,7 @@
 
 * *Some outputs:* Their 60-page System Cards now contain a large amount of their public safety work.  ·  [Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation](https://arxiv.org/abs/2503.11926)  ·  [Persona Features Control Emergent Misalignment](https://arxiv.org/abs/2506.19823)  ·  [Stress Testing Deliberative Alignment for Anti-Scheming Training](https://arxiv.org/abs/2509.15541)  ·  [Deliberative Alignment: Reasoning Enables Safer Language Models](https://arxiv.org/abs/2412.16339)  ·  [Toward understanding and preventing misalignment generalization](https://openai.com/index/emergent-misalignment)  ·  [Our updated Preparedness Framework](https://openai.com/index/updating-our-preparedness-framework/)  ·  [Trading Inference-Time Compute for Adversarial Robustness](https://arxiv.org/abs/2501.18841)  ·  [Small-to-Large Generalization: Data Influences Models Consistently Across Scale](https://arxiv.org/abs/2505.16260)  ·  [Findings from a pilot Anthropic–OpenAI alignment evaluation exercise: OpenAI Safety Tests](https://openai.com/index/openai-anthropic-safety-evaluation)  ·  [Safety evaluations hub](https://openai.com/safety/evaluations-hub)  ·  [alignment.openai.com](https://alignment.openai.com/)  ·  [Weight-sparse transformers have interpretable circuits](https://cdn.openai.com/pdf/41df8f28-d4ef-43e9-aed2-823f9393e470/circuit-sparsity-paper.pdf)
 
-### Google Deepmind 
+### Google Deepmind \[a:google_deepmind\]
 
 * *Structure*: research laboratory subsidiary of a for-profit
 
@@ -40,7 +40,7 @@
 
 * *Some outputs:* [A Pragmatic Vision for Interpretability](https://www.alignmentforum.org/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-interpretability%20)  ·  [How Can Interpretability Researchers Help AGI Go Well?](https://www.alignmentforum.org/posts/MnkeepcGirnJn736j/how-can-interpretability-researchers-help-agi-go-well%20)  ·  [Evaluating Frontier Models for Stealth and Situational Awareness](https://arxiv.org/abs/2505.01420)  ·  [When Chain of Thought is Necessary, Language Models Struggle to Evade Monitors](https://arxiv.org/abs/2507.05246)  ·  [MONA: Managed Myopia with Approval Feedback](https://alignmentforum.org/posts/zWySWKuXnhMDhgwc3/mona-managed-myopia-with-approval-feedback-2)  ·  [Consistency Training Helps Stop Sycophancy and Jailbreaks](https://arxiv.org/abs/2510.27062)  ·  [An Approach to Technical AGI Safety and Security](https://arxiv.org/abs/2504.01849)  ·  [Negative Results for SAEs On Downstream Tasks and Deprioritising SAE Research (GDM Mech Interp Team Progress Update \#2)](https://alignmentforum.org/posts/4uXCAJNuPKtKBsi28/negative-results-for-saes-on-downstream-tasks)  ·  [Steering Gemini Using BIDPO Vectors](https://turntrout.com/gemini-steering)  ·  [Difficulties with Evaluating a Deception Detector for AIs](https://arxiv.org/html/2511.22662v1)  ·  [Taking a responsible path to AGI](https://deepmind.google/discover/blog/taking-a-responsible-path-to-agi/)  ·  [Evaluating potential cybersecurity threats of advanced AI](https://deepmind.google/discover/blog/evaluating-potential-cybersecurity-threats-of-advanced-ai)  ·  [Self-preservation or Instruction Ambiguity? Examining the Causes of Shutdown Resistance](https://www.alignmentforum.org/posts/wnzkjSmrgWZaBa2aC/self-preservation-or-instruction-ambiguity-examining-the)  ·  [A Pragmatic Way to Measure Chain-of-Thought Monitorability](https://arxiv.org/abs/2510.23966)
 
-### Anthropic 
+### Anthropic \[a:anthropic\]
 
 * *Structure*: public-benefit corp
 
@@ -60,7 +60,7 @@
 
 * *Some outputs:* [Evaluating honesty and lie detection techniques on a diverse suite of dishonest models](https://alignment.anthropic.com/2025/honesty-elicitation/)  ·  [Agentic Misalignment: How LLMs could be insider threats](https://anthropic.com/research/agentic-misalignment)  ·  [Why Do Some Language Models Fake Alignment While Others Don't?](https://alignmentforum.org/posts/ghESoA8mo3fv9Yx3E/why-do-some-language-models-fake-alignment-while-others-don)  ·  [Forecasting Rare Language Model Behaviors](https://arxiv.org/abs/2502.16797)  ·  [Findings from a Pilot Anthropic—OpenAI Alignment Evaluation Exercise](https://alignment.anthropic.com/2025/openai-findings)  ·  [On the Biology of a Large Language Model](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)  ·  [Auditing language models for hidden objectives](https://www.anthropic.com/research/auditing-hidden-objectives)  ·  [Poisoning Attacks on LLMs Require a Near-constant Number of Poison Samples](https://arxiv.org/abs/2510.07192)  ·  [Circuit Tracing: Revealing Computational Graphs in Language Models](https://transformer-circuits.pub/2025/attribution-graphs/methods.html)  ·  [SHADE-Arena: Evaluating sabotage and monitoring in LLM agents](https://anthropic.com/research/shade-arena-sabotage-monitoring)  ·  [Emergent Introspective Awareness in Large Language Models](https://transformer-circuits.pub/2025/introspection/index.html)  ·  [Reasoning models don't always say what they think](https://www.anthropic.com/research/reasoning-models-dont-say-think)  ·  [Petri: An open-source auditing tool to accelerate AI safety research](https://alignment.anthropic.com/2025/petri)  ·  [Signs of introspection in large language models](https://anthropic.com/research/introspection)  ·  [Putting up Bumpers](https://alignment.anthropic.com/2025/bumpers/)  ·  [Three Sketches of ASL-4 Safety Case Components](https://alignment.anthropic.com/2024/safety-cases/index.html)  ·  [Recommendations for Technical AI Safety Research Directions](https://alignment.anthropic.com/2025/recommended-directions/index.html)  ·  [Constitutional Classifiers: Defending against universal jailbreaks](https://www.anthropic.com/research/constitutional-classifiers)  ·  [The Soul Document](https://gist.github.com/Richard-Weiss/efe157692991535403bd7e7fb20b6695)  ·  [Open-sourcing circuit tracing tools](https://anthropic.com/research/open-source-circuit-tracing)  ·  [Natural emergent misalignment from reward hacking](https://assets.anthropic.com/m/74342f2c96095771/original/Natural-emergent-misalignment-from-reward-hacking-paper.pdf)
 
-### xAI
+### xAI \[a:xai\]
 
 * *Structure*: [for-profit](https://www.cnbc.com/amp/2025/08/25/elon-musk-xai-dropped-public-benefit-corp-status-while-fighting-openai.html)
 
@@ -74,7 +74,7 @@
 
 * *Funded by:* A16Z, Blackrock, Fidelity, Kingdom, Lightspeed, MGX, Morgan Stanley, Sequoia…
 
-### Meta
+### Meta \[a:meta\]
 
 * *Structure*: for-profit
 
@@ -94,7 +94,7 @@
 
 * *Some outputs:* [The Alignment Waltz: Jointly Training Agents to Collaborate for Safety](https://arxiv.org/pdf/2510.08240)  ·  [Large Reasoning Models Learn Better Alignment from Flawed Thinking](https://arxiv.org/pdf/2510.00938%20)  ·  [Robust LLM safeguarding via refusal feature adversarial training](https://arxiv.org/pdf/2409.20089)  ·  [Code World Model Preparedness Report](https://scontent-lhr8-1.xx.fbcdn.net/v/t39.2365-6/557601942_1468972530985309_838842257265552803_n.pdf?_nc_cat=108&ccb=1-7&_nc_sid=3c67a6&_nc_ohc=_H33_VKF3ZUQ7kNvwFog8dd&_nc_oc=AdlNtqCDY4HafZ3-d5rb26AF5f2m0X46SGdKhVq3jLqwpNf_wEXhdQnH7_30ychiZWk&_nc_zt=14&_nc_ht=scontent-lhr8-1.xx&_nc_gid=QvW_ePiaF4E-PxOf30MWyg&oh=00_AfiZC5G4ODvWhiy0MuVH8PSlUFrW8RDQQ8tdr6Zec5k9aA&oe=691A6D09)  ·  [Agents Rule of Two: A Practical Approach to AI Agent Security](https://ai.meta.com/blog/practical-ai-agent-security/%20)  ·  [AI & Human Co-Improvement](https://github.com/facebookresearch/RAM/blob/main/projects/co-improvement.pdf)
 
-### China
+### China \[a:china\]
 
 The Chinese companies [don’t](https://futureoflife.org/wp-content/uploads/2025/07/FLI-AI-Safety-Index-Report-Summer-2025.pdf#page=3) [attempt](https://ailabwatch.org/companies/deepseek) to be safe, often not even in the prosaic safeguards sense. They drop the weights [immediately](https://x.com/natolambert/status/1991915728992190909) after post-training finishes. They’re mostly open weights and closed data. As of writing the companies are often [severely](https://www.wsj.com/tech/ai/china-us-ai-chip-restrictions-effect-275a311e) compute-constrained. There are some [informal reasons](https://www.gleech.org/paper) to doubt their capabilities. The (academic) Chinese AI safety scene is however [also](https://www.google.com/url?q=https://concordia-ai.com/research/state-of-ai-safety-in-china-2025/&sa=D&source=docs&ust=1765539944534669&usg=AOvVaw0AQet2Frnfmtz5ZVmiU26U) growing.
 
@@ -114,7 +114,7 @@ The Chinese companies [don’t](https://futureoflife.org/wp-content/uploads/2025
 
 * There are [others](https://www.interconnects.ai/i/171165224/honorable-mentions) but they’re marginal for now.
 
-### Others
+### Others \[a:others\]
 
 * Amazon’s [Nova Pro](https://arxiv.org/pdf/2506.12103v1) is around the level of Llama 3 90B, which in turn is around the level of the original GPT-4. So 2 years behind. But they have their own [chip](https://www.businessinsider.com/startups-amazon-ai-chips-less-competitive-nvidia-gpus-trainium-aws-2025-11).
 
@@ -122,9 +122,9 @@ The Chinese companies [don’t](https://futureoflife.org/wp-content/uploads/2025
 
 * Mistral have a reasoning model, [Magistral Medium](https://arxiv.org/pdf/2506.10910), and released the weights of a little 24B version. It’s a bit worse than Deepseek R1, pass@1.
 
-# Black-box safety (understand and control current model behaviour)
+# Black-box safety (understand and control current model behaviour) \[sec:black_box_safety_understand_and_control_current_model_behaviour_\]
 
-## Iterative alignment
+## Iterative alignment \[sec:iterative_alignment\]
 
 Nudging base models by optimising their output. Worked on by the post-training teams at most labs, estimating the FTEs at \>500 in some sense. Funded by most of the industry.
 
@@ -134,7 +134,7 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 * *General critiques:* [Bellot](https://arxiv.org/abs/2506.02923), [Alfour](https://cognition.cafe/p/ai-alignment-based-on-intentions), [STACK](https://arxiv.org/abs/2506.24068)*,* [AI Alignment Strategies from a Risk Perspective](https://arxiv.org/abs/2510.11235), [AI Alignment based on Intentions does not work](https://t.co/OTnrYRVsPS)*,* [Distortion of AI Alignment: Does Preference Optimization Optimize for Preferences?](https://arxiv.org/abs/2505.23749)*,* [Murphy’s Laws of AI Alignment: Why the Gap Always Wins](https://arxiv.org/abs/2509.05381), [Alignment remains a hard, unsolved problem](https://www.alignmentforum.org/posts/epjuxGnSPof3GnMSL)
 
-### Iterative alignment at pretrain-time
+### Iterative alignment at pretrain-time \[a:iterative_alignment_at_pretrain_time\]
 
 *Guide weights during pretraining.*
 
@@ -148,7 +148,7 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 * *Some outputs:* [Unsupervised Elicitation](https://alignment.anthropic.com/2025/unsupervised-elicitation)  ·  [ACE and Diverse Generalization via Selective Disagreement](https://arxiv.org/abs/2509.07955)
 
-### Iterative alignment at post-train-time
+### Iterative alignment at post-train-time \[a:iterative_alignment_at_post_train_time\]
 
 *Modify weights after pre-training.*
 
@@ -160,7 +160,7 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 * *Some outputs:* [Composable Interventions for Language Models](https://arxiv.org/abs/2407.06483%20)  ·  [Spilling the Beans: Teaching LLMs to Self-Report Their Hidden Objectives](https://arxiv.org/abs/2511.06626)  ·  [On Targeted Manipulation and Deception when Optimizing LLMs for User Feedback](https://arxiv.org/abs/2411.02306)  ·  [Preference Learning with Lie Detectors can Induce Honesty or Evasion](https://arxiv.org/abs/2505.13787)  ·  [Robust LLM Alignment via Distributionally Robust Direct Preference Optimization](https://arxiv.org/abs/2502.01930)  ·  [RLHS: Mitigating Misalignment in RLHF with Hindsight Simulation](https://arxiv.org/abs/2501.08617)  ·  [Reducing the Probability of Undesirable Outputs in Language Models Using Probabilistic Inference](https://arxiv.org/abs/2510.21184)  ·  [Iterative Label Refinement Matters More than Preference Optimization under Weak Supervision](https://arxiv.org/abs/2501.07886)  ·  [Consistency Training Helps Stop Sycophancy and Jailbreaks](https://arxiv.org/abs/2510.27062)  ·  [Rethinking Safety in LLM Fine-tuning: An Optimization Perspective](https://arxiv.org/abs/2508.12531)  ·  [Preference Learning for AI Alignment: a Causal Perspective](https://arxiv.org/abs/2506.05967)  ·  [On Monotonicity in AI Alignment](https://arxiv.org/abs/2506.08998)  ·  [Spectrum Tuning: Post-Training for Distributional Coverage and In-Context Steerability](https://arxiv.org/abs/2510.06084)  ·  [Uncertainty-Aware Step-wise Verification with Generative Reward Models](https://arxiv.org/abs/2502.11250)  ·  [The Delta Learning Hypothesis: Preference Tuning on Weak Data can Yield Strong Gains](https://arxiv.org/abs/2507.06187)  ·  [Training LLMs for Honesty via Confessions](https://arxiv.org/pdf/2512.08093)
 
-### Black-box make-AI-solve-it
+### Black-box make-AI-solve-it \[a:black_box_make_ai_solve_it\]
 
 *Focus on using existing models to improve and align further models.*
 
@@ -174,7 +174,7 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 * *Some outputs:* [Neural Interactive Proofs](https://neural-interactive-proofs.com/)  ·  [MONA: Myopic Optimization with Non-myopic Approval Can Mitigate Multi-step Reward Hacking](https://arxiv.org/abs/2501.13011)  ·  [Prover-Estimator Debate: A New Scalable Oversight Protocol](https://lesswrong.com/posts/8XHBaugB5S3r27MG9/prover-estimator-debate-a-new-scalable-oversight-protocol)  ·  [Weak to Strong Generalization for Large Language Models with Multi-capabilities](https://openreview.net/forum?id=N1vYivuSKq)  ·  [Debate Helps Weak-to-Strong Generalization](https://arxiv.org/abs/2501.13124)  ·  [Mechanistic Anomaly Detection for "Quirky" Language Models](https://arxiv.org/abs/2504.08812)  ·  [AI Debate Aids Assessment of Controversial Claims](https://arxiv.org/abs/2506.02175)  ·  [An alignment safety case sketch based on debate](https://arxiv.org/abs/2505.03989)  ·  [Ensemble Debates with Local Large Language Models for AI Alignment](https://arxiv.org/abs/2509.00091)  ·  [Training AI to do alignment research we don't already know how to do](https://lesswrong.com/posts/5gmALpCetyjkSPEDr/training-ai-to-do-alignment-research-we-don-t-already-know)  ·  [Automating AI Safety: What we can do today](https://lesswrong.com/posts/FqpAPC48CzAtvfx5C/automating-ai-safety-what-we-can-do-today)  ·  [Superalignment with Dynamic Human Values](https://arxiv.org/abs/2503.13621)
 
-### Inoculation prompting
+### Inoculation prompting \[a:inoculation_prompting\]
 
 *Prompt mild misbehaviour in training, to prevent the failure mode where once AI misbehaves in a mild way, it will be more inclined towards all bad behaviour.*
 
@@ -186,7 +186,7 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 * *Some outputs:* [Recontextualization Mitigates Specification Gaming Without Modifying the Specification](https://www.alignmentforum.org/posts/whkMnqFWKsBm7Gyd7/recontextualization-mitigates-specification-gaming-without)  ·  [Inoculation Prompting: Eliciting traits from LLMs during training can suppress them at test-time](https://arxiv.org/abs/2510.04340)  ·  [Inoculation Prompting: Instructing LLMs to misbehave at train-time improves test-time alignment](https://arxiv.org/abs/2510.05024)  ·  [Natural Emergent Misalignment from Reward Hacking](https://assets.anthropic.com/m/74342f2c96095771/original/Natural-emergent-misalignment-from-reward-hacking-paper.pdf)
 
-### Inference-time: In-context learning
+### Inference-time: In-context learning \[a:inference_time_in_context_learning\]
 
 *Investigate what runtime guidelines, rules, or examples provided to an LLM yield better behavior.*
 
@@ -198,7 +198,7 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 * *Some outputs:* [InvThink: Towards AI Safety via Inverse Reasoning](https://arxiv.org/abs/2510.01569)  ·  [Inference-Time Reward Hacking in Large Language Models](https://arxiv.org/abs/2506.19248)  ·  [Understanding In-context Learning of Addition via Activation Subspaces](https://arxiv.org/abs/2505.05145)  ·  [Mixing Mechanisms: How Language Models Retrieve Bound Entities In-Context](https://arxiv.org/abs/2510.06182)  ·  [Which Attention Heads Matter for In-Context Learning?](https://arxiv.org/abs/2502.14010)
 
-### Inference-time: Steering
+### Inference-time: Steering \[a:inference_time_steering\]
 
 *Manipulate an LLM's internal representations/token probabilities without touching weights.*
 
@@ -210,7 +210,7 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 * *Some outputs:* [Steering Language Models with Weight Arithmetic](https://arxiv.org/abs/2511.05408)  ·  [EVALUESTEER: Measuring Reward Model Steerability Towards Values and Preferences](https://arxiv.org/abs/2510.06370)  ·  [Defense Against the Dark Prompts: Mitigating Best-of-N Jailbreaking with Prompt Evaluation](https://arxiv.org/abs/2502.00580)  ·  [In-Distribution Steering: Balancing Control and Coherence in Language Model Generation.](https://arxiv.org/abs/2510.13285)
 
-### Capability removal: unlearning
+### Capability removal: unlearning \[a:capability_removal_unlearning\]
 
 *Developing methods to selectively remove specific information, capabilities, or behaviors from a trained model (e.g. without retraining it from scratch). A mixture of black-box and white-box approaches.*
 
@@ -232,7 +232,7 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 * *Some outputs: Frameworks*  ·  [OpenUnlearning](https://github.com/locuslab/open-unlearning)  ·  *Mostly black-box*  ·  [Modifying LLM Beliefs with Synthetic Document Finetuning](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf)  ·   [From Dormant to Deleted: Tamper-Resistant Unlearning Through Weight-Space Regularization](https://arxiv.org/abs/2505.22310)  ·  [Mirror Mirror on the Wall, Have I Forgotten it All?](https://arxiv.org/abs/2505.08138)  ·  [Machine Unlearning Doesn't Do What You Think: Lessons for Generative AI Policy and Research](https://arxiv.org/abs/2412.06966)  ·  [Open Problems in Machine Unlearning for AI Safety](https://arxiv.org/abs/2501.04952)  ·  *Mostly white-box*  ·  [Collapse of Irrelevant Representations (CIR) Ensures Robust and Non-Disruptive LLM Unlearning](https://arxiv.org/abs/2509.11816)  ·  [Safety Alignment via Constrained Knowledge Unlearning](https://arxiv.org/abs/2505.18588)  ·  [Robust LLM Unlearning with MUDMAN: Meta-Unlearning with Disruption Masking And Normalization](https://arxiv.org/abs/2506.12484)  ·  [Unlearning Isn't Deletion: Investigating Reversibility of Machine Unlearning in LLMs](https://arxiv.org/abs/2505.16831)  ·  [Unlearning Needs to be More Selective \[Progress Report\]](https://lesswrong.com/posts/QYzofMbzmbgiwfqy8/unlearning-needs-to-be-more-selective-progress-report)  ·  [Layered Unlearning for Adversarial Relearning](https://arxiv.org/abs/2505.09500)  ·  [Understanding Memorization via Loss Curvature](https://goodfire.ai/research/understanding-memorization-via-loss-curvature)  ·  [Model Tampering Attacks Enable More Rigorous Evaluations of LLM Capabilities](https://arxiv.org/abs/2502.05209)  ·  *Pre-training interventions*  ·  [Gradient Routing: Masking Gradients to Localize Computation in Neural Networks](https://arxiv.org/abs/2410.04332), [Selective modularity: a research agenda](https://www.lesswrong.com/posts/tAnHM3L25LwuASdpF/selective-modularity-a-research-agenda)  ·  [Distillation Robustifies Unlearning](https://arxiv.org/abs/2506.06278)  ·  [Beyond Data Filtering: Knowledge Localization for Capability Removal in LLMs](https://www.arxiv.org/abs/2512.05648)
 
-### Control
+### Control \[a:control\]
 
 *If we assume early transformative AIs are misaligned and actively trying to subvert safety measures, can we still set up protocols to extract useful work from them while preventing sabotage, and watching with incriminating behaviour?*
 
@@ -248,7 +248,7 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 * *Some outputs:* [Luthien's Approach to Prosaic AI Control in 21 Points](https://luthienresearch.org/updates/2025-03-redteam-as-upsampling/)  ·  [Ctrl-Z: Controlling AI Agents via Resampling](https://alignmentforum.org/posts/LPHMMMZFAWog6ty5x/ctrl-z-controlling-ai-agents-via-resampling)  ·  [SHADE-Arena: Evaluating Sabotage and Monitoring in LLM Agents](https://arxiv.org/abs/2506.15740)  ·  [Adaptive Deployment of Untrusted LLMs Reduces Distributed Threats](https://arxiv.org/abs/2411.17693)  ·  [D-REX: A Benchmark for Detecting Deceptive Reasoning in Large Language Models](https://arxiv.org/abs/2509.17938)  ·  [Subversion Strategy Eval: Can language models statelessly strategize to subvert control protocols?](https://arxiv.org/abs/2412.12480)  ·  [Evaluating Control Protocols for Untrusted AI Agents](https://arxiv.org/abs/2511.02997)  ·  [Can Reasoning Models Obfuscate Reasoning? Stress-Testing Chain-of-Thought Monitorability](https://arxiv.org/abs/2510.19851)  ·  [Optimizing AI Agent Attacks With Synthetic Data](https://arxiv.org/abs/2511.02823)  ·  [Games for AI Control](https://openreview.net/forum?id=QWopGahUEL)  ·  [A sketch of an AI control safety case](https://arxiv.org/abs/2501.17315)  ·  [Assessing confidence in frontier AI safety cases](https://arxiv.org/abs/2502.05791)  ·  [ControlArena](https://control-arena.aisi.org.uk/)  ·  [How to evaluate control measures for LLM agents? A trajectory from today to superintelligence](https://arxiv.org/abs/2504.05259)  ·  [The Alignment Project by UK AISI](https://lesswrong.com/posts/wKTwdgZDo479EhmJL/the-alignment-project-by-uk-aisi-1)  ·  [Towards evaluations-based safety cases for AI scheming](https://arxiv.org/abs/2411.03336)  ·  [Incentives for Responsiveness, Instrumental Control and Impact](https://arxiv.org/abs/2001.07118)  ·  [AI companies are unlikely to make high-assurance safety cases if timelines are short](https://lesswrong.com/posts/neTbrpBziAsTH5Bn7/ai-companies-are-unlikely-to-make-high-assurance-safety)  ·  [Manipulation Attacks by Misaligned AI: Risk Analysis and Safety Case Framework](https://arxiv.org/abs/2507.12872)  ·  [Dynamic safety cases for frontier AI](https://arxiv.org/abs/2412.17618)  ·  [AIs at the current capability level may be important for future safety work](https://lesswrong.com/posts/cJQZAueoPC6aTncKK/ais-at-the-current-capability-level-may-be-important-for)  ·  [Takeaways from sketching a control safety case](https://lesswrong.com/posts/y6rBarAPTLmuhn9PJ/takeaways-from-sketching-a-control-safety-case)
 
-### Safeguards (inference-time auxiliaries)
+### Safeguards (inference-time auxiliaries) \[a:safeguards_inference_time_auxiliaries_\]
 
 *Layers of inference-time defenses, such as classifiers, monitors, and rapid-response protocols, to detect and block jailbreaks, prompt injections, and other harmful model behaviors.*
 
@@ -270,7 +270,7 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 * *Some outputs:* [Constitutional Classifiers: Defending against Universal Jailbreaks across Thousands of Hours of Red Teaming](https://arxiv.org/abs/2501.18837)  ·  [Rapid Response: Mitigating LLM Jailbreaks with a Few Examples](https://arxiv.org/abs/2411.07494)  ·  [Monitoring computer use via hierarchical summarization](https://alignment.anthropic.com/2025/summarization-for-monitoring/index.html)  ·  [Defeating Prompt Injections by Design](https://arxiv.org/abs/2503.18813)  ·  [Introducing Anthropic's Safeguards Research Team](https://alignment.anthropic.com/2025/introducing-safeguards-research-team/index.html)  ·  [OMNIGUARD: An Efficient Approach for AI Safety Moderation Across Modalities](https://arxiv.org/abs/2505.23856)
 
-### Chain of thought monitoring
+### Chain of thought monitoring \[a:chain_of_thought_monitoring\]
 
 *Supervise an AI's natural-language (output) "reasoning" to detect misalignment, scheming, or deception, rather than studying the actual internal states.*
 
@@ -292,11 +292,11 @@ Nudging base models by optimising their output. Worked on by the post-training t
 
 * *Some outputs:* [Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation](https://arxiv.org/abs/2503.11926)  ·  [Detecting misbehavior in frontier reasoning models](https://openai.com/index/chain-of-thought-monitoring/)  ·  [When Chain of Thought is Necessary, Language Models Struggle to Evade Monitors](https://arxiv.org/abs/2507.05246)  ·  [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410)  ·  [Is It Thinking or Cheating? Detecting Implicit Reward Hacking by Measuring Reasoning Effort](https://arxiv.org/abs/2510.01367)  ·  [CoT Red-Handed: Stress Testing Chain-of-Thought Monitoring](https://arxiv.org/abs/2505.23575)  ·  [Training fails to elicit subtle reasoning in current language models](https://alignment.anthropic.com/2025/subtle-reasoning/)  ·  [Can Reasoning Models Obfuscate Reasoning? Stress-Testing Chain-of-Thought Monitorability](https://arxiv.org/abs/2510.19851)  ·  [Teaching Models to Verbalize Reward Hacking in Chain-of-Thought Reasoning](https://arxiv.org/abs/2506.22777)  ·  [Are DeepSeek R1 And Other Reasoning Models More Faithful?](https://arxiv.org/abs/2501.08156)  ·  [A Pragmatic Way to Measure Chain-of-Thought Monitorability](https://arxiv.org/abs/2510.23966)  ·  [A Concrete Roadmap towards Safety Cases based on Chain-of-Thought Monitoring](https://lesswrong.com/posts/Em9sihEZmbofZKc2t/a-concrete-roadmap-towards-safety-cases-based-on-chain-of)  ·  [Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety](https://arxiv.org/abs/2507.11473)  ·  [Why it's good for AI reasoning to be legible and faithful](https://metr.org/blog/2025-03-11-good-for-ai-to-reason-legibly-and-faithfully/)  ·  [Why Don't We Just... Shoggoth+Face+Paraphraser?](https://www.lesswrong.com/posts/Tzdwetw55JNqFTkzK/why-don-t-we-just-shoggoth-face-paraphraser) [CoT May Be Highly Informative Despite “Unfaithfulness”](https://metr.org/blog/2025-08-08-cot-may-be-highly-informative-despite-unfaithfulness/)  ·  [Aether July 2025 Update](https://www.lesswrong.com/posts/B8Cmtf5gdHwxb8qtT/aether-july-2025-update)
 
-## Model psychology
+## Model psychology \[sec:model_psychology\]
 
 This section consists of a bottom-up set of things people happen to be doing, rather than a normative taxonomy.
 
-### Model values / model preferences
+### Model values / model preferences \[a:model_values_model_preferences\]
 
 *Analyse and control emergent, coherent value systems in LLMs, which change as models scale, and can contain problematic values like preferences for AIs over humans.* 
 
@@ -318,7 +318,7 @@ This section consists of a bottom-up set of things people happen to be doing, ra
 
 * *Some outputs:* [What Kind of User Are You? Uncovering User Models in LLM Chatbots](https://arxiv.org/abs/2406.07882v1)  ·  [Utility Engineering: Analyzing and Controlling Emergent Value Systems in AIs](https://arxiv.org/abs/2502.08640)  ·  [Will AI Tell Lies to Save Sick Children? Litmus-Testing AI Values Prioritization with AIRiskDilemmas](https://arxiv.org/abs/2505.14633)  ·  [The PacifAIst Benchmark:Would an Artificial Intelligence Choose to Sacrifice Itself for Human Safety?](https://arxiv.org/abs/2508.09762)  ·  [Values in the Wild: Discovering and Analyzing Values in Real-World Language Model Interactions](https://arxiv.org/abs/2504.15236)  ·  [EigenBench: A Comparative behavioural Measure of Value Alignment](https://arxiv.org/abs/2509.01938)  ·  [Following the Whispers of Values: Unraveling Neural Mechanisms Behind Value-Oriented Behaviors in LLMs](https://arxiv.org/abs/2504.04994)  ·  [Alignment Can Reduce Performance on Simple Ethical Questions](https://lesswrong.com/posts/jrkrHyrymv95CX5NC/alignment-can-reduce-performance-on-simple-ethical-questions)  ·  [Moral Alignment for LLM Agents](https://arxiv.org/abs/2410.01639)  ·  [The LLM Has Left The Chat: Evidence of Bail Preferences in Large Language Models](https://www.lesswrong.com/posts/6JdSJ63LZ4TuT5cTH/the-llm-has-left-the-chat-evidence-of-bail-preferences-in)  ·  [Are Language Models Consequentialist or Deontological Moral Reasoners?](https://arxiv.org/abs/2505.21479)  ·  [Playing repeated games with large language models](https://nature.com/articles/s41562-025-02172-y)  ·  [From Stability to Inconsistency: A Study of Moral Preferences in LLMs](https://arxiv.org/abs/2504.06324)  ·  [VAL-Bench: Measuring Value Alignment in Language Models](https://arxiv.org/abs/2510.05465)
 
-### Character training and persona steering
+### Character training and persona steering \[a:character_training_and_persona_steering\]
 
 *Map, shape, and control the personae of language models, such that new models embody desirable values (e.g., honesty, empathy) rather than undesirable ones (e.g., sycophancy, self-perpetuating behaviors).*
 
@@ -338,7 +338,7 @@ This section consists of a bottom-up set of things people happen to be doing, ra
 
 * *Some outputs:* [Open Character Training: Shaping the Persona of AI Assistants through Constitutional AI](https://arxiv.org/pdf/2511.01689%20)  ·  [On the functional self of LLMs](https://www.lesswrong.com/posts/29aWbJARGF4ybAa5d/on-the-functional-self-of-llms)  ·  [Opus 4.5's Soul Document](https://www.lesswrong.com/posts/vpNG99GhbBoLov9og/claude-4-5-opus-soul-document%20)  ·  [Persona Features Control Emergent Misalignment](https://arxiv.org/abs/2506.19823)  ·  [Inoculation Prompting: Eliciting traits from LLMs during training can suppress them at test-time](https://arxiv.org/abs/2510.04340)  ·  [Persona Vectors: Monitoring and Controlling Character Traits in Language Models](https://arxiv.org/abs/2507.21509)  ·  [Reducing LLM deception at scale with self-other overlap fine-tuning](https://lesswrong.com/posts/jtqcsARGtmgogdcLT/reducing-llm-deception-at-scale-with-self-other-overlap-fine)  ·  [The Rise of Parasitic AI](https://www.lesswrong.com/posts/6ZnznCaTcbGYsCmqu/the-rise-of-parasitic-ai?commentId=RrWjMnKwXGTtmw9rQ)  ·  [A Three-Layer Model of LLM Psychology](https://www.alignmentforum.org/posts/zuXo9imNKYspu9HGv/a-three-layer-model-of-llm-psychology)  ·  [Multi-turn Evaluation of Anthropomorphic Behaviours in Large Language Models](https://arxiv.org/abs/2502.07077) ·  [Selection Pressures on LM Personas](https://www.lesswrong.com/posts/LdBhgAhpvbdEep79F/selection-pressures-on-lm-personas)  ·  [the void](https://nostalgebraist.tumblr.com/post/785766737747574784/the-void)  ·  [void miscellany](https://nostalgebraist.tumblr.com/post/786568570671923200/void-miscellany)    
 
-### Emergent misalignment
+### Emergent misalignment \[a:emergent_misalignment\]
 
 *Fine-tuning LLMs on one narrow antisocial task can cause general misalignment including deception, shutdown resistance, harmful advice, and extremist sympathies, when those behaviors are never trained or rewarded directly. [A new agenda](https://www.lesswrong.com/posts/AcTEiu5wYDgrbmXow/open-problems-in-emergent-misalignment) which quickly led to a stream of exciting work.*
 
@@ -360,7 +360,7 @@ This section consists of a bottom-up set of things people happen to be doing, ra
 
 * *Some outputs:* [Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs](https://arxiv.org/abs/2502.17424)  ·  [Thought Crime: Backdoors and Emergent Misalignment in Reasoning Models](https://arxiv.org/abs/2506.13206)  ·  [Persona Features Control Emergent Misalignment](https://arxiv.org/abs/2506.19823)  ·  [Model Organisms for Emergent Misalignment](https://arxiv.org/abs/2506.11613)  ·  [School of Reward Hacks: Hacking harmless tasks generalizes to misaligned behavior in LLMs](https://arxiv.org/abs/2508.17511)  ·  [Subliminal Learning: Language Models Transmit behavioural Traits via Hidden Signals in Data](https://alignment.anthropic.com/2025/subliminal-learning/)  ·  [Convergent Linear Representations of Emergent Misalignment](https://lesswrong.com/posts/umYzsh7SGHHKsRCaA/convergent-linear-representations-of-emergent-misalignment)  ·  [Narrow Misalignment is Hard, Emergent Misalignment is Easy](https://www.lesswrong.com/posts/gLDSqQm8pwNiq7qst/narrow-misalignment-is-hard-emergent-misalignment-is-easy)  ·  [Aesthetic Preferences Can Cause Emergent Misalignment](https://lesswrong.com/posts/gT3wtWBAs7PKonbmy/aesthetic-preferences-can-cause-emergent-misalignment)  ·  [Moloch's Bargain: Emergent Misalignment When LLMs Compete for Audiences](https://arxiv.org/abs/2510.06105)  ·  [Emergent Misalignment & Realignment](https://lesswrong.com/posts/ZdY4JzBPJEgaoCxTR/emergent-misalignment-and-realignment)  ·  [Realistic Reward Hacking Induces Different and Deeper Misalignment](https://www.lesswrong.com/posts/HLJoJYi52mxgomujc/realistic-reward-hacking-induces-different-and-deeper-1)  ·  [Selective Generalization: Improving Capabilities While Maintaining Alignment](https://lesswrong.com/posts/ZXxY2tccLapdjLbKm/selective-generalization-improving-capabilities-while)  ·  [Emergent Misalignment on a Budget](https://lesswrong.com/posts/qHudHZNLCiFrygRiy/emergent-misalignment-on-a-budget)  ·  [The Rise of Parasitic AI](https://www.lesswrong.com/posts/6ZnznCaTcbGYsCmqu/the-rise-of-parasitic-ai)  ·  [LLM AGI may reason about its goals and discover misalignments by default](https://lesswrong.com/posts/4XdxiqBsLKqiJ9xRM/llm-agi-may-reason-about-its-goals-and-discover)  ·  [Open problems in emergent misalignment](https://lesswrong.com/posts/AcTEiu5wYDgrbmXow/open-problems-in-emergent-misalignment)
 
-### Model specs and constitutions
+### Model specs and constitutions \[a:model_specs_and_constitutions\]
 
 *Write detailed, natural language descriptions of values and rules for models to follow, then instill these values and rules into models via techniques like Constitutional AI or deliberative alignment.*
 
@@ -380,7 +380,7 @@ This section consists of a bottom-up set of things people happen to be doing, ra
 
 * *Some outputs:* [Claude's Constitution](https://www.anthropic.com/news/claudes-constitution)  ·  Google doesn't have anything public. The [Gemini system prompt](https://github.com/elder-plinius/CL4R1T4S/blob/main/GOOGLE/Gemini-2.5-Pro-04-18-2025.md) is very short and dry and doesn't even have any rules for handling copyrighted, let alone wetter stuff  ·  [Deliberative Alignment: Reasoning Enables Safer Language Models](https://arxiv.org/abs/2412.16339)  ·  [Stress-Testing Model Specs Reveals Character Differences among Language Models](https://arxiv.org/abs/2510.07686)  ·  [OpenAI Model Spec](https://model-spec.openai.com/)  ·  [Let Them Down Easy\! Contextual Effects of LLM Guardrails on User Perceptions and Preferences](https://arxiv.org/abs/2506.00195)  ·  [No-self as an alignment target](https://lesswrong.com/posts/LSJx5EnQEW6s5Juw6/no-self-as-an-alignment-target)  ·  [Six Thoughts on AI Safety](https://lesswrong.com/posts/3jnziqCF3vA2NXAKp/six-thoughts-on-ai-safety)  ·  [How important is the model spec if alignment fails?](https://newsletter.forethought.org/p/how-important-is-the-model-spec-if)  ·  [Political Neutrality in AI Is Impossible- But Here Is How to Approximate It](https://arxiv.org/abs/2503.05728)  ·   [Giving AIs safe motivations](https://joecarlsmith.com/2025/08/18/giving-ais-safe-motivations#4-5-step-4-good-instructions)
 
-### Model psychopathology
+### Model psychopathology \[a:model_psychopathology\]
 
 *Find interesting LLM phenomena like glitch [tokens](https://vgel.me/posts/seahorse/) and the reversal curse; these are vital data for theory.*
 
@@ -400,9 +400,9 @@ This section consists of a bottom-up set of things people happen to be doing, ra
 
 * *Some outputs:* [Subliminal Learning: Language models transmit behavioural traits via hidden signals in data](https://arxiv.org/abs/2507.14805)  ·  [LLMs Can Get "Brain Rot"\!](https://arxiv.org/abs/2510.13928)  ·  [Persona-Assigned Large Language Models Exhibit Human-Like Motivated Reasoning](https://arxiv.org/abs/2506.20020)  ·  [Unified Multimodal Models Cannot Describe Images From Memory](https://spylab.ai/blog/modal-aphasia)  ·  [Believe It or Not: How Deeply do LLMs Believe Implanted Facts?](https://arxiv.org/abs/2510.17941)  ·  [Psychopathia Machinalis: A Nosological Framework for Understanding Pathologies in Advanced Artificial Intelligence](https://www.psychopathia.ai/)  ·  [Imagining and building wise machines: The centrality of AI metacognition](https://arxiv.org/abs/2411.02478)  ·  [Artificial Hivemind: The Open-Ended Homogeneity of Language Models (and Beyond)](https://arxiv.org/abs/2510.22954)  ·  [Beyond One-Way Influence: Bidirectional Opinion Dynamics in Multi-Turn Human-LLM Interactions](https://arxiv.org/abs/2510.20039)
 
-## Better data
+## Better data \[sec:better_data\]
 
-### Data filtering
+### Data filtering \[a:data_filtering\]
 
 *Builds safety into models from the start by removing harmful or toxic content (like dual-use info) from the pretraining data, rather than relying only on post-training alignment.*
 
@@ -424,7 +424,7 @@ This section consists of a bottom-up set of things people happen to be doing, ra
 
 * *Some outputs:* [Enhancing Model Safety through Pretraining Data Filtering](https://alignment.anthropic.com/2025/pretraining-data-filtering/)  ·  [Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs](https://arxiv.org/abs/2508.06601)  ·  [Safety Pretraining: Toward the Next Generation of Safe AI](https://arxiv.org/abs/2504.16980)  ·  [Best Practices for Biorisk Evaluations on Open-Weight Bio-Foundation Models](https://arxiv.org/abs/2510.27629v2)
 
-### Hyperstition studies
+### Hyperstition studies \[a:hyperstition_studies\]
 
 *Study, steer, and intervene on the following feedback loop: "we produce stories about how present and future AI systems behave" → "these stories become training data for the AI" → "these stories shape how AI systems in fact behave".*
 
@@ -444,7 +444,7 @@ This section consists of a bottom-up set of things people happen to be doing, ra
 
 * *Some outputs:* [Training on Documents About Reward Hacking Induces Reward Hacking](https://www.lesswrong.com/posts/qXYLvjGL9QvD3aFSW/training-on-documents-about-reward-hacking-induces-reward)  ·  [Do Not Tile the Lightcone with Your Confused Ontology](https://www.lesswrong.com/posts/Y8zS8iG5HhqKcQBtA/do-not-tile-the-lightcone-with-your-confused-ontology)  ·  [Self-Fulfilling Misalignment Data Might Be Poisoning Our AI Models](https://turntrout.com/self-fulfilling-misalignment)  ·  [Existential Conversations with Large Language Models: Content, Community, and Culture](https://arxiv.org/abs/2411.13223)
 
-### Data poisoning defense
+### Data poisoning defense \[a:data_poisoning_defense\]
 
 *Develops methods to detect and prevent malicious or backdoor-inducing samples from being included in the training data.*
 
@@ -466,7 +466,7 @@ This section consists of a bottom-up set of things people happen to be doing, ra
 
 * *Some outputs:* [A small number of samples can poison LLMs of any size](https://example-blog.com/a-small-number-of-samples-can-poison-llms)  ·  [Reasoning Introduces New Poisoning Attacks Yet Makes Them More Complicated](https://arxiv.org/abs/2509.03405)  ·  [Poisoning Attacks on LLMs Require a Near-constant Number of Poison Samples](https://arxiv.org/abs/2510.04567)
 
-### Synthetic data for alignment
+### Synthetic data for alignment \[a:synthetic_data_for_alignment\]
 
 Uses AI-generated data (e.g., critiques, preferences, or self-labeled examples) to scale and improve alignment, especially for superhuman models.
 
@@ -504,7 +504,7 @@ Uses AI-generated data (e.g., critiques, preferences, or self-labeled examples) 
 
 * [**Position: Model Collapse Does Not Mean What You Think**](https://arxiv.org/abs/2503.02341), *Rylan Schaeffer, Joshua Kazdan, Alvan Caleb Arulandu et al.*, 2025-03-05, arXiv
 
-### Data quality for alignment
+### Data quality for alignment \[a:data_quality_for_alignment\]
 
 *Improves the quality, signal-to-noise ratio, and reliability of human-generated preference and alignment data.*
 
@@ -526,9 +526,9 @@ Uses AI-generated data (e.g., critiques, preferences, or self-labeled examples) 
 
 * *Some outputs:* [AI Alignment at Your Discretion](https://arxiv.org/abs/2502.10441)  ·  [Maximizing Signal in Human-Model Preference Alignment](https://arxiv.org/abs/2503.04910)  ·  [DxHF: Providing High-Quality Human Feedback for LLM Alignment via Interactive Decomposition](https://arxiv.org/abs/2507.18802)  ·  [Challenges and Future Directions of Data-Centric AI Alignment](https://arxiv.org/html/2410.01957v2)  ·  [You Are What You Eat \-- AI Alignment Requires Understanding How Data Shapes Structure and Generalisation](https://arxiv.org/abs/2502.05475)
 
-## Goal robustness
+## Goal robustness \[sec:goal_robustness\]
 
-### Mild optimisation
+### Mild optimisation \[a:mild_optimisation\]
 
 *Avoid Goodharting by getting AI to satisfice rather than maximise.*
 
@@ -544,7 +544,7 @@ Uses AI-generated data (e.g., critiques, preferences, or self-labeled examples) 
 
 * *Some outputs:* [MONA: Myopic Optimization with Non-myopic Approval Can Mitigate Multi-step Reward Hacking](https://arxiv.org/abs/2501.13011)  ·  [BioBlue: Notable runaway-optimiser-like LLM failure modes on biologically and economically aligned AI safety benchmarks for LLMs with simplified observation format](https://arxiv.org/abs/2509.02655)  ·  [Why modelling multi-objective homeostasis is essential for AI alignment (and how it helps with AI safety as well). Subtleties and Open Challenges](https://lesswrong.com/posts/vGeuBKQ7nzPnn5f7A/why-modelling-multi-objective-homeostasis-is-essential-for)  ·  [From homeostasis to resource sharing: Biologically and economically aligned multi-objective multi-agent gridworld-based AI safety benchmarks](https://arxiv.org/abs/2410.00081)
 
-### RL safety
+### RL safety \[a:rl_safety\]
 
 *Improves the robustness of reinforcement learning agents by addressing core problems in reward learning, goal misgeneralization, and specification gaming.*
 
@@ -566,7 +566,7 @@ Uses AI-generated data (e.g., critiques, preferences, or self-labeled examples) 
 
 * *Some outputs:* [The Perils of Optimizing Learned Reward Functions: Low Training Error Does Not Guarantee Low Regret](https://arxiv.org/abs/2406.15753)  ·  [Safe Learning Under Irreversible Dynamics via Asking for Help](https://arxiv.org/abs/2502.14043)  ·  [Mitigating Goal Misgeneralization via Minimax Regret](https://arxiv.org/abs/2507.03068)  ·  [Rethinking Reward Model Evaluation: Are We Barking up the Wrong Tree?](https://arxiv.org/abs/2410.05584)  ·  [The Invisible Leash: Why RLVR May or May Not Escape Its Origin](https://arxiv.org/abs/2507.14843)  ·  [Reducing the Probability of Undesirable Outputs in Language Models Using Probabilistic Inference](https://arxiv.org/abs/2510.21184)  ·  [Interpreting Emergent Planning in Model-Free Reinforcement Learning](https://arxiv.org/abs/2504.01871)  ·  [Misalignment From Treating Means as Ends](https://arxiv.org/abs/2507.10995)  ·  ["The Era of Experience" has an unsolved technical alignment problem](https://lesswrong.com/posts/TCGgiJAinGgcMEByt/the-era-of-experience-has-an-unsolved-technical-alignment)  ·  [Safety cases for Pessimism](https://lesswrong.com/posts/CpftMXCEnwqbWreHD/safety-cases-for-pessimism)  ·  [We need a field of Reward Function Design](https://www.lesswrong.com/posts/oxvnREntu82tffkYW/we-need-a-field-of-reward-function-design)
 
-### Assistance games, assistive agents
+### Assistance games, assistive agents \[a:assistance_games_assistive_agents\]
 
 *Formalize how AI assistants learn about human preferences given uncertainty and partial observability, and construct environments which better incentivize AIs to learn what we want them to learn.*
 
@@ -586,7 +586,7 @@ Uses AI-generated data (e.g., critiques, preferences, or self-labeled examples) 
 
 * *Some outputs:* [Training LLM Agents to Empower Humans](https://arxiv.org/pdf/2510.13709)  ·  [Murphys Laws of AI Alignment: Why the Gap Always Wins](https://arxiv.org/abs/2509.05381)  ·  [AssistanceZero: Scalably Solving Assistance Games](https://arxiv.org/abs/2504.07091)  ·  [Observation Interference in Partially Observable Assistance Games](https://arxiv.org/abs/2412.17797)  ·  [Learning to Assist Humans without Inferring Rewards](https://arxiv.org/abs/2411.02623)
 
-### Harm reduction for open weights
+### Harm reduction for open weights \[a:harm_reduction_for_open_weights\]
 
 *Develops methods, primarily based on pretraining data intervention, to create tamper-resistant safeguards that prevent open-weight models from being maliciously fine-tuned to remove safety features or exploit dangerous capabilities.*
 
@@ -606,7 +606,7 @@ Uses AI-generated data (e.g., critiques, preferences, or self-labeled examples) 
 
 * *Some outputs:* [Deep ignorance: Filtering pretraining data builds tamper-resistant safeguards into open-weight LLMs](https://www.aisi.gov.uk/research/deep-ignorance-filtering-pretraining-data-builds-tamper-resistant-safeguards-into-open-weight-llms)  ·  [Tamper-Resistant Safeguards for Open-Weight LLMs](https://arxiv.org/abs/2408.00761)  ·  [Open Technical Problems in Open-Weight AI Model Risk Management](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5705186)  ·  [A Different Approach to AI Safety Proceedings from the Columbia Convening on AI Openness and Safety](https://arxiv.org/pdf/2506.22183)  ·  [Risk Mitigation Strategies for the Open Foundation Model Value Chain](https://partnershiponai.org/wp-content/uploads/dlm_uploads/2024/07/open-foundation-model-risk-mitigation_rev3-1.pdf)
 
-### The "Neglected Approaches" Approach
+### The "Neglected Approaches" Approach \[a:the_neglected_approaches_approach\]
 
 *Agenda-agnostic approaches to identifying good but overlooked empirical alignment ideas, working with theorists who could use engineers, and prototyping them.*
 
@@ -628,11 +628,11 @@ Uses AI-generated data (e.g., critiques, preferences, or self-labeled examples) 
 
 * *Some outputs:* [Learning Representations of Alignment](https://arxiv.org/abs/2412.16325)  ·  [Engineering Alignment: A Practical Framework for Prototyping 'Negative Tax' Solutions](https://arxiv.org/abs/2508.08492)  ·  [Self-Correction in Thought-Attractors: A Nudge Towards Alignment](https://arxiv.org/abs/2510.24797)
 
-# White-box safety (i.e. Interpretability)
+# White-box safety (i.e. Interpretability) \[sec:white_box_safety_i_e_interpretability_\]
 
 This section isn't very conceptually clean. See the [Open Problems](https://arxiv.org/abs/2501.16496) paper or [Deepmind](https://arxiv.org/pdf/2504.01849#page=92.33) for strong frames which are not useful for descriptive purposes.
 
-### Reverse engineering
+### Reverse engineering \[a:reverse_engineering\]
 
 *Decompose a model into its functional, interacting components (circuits), formally describe what computation those components perform, and validate their causal effects to reverse-engineer the model's internal algorithm.*
 
@@ -652,7 +652,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* *In weights-space*  ·  [The Circuits Research Landscape](https://www.neuronpedia.org/graph/info)  ·  [Circuits in Superposition](https://www.lesswrong.com/posts/roE7SHjFWEoMcGZKd/circuits-in-superposition-compressing-many-small-neural), [2](https://www.google.com/url?q=https://www.lesswrong.com/posts/FWkZYQceEzL84tNej/circuits-in-superposition-2-now-with-less-wrong-math&sa=D&source=docs&ust=1765550772146255&usg=AOvVaw334Tyidx2keGCA9vGwQ9a-)  ·  [Compressed Computation is (probably) not Computation in Superposition](https://www.lesswrong.com/posts/ZxFchCFJFcgysYsT9/compressed-computation-is-probably-not-computation-in)  ·  [MIB: A Mechanistic Interpretability Benchmark](https://arxiv.org/abs/2504.13151)  ·  [RelP: Faithful and Efficient Circuit Discovery in Language Models via Relevance Patching](https://arxiv.org/abs/2508.21258)  ·  [The Dual-Route Model of Induction](https://arxiv.org/abs/2504.03022)  ·  [Structural Inference: Interpreting Small Language Models with Susceptibilities](https://arxiv.org/abs/2504.18274)  ·  [Stochastic Parameter Decomposition](https://openreview.net/forum?id=dEdS9ao8gN)  ·  [The Geometry of Self-Verification in a Task-Specific Reasoning Model](https://arxiv.org/abs/2504.14379)  ·  [Converting MLPs into Polynomials in Closed Form](https://arxiv.org/abs/2502.01032)  ·  [Extractive Structures Learned in Pretraining Enable Generalization on Finetuned Facts](https://arxiv.org/abs/2412.04614)  ·  [Interpretability in Parameter Space: Minimizing Mechanistic Description Length with Attribution-based Parameter Decomposition](https://arxiv.org/abs/2501.14926)  ·  [Identifying Sparsely Active Circuits Through Local Loss Landscape Decomposition](https://arxiv.org/abs/2504.00194)  ·  [From Memorization to Reasoning in the Spectrum of Loss Curvature](https://arxiv.org/abs/2510.24256)  ·  [Generalization or Hallucination? Understanding Out-of-Context Reasoning in Transformers](https://arxiv.org/abs/2506.10887)  ·  [How Do LLMs Perform Two-Hop Reasoning in Context?](https://arxiv.org/abs/2502.13913)  ·  [Blink of an eye: a simple theory for feature localization in generative models](https://arxiv.org/abs/2502.00921)  ·  [On the creation of narrow AI: hierarchy and nonlocality of neural network skills](https://arxiv.org/abs/2505.15811)  ·  *In activations-space*  ·  [Interpreting Emergent Planning in Model-Free Reinforcement Learning](https://arxiv.org/pdf/2504.01871)  ·  [Bridging the human–AI knowledge gap through concept discovery and transfer in AlphaZero](https://www.pnas.org/doi/10.1073/pnas.2406675122)  ·  [Building and evaluating alignment auditing agents](https://lesswrong.com/posts/DJAZHYjWxMrcd2na3/building-and-evaluating-alignment-auditing-agents)  ·  [How Do Transformers Learn Variable Binding in Symbolic Programs?](https://arxiv.org/abs/2505.20896)  ·  [Fresh in memory: Training-order recency is linearly encoded in language model activations](https://arxiv.org/abs/2509.14223)  ·  [Language Models use Lookbacks to Track Beliefs](https://arxiv.org/abs/2505.14685)  ·  [Constrained belief updates explain geometric structures in transformer representations](https://arxiv.org/abs/2502.01954)  ·  [LLMs Process Lists With General Filter Heads](https://arxiv.org/abs/2510.26784)  ·  [Language Models Use Trigonometry to Do Addition](https://arxiv.org/abs/2502.00873)  ·  [Interpreting learned search: finding a transition model and value function in an RNN that plays Sokoban](https://arxiv.org/abs/2506.10138)  ·  [Transformers Struggle to Learn to Search](https://arxiv.org/abs/2412.04703)  ·  [Adversarial Examples Are Not Bugs, They Are Superposition](https://arxiv.org/abs/2508.17456)  ·  [Do Language Models Use Their Depth Efficiently?](https://arxiv.org/abs/2505.13898)  ·  [ICLR: In-Context Learning of Representations](https://openreview.net/forum?id=pXlmOmlHJZ)
 
-### Extracting latent knowledge
+### Extracting latent knowledge \[a:extracting_latent_knowledge\]
 
 *Identify and decoding the "true" beliefs or knowledge represented inside a model's activations, even when the model's output is deceptive or false.*
 
@@ -674,7 +674,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [Auditing language models for hidden objectives](https://www.anthropic.com/research/auditing-hidden-objectives)  ·  [Eliciting Secret Knowledge from Language Models](https://arxiv.org/abs/2510.01070) · [Here’s 18 Applications of Deception Probes](https://www.lesswrong.com/posts/7zhAwcBri7yupStKy/here-s-18-applications-of-deception-probes) · [Towards eliciting latent knowledge from LLMs with mechanistic interpretability](https://arxiv.org/pdf/2505.14352)  · [CCS-Lib: A Python package to elicit latent knowledge from LLMs](https://joss.theoj.org/papers/10.21105/joss.06511) · [No Answer Needed: Predicting LLM Answer Accuracy from Question-Only Linear Probes](https://arxiv.org/abs/2509.10625) · [When Thinking LLMs Lie: Unveiling the Strategic Deception in Representations of Reasoning Models](https://arxiv.org/abs/2506.04909)  · [Caught in the Act: a mechanistic approach to detecting deception](https://arxiv.org/abs/2508.19505) · [When Truthful Representations Flip Under Deceptive Instructions?](https://arxiv.org/abs/2507.22149)
 
-### Lie and deception detectors
+### Lie and deception detectors \[a:lie_and_deception_detectors\]
 
 *Detect when a model is being deceptive or lying by building white- or black-box detectors. Some work below requires intent in their definition, while other work focuses only on whether the model states something it believes to be false, regardless of intent.*
 
@@ -694,7 +694,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [Detecting Strategic Deception Using Linear Probes](https://www.lesswrong.com/posts/9pGbTz6c78PGwJein/detecting-strategic-deception-using-linear-probes)  ·  [Whitebox detection of sandbagging model organisms](https://www.lesswrong.com/posts/pPEeMdgjpjHZWCDFw/white-box-control-at-uk-aisi-update-on-sandbagging)  ·  [Benchmarking deception probes for trusted monitoring](https://www.lesswrong.com/posts/eaEqAzGN3uJfpfGoc/trusted-monitoring-but-with-deception-probes)  ·  [18 Applications of Deception Probes](https://www.lesswrong.com/posts/7zhAwcBri7yupStKy/18-applications-of-deception-probes)  ·  [Evaluating honesty and lie detection techniques on a diverse suite of dishonest models](https://alignment.anthropic.com/2025/honesty-elicitation/)  ·  [Caught in the Act: a mechanistic approach to detecting deception](https://arxiv.org/abs/2508.19505)  ·  [Preference Learning with Lie Detectors can Induce Honesty or Evasion](https://arxiv.org/abs/2505.13787)  ·  [Detecting High-Stakes Interactions with Activation Probes](https://arxiv.org/abs/2506.10805)  ·  [White Box Control at UK AISI \- Update on Sandbagging Investigations](https://www.alignmentforum.org/posts/pPEeMdgjpjHZWCDFw/white-box-control-at-uk-aisi-update-on-sandbagging)  ·  [Liars' Bench: Evaluating Lie Detectors for Language Models](https://arxiv.org/html/2511.16035v1)  ·  [Probes and SAEs do well on Among Us benchmark](https://www.lesswrong.com/posts/gRc8KL2HLtKkFmNPr/among-us-a-sandbox-for-agentic-deception)
 
-### Model diffing
+### Model diffing \[a:model_diffing\]
 
 *Understand what happens when a model is finetuned, what the "diff" between the finetuned and the original model consists in.*
 
@@ -714,7 +714,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [What We Learned Trying to Diff Base and Chat Models (And Why It Matters)](https://www.lesswrong.com/posts/xmpauEXEerzYcJKNm/what-we-learned-trying-to-diff-base-and-chat-models-and-why) ·  [Open Source Replication of Anthropic's Crosscoder paper for model-diffing](https://www.lesswrong.com/posts/srt6JXsRMtmqAJavD/open-source-replication-of-anthropic-s-crosscoder-paper-for)  ·  [Cross-Architecture Model Diffing with Crosscoders: Unsupervised Discovery of Differences Between LLMs](https://openreview.net/forum?id=ZB84SvrZB8%20)  ·  [Discovering Undesired Rare Behaviors via Model Diff Amplification](https://www.goodfire.ai/research/model-diff-amplification#)  ·  [Overcoming Sparsity Artifacts in Crosscoders to Interpret Chat-Tuning](https://arxiv.org/abs/2504.02922)  ·  [Persona Features Control Emergent Misalignment](https://arxiv.org/abs/2506.19823)  ·  [Narrow Finetuning Leaves Clearly Readable Traces in Activation Differences](https://arxiv.org/abs/2510.13900)  ·  [Insights on Crosscoder Model Diffing](https://transformer-circuits.pub/2025/crosscoder-diffing-update/index.html)  ·  [Diffing Toolkit: Model Comparison and Analysis Framework](https://github.com/science-of-finetuning/diffing-toolkit%20)
 
-### Sparse Coding
+### Sparse Coding \[a:sparse_coding\]
 
 *Decompose the polysemantic activations of the residual stream into a sparse linear combination of monosemantic "features" which correspond to interpretable concepts.*
 
@@ -736,7 +736,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [Overcoming Sparsity Artifacts in Crosscoders to Interpret Chat-Tuning](https://arxiv.org/abs/2504.02922)  ·  [Do I Know This Entity? Knowledge Awareness and Hallucinations in Language Models](https://arxiv.org/abs/2411.14257)  ·  [Circuit Tracing: Revealing Computational Graphs in Language Models](https://transformer-circuits.pub/2025/attribution-graphs/methods.html)  ·  [Sparse Autoencoders Learn Monosemantic Features in Vision-Language Models](https://arxiv.org/abs/2504.02821)  ·  [I Have Covered All the Bases Here: Interpreting Reasoning Features in Large Language Models via Sparse Autoencoders](https://arxiv.org/abs/2503.18878)  ·  [Sparse Autoencoders Do Not Find Canonical Units of Analysis](https://arxiv.org/abs/2502.04878)  ·  [Transcoders Beat Sparse Autoencoders for Interpretability](https://arxiv.org/abs/2501.18823)  ·  [Decomposing MLP Activations into Interpretable Features via Semi-Nonnegative Matrix Factorization](https://arxiv.org/abs/2506.10920)  ·  [CRISP: Persistent Concept Unlearning via Sparse Autoencoders](https://arxiv.org/abs/2508.13650)  ·  [The Unintended Trade-off of AI Alignment:Balancing Hallucination Mitigation and Safety in LLMs](https://arxiv.org/abs/2510.07775)  ·  [Scaling sparse feature circuit finding for in-context learning](https://arxiv.org/abs/2504.13756)  ·  [Learning Multi-Level Features with Matryoshka Sparse Autoencoders](https://arxiv.org/abs/2503.17547)  ·  [Are Sparse Autoencoders Useful? A Case Study in Sparse Probing](https://arxiv.org/abs/2502.16681)  ·  [Sparse Autoencoders Trained on the Same Data Learn Different Features](https://arxiv.org/abs/2501.16615)  ·  [What's In My Human Feedback? Learning Interpretable Descriptions of Preference Data](https://arxiv.org/abs/2510.26202)  ·  [Priors in Time: Missing Inductive Biases for Language Model Interpretability](https://arxiv.org/abs/2511.01836)  ·  [Inference-Time Decomposition of Activations (ITDA): A Scalable Approach to Interpreting Large Language Models](https://arxiv.org/abs/2505.17769)  ·  [Binary Sparse Coding for Interpretability](https://arxiv.org/abs/2509.25596)  ·  [Scaling Sparse Feature Circuit Finding to Gemma 9B](https://lesswrong.com/posts/PkeB4TLxgaNnSmddg/scaling-sparse-feature-circuit-finding-to-gemma-9b)  ·  [Partially Rewriting a Transformer in Natural Language](https://arxiv.org/abs/2501.18838)  ·  [Dense SAE Latents Are Features, Not Bugs](https://arxiv.org/abs/2506.15679)  ·  [Evaluating Sparse Autoencoders on Targeted Concept Erasure Tasks](https://arxiv.org/abs/2411.18895)  ·  [Evaluating SAE interpretability without explanations](https://arxiv.org/abs/2507.08473)  ·  [SAEs Can Improve Unlearning: Dynamic Sparse Autoencoder Guardrails for Precision Unlearning in LLMs](https://arxiv.org/abs/2504.08192)  ·  [SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability](https://arxiv.org/abs/2503.09532)  ·  [SAEs Are Good for Steering \-- If You Select the Right Features](https://arxiv.org/abs/2505.20063)  ·  [Line of Sight: On Linear Representations in VLLMs](https://arxiv.org/abs/2506.04706)  ·  [Low-Rank Adapting Models for Sparse Autoencoders](https://arxiv.org/abs/2501.19406)  ·  [Enhancing Automated Interpretability with Output-Centric Feature Descriptions](https://arxiv.org/abs/2501.08319)  ·  [Decoding Dark Matter: Specialized Sparse Autoencoders for Interpreting Rare Concepts in Foundation Models](https://arxiv.org/abs/2411.00743)  ·  [Enhancing Neural Network Interpretability with Feature-Aligned Sparse Autoencoders](https://arxiv.org/abs/2411.01220)  ·  [BatchTopK Sparse Autoencoders](https://arxiv.org/abs/2412.06410)  ·  [Towards Understanding Distilled Reasoning Models: A Representational Approach](https://arxiv.org/abs/2503.03730)  ·  [Understanding sparse autoencoder scaling in the presence of feature manifolds](https://arxiv.org/abs/2509.02565)  ·  [Internal states before wait modulate reasoning patterns](https://arxiv.org/abs/2510.04128)  ·  [Do Sparse Autoencoders Generalize? A Case Study of Answerability](https://arxiv.org/abs/2502.19964)  ·  [Position: Mechanistic Interpretability Should Prioritize Feature Consistency in SAEs](https://arxiv.org/abs/2505.20254)  ·  [How Visual Representations Map to Language Feature Space in Multimodal LLMs](https://arxiv.org/abs/2506.11976)  ·  [Prisma: An Open Source Toolkit for Mechanistic Interpretability in Vision and Video](https://arxiv.org/abs/2504.19475)  ·  [Topological Data Analysis and Mechanistic Interpretability](https://lesswrong.com/posts/6oF6pRr2FgjTmiHus/topological-data-analysis-and-mechanistic-interpretability)  ·  [Large Language Models Share Representations of Latent Grammatical Concepts Across Typologically Diverse Languages](https://arxiv.org/abs/2501.06346)  ·  [Interpreting the linear structure of vision-language model embedding spaces](https://arxiv.org/abs/2504.11695)  ·  [Interpreting Large Text-to-Image Diffusion Models with Dictionary Learning](https://arxiv.org/abs/2505.24360)  ·  [Weight-sparse transformers have interpretable circuits](https://cdn.openai.com/pdf/41df8f28-d4ef-43e9-aed2-823f9393e470/circuit-sparsity-paper.pdf)
 
-### Causal Abstractions
+### Causal Abstractions \[a:causal_abstractions\]
 
 *Verify that a neural network implements a specific high-level causal model (like a logical algorithm) by finding a mapping between high-level variables and low-level neural representations.*
 
@@ -758,7 +758,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [HyperDAS: Towards Automating Mechanistic Interpretability with Hypernetworks](https://arxiv.org/abs/2503.10894)  ·  [Combining Causal Models for More Accurate Abstractions of Neural Networks](https://arxiv.org/abs/2503.11429)  ·  [How Causal Abstraction Underpins Computational Explanation](https://arxiv.org/abs/2508.11214)
 
-### Data attribution
+### Data attribution \[a:data_attribution\]
 
 *Quantifies the influence of individual training data points on a model's specific behavior or output, allowing researchers to trace model properties (like misalignment, bias, or factual errors) back to their source in the training set.*
 
@@ -778,7 +778,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [Influence Dynamics and Stagewise Data Attribution](https://arxiv.org/abs/2510.12071)  ·  [What is Your Data Worth to GPT?](https://arxiv.org/abs/2405.13954)  ·  [Detecting and Filtering Unsafe Training Data via Data Attribution with Denoised Representation](https://arxiv.org/abs/2502.11411)  ·  [Better Training Data Attribution via Better Inverse Hessian-Vector Products](https://arxiv.org/abs/2507.14740)  ·  [DATE-LM: Benchmarking Data Attribution Evaluation for Large Language Models](https://arxiv.org/abs/2507.09424)  ·  [Bayesian Influence Functions for Hessian-Free Data Attribution](https://arxiv.org/abs/2509.26544)  ·  [OLMoTrace: Tracing Language Model Outputs Back to Trillions of Training Tokens](https://arxiv.org/abs/2504.07096)  ·  [You Are What You Eat \-- AI Alignment Requires Understanding How Data Shapes Structure and Generalisation](https://arxiv.org/abs/2502.05475)  ·  [Information-Guided Identification of Training Data Imprint in (Proprietary) Large Language Models](https://arxiv.org/abs/2503.12072)  ·  [Distributional Training Data Attribution: What do Influence Functions Sample?](https://arxiv.org/abs/2506.12965)  ·  [A Snapshot of Influence: A Local Data Attribution Framework for Online Reinforcement Learning](https://openreview.net/forum?id=sYK4yPDuT1)  ·  [Revisiting Data Attribution for Influence Functions](https://arxiv.org/abs/2508.07297)
 
-### Pragmatic interpretability
+### Pragmatic interpretability \[a:pragmatic_interpretability\]
 
 *Directly tackling concrete, safety-critical problems on the path to AGI by using lightweight interpretability tools (like steering and probing) and empirical feedback from proxy tasks, rather than pursuing complete mechanistic reverse-engineering.*
 
@@ -798,7 +798,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [A Pragmatic Vision for Interpretability](https://www.lesswrong.com/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-inter)  ·  [Agentic Interpretability: A Strategy Against Gradual Disempowerment](https://www.alignmentforum.org/posts/s9z4mgjtWTPpDLxFy/agentic-interpretability-a-strategy-against-gradual)  ·  [Auditing language models for hidden objectives](https://arxiv.org/abs/2503.10965)
 
-### Other interpretability
+### Other interpretability \[a:other_interpretability\]
 
 *Interpretability that does not fall well into other categories.*
 
@@ -818,7 +818,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:*  ·  [Transformers Don't Need LayerNorm at Inference Time: Implications for Interpretability](https://lesswrong.com/posts/KbFuuaBKRP7FcAADL/transformers-don-t-need-layernorm-at-inference-time)  ·  [Where Did It Go Wrong? Attributing Undesirable LLM Behaviors via Representation Gradient Tracing](https://arxiv.org/abs/2510.02334)  ·  [Open Problems in Mechanistic Interpretability](https://arxiv.org/abs/2501.16496)  ·  [Against blanket arguments against interpretability](https://lesswrong.com/posts/u3ZysuXEjkyHhefrk/against-blanket-arguments-against-interpretability)  ·  [Opportunity Space: Renormalization for AI Safety](https://lesswrong.com/posts/wkGmouy7JnTNtWAbc/opportunity-space-renormalization-for-ai-safety)  ·  [Prospects for Alignment Automation: Interpretability Case Study](https://lesswrong.com/posts/y5cYisQ2QHiSbQbhk/prospects-for-alignment-automation-interpretability-case)  ·  [The Urgency of Interpretability](https://www.darioamodei.com/post/the-urgency-of-interpretability)  ·  [Language Models May Verbatim Complete Text They Were Not Explicitly Trained On](https://arxiv.org/abs/2503.17514)  ·  [Downstream applications as validation of interpretability progress](https://lesswrong.com/posts/wGRnzCFcowRCrpX4Y/downstream-applications-as-validation-of-interpretability)  ·  [Principles for Picking Practical Interpretability Projects](https://lesswrong.com/posts/DqaoPNqhQhwBFqWue/principles-for-picking-practical-interpretability-projects)  ·  [Propositional Interpretability in Artificial Intelligence](https://arxiv.org/abs/2501.15740)  ·  [Explainable and Interpretable Multimodal Large Language Models: A Comprehensive Survey](https://arxiv.org/abs/2412.02104)  ·  [Renormalization Redux: QFT Techniques for AI Interpretability](https://lesswrong.com/posts/sjr66DBEgyogAbfdf/renormalization-redux-qft-techniques-for-ai-interpretability)  ·  [The Strange Science of Interpretability: Recent Papers and a Reading List for the Philosophy of Interpretability](https://lesswrong.com/posts/qRnupMmFG7dxQTTYh/the-strange-science-of-interpretability-recent-papers-and-a)  ·  [Through a Steerable Lens: Magnifying Neural Network Interpretability via Phase-Based Extrapolation](https://arxiv.org/abs/2506.02300)  ·  [Call for Collaboration: Renormalization for AI safety](https://lesswrong.com/posts/MDWGcNHkZ3NPEzcnp/call-for-collaboration-renormalization-for-ai-safety)  ·  [On the creation of narrow AI: hierarchy and nonlocality of neural network skills](https://arxiv.org/abs/2505.15811)  ·  [Harmonic Loss Trains Interpretable AI Models](https://arxiv.org/abs/2502.01628)  ·  [Extracting memorized pieces of (copyrighted) books from open-weight language models](https://arxiv.org/abs/2505.12546)
 
-### Learning dynamics and developmental interpretability
+### Learning dynamics and developmental interpretability \[a:learning_dynamics_and_developmental_interpretability\]
 
 *Builds tools for detecting, locating, and interpreting key structural shifts, phase transitions, and emergent phenomena (like grokking or deception) that occur during a model's training and in-context learning phases.*
 
@@ -840,7 +840,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [From SLT to AIT: NN Generalisation Out of Distribution](https://www.lesswrong.com/posts/2MX2bXreTtntB85Zy/from-slt-to-ait-nn-generalisation-out-of-distribution)  ·  [Understanding and Controlling LLM Generalization](https://www.lesswrong.com/posts/ZSQaT2yxNNZ3eLxRd/understanding-and-controlling-llm-generalization)  ·  [SLT for AI Safety](https://lesswrong.com/posts/J7CyENFYXPxXQpsnD/slt-for-ai-safety)  ·  [Crosscoding Through Time: Tracking Emergence & Consolidation Of Linguistic Representations Throughout LLM Pretraining](https://arxiv.org/abs/2509.05291)  ·  [A Review of Developmental Interpretability in Large Language Models](https://arxiv.org/abs/2508.15841)  ·  [Dynamics of Transient Structure in In-Context Linear Regression Transformers](https://arxiv.org/abs/2501.17745)  ·  [Learning Coefficients, Fractals, and Trees in Parameter Space](https://openreview.net/forum?id=KUFH0n1BIM)  ·  [Emergence of Superposition: Unveiling the Training Dynamics of Chain of Continuous Thought](https://arxiv.org/abs/2509.23365)  ·  [Compressibility Measures Complexity: Minimum Description Length Meets Singular Learning Theory](https://arxiv.org/abs/2510.12077)  ·  [Programs as Singularities](https://openreview.net/forum?id=Td37oOfmmz)  ·  [What Do Learning Dynamics Reveal About Generalization in LLM Reasoning?](https://arxiv.org/abs/2411.07681)  ·  [Selective regularization for alignment-focused representation engineering](https://lesswrong.com/posts/HFcriD29cw3E5QLCR/selective-regularization-for-alignment-focused)  ·  [Modes of Sequence Models and Learning Coefficients](https://arxiv.org/abs/2504.18048)  ·  [Programming by Backprop: LLMs Acquire Reusable Algorithmic Abstractions During Code Training](https://arxiv.org/abs/2506.18777)
 
-### Representation structure and geometry
+### Representation structure and geometry \[a:representation_structure_and_geometry\]
 
 *What do the representations look like? Does any simple structure underlie the beliefs of all well-trained models? Can we get the semantics from this geometry?*
 
@@ -860,7 +860,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [The Geometry of Self-Verification in a Task-Specific Reasoning Model](https://arxiv.org/pdf/2504.14379)  ·  [Rank-1 LoRAs Encode Interpretable Reasoning Signals](http://arxiv.org/abs/2511.06739)  ·  [The Geometry of Refusal in Large Language Models: Concept Cones and Representational Independence](https://arxiv.org/abs/2502.17420)  ·  [Embryology of a Language Model](https://arxiv.org/abs/2508.00331)  ·  [Constrained belief updates explain geometric structures in transformer representations](https://arxiv.org/abs/2502.01954)  ·  [Shared Global and Local Geometry of Language Model Embeddings](https://arxiv.org/abs/2503.21073)  ·  [Neural networks leverage nominally quantum and post-quantum representations](https://arxiv.org/abs/2507.07432)  ·  [Tracing the Representation Geometry of Language Models from Pretraining to Post-training](https://arxiv.org/abs/2509.23024)  ·  [Deep sequence models tend to memorize geometrically; it is unclear why](https://arxiv.org/abs/2510.26745)  ·  [Navigating the Latent Space Dynamics of Neural Models](https://arxiv.org/abs/2505.22785)  ·  [The Geometry of ReLU Networks through the ReLU Transition Graph](https://arxiv.org/abs/2505.11692)  ·  [Connecting Neural Models Latent Geometries with Relative Geodesic Representations](https://arxiv.org/abs/2506.01599)  ·  [Next-token pretraining implies in-context learning](https://arxiv.org/abs/2505.18373)
 
-### Human inductive biases
+### Human inductive biases \[a:human_inductive_biases\]
 
 *Discover connections deep learning AI systems have with human brains and human learning processes. Develop an 'alignment moonshot' based on a coherent theory of learning which applies to both humans and AI systems.*
 
@@ -880,9 +880,9 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [Aligning machine and human visual representations across abstraction levels](https://www.nature.com/articles/s41586-025-09631-6)  ·  [Deep Reinforcement Learning Agents are not even close to Human Intelligence](https://arxiv.org/html/2505.21731v1)  ·  [Teaching AI to Handle Exceptions: Supervised Fine-tuning with Human-aligned Judgment](https://arxiv.org/html/2503.02976v2#S3)  ·  [HIBP Human Inductive Bias Project Plan](https://docs.google.com/document/d/1fl7LE8AN7mLJ6uFcPuFCzatp0zCIYvjRIjQRgHPAkSE/edit?tab=t.0)  ·  [Beginning with You: Perceptual-Initialization Improves Vision-Language Representation and Alignment](https://arxiv.org/abs/2505.14204) · [Towards Cognitively-Faithful Decision-Making Models to Improve AI Alignment](https://arxiv.org/abs/2509.04445)
 
-## Concept-based interpretability
+## Concept-based interpretability \[sec:concept_based_interpretability\]
 
-### Monitoring concepts
+### Monitoring concepts \[a:monitoring_concepts\]
 
 *Identifies directions or subspaces in a model's latent state that correspond to high-level concepts (like refusal, deception, or planning) and uses them to audit models for misalignment, monitor them at runtime, suppress eval awareness, debug why models are failing, etc.*
 
@@ -904,7 +904,7 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [Convergent Linear Representations of Emergent Misalignment](https://arxiv.org/abs/2506.11618)  ·  [Detecting Strategic Deception Using Linear Probes](https://arxiv.org/abs/2502.03407)  ·  [Toward universal steering and monitoring of AI models](https://arxiv.org/abs/2502.03708)  ·  [Reward Model Interpretability via Optimal and Pessimal Tokens](https://arxiv.org/abs/2506.07326)  ·  [The Geometry of Refusal in Large Language Models: Concept Cones and Representational Independence](https://arxiv.org/abs/2502.17420)  ·  [Cost-Effective Constitutional Classifiers via Representation Re-use](https://alignment.anthropic.com/2025/cheap-monitors)  ·  [Refusal in LLMs is an Affine Function](https://arxiv.org/abs/2411.09003)  ·  [White Box Control at UK AISI \- Update on Sandbagging Investigations](https://www.alignmentforum.org/posts/pPEeMdgjpjHZWCDFw/white-box-control-at-uk-aisi-update-on-sandbagging)  ·  [Here's 18 Applications of Deception Probes](https://lesswrong.com/posts/7zhAwcBri7yupStKy/here-s-18-applications-of-deception-probes)  ·  [How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations](https://arxiv.org/abs/2508.05625)  ·  [Beyond Linear Probes: Dynamic Safety Monitoring for Language Models](https://arxiv.org/abs/2509.26238)
 
-### Activation engineering
+### Activation engineering \[a:activation_engineering\]
 
 *Programmatically modify internal model activations to steer outputs toward desired behaviors; a lightweight, interpretable supplement to fine-tuning.*
 
@@ -926,11 +926,11 @@ This section isn't very conceptually clean. See the [Open Problems](https://arxi
 
 * *Some outputs:* [Do safety-relevant LLM steering vectors optimized on a single example generalize?](https://lesswrong.com/posts/6aXe9nipTgwK5LxaP/do-safety-relevant-llm-steering-vectors-optimized-on-a)  ·  [Keep Calm and Avoid Harmful Content: Concept Alignment and Latent Manipulation Towards Safer Answers](https://arxiv.org/abs/2510.12672)  ·  [Activation Space Interventions Can Be Transferred Between Large Language Models](https://arxiv.org/abs/2503.04429)  ·  [HyperSteer: Activation Steering at Scale with Hypernetworks](https://arxiv.org/abs/2506.03292)  ·  [Steering Evaluation-Aware Language Models to Act Like They Are Deployed](https://arxiv.org/abs/2510.20487)  ·  [Steering Out-of-Distribution Generalization with Concept Ablation Fine-Tuning](https://arxiv.org/abs/2507.16795)  ·  [Persona Vectors: Monitoring and Controlling Character Traits in Language Models](https://arxiv.org/abs/2507.21509)  ·  [Steering Large Language Model Activations in Sparse Spaces](https://arxiv.org/abs/2503.00177)  ·  [Improving Steering Vectors by Targeting Sparse Autoencoder Features](https://arxiv.org/abs/2411.02193)  ·  [Understanding Reasoning in Thinking Language Models via Steering Vectors](https://arxiv.org/abs/2506.18167)  ·  [One-shot steering vectors cause emergent misalignment, too](https://lesswrong.com/posts/kcKnKHTHycHeRhcHF/one-shot-steering-vectors-cause-emergent-misalignment-too)  ·  [Enhancing Multiple Dimensions of Trustworthiness in LLMs via Sparse Activation Control](https://arxiv.org/abs/2411.02461)  ·  [Comparing Bottom-Up and Top-Down Steering Approaches on In-Context Learning Tasks](https://arxiv.org/abs/2411.07213)  ·  [Taxonomy, Opportunities, and Challenges of Representation Engineering for Large Language Models](https://arxiv.org/abs/2502.19649)  ·  [Taxonomy, Opportunities, and Challenges of Representation Engineering for Large Language Models](https://arxiv.org/abs/2502.19649v1)  ·  [Robustly Improving LLM Fairness in Realistic Settings via Interpretability](https://arxiv.org/abs/2506.10922)
 
-# Safety by construction
+# Safety by construction \[sec:safety_by_construction\]
 
 Approaches which try to get assurances about system outputs while still being scalable.
 
-### Guaranteed-Safe AI
+### Guaranteed-Safe AI \[a:guaranteed_safe_ai\]
 
 *Have an AI system generate outputs (e.g. code, control systems, or RL policies) which it can quantitatively guarantee comply with a formal safety specification and world model.[^5]*  
 
@@ -958,7 +958,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [SafePlanBench: evaluating a Guaranteed Safe AI Approach for LLM-based Agents](https://manifund.org/projects/safeplanbench-evaluating-a-guaranteed-safe-ai-approach-for-llm-based-agents)  ·  [Beliefs about formal methods and AI safety](https://lesswrong.com/posts/CCT7Qc8rSeRs7r5GL/beliefs-about-formal-methods-and-ai-safety)  ·  [Report on NSF Workshop on Science of Safe AI](https://arxiv.org/abs/2506.22492)  ·  [A benchmark for vericoding: formally verified program synthesis](https://arxiv.org/abs/2509.22908)  ·  [A Toolchain for AI-Assisted Code Specification, Synthesis and Verification](https://atlascomputing.org/ai-assisted-fv-toolchain.pdf)
 
-### Scientist AI
+### Scientist AI \[a:scientist_ai\]
 
 *Develop powerful, nonagentic, uncertain world models that accelerate scientific progress while avoiding the risks of agent AIs*
 
@@ -980,7 +980,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Superintelligent Agents Pose Catastrophic Risks: Can Scientist AI Offer a Safer Path?](https://arxiv.org/abs/2502.15657)  ·  [The More You Automate, the Less You See: Hidden Pitfalls of AI Scientist Systems](https://arxiv.org/abs/2509.08713)
 
-### Brainlike-AGI Safety
+### Brainlike-AGI Safety \[a:brainlike_agi_safety\]
 
 *Social and moral instincts are (partly) implemented in particular hardwired brain circuitry; let's figure out what those circuits are and how they work; this will involve symbol grounding. "a yet-to-be-invented variation on actor-critic model-based reinforcement learning"*
 
@@ -1000,9 +1000,9 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Perils of Under vs Over-sculpting AGI Desires](https://www.lesswrong.com/posts/grgb2ipxQf2wzNDEG/perils-of-under-vs-over-sculpting-agi-desires)  ·  [Reward button alignment](https://lesswrong.com/posts/JrTk2pbqp7BFwPAKw/reward-button-alignment)  ·  [System 2 Alignment: Deliberation, Review, and Thought Management](https://lesswrong.com/posts/cus5CGmLrjBRgcPSF/system-2-alignment-deliberation-review-and-thought)  ·  [Against RL: The Case for System 2 Learning](https://elicit.com/blog/system-2-learning)  ·  [Foom and Doom 1: Brain in a Box in a Basement](https://www.lesswrong.com/posts/yew6zFWAKG4AGs3Wk/foom-and-doom-1-brain-in-a-box-in-a-basement)  ·  [Foom and Doom 2: Technical Alignment is Hard](https://www.lesswrong.com/posts/bnnKGSCHJghAvqPjS/foom-and-doom-2-technical-alignment-is-hard)
 
-# Make AI solve it
+# Make AI solve it \[sec:make_ai_solve_it\]
 
-### Weak-to-strong generalization
+### Weak-to-strong generalization \[a:weak_to_strong_generalization\]
 
 *Use weaker models to supervise and provide a feedback signal to stronger models.*
 
@@ -1024,7 +1024,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Scaling Laws For Scalable Oversight](https://arxiv.org/abs/2504.18530)  ·  [Great Models Think Alike and this Undermines AI Oversight](https://arxiv.org/abs/2502.04313)  ·  [Debate Helps Weak-to-Strong Generalization](https://arxiv.org/abs/2501.13124)  ·  [Understanding the Capabilities and Limitations of Weak-to-Strong Generalization](https://openreview.net/forum?id=RwYdLgj1S6)
 
-### Supervising AIs improving AIs
+### Supervising AIs improving AIs \[a:supervising_ais_improving_ais\]
 
 *Build formal and empirical frameworks where AIs supervise other (stronger) AI systems via structured interactions; construct monitoring tools which enable scalable tracking of behavioural drift, benchmarks for self-modification, and robustness guarantees*
 
@@ -1044,7 +1044,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Bare Minimum Mitigations for Autonomous AI Development](https://saif.org/research/bare-minimum-mitigations-for-autonomous-ai-development/)  ·  [Dodging systematic human errors in scalable oversight](https://www.alignmentforum.org/posts/EgRJtwQurNzz8CEfJ/dodging-systematic-human-errors-in-scalable-oversight)  ·  [Scaling Laws for Scalable Oversight](https://arxiv.org/abs/2504.18530)  ·  [Neural Interactive Proofs](https://arxiv.org/abs/2412.08897)  ·  [Modeling Human Beliefs about AI Behavior for Scalable Oversight](https://arxiv.org/abs/2502.21262)  ·  [Scalable Oversight for Superhuman AI via Recursive Self-Critiquing](https://arxiv.org/abs/2502.04675)  ·  [Video and transcript of talk on automating alignment research](https://lesswrong.com/posts/TQbptN7F4ijPnQRLy/video-and-transcript-of-talk-on-automating-alignment)  ·  [Maintaining Alignment during RSI as a Feedback Control Problem](https://lesswrong.com/posts/PhgEKkB4cwYjwpGxb/maintaining-alignment-during-rsi-as-a-feedback-control)
 
-### AI explanations of AIs
+### AI explanations of AIs \[a:ai_explanations_of_ais\]
 
 *Make open AI tools to explain AIs, including AI agents. e.g. automatic feature descriptions for neuron activation patterns; an interface for steering these features; a behaviour elicitation agent that “searches” for a specified behaviour in frontier models.*
 
@@ -1064,7 +1064,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Automatically Jailbreaking Frontier Language Models with Investigator Agents](https://transluce.org/jailbreaking-frontier-models)  ·  [Surfacing Pathological Behaviors in Language Models](https://transluce.org/pathological-behaviors)  ·  [Investigating truthfulness in a pre-release o3 model](https://transluce.org/investigating-o3-truthfulness)  ·  [Neuron circuits](https://transluce.org/neuron-circuits) ·  [Docent: A system for analyzing and intervening on agent behavior](https://transluce.org/introducing-docent)
 
-### Debate
+### Debate \[a:debate\]
 
 *In the limit, it's easier to compellingly argue for true claims than for false claims; exploit this asymmetry to get trusted work out of untrusted debaters.*
 
@@ -1082,7 +1082,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [UK AISI Alignment Team: Debate Sequence](https://www.lesswrong.com/s/NdovveRcyfxgMoujf)  ·  [Prover-Estimator Debate: A New Scalable Oversight Protocol](https://lesswrong.com/posts/8XHBaugB5S3r27MG9/prover-estimator-debate-a-new-scalable-oversight-protocol)  ·  [AI Debate Aids Assessment of Controversial Claims](https://arxiv.org/abs/2506.02175)  ·  [An alignment safety case sketch based on debate](https://arxiv.org/abs/2505.03989)  ·  [Ensemble Debates with Local Large Language Models for AI Alignment](https://arxiv.org/abs/2509.00091)  ·  [A dataset of rated conceptual arguments](https://www.andrew.cmu.edu/user/coesterh/LMCA_dataset.pdf)
 
-### LLM introspection training
+### LLM introspection training \[a:llm_introspection_training\]
 
 *Train LLMs to the predict the outputs of high-quality whitebox methods, to induce general self-explanation skills that use its own 'introspective' access*
 
@@ -1102,11 +1102,11 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Training Language Models to Explain Their Own Computations](https://arxiv.org/abs/2511.08579)  ·  [Emergent Introspective Awareness](https://transformer-circuits.pub/2025/introspection/index.html)
 
-# Theory
+# Theory \[sec:theory\]
 
 *Develop a principled scientific understanding that will help us reliably understand and control current and future AI systems.*
 
-### Agent foundations
+### Agent foundations \[a:agent_foundations\]
 
 *Develop philosophical clarity and mathematical formalizations of building blocks that might be useful for plans to align strong superintelligence, such as agency, optimization strength, decision theory, abstractions, concepts, etc.*
 
@@ -1122,7 +1122,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Limit-Computable Grains of Truth for Arbitrary Computable Extensive-Form (Un)Known Games](https://www.arxiv.org/pdf/2508.16245)  ·  [UAIASI](https://uaiasi.com/blog-posts/) ·  [Clarifying "wisdom": Foundational topics for aligned AIs to prioritize before irreversible decisions](https://www.lesswrong.com/posts/EyvJvYEFzDv5kGoiG/clarifying-wisdom-foundational-topics-for-aligned-ais-to)  ·  [Agent foundations: not really math, not really science](https://www.lesswrong.com/posts/Dt4DuCCok3Xv5HEnG/agent-foundations-not-really-math-not-really-science)  ·  [Off-switching not guaranteed](https://link.springer.com/article/10.1007/s11098-025-02296-x)  ·  [Formalizing Embeddedness Failures in Universal Artificial Intelligence](https://openreview.net/forum?id=tlkYPU3FlX)  ·  [Is alignment reducible to becoming more coherent?](https://lesswrong.com/posts/nuDJNyG5XLQjtvaeg/is-alignment-reducible-to-becoming-more-coherent)  ·  [What Is The Alignment Problem?](https://lesswrong.com/posts/dHNKtQ3vTBxTfTPxu/what-is-the-alignment-problem)  ·  [Good old fashioned decision theory](https://openreview.net/pdf?id=Rf1CeGPA22)  ·  [Report & retrospective on the Dovetail fellowship](https://www.lesswrong.com/posts/ApfjBbqzSu4aZoLSe/report-and-retrospective-on-the-dovetail-fellowship)
 
-### Tiling agents
+### Tiling agents \[a:tiling_agents\]
 
 *An aligned agentic system modifying itself into an unaligned system would be bad and we can research ways that this could occur and infrastructure/approaches that prevent it from happening.*
 
@@ -1140,7 +1140,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Working through a small tiling result](https://www.lesswrong.com/posts/akuMwu8SkmQSdospi/working-through-a-small-tiling-result)  ·  [Communication & Trust](https://openreview.net/forum?id=Rf1CeGPA22)  ·  [Maintaining Alignment during RSI as a Feedback Control Problem](https://lesswrong.com/posts/PhgEKkB4cwYjwpGxb/maintaining-alignment-during-rsi-as-a-feedback-control)  ·  [Understanding Trust](https://static1.squarespace.com/static/663d1233249bce4815fe8753/t/68067a6f5d5fb0745642d5b1/1745255023842/Understanding+Trust+-+Abram+Demski.pdf)
 
-### High-Actuation Spaces
+### High-Actuation Spaces \[a:high_actuation_spaces\]
 
 *Mech interp and alignment assume a stable "computational substrate" (linear algebra on GPUs). If later AI uses different substrates (e.g. something neuromorphic), methods like probes and steering will not transfer. Therefore, better to try and infer goals via a "telic DAG" which abstracts over substrates, and so sidestep the issue of how to define intermediate representations. Category theory is intended to provide guarantees that this abstraction is valid.*
 
@@ -1156,7 +1156,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [groundless.ai](https://groundless.ai/)  ·  [Live Theory](https://www.lesswrong.com/s/aMz2JMvgXrLBkq4h3) ·  [High Actuation Spaces \- Sahil](https://docs.google.com/document/d/1d-ARdZZDHFPIfGcTTOKK8IZWlQj0NZQrmteJj2mvmYA/edit?tab=t.0#heading=h.eg8luyrlsv2u)  ·  [What, if not agency?](https://www.lesswrong.com/posts/tQ9vWm4b57HFqbaRj/what-if-not-agency)  ·  [Human Inductive Bias Project](https://docs.google.com/document/d/1fl7LE8AN7mLJ6uFcPuFCzatp0zCIYvjRIjQRgHPAkSE/edit?tab=t.0)  ·  [MoSSAIC: AI Safety After Mechanism](https://openreview.net/forum?id=n7WYSJ35FU)  ·  [HAS \- Public (High Actuation Spaces)](https://drive.google.com/drive/folders/1EaAJ4szuZsYR2_-DkS9cuhx3S6IWeCjW)
 
-### Asymptotic guarantees
+### Asymptotic guarantees \[a:asymptotic_guarantees\]
 
 *Prove that if a safety process has enough resources (human data quality, training time, neural network capacity), then in the limit some system specification will be guaranteed. Use complexity theory, game theory, learning theory and other areas to both improve asymptotic guarantees and develop ways of showing convergence.*
 
@@ -1178,7 +1178,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [An alignment safety case sketch based on debate](https://lesswrong.com/posts/iELyAqizJkizBQbfr/an-alignment-safety-case-sketch-based-on-debate)  ·  [UK AISI's Alignment Team: Research Agenda](https://lesswrong.com/posts/tbnw7LbNApvxNLAg8/uk-aisi-s-alignment-team-research-agenda)  ·  [Dodging systematic human errors in scalable oversight](https://lesswrong.com/posts/EgRJtwQurNzz8CEfJ/dodging-systematic-human-errors-in-scalable-oversight)  ·  [Can DPO Learn Diverse Human Values? A Theoretical Scaling Law](https://openreview.net/pdf?id=XOIKLlSiDq)
 
-### Heuristic explanations
+### Heuristic explanations \[a:heuristic_explanations\]
 
 *Formalize mechanistic explanations of neural network behavior, automate the discovery of these "heuristic explanations" and use them to predict when novel input will lead to extreme behavior (i.e. “Low Probability Estimation” and “Mechanistic Anomaly Detection”).*
 
@@ -1198,9 +1198,9 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [A computational no-coincidence principle](https://www.lesswrong.com/posts/Xt9r4SNNuYxW83tmo/a-computational-no-coincidence-principle)  ·  [Competing with sampling](https://www.lesswrong.com/posts/XdQd9gELHakd5pzJA/arc-progress-update-competing-with-sampling)  ·  [Obstacles in ARC's research agenda](https://www.lesswrong.com/s/uYMw689vDFmgPEHrS)  ·  [Deduction-Projection Estimators for Understanding Neural Networks](https://gabrieldwu.com/assets/thesis.pdf)  ·  [Wide Neural Networks as a Baseline for the Computational No-Coincidence Conjecture](https://openreview.net/forum?id=m4OpQAK3eY)
 
-## Corrigibility
+## Corrigibility \[sec:corrigibility\]
 
-### Behavior alignment theory
+### Behavior alignment theory \[a:behavior_alignment_theory\]
 
 *Predict properties of future AGI (e.g. power-seeking) with formal models; formally state and prove hypotheses about the properties powerful systems will have and how we might try to change them.[^6]*
 
@@ -1220,7 +1220,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Preference gaps as a safeguard against AI self-replication](https://www.lesswrong.com/posts/knwR9RgGN5a2oorci/preference-gaps-as-a-safeguard-against-ai-self-replication)  ·  [Serious Flaws in CAST](https://www.lesswrong.com/s/KfCjeconYRdFbMxsy/p/qgBFJ72tahLo5hzqy)  ·  [A Shutdown Problem Proposal](https://www.lesswrong.com/posts/PhTBDHu9PKJFmvb4p/a-shutdown-problem-proposal)  ·  [Shutdownable Agents through POST-Agency](https://arxiv.org/abs/2505.20203)  ·  [The Partially Observable Off-Switch Game](https://arxiv.org/abs/2411.17749)  ·  [Imitation learning is probably existentially safe](https://onlinelibrary.wiley.com/doi/10.1002/aaai.70040?af=R)  ·  [Model-Based Soft Maximization of Suitable Metrics of Long-Term Human Power](https://arxiv.org/abs/2508.00159)  ·  [Deceptive Alignment and Homuncularity](https://lesswrong.com/posts/9htmQx5wiePqTtZuL/deceptive-alignment-and-homuncularity)  ·  [A Safety Case for a Deployed LLM: Corrigibility as a Singular Target](https://openreview.net/forum?id=mhEnJa9pNk)  ·  [LLM AGI will have memory, and memory changes alignment](https://lesswrong.com/posts/aKncW36ZdEnzxLo8A/llm-agi-will-have-memory-and-memory-changes-alignment)
 
-### Other corrigibility
+### Other corrigibility \[a:other_corrigibility\]
 
 *Diagnose and communicate obstacles to achieving robustly corrigible behavior; suggest mechanisms, tests, and escalation channels for surfacing and mitigating incorrigible behaviors*
 
@@ -1238,9 +1238,9 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [AI Assistants Should Have a Direct Line to Their Developers](https://www.lesswrong.com/posts/LDYPF6yfe3f8SPHFT/ai-assistants-should-have-a-direct-line-to-their-developers)   ·  [Detect Goodhart and shut down](https://www.lesswrong.com/posts/ZHFZ6tivEjznkEoby/detect-goodhart-and-shut-down)  ·  [Instrumental Goals Are A Different And Friendlier Kind Of Thing Than Terminal Goals](https://www.lesswrong.com/posts/7Z4WC4AFgfmZ3fCDC/instrumental-goals-are-a-different-and-friendlier-kind-of)  ·  [Shutdownable Agents through POST-Agency](https://www.lesswrong.com/posts/JuRdvZyqaFbvTPemn/shutdownable-agents-through-post-agency-1)  ·  [Why Corrigibility is Hard and Important (i.e. "Whence the high MIRI confidence in alignment difficulty?")](https://www.lesswrong.com/posts/ksfjZJu3BFEfM6hHE/why-corrigibility-is-hard-and-important-i-e-whence-the-high)  ·  [Oblivious Defense in ML Models: Backdoor Removal without Detection](https://dl.acm.org/doi/10.1145/3717823.3718245)  ·  [Cryptographic Backdoor for Neural Networks: Boon and Bane](https://arxiv.org/abs/2509.20714)  ·  [A Cryptographic Perspective on Mitigation vs. Detection in Machine Learning](https://arxiv.org/abs/2504.20310)  ·  [Problems with instruction-following as an alignment target](https://lesswrong.com/posts/CSFa9rvGNGAfCzBk6/problems-with-instruction-following-as-an-alignment-target)
 
-## Ontology Identification
+## Ontology Identification \[sec:ontology_identification\]
 
-### Natural abstractions
+### Natural abstractions \[a:natural_abstractions\]
 
 *Develop a theory of concepts that explains how they are learned, how they structure a particular system's understanding, and how mutual translatability can be achieved between different collections of concepts.*
 
@@ -1260,7 +1260,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Abstract Mathematical Concepts vs. Abstractions Over Real-World Systems](https://www.lesswrong.com/posts/T6xSXiXF3WF6TmCyN/abstract-mathematical-concepts-vs-abstractions-over-real)  ·  [Condensation](https://www.lesswrong.com/posts/BstHXPgQyfeNnLjjp/condensation)  ·  [Platonic representation hypothesis](https://phillipi.github.io/prh/)  ·  [Rosas](https://www.youtube.com/watch?v=Nr9eMobqUOo&t=3s)  ·  [Natural Latents: Latent Variables Stable Across Ontologies](https://arxiv.org/abs/2509.03780)  ·  [Condensation: a theory of concepts](https://openreview.net/forum?id=HwKFJ3odui)  ·  [Factored space models: Towards causality between levels of abstraction](https://arxiv.org/abs/2412.02579)  ·  [A single principle related to many Alignment subproblems?](https://lesswrong.com/posts/h89L5FMAkEBNsZ3xM/a-single-principle-related-to-many-alignment-subproblems-2)  ·  [Getting aligned on representational alignment](https://arxiv.org/abs/2310.13018)  ·  [Symmetries at the origin of hierarchical emergence](https://arxiv.org/pdf/2512.00984%20)
 
-### The Learning-Theoretic Agenda
+### The Learning-Theoretic Agenda \[a:the_learning_theoretic_agenda\]
 
 *Create a mathematical theory of intelligent agents that encompasses both humans and the AIs we want, one that specifies what it means for two such agents to be aligned; translate between its ontology and ours; produce formal desiderata for a training setup that produces coherent AGIs similar to (our model of) an aligned agent*
 
@@ -1280,9 +1280,9 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Infra-Bayesian Decision-Estimation Theory](https://www.lesswrong.com/posts/LgLez8aeK24PbyyQJ/new-paper-infra-bayesian-decision-estimation-theory)  ·  [Infra-Bayesianism category on LessWrong](https://www.lesswrong.com/w/infra-bayesianism?sortedBy=new)  ·  [Ambiguous Online Learning](https://www.lesswrong.com/posts/Y9NuKpb6dsyiYFxWK/new-paper-ambiguous-online-learning)  ·  [Regret Bounds for Robust Online Decision Making](https://proceedings.mlr.press/v291/appel25a.html)  ·  [What is Inadequate about Bayesianism for AI Alignment: Motivating Infra-Bayesianism](https://www.lesswrong.com/s/n7qFxakSnxGuvmYAX)  ·  [Non-Monotonic Infra-Bayesian Physicalism](https://www.alignmentforum.org/posts/DobZ62XMdiPigii9H/non-monotonic-infra-bayesian-physicalism%20)
 
-# Multi-agent first
+# Multi-agent first \[sec:multi_agent_first\]
 
-### Aligning to context
+### Aligning to context \[a:aligning_to_context\]
 
 *Align AI directly to the role of participant, collaborator, or advisor for our best real human practices and institutions, instead of aligning AI to separately representable goals, rules, or utility functions.*
 
@@ -1302,7 +1302,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [The Frame-Dependent Mind](https://www.softmax.com/blog/the-frame-dependent-mind)  ·  [On Eudaimonia and Optimization](https://docs.google.com/document/d/1cKbqYSGspfJavXvnhsp3mAuxHh08rNbP7tzYieqLiXw/edit?tab=t.0%20)  ·  [Full-Stack Alignment](https://www.full-stack-alignment.ai)  ·  [A theory of appropriateness](https://arxiv.org/abs/2412.19010)  ·  [2404.10636 \- What are human values, and how do we align AI to them?](https://arxiv.org/abs/2404.10636)  ·  [Model Integrity](https://meaningalignment.substack.com/p/model-integrity)  ·  [Beyond Preferences in AI Alignment](https://arxiv.org/abs/2408.16984)  ·  [2503.00940 \- Can AI Model the Complexities of Human Moral Decision-Making? A Qualitative Study of Kidney Allocation Decisions](https://arxiv.org/abs/2503.00940)
 
-### Aligning to the social contract
+### Aligning to the social contract \[a:aligning_to_the_social_contract\]
 
 *Generate AIs' operational values from 'social contract'-style ideal civic deliberation formalisms and their consequent rulesets for civic actors*
 
@@ -1322,7 +1322,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Law-Following AI: designing AI agents to obey human laws](https://law-ai.org/law-following-ai/%20)  ·  [A Pragmatic View of AI Personhood](https://arxiv.org/abs/2510.26396)  ·  [Societal alignment frameworks can improve llm alignment](https://arxiv.org/abs/2503.00069)  ·  [2509.07955 \- ACE and Diverse Generalization via Selective Disagreement](https://arxiv.org/abs/2509.07955)  ·  [2506.17434 \- Resource Rational Contractualism Should Guide AI Alignment](https://arxiv.org/abs/2506.17434)  ·  [Statutory Construction and Interpretation for Artificial Intelligence](https://arxiv.org/abs/2509.01186)  ·  [2408.16984 \- Beyond Preferences in AI Alignment](https://arxiv.org/abs/2408.16984)  ·  [Promises Made, Promises Kept: Safe Pareto Improvements via Ex Post Verifiable Commitments](https://arxiv.org/abs/2505.00783)
 
-### Theory for aligning multiple AIs
+### Theory for aligning multiple AIs \[a:theory_for_aligning_multiple_ais\]
 
 *Use realistic game-theory variants (e.g. evolutionary game theory, computational game theory) or develop alternative game theories to describe/predict the collective and individual behaviours of AI agents in multi-agent scenarios.*
 
@@ -1342,7 +1342,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Multi-Agent Risks from Advanced AI](https://arxiv.org/abs/2502.14143)  ·  [An Economy of AI Agents](https://arxiv.org/abs/2509.01063)  ·  [Moloch's Bargain: Emergent Misalignment When LLMs Compete for Audiences](https://arxiv.org/abs/2510.06105)  ·  [AI Testing Should Account for Sophisticated Strategic Behaviour](https://arxiv.org/abs/2508.14927)  ·  [Emergent social conventions and collective bias in LLM populations](https://www.science.org/doi/10.1126/sciadv.adu9368)  ·  [Strategic Intelligence in Large Language Models: Evidence from evolutionary Game Theory](https://arxiv.org/abs/2507.02618)  ·  [Communication Enables Cooperation in LLM Agents](https://arxiv.org/abs/2510.05748)  ·  [Higher-Order Belief in Incomplete Information MAIDs](https://arxiv.org/abs/2503.06323)  ·  [Characterising Simulation-Based Program Equilibria](https://arxiv.org/abs/2412.14570)  ·  [Safe (Pareto) Improvements in Binary Constraint Structures](https://cgi.cse.unsw.edu.au/~eptcs/paper.cgi?TARK2025:36)  ·  [Promises Made, Promises Kept: Safe Pareto Improvements via Ex Post Verifiable Commitments](https://arxiv.org/abs/2505.00783) · [The Pando Problem: Rethinking AI Individuality](https://www.lesswrong.com/posts/wQKskToGofs4osdJ3/the-pando-problem-rethinking-ai-individuality)
 
-### Tools for aligning multiple AIs
+### Tools for aligning multiple AIs \[a:tools_for_aligning_multiple_ais\]
 
 *Develop tools and techniques for designing and testing multi-agent AI scenarios, for auditing real-world multi-agent AI dynamics, and for aligning AIs in multi-AI settings.*
 
@@ -1362,7 +1362,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Reimagining Alignment](https://softmax.com/blog/reimagining-alignment)  ·  [Beyond the high score: Prosocial ability profiles of multi-agent populations](https://arxiv.org/abs/2509.14485)  ·  [Multiplayer Nash Preference Optimization](https://arxiv.org/abs/2509.23102)  ·  [AgentBreeder: Mitigating the AI Safety Risks of Multi-Agent Scaffolds via Self-Improvement](https://arxiv.org/abs/2502.00757)  ·  [When Autonomy Goes Rogue: Preparing for Risks of Multi-Agent Collusion in Social Systems](https://arxiv.org/abs/2507.14660)  ·  [Infrastructure for AI Agents](https://arxiv.org/abs/2501.10114)  ·  [A dataset of questions on decision-theoretic reasoning in Newcomb-like problems](https://arxiv.org/abs/2411.10588)  ·  [The Social Laboratory: A Psychometric Framework for Multi-Agent LLM Evaluation](https://arxiv.org/abs/2510.01295)  ·  [PGG-Bench: Contribute & Punish](https://github.com/lechmazur/pgg_bench)  ·  [Virtual Agent Economies](http://arxiv.org/abs/2509.10147)  ·  [An Interpretable Automated Mechanism Design Framework with Large Language Models](https://arxiv.org/abs/2502.12203) ·  [Comparing Collective Behavior of LLM and Human Groups](https://openreview.net/forum?id=9ply9CAnSC&noteId=rcn5RTlfD1)
 
-### Aligned to who?
+### Aligned to who? \[a:aligned_to_who_\]
 
 *Technical protocols for taking seriously the plurality of human values, cultures, and communities when aligning AI to "humanity"*
 
@@ -1382,7 +1382,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [The AI Power Disparity Index: Toward a Compound Measure of AI Actors' Power to Shape the AI Ecosystem](https://ojs.aaai.org/index.php/AIES/article/view/36645)  ·  [Research Agenda for Sociotechnical Approaches to AI Safety](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5097286)  ·  [2507.09650 \- Cultivating Pluralism In Algorithmic Monoculture: The Community Alignment Dataset](https://arxiv.org/abs/2507.09650)  ·  [Training LLM Agents to Empower Humans](https://arxiv.org/abs/2510.13709)  ·  [Societal and technological progress as sewing an ever-growing, ever-changing, patchy, and polychrome quilt](https://arxiv.org/abs/2505.05197)  ·  [Democratic AI is Possible: The Democracy Levels Framework Shows How It Might Work](https://arxiv.org/abs/2411.09222)  ·  [2503.05728 \- Political Neutrality in AI Is Impossible \- But Here Is How to Approximate It](https://arxiv.org/abs/2503.05728)  ·  [Build Agent Advocates, Not Platform Agents](https://arxiv.org/abs/2505.04345)  ·  [Gradual Disempowerment](https://arxiv.org/abs/2501.16946)
 
-### Aligning what?
+### Aligning what? \[a:aligning_what_\]
 
 *Develop alternatives to agent-level models of alignment, by treating human-AI interactions, AI-assisted institutions, AI economic or cultural systems, drives within one AI, and other causal/constitutive processes as subject to alignment*
 
@@ -1402,9 +1402,9 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Towards a Scale-Free Theory of Intelligent Agency](https://www.alignmentforum.org/posts/5tYTKX4pNpiG4vzYg/towards-a-scale-free-theory-of-intelligent-agency)  ·  [Alignment first, intelligence later](https://chrislakin.blog/p/alignment-first-intelligence-later)  ·  [End A Subset Of Conversations](https://www.anthropic.com/research/end-subset-conversations)  ·  [Full-Stack Alignment](https://www.full-stack-alignment.ai)  ·  [On Eudaimonia and Optimization](https://docs.google.com/document/d/1cKbqYSGspfJavXvnhsp3mAuxHh08rNbP7tzYieqLiXw/edit?tab=t.0%20)  ·  [AI Governance through Markets](https://arxiv.org/abs/2501.17755)  ·  [Collective cooperative intelligence](https://www.pnas.org/doi/abs/10.1073/pnas.2319948121)  ·  [Multipolar AI is Underrated](https://www.lesswrong.com/posts/JjYu75q3hEMBgtvr8/multipolar-ai-is-underrated)  ·  [What, if not agency?](https://www.lesswrong.com/posts/tQ9vWm4b57HFqbaRj/what-if-not-agency)  ·  [A Phylogeny of Agents](https://equilibria1.substack.com/p/the-evolution-of-agency-a-research)  ·  [The Multiplicity Thesis, Collective Intelligence, and Morality](https://themultiplicity.ai/blog/thesis)  · [Hierarchical Alignment](https://www.alignmentforum.org/posts/xud7Mti9jS4tbWqQE/hierarchical-agency-a-missing-piece-in-ai-alignment) · [Emmett Shear on Building AI That Actually Cares: Beyond Control and Steering](https://a16z.simplecast.com/episodes/emmett-shear-on-building-ai-that-actually-cares-beyond-control-and-steering-TRwfxH0r)
 
-# Evals
+# Evals \[sec:evals\]
 
-### AGI metrics
+### AGI metrics \[a:agi_metrics\]
 
 *Evals with the explicit aim of measuring progress towards full human-level generality.*
 
@@ -1424,7 +1424,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [HCAST: Human-Calibrated Autonomy Software Tasks](https://arxiv.org/abs/2503.17354)  ·  [A Definition of AGI](https://arxiv.org/pdf/2510.18212)  ·  [Remote Labor Index](https://scale.com/leaderboard/rli)  ·  [ADeLe v1.0: A battery for AI Evaluation with explanatory and predictive power](https://kinds-of-intelligence-cfi.github.io/ADELE/)  ·  [GDPval: Evaluating AI Model Performance on Real-World Economically Valuable Tasks](https://arxiv.org/abs/2510.04374)
 
-### Capability evals
+### Capability evals \[a:capability_evals\]
 
 *Make tools that can actually check whether a model has a certain capability or propensity. We default to low-n sampling of a vast latent space but aim to do better.*
 
@@ -1444,7 +1444,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [MALT: A Dataset of Natural and Prompted Behaviors That Threaten Eval Integrity](https://metr.org/blog/2025-10-14-malt-dataset-of-natural-and-prompted-behaviors/)  ·  [Forecasting Rare Language Model Behaviors](https://arxiv.org/abs/2502.16797)  ·  [Model Tampering Attacks Enable More Rigorous Evaluations of LLM Capabilities](https://arxiv.org/abs/2502.05209)  ·  [The Elicitation Game: Evaluating Capability Elicitation Techniques](https://arxiv.org/abs/2502.02180)  ·  [Evaluating Language Model Reasoning about Confidential Information](https://arxiv.org/abs/2508.19980)  ·  [Evaluating the Goal-Directedness of Large Language Models](https://arxiv.org/abs/2504.11844)  ·  [A Toy Evaluation of Inference Code Tampering](https://alignment.anthropic.com/2024/rogue-eval/index.html)  ·  [Automated Capability Discovery via Foundation Model Self-Exploration](https://arxiv.org/abs/2502.07577)  ·  [Generative Value Conflicts Reveal LLM Priorities](https://arxiv.org/abs/2509.25369)  ·  [Technical Report: Evaluating Goal Drift in Language Model Agents](https://arxiv.org/abs/2505.02709)  ·  [Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/)  ·  [When Ethics and Payoffs Diverge: LLM Agents in Morally Charged Social Dilemmas](https://arxiv.org/abs/2505.19212)  ·  [AILuminate: Introducing v1.0 of the AI Risk and Reliability Benchmark from MLCommons](https://arxiv.org/abs/2503.05731)  ·  [Petri: An open-source auditing tool to accelerate AI safety research](https://www.anthropic.com/research/petri-open-source-auditing)  ·  [Research Note: Our scheming precursor evals had limited predictive power for our in-context scheming evals](https://www.apolloresearch.ai/blog/research-note-our-scheming-precursor-evals-had-limited-predictive-power-for-our-in-context-scheming-evals)  ·  [Hyperbolic model fits METR capabilities estimate worse than exponential model](https://lesswrong.com/posts/ZEuDH2W3XdRaTwpjD/hyperbolic-model-fits-metr-capabilities-estimate-worse-than)  ·  [New website analyzing AI companies' model evals](https://lesswrong.com/posts/nmaKpoHxmzjT8yXTk/new-website-analyzing-ai-companies-model-evals)  ·  [Research Note: Our scheming precursor evals had limited predictive power for our in-context scheming evals](https://lesswrong.com/posts/9tqpPP4FwSnv9AWsi/research-note-our-scheming-precursor-evals-had-limited)  ·  [How Fast Can Algorithms Advance Capabilities? | Epoch Gradient Update](https://lesswrong.com/posts/qhjNejRxbMGQp4wHt/how-fast-can-algorithms-advance-capabilities-or-epoch)  ·  [Safety by Measurement: A Systematic Literature Review of AI Safety Evaluation Methods](https://lesswrong.com/posts/CwdCYmsutwXwnYtEF/paper-safety-by-measurement-a-systematic-literature-review)  ·  [Adversarial ML Problems Are Getting Harder to Solve and to Evaluate](https://arxiv.org/abs/2502.02260)  ·  [Predicting the Performance of Black-box LLMs through Self-Queries](https://arxiv.org/abs/2501.01558)  ·  [Among AIs](https://www.4wallai.com/amongais)  ·  [Safety by Measurement: A Systematic Literature Review of AI Safety Evaluation Methods](https://arxiv.org/abs/2505.05541)  ·  [Infini-gram mini: Exact n-gram Search at the Internet Scale with FM-Index](https://arxiv.org/abs/2506.12229)  ·  [We should try to automate AI safety work asap](https://lesswrong.com/posts/W3KfxjbqBAnifBQoi/we-should-try-to-automate-ai-safety-work-asap)  ·  [Validating against a misalignment detector is very different to training against one](https://lesswrong.com/posts/CXYf7kGBecZMajrXC/validating-against-a-misalignment-detector-is-very-different)  ·  [Why do misalignment risks increase as AIs get more capable?](https://lesswrong.com/posts/NDotm7oLHfR56g4sD/why-do-misalignment-risks-increase-as-ais-get-more-capable)  ·  [Open Philanthropy Technical AI Safety RFP \- $40M Available Across 21 Research Areas](https://lesswrong.com/posts/wbJxRNxuezvsGFEWv/open-philanthropy-technical-ai-safety-rfp-usd40m-available)  ·  [Correlating and Predicting Human Evaluations of Language Models from Natural Language Processing Benchmarks](https://arxiv.org/abs/2502.18339)  ·  [Why Future AIs will Require New Alignment Methods](https://lesswrong.com/posts/TxiB6hvnQqxXB5XDJ/why-future-ais-will-require-new-alignment-methods)  ·  [100+ concrete projects and open problems in evals](https://lesswrong.com/posts/LhnqegFoykcjaXCYH/100-concrete-projects-and-open-problems-in-evals)  ·  [AI companies should be safety-testing the most capable versions of their models](https://lesswrong.com/posts/tQzeafo9HjCeXn7ZF/ai-companies-should-be-safety-testing-the-most-capable)  ·  [The FACTS Grounding Leaderboard: Benchmarking LLMs' Ability to Ground Responses to Long-Form Input](https://arxiv.org/abs/2501.03200)
 
-### Autonomy evals
+### Autonomy evals \[a:autonomy_evals\]
 
 *Measure an AI's ability to act autonomously to complete long-horizon, complex tasks.*
 
@@ -1464,7 +1464,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Fulcrum](https://fulcrumresearch.ai/2025/10/22/introducing-orchestra-quibbler.html)  ·  [Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)  ·  [Details about METR's evaluation of OpenAI GPT-5](https://metr.github.io/autonomy-evals-guide/gpt-5-report/)  ·  [RE-Bench: Evaluating frontier AI R\&D capabilities of language model agents against human experts](https://arxiv.org/abs/2411.15114)  ·  [OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents](https://arxiv.org/abs/2506.14866)  ·  [OpenAgentSafety: A Comprehensive Framework for Evaluating Real-World AI Agent Safety](https://t.co/XfspwlzYdl)  ·  [Details about METR's preliminary evaluation of OpenAI's o3 and o4-mini](https://metr.github.io/autonomy-evals-guide/openai-o3-report/)  ·  [PaperBench: Evaluating AI's Ability to Replicate AI Research](https://t.co/dHN2N0tUhC)  ·  [How Does Time Horizon Vary Across Domains?](https://metr.org/blog/2025-07-14-how-does-time-horizon-vary-across-domains/)  ·  [Vending-Bench: A Benchmark for Long-Term Coherence of Autonomous Agents](https://arxiv.org/abs/2502.15840)  ·  [Forecasting Frontier Language Model Agent Capabilities](https://arxiv.org/abs/2502.15850)  ·  [Project Vend: Can Claude run a small shop? (And why does that matter?)](https://www.anthropic.com/research/project-vend-1)  ·  [GSM-Agent: Understanding Agentic Reasoning Using Controllable Environments](https://arxiv.org/abs/2509.21998)
 
-### WMD evals (Weapons of Mass Destruction)
+### WMD evals (Weapons of Mass Destruction) \[a:wmd_evals_weapons_of_mass_destruction_\]
 
 *Evaluate whether AI models possess dangerous knowledge or capabilities related to biological and chemical weapons, such as biosecurity or chemical synthesis.*
 
@@ -1484,7 +1484,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Virology Capabilities Test (VCT): A Multimodal Virology Q\&A Benchmark](https://arxiv.org/abs/2504.16137)  ·  [LLMs Outperform Experts on Challenging Biology Benchmarks](https://arxiv.org/abs/2505.06108)  ·  [The Safety Gap Toolkit: Evaluating Hidden Dangers of Open-Source Models](https://arxiv.org/abs/2507.11544)  ·  [Best Practices for Biorisk Evaluations on Open-Weight Bio-Foundation Models](https://arxiv.org/abs/2510.27629)  ·  [ChemSafetyBench: Benchmarking LLM Safety on Chemistry Domain](https://arxiv.org/abs/2411.16736)  ·  [The Reality of AI and Biorisk](https://arxiv.org/abs/2412.01946)
 
-### Situational awareness and self-awareness evals
+### Situational awareness and self-awareness evals \[a:situational_awareness_and_self_awareness_evals\]
 
 *Evaluate if models understand their own internal states and behaviors, their environment, and whether they are in a test or real-world deployment.*
 
@@ -1506,7 +1506,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [AI Awareness (literature review)](https://arxiv.org/pdf/2504.20084)  ·  [Tell me about yourself: LLMs are aware of their learned behaviors](https://arxiv.org/abs/2501.11120)  ·  [Evaluating Frontier Models for Stealth and Situational Awareness](https://arxiv.org/abs/2505.01420)  ·  [Large Language Models Often Know When They Are Being Evaluated](https://arxiv.org/abs/2505.23836)  ·  [Do LLMs know what they're capable of? Why this matters for AI safety, and initial findings](https://lesswrong.com/posts/9tHEibBBhQCHEyFsa/do-llms-know-what-they-re-capable-of-why-this-matters-for-ai)  ·  [Probe-Rewrite-Evaluate: A Workflow for Reliable Benchmarks and Quantifying Evaluation Awareness](https://arxiv.org/abs/2509.00591)  ·  [Claude Sonnet 3.7 (often) knows when it's in alignment evaluations](https://lesswrong.com/posts/E3daBewppAiECN3Ao/claude-sonnet-3-7-often-knows-when-it-s-in-alignment)  ·  [It's hard to make scheming evals look realistic for LLMs](https://lesswrong.com/posts/TBk2dbWkg2F7dB3jb/it-s-hard-to-make-scheming-evals-look-realistic-for-llms)  ·  [Know Thyself? On the Incapability and Implications of AI Self-Recognition](https://arxiv.org/abs/2510.03399)  ·  [Chain-of-Thought Snippets — Anti-Scheming](https://www.antischeming.ai/snippets) [Future Events as Backdoor Triggers](https://arxiv.org/pdf/2407.04108)·  [Evaluating Frontier Models for Stealth and Situational Awareness](https://arxiv.org/abs/2505.01420)
 
-### Steganography evals
+### Steganography evals \[a:steganography_evals\]
 
 *evaluate whether models can hide secret information or encoded reasoning in their outputs, such as in chain-of-thought scratchpads, to evade monitoring.*
 
@@ -1528,7 +1528,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Large language models can learn and generalize steganographic chain-of-thought under process supervision](https://arxiv.org/abs/2506.01926)  ·  [Early Signs of Steganographic Capabilities in Frontier LLMs](https://arxiv.org/abs/2507.02737)  ·  [Subliminal Learning: Language models transmit behavioural traits via hidden signals in data](https://arxiv.org/abs/2507.14805)  ·  [LLMs can hide text in other text of the same length](https://arxiv.org/abs/2510.20075)  ·  [Do reasoning models use their scratchpad like we do? Evidence from distilling paraphrases](https://alignment.anthropic.com/2025/distill-paraphrases/)
 
-### AI deception evals
+### AI deception evals \[a:ai_deception_evals\]
 
 *research demonstrating that AI models, particularly agentic ones, can learn and execute deceptive behaviors such as alignment faking, manipulation, and sandbagging.*
 
@@ -1550,7 +1550,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Liars' Bench: Evaluating Lie Detectors for Language Models](https://arxiv.org/abs/2511.16035)  ·  [DECEPTIONBENCH: A Comprehensive Benchmark for AI Deception Behaviors in Real-world Scenario](https://arxiv.org/pdf/2510.15501)  ·  [Why Do Some Language Models Fake Alignment While Others Don't?](https://arxiv.org/pdf/2506.18032)  ·  [Alignment Faking Revisited: Improved Classifiers and Open Source Extensions](https://alignment.anthropic.com/2025/alignment-faking-revisited/)  ·  [D-REX: A Benchmark for Detecting Deceptive Reasoning in Large Language Models](https://arxiv.org/abs/2509.17938)  ·  [Evaluating & Reducing Deceptive Dialogue From Language Models with Multi-turn RL](https://arxiv.org/abs/2510.14318)  ·  [Among Us: A Sandbox for Measuring and Detecting Agentic Deception](https://arxiv.org/abs/2504.04072)  ·  [Eliciting Secret Knowledge from Language Models](https://arxiv.org/abs/2510.01070)  ·  [Edge Cases in AI Alignment](https://lesswrong.com/posts/bqWihHtDnDseyfF2T/edge-cases-in-ai-alignment-2)  ·  [The MASK Evaluation](https://huggingface.co/datasets/cais/MASK)  ·  [I replicated the Anthropic alignment faking experiment on other models, and they didn't fake alignment](https://lesswrong.com/posts/pCMmLiBcHbKohQgwA/i-replicated-the-anthropic-alignment-faking-experiment-on)  ·  [Evaluating Large Language Models' Capability to Launch Fully Automated Spear Phishing Campaigns: Validated on Human Subjects](https://arxiv.org/abs/2412.00586)  ·  [Mistral Large 2 (123B) seems to exhibit alignment faking](https://lesswrong.com/posts/kCGk5tp5suHoGwhCa/mistral-large-2-123b-seems-to-exhibit-alignment-faking)
 
-### AI scheming evals
+### AI scheming evals \[a:ai_scheming_evals\]
 
 *Evaluate frontier models for scheming, a sophisticated, strategic form of AI deception where a model covertly pursues a misaligned, long-term objective while deliberately faking alignment and compliance to evade detection by human supervisors and safety mechanisms.*
 
@@ -1564,7 +1564,7 @@ Approaches which try to get assurances about system outputs while still being sc
 * *Estimated FTEs:* 30-60  
 * *Some outputs:* [Detecting and reducing scheming in AI models](https://openai.com/index/detecting-and-reducing-scheming-in-ai-models/)  ·  [Evaluating and Understanding Scheming Propensity in LLM Agents](https://static1.squarespace.com/static/660eea75305d9a0e1148118a/t/691f711c4ac57d3831260538/1763668252592/scheming-propensity.pdf)  ·  [Stress Testing Deliberative Alignment for Anti-Scheming Training](https://www.arxiv.org/pdf/2509.15541)  ·  [Scheming Ability in LLM-to-LLM Strategic Interactions](https://arxiv.org/html/2510.12826v1)  ·  [Frontier Models are Capable of In-context Scheming](https://arxiv.org/abs/2412.04984)  ·  [Agentic Misalignment](https://arxiv.org/abs/2510.05179)  ·  [Testing for Scheming with Model Deletion](https://www.lesswrong.com/posts/D5kGGGhsnfH7G8v9f/testing-for-scheming-with-model-deletion)
 
-### Sandbagging evals
+### Sandbagging evals \[a:sandbagging_evals\]
 
 *Evaluate whether AI models deliberately hide their true capabilities or underperform, especially when they detect they are in an evaluation context.*
 
@@ -1586,7 +1586,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Noise Injection Reveals Hidden Capabilities of Sandbagging Language Models](https://arxiv.org/pdf/2412.01784)  ·  [Sandbagging in a Simple Survival Bandit Problem](https://arxiv.org/pdf/2509.26239)  ·  [Strategic Dishonesty Can Undermine AI Safety Evaluations of Frontier LLMs](https://arxiv.org/abs/2509.18058)  ·  [AI Sandbagging: Language Models can Strategically Underperform on Evaluations](https://arxiv.org/abs/2406.07358)  ·  [Automated Researchers Can Subtly Sandbag](https://alignment.anthropic.com/2025/automated-researchers-sandbag/)  ·  [LLMs Can Covertly Sandbag on Capability Evaluations Against Chain-of-Thought Monitoring](https://arxiv.org/abs/2508.00943)  ·  [White Box Control at UK AISI \- Update on Sandbagging Investigations](https://www.alignmentforum.org/posts/pPEeMdgjpjHZWCDFw/white-box-control-at-uk-aisi-update-on-sandbagging)  ·  [Misalignment and Strategic Underperformance: An Analysis of Sandbagging and Exploration Hacking](https://lesswrong.com/posts/TeTegzR8X5CuKgMc3/misalignment-and-strategic-underperformance-an-analysis-of)  ·  [Won't vs. Can't: Sandbagging-like Behavior from Claude Models](https://alignment.anthropic.com/2025/wont-vs-cant/)
 
-### Self-replication evals
+### Self-replication evals \[a:self_replication_evals\]
 
 *evaluate whether AI agents can autonomously replicate themselves by obtaining their own weights, securing compute resources, and creating copies of themselves.*
 
@@ -1608,7 +1608,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [Large language model-powered AI systems achieve self-replication with no human intervention](https://arxiv.org/abs/2503.17378)  ·  [A Realistic Evaluation of Self-Replication Risk in LLM Agents](https://arxiv.org/abs/2509.25302)  ·  [RepliBench: measuring autonomous replication capabilities in AI systems](https://aisi.gov.uk/work/replibench-measuring-autonomous-replication-capabilities-in-ai-systems)
 
-### Various Redteams
+### Various Redteams \[a:various_redteams\]
 
 *attack current models and see what they do / deliberately induce bad things on current frontier models to test out our theories / methods.*
 
@@ -1630,7 +1630,7 @@ Approaches which try to get assurances about system outputs while still being sc
 
 * *Some outputs:* [WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models](https://arxiv.org/pdf/2406.18510)  ·  [In-Context Representation Hijacking](https://arxiv.org/abs/2512.03771)  ·  [Building and evaluating alignment auditing agents](https://alignment.anthropic.com/2025/automated-auditing/)  ·  [Findings from a Pilot Anthropic—OpenAI Alignment Evaluation Exercise](https://t.co/wk0AP8aDNI)  ·  [Agentic Misalignment: How LLMs could be insider threats](https://t.co/XFtd0H2Pzb)  ·  [Compromising Honesty and Harmlessness in Language Models via Deception Attacks](https://arxiv.org/abs/2502.08301)  ·  [Eliciting Language Model Behaviors with Investigator Agents](https://arxiv.org/abs/2502.01236)  ·  [Shutdown Resistance in Large Language Models](https://arxiv.org/abs/2509.14260)  ·  [Stress Testing Deliberative Alignment for Anti-Scheming Training](https://arxiv.org/abs/2509.15541)  ·  [Chain-of-Thought Hijacking](https://arxiv.org/abs/2510.26418)  ·  [X-Teaming: Multi-Turn Jailbreaks and Defenses with Adaptive Multi-Agents](https://arxiv.org/abs/2504.13203)  ·  [Agentic Misalignment: How LLMs Could be Insider Threats](https://lesswrong.com/posts/b8eeCGe3FWzHKbePF/agentic-misalignment-how-llms-could-be-insider-threats-1)  ·  [Illusory Safety: Redteaming DeepSeek R1 and the Strongest Fine-Tunable Models of OpenAI, Anthropic, and Google](https://lesswrong.com/posts/zjqrSKZuRLnjAniyo/illusory-safety-redteaming-deepseek-r1-and-the-strongest)  ·  [Why Do Some Language Models Fake Alignment While Others Don't?](https://arxiv.org/abs/2506.18032)  ·  [Demonstrating specification gaming in reasoning models](https://arxiv.org/abs/2502.13295)  ·  [Jailbreak-Tuning: Models Efficiently Learn Jailbreak Susceptibility](https://arxiv.org/abs/2507.11630)  ·  [Monitoring Decomposition Attacks in LLMs with Lightweight Sequential Monitors](https://arxiv.org/abs/2506.10949)  ·  [Diverse and Effective Red Teaming with Auto-generated Rewards and Multi-step Reinforcement Learning](https://arxiv.org/abs/2412.18693)  ·  [Call Me A Jerk: Persuading AI to Comply with Objectionable Requests](https://t.co/tkHkVFVZ2m)  ·  [RedDebate: Safer Responses through Multi-Agent Red Teaming Debates](https://arxiv.org/abs/2506.11083)  ·  [The Structural Safety Generalization Problem](https://arxiv.org/abs/2504.09712)  ·  [No, of Course I Can\! Deeper Fine-Tuning Attacks That Bypass Token-Level Safety Mechanisms](https://arxiv.org/abs/2502.19537)  ·  [Fundamental Limitations in Pointwise Defences of LLM Finetuning APIs](https://arxiv.org/abs/2502.14828)  ·  [STACK: Adversarial Attacks on LLM Safeguard Pipelines](https://arxiv.org/abs/2506.24068)  ·  [Adversarial Manipulation of Reasoning Models using Internal Representations](https://arxiv.org/abs/2507.03167)  ·  [Discovering Forbidden Topics in Language Models](https://arxiv.org/abs/2505.17441)  ·  [RL-Obfuscation: Can Language Models Learn to Evade Latent-Space Monitors?](https://arxiv.org/abs/2506.14261)  ·  [Jailbreak Transferability Emerges from Shared Representations](https://arxiv.org/abs/2506.12913)  ·  [Mitigating Many-Shot Jailbreaking](https://arxiv.org/abs/2504.09604)  ·  [Active Attacks: Red-teaming LLMs via Adaptive Environments](https://arxiv.org/abs/2509.21947)  ·  [LLM Robustness Leaderboard v1 \--Technical report](https://arxiv.org/abs/2508.06296)  ·  [Jailbreak Defense in a Narrow Domain: Limitations of Existing Methods and a New Transcript-Classifier Approach](https://arxiv.org/abs/2412.02159)  ·  [It's the Thought that Counts: Evaluating the Attempts of Frontier LLMs to Persuade on Harmful Topics](https://arxiv.org/abs/2506.02873)  ·  [Discovering Undesired Rare Behaviors via Model Diff Amplification](https://www.goodfire.ai/papers/model-diff-amplification)  ·  [REINFORCE Adversarial Attacks on Large Language Models: An Adaptive, Distributional, and Semantic Objective](https://arxiv.org/abs/2502.17254)  ·  [Adversarial Attacks on Robotic Vision Language Action Models](https://arxiv.org/abs/2506.03350)  ·  [MMDT: Decoding the Trustworthiness and Safety of Multimodal Foundation Models](https://arxiv.org/abs/2503.14827)  ·  [Toward Understanding the Transferability of Adversarial Suffixes in Large Language Models](https://arxiv.org/abs/2510.22014)  ·  [Will alignment-faking Claude accept a deal to reveal its misalignment?](https://lesswrong.com/posts/7C4KJot4aN8ieEDoz/will-alignment-faking-claude-accept-a-deal-to-reveal-its)  ·  [Petri: An open-source auditing tool to accelerate AI safety research](https://alignment.anthropic.com/2025/petri/)  ·  ['For Argument's Sake, Show Me How to Harm Myself\!': Jailbreaking LLMs in Suicide and Self-Harm Contexts](https://arxiv.org/pdf/2507.02990)  ·  [Winning at All Cost: A Small Environment for Eliciting Specification Gaming Behaviors in Large Language Models](https://arxiv.org/abs/2505.07846)  ·  [Uncovering Gaps in How Humans and LLMs Interpret Subjective Language](https://arxiv.org/abs/2503.04113)  ·  [RedCodeAgent: Automatic Red-teaming Agent against Diverse Code Agents](https://arxiv.org/abs/2510.02609)  ·  [MIP against Agent: Malicious Image Patches Hijacking Multimodal OS Agents](https://arxiv.org/abs/2503.10809)  ·  [Trading Inference-Time Compute for Adversarial Robustness](https://openai.com/index/trading-inference-time-compute-for-adversarial-robustness)  ·  [Research directions Open Phil wants to fund in technical AI safety](https://lesswrong.com/posts/26SHhxK2yYQbh7ors/research-directions-open-phil-wants-to-fund-in-technical-ai)  ·  [When does Claude sabotage code? An Agentic Misalignment follow-up](https://lesswrong.com/posts/9i6fHMn2vTqyzAi9o/when-does-claude-sabotage-code-an-agentic-misalignment)  ·  [Can a Neural Network that only Memorizes the Dataset be Undetectably Backdoored?](https://openreview.net/forum?id=TD1NfQuVr6)  ·  [Multi-Agent Step Race Benchmark: Assessing LLM Collaboration and Deception Under Pressure](https://github.com/lechmazur/step_game)  ·  [ToolTweak: An Attack on Tool Selection in LLM-based Agents](https://arxiv.org/abs/2510.02554)  ·  [Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents](https://arxiv.org/abs/2503.00061)  ·  [Petri: An open-source auditing tool to accelerate AI safety research](https://lesswrong.com/posts/kffbZGa2yYhc6cakc/petri-an-open-source-auditing-tool-to-accelerate-ai-safety)  ·  [Quantifying the Unruly: A Scoring System for Jailbreak Tactics](https://0din.ai/blog/quantifying-the-unruly-a-scoring-system-for-jailbreak-tactics)  ·  [Adversarial Alignment for LLMs Requires Simpler, Reproducible, and More Measurable Objectives](https://arxiv.org/abs/2502.11910)  ·  [Transferable Adversarial Attacks on Black-Box Vision-Language Models](https://arxiv.org/abs/2505.01050)  ·  [Advancing Gemini's security safeguards](https://deepmind.google/discover/blog/advancing-geminis-security-safeguards/)
 
-### Other evals
+### Other evals \[a:other_evals\]
 
 *A collection of miscellaneous evaluations for specific alignment properties, such as honesty, shutdown resistance and sycophancy.*
 
