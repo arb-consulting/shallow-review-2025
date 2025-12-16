@@ -108,6 +108,8 @@ extract_agenda_attributes:
     - Remove trailing periods from text items, except for one-sentence summaries, theory of change, and any markdown field that already consists of sentences. Plain lists should never end in a period.
     - Ignore minor formatting issues like extra spaces, trailing spaces, etc. Similarly, some of the attribute names may be not bolded, slanted, etc. Remove spurious formatting from attribute values, e.g. when the *entire* value is in italics or bold, remove the italics or bold formatting.
     - Produce valid JSON. In particular, make sure to properly escape double quotes and backslashes in the JSON output.
+    - All agendas should be parsed as structured, i.e. with fields like "summary", "theory of change", "see also", "outputs" etc. The "content" field should be null for all regular agendas, only make it non-null if the agenda is formatted in a very non-standard way (e.g. if it has none of the standard attributes).
+    - Note that the one_sentence_summary may also be peresented as a single paragraph at the beginning of an otherwise properly formatted agenda, possibly emphasized. In that case, put that text into the one_sentence_summary field, removing the entire-paragraph emphasis. (Preserve other formatting of individual words, links, etc. if present.)
 
     # EXAMPLES
 
@@ -204,8 +206,8 @@ extract_agenda_attributes:
 
     Example 2 Content:
     <example2_content>
-    **Who edits (internal):** **Stephen** ✅
-    **One-sentence summary:** Make tools that can actually check whether a model has a certain capability or propensity.
+    *Make tools that can actually check whether a model has a certain capability or propensity.*
+
     **Theory of change:** Keep a close eye on what capabilities are acquired when, so that frontier labs and regulators are better informed on what security measures are already necessary (and hopefully they extrapolate). You can’t regulate without them.
     **See also:** [Deepmind’s frontier safety framework](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/), [Aether](https://www.lesswrong.com/posts/B8Cmtf5gdHwxb8qtT/aether-july-2025-update). AGI metrics
     **Orthodox problems:** none; a barometer for risk.
@@ -284,11 +286,64 @@ extract_agenda_attributes:
     }
     ```
 
+    # Example 3: Another output formatting
+
+    The outputs may also be formatted on one line, including output subsections (treat them as level 4 by default), like this:
+
+    <example3_content>
+    [...]
+    * *Some outputs:* *Frameworks*  ·  [OpenUnlearning](https://github.com/locuslab/open-unlearning)  ·  *Mostly black-box*  ·  [Modifying LLM Beliefs with Synthetic Document Finetuning](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf)  ·   [From Dormant to Deleted: Tamper-Resistant Unlearning Through Weight-Space Regularization](https://arxiv.org/abs/2505.22310)  ·  *Mostly white-box*  ·  [Collapse of Irrelevant Representations (CIR) Ensures Robust and Non-Disruptive LLM Unlearning](https://arxiv.org/abs/2509.11816)
+    </example3_content>
+
+    Example 2 Output JSON (only the outputs section):
+    ```json
+    {
+      "outputs": [
+        {
+          "section_name": "Frameworks",
+          "header_level": 4,
+          "original_md": "*Frameworks*"
+        },
+        {
+          "link_url": "https://github.com/locuslab/open-unlearning",
+          "link_text": "OpenUnlearning",
+          "original_md": "[OpenUnlearning](https://github.com/locuslab/open-unlearning)"
+        },
+        {
+          "section_name": "Mostly black-box",
+          "header_level": 4,
+          "original_md": "*Mostly black-box*"
+        },
+        {
+          "link_url":"https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf",
+          "link_text": "Modifying LLM Beliefs with Synthetic Document Finetuning",
+          "original_md": "[Modifying LLM Beliefs with Synthetic Document Finetuning](https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf)"
+        },
+        {
+          "link_url": "https://arxiv.org/abs/2505.22310",
+          "link_text": "From Dormant to Deleted: Tamper-Resistant Unlearning Through Weight-Space Regularization",
+          "original_md": "[From Dormant to Deleted: Tamper-Resistant Unlearning Through Weight-Space Regularization](https://arxiv.org/abs/2505.22310)"
+        },
+        {
+          "section_name": "Mostly white-box",
+          "header_level": 4,
+          "original_md": "*Mostly white-box*"
+        },
+        {
+          "link_url": "https://arxiv.org/abs/2509.11816",
+          "link_text": "Collapse of Irrelevant Representations (CIR) Ensures Robust and Non-Disruptive LLM Unlearning",
+          "original_md": "[Collapse of Irrelevant Representations (CIR) Ensures Robust and Non-Disruptive LLM Unlearning](https://arxiv.org/abs/2509.11816)"
+        }
+      ]
+    }
+    ```
+
     ## Notes on examples:
 
     - **Omit default values**: Fields with defaults (null, [], {}) can be omitted from output for brevity. The examples above show only non-default values.
     - Return valid JSON only. Do not use backslash escapes except for standard JSON escapes (\\n, \\t, \\", \\\\).
     - Preserve markdown formatting exactly as written in the source.
+    - For output subsections that are presented on one line, treat them as level 4 by default. Detect what is a subsection and what is an unlinked resource from context, by default the subsection names are emphasized.
 
     # JSON Schema for Output
 

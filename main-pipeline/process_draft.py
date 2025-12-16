@@ -350,7 +350,7 @@ def validate_document_structure(
     """Validate document structure and return (errors, warnings).
 
     Checks:
-    - Header levels make sense (agendas exactly one level below their containing section)
+    - Header levels make sense (all agendas at level 3, can be 1-2 levels below their section)
     - Section levels increase by at most one
     - No nested agendas
     - No strange tags in names (e.g. no other `[`)
@@ -402,7 +402,7 @@ def validate_document_structure(
             section_stack.append(item)
 
         elif item.item_type == ItemType.AGENDA:
-            # Validate agenda is exactly one level below its containing section
+            # Validate agenda is at level 3 (can be 1 or 2 levels below its section)
             # Use parent_id to find the actual parent (which should be a section)
             if not item.parent_id:
                 errors.append(
@@ -420,11 +420,17 @@ def validate_document_structure(
                         f"which is not a section"
                     )
                 else:
-                    expected_level = parent.header_level + 1
-                    if item.header_level != expected_level:
+                    # All agendas should be at level 3
+                    if item.header_level != 3:
                         errors.append(
                             f"Agenda '{item.name}' ({item.id}) has level {item.header_level}, "
-                            f"expected {expected_level} (one level below section '{parent.name}')"
+                            f"expected level 3 (all agendas must be at level 3)"
+                        )
+                    # Verify agenda is below its parent section
+                    if item.header_level <= parent.header_level:
+                        errors.append(
+                            f"Agenda '{item.name}' ({item.id}) has level {item.header_level} "
+                            f"which is not below parent section '{parent.name}' (level {parent.header_level})"
                         )
 
             # Check for nested agendas (agenda as parent of another agenda)
