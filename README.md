@@ -2,6 +2,8 @@
 
 This is the main repository for the Shallow Review of Technical AI Safety 2025, containing both the data and code of our pipeline, in the hopes that it may be useful to others.
 
+For the [Shallow review 2025 website](https://shallowreview.ai) source code, see the [`arb-consulting/shallow-review-website`](https://github.com/arb-consulting/shallow-review-website/) repository.
+
 Most of the code and data is stored in the `main-pipeline` directory, described below. [`scraping-scripts`](scraping-scripts/) contains the scrapers and link collectors for the Alignment Forum / LessWrong and Arxiv.
 
 Authors: [@gavento](https://github.com/gavento) and [@smcaleese](https://github.com/smcaleese), with contributions from other members of the Shallow Review team.
