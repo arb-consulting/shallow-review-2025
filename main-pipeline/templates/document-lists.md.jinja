@@ -1,12 +1,32 @@
 {# Document template for rendering structured research agendas #}
 {# Helper macros #}
 
-{# Macro to format a paper/output as markdown link #}
+{# Macro to format authors: all if <=3, otherwise "1 author et al." #}
+{% macro format_authors(paper) -%}
+{% if paper.authors and paper.authors | length > 0 -%}
+{% if paper.authors | length <= 3 -%}
+{{ paper.authors | join(', ') }}
+{%- else -%}
+{{ paper.authors[0] }} et al.
+{%- endif -%}
+{%- endif %}
+{%- endmacro %}
+
+{# Macro to format a paper/output as markdown link without authors #}
 {% macro format_paper(paper) -%}
 {% if paper.link_url -%}
 [{{ paper.link_text or paper.title or paper.link_url }}]({{ paper.link_url }})
 {%- else -%}
 {{ paper.link_text or paper.original_md }}
+{%- endif %}
+{%- endmacro %}
+
+{# Macro to format a paper with authors #}
+{% macro format_paper_with_authors(paper) -%}
+{% if paper.link_url -%}
+{{ format_paper(paper) }}{% if paper.authors and paper.authors | length > 0 %}. *{{ format_authors(paper) }}*{% endif %}
+{%- else -%}
+{{ format_paper(paper) }}
 {%- endif %}
 {%- endmacro %}
 
@@ -93,6 +113,22 @@
 
 {# Outputs section #}
 {% if attrs.outputs -%}
+{% if attrs.paper_count > 0 -%}
++++ Some outputs ({{ attrs.paper_count }})
+
+{% for output in attrs.outputs -%}
+{% if output.__class__.__name__ == 'Paper' -%}
+*   {{ format_paper_with_authors(output) }}
+{% elif output.__class__.__name__ == 'OutputSectionHeader' %}
+
+*{{ output.section_name }}*
+
+{% endif -%}
+{% endfor -%}
+
++++
+
+{% endif -%}
 
 {# * *Some outputs:*  
 {% for output in attrs.outputs -%}
@@ -106,17 +142,16 @@
 {% endif -%}
 {%- endmacro %} #}
 
-* *Some outputs:*
-{# * *Some outputs:*   #}
+{# * *Some outputs:*
 {% for output in attrs.outputs -%}
 {% if output.__class__.__name__ == 'Paper' -%}
-{# * {{ format_paper(output) }}   #}
 {{ format_paper(output)}}
 {% elif output.__class__.__name__ == 'OutputSectionHeader' -%}
 *{{ output.section_name}}*
 {% endif -%}
 {% if not loop.last %} · {% endif -%}
 {% endfor -%}
+#}
 {% endif -%}
 {% endif -%}
 {%- endmacro %}

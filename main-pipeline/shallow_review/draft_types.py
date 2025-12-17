@@ -204,6 +204,11 @@ class AgendaAttributes(BaseModel):
         description="Output sections and papers (flat list preserving order)",
     )
 
+    @property
+    def paper_count(self) -> int:
+        """Return the number of Paper items in outputs."""
+        return sum(1 for output in self.outputs if isinstance(output, Paper))
+
     # Catch-all for non-standard attributes
     other_attributes: dict[str, Any] = Field(
         default_factory=dict, description="Attributes not matching standard fields"
